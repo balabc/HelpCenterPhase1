@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+.THIS {
+    width: 265px;
+    font-family: Roboto, Helvetica, sans-serif;
+    border-right: 1px solid #e3e3e3;
+}
+.THIS i {
+  margin-right: 5px;
+}
+.THIS ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+}
+.THIS ul li {
+  position: relative;
+  display: block;
+}
+.THIS ul li a {
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+.THIS > ul {
+    border-radius: 3px;
+    background: #fff;
+}
+.THIS > ul > li:first-child > a {
+  border-radius: 3px 3px 0 0;
+}
+.THIS > ul > li:last-child > a {
+  border-radius: 0 0 3px 3px;
+}
+.THIS > ul > li:not(:last-child) {
+}
+.THIS > ul > li[data-active=true] > a {
+  color: #777;
+}
+.THIS > ul > li.has-sub > a::after {
+  content: '';
+  position: absolute;
+  display: block;
+  border: 5px solid transparent;
+  /*border-top-color: #888;*/
+  right: 15px;
+  top: 17px;
+  transition: all .25s ease;
+  transform-origin: 0 25%;
+}
+.THIS > ul > li[data-active=true].has-sub > a::after {
+  transform: rotateX(180deg);
+  border-top-color: #777;
+}
+.THIS > ul > li:hover > a::after {
+  border-top-color: #777;
+}
+.THIS > ul > li > a {
+  padding: 12px 0px;
+  color: #484848;
+  transition: all 0.3s ease-out;
+  font-size: 14px;
+}
+.THIS > ul > li > a:hover {
+  color: #777;
+  background-color: #e6e6e6;
+}
+.THIS ul ul li[data-active=true] > a {
+    color: #4c8ffd;
+    font-weight: 600;
+    font-size: 14px;
+}
+.THIS ul ul li.has-sub > a::after {
+    content: '';
+    position: absolute;
+    display: block;
+    border-top-color: #888;
+    right: 15px;
+    top: 15px;
+    transition: all .25s ease;
+    transform-origin: 0 25%;
+    border: 5px solid transparent;
+}
+.THIS ul ul li[data-active=true].has-sub > a::after {
+  transform: rotateX(180deg);
+  border-top-color: #777;
+}
+.THIS ul ul li:hover > a::after {
+  border-top-color: #777;
+}
+.THIS ul ul li a {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #888;
+}
+.THIS ul ul li a:hover {
+    color: #4c8ffd;
+}
+.THIS ul ul ul li a {
+    padding-left: 16px;
+    border-left: 1px solid #d4d4d4;
+    left: 30px;
+}
+.THIS a.main-theme {
+    font-weight: 600;
+    font-size: 16px !important;
+    color: #484848 !important;
+    text-transform: uppercase;
+}
+.THIS a.label {
+    font-weight: 600;
+    font-size: 12px !important;
+    color: #656565 !important;
+    margin-left: -20px;
+    border-left: 3px solid #fff !important;
+    text-transform: uppercase;
+}
+.THIS a.label:hover {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #656565 !important;
+}
+.THIS a.main-theme:hover {
+    background-color: rgba(255, 255, 255, 0) !important;
+    color: #4c8ffd !important;
+}
+.THIS ul ul ul li a:hover {
+    color: #484848;
+    border-left: 3px solid #4c8ffd;
+}
+.THIS li > ul {
+    display: none;
+}
+.THIS li[data-active=true] > ul {
+    display: block;
+}
+.THIS li > ul.full ul {
+    display: block;
+}
