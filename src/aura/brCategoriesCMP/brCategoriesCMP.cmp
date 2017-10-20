@@ -16,6 +16,11 @@
                                 <aura:iteration items="{!sub_category.articles}" var="article">
                                     <li data-id="{!article.id}" data-active="{!article.active}">
                                         <a href="{!'#?article=' + article.id}" class="article" onclick="{!c.clickElement}">{!article.title}</a>
+                                        <aura:if isTrue="{!article.articleSections != undefined}">
+                                            <div class="anchors">
+                                            	<aura:unescapedHtml value="{!article.articleSections}"/>
+                                            </div>
+                                        </aura:if>
                                     </li>
                                 </aura:iteration>
                             </ul>
@@ -30,6 +35,11 @@
                                                 <aura:iteration items="{!sub_sub_cat.articles}" var="article1">
                                                     <li data-id="{!article1.id}" data-active="{!article1.active}">
                                                         <a href="{!'#?article=' + article1.id}" class="article" onclick="{!c.clickElement}">{!article1.title}</a>
+                                                        <aura:if isTrue="{!article1.articleSections != undefined}">
+                                                            <div class="anchors">
+                                                            	<aura:unescapedHtml value="{!article1.articleSections}"/>
+                                                            </div>
+                                                        </aura:if>
                                                     </li>
                                                 </aura:iteration>
                                             </ul>
