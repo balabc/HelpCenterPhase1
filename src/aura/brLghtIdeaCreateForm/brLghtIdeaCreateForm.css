@@ -1,0 +1,16 @@
+.THIS {
+    }
+    .THIS .similar-ideas {
+        padding: 5px 15px;
+        background: #f9fbff;
+        }
+        .THIS .similar-ideas p {
+            font-size: 12px;
+            color: #888888;
+            }
+            .THIS .similar-ideas p span {
+                color: #bbbbbb;
+                }
+        .THIS .similar-ideas ul li {
+            font-size: 12px;
+            }

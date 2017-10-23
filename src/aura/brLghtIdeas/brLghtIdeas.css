@@ -1,0 +1,395 @@
+.THIS {
+    max-width: 1400px;
+    margin: 0 auto;
+    }
+    .THIS .slds-tabs_default{
+        background: transparent;
+        }
+    .THIS a:focus {
+        outline: none;
+        }
+    .THIS .spinner {
+        background: none;
+        }
+    .THIS .header {
+        background: #fafafa;
+        border-bottom: solid 1px token(colorBorder);
+        }
+        .THIS .header .search-input {
+            position: relative;
+            }
+            .THIS .header .search-input input {
+                min-height: 2.1rem;
+                height: 2.1rem;
+                }
+            .THIS .header .search-input .btn {
+                position: absolute;
+                top: 5px;
+                right: 15px;
+                }
+        .THIS .header .title h1 {
+            margin: 6px 0 0 2px;
+            font-size: 18px;
+            color: token(colorTextBrand);
+            }
+        .THIS .header .title .count {
+            display: inline-block;
+            border-left: solid 1px token(colorBorder);
+            margin-left: 10px;
+            padding-left: 10px;
+            }
+    .THIS .filters-block .filter-selector .title {
+        color: #c0c0c0;
+        font-weight: normal;
+        font-size: 1.2em;
+        padding: 0 10px;
+        position: relative;
+        }
+        .THIS .filter-selector .title .arrow{
+            display: block;
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            width: 19px;
+            height: 11px;
+            background-repeat: no-repeat;
+            background-position: 0 -19px;
+            cursor: pointer;
+            }
+        .THIS .filter-selector .opened .title .arrow{
+            background-position: 0 0;
+            }
+    .THIS .filters-block .filter-selector ul{
+        display: none;
+        }
+        .THIS .filters-block .filter-selector ul li {
+            padding: 4px 10px;
+            cursor: pointer;
+            color: #777777;
+            }
+            .THIS .filters-block .filter-selector ul li.active {
+                color: #000000;
+                border-left: solid 3px token(colorBorderBrand);
+                padding-left: 7px;
+                }
+            .THIS .filters-block .filter-selector ul li:hover {
+                background:#f5f5f5;
+                }
+    .THIS .filters-block .filter-selector .opened ul{
+        display: block;
+        }
+    .THIS .mobile-filters-block {
+        display: none;
+        }
+        .THIS .mobile-filters-block .filter-selector {
+            position: relative;
+            margin-bottom: 1px;
+            }
+            .THIS .mobile-filters-block .filter-selector .title {
+                font-size: 11px;
+                padding: 12px 15px;
+                background: token(colorBackgroundButtonBrand);
+                border-radius: 0.25em;
+                margin-bottom: 0;
+                color: #D5D5D5;
+                font-weight: lighter;
+                }
+                .THIS .mobile-filters-block .filter-selector .title .val {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    margin-left: 7px;
+                    color: #FFFFFF;
+                    }
+            .THIS .mobile-filters-block .filter-selector .opened .title {
+                background: token(colorBackgroundButtonBrandHover);
+                }
+            .THIS .mobile-filters-block .filter-selector ul {
+                display: none;
+                position: absolute;
+                top: 39px;
+                left: 0;
+                z-index: 100;
+                background: #a5b0b4;
+                }
+                .THIS .mobile-filters-block .filter-selector ul li {
+                    padding: 10px 20px;
+                    color: #ffffff;
+                    }
+                .THIS .mobile-filters-block .filter-selector ul li.active {
+                    display: none;
+                    }
+            .THIS .mobile-filters-block .filter-selector .opened ul {
+                display: block;
+                }
+    .THIS .ideas-list {
+        margin: 0;
+        padding: 0;
+        }
+        .THIS .ideas-list .idea-item {
+            background: #ffffff;
+            margin-bottom: 7px;
+            position: relative;
+            }
+            .THIS .ideas-list .idea-item .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                }
+            .THIS .ideas-list .idea-item .info {
+                background: #fafafa;
+                }
+                .THIS .ideas-list .idea-item .info .image {
+                    width: 100%;
+                    }
+                .THIS .ideas-list .idea-item .info img {
+                    border-radius: 6px;
+                    width: 100%;
+                    }
+                .THIS .ideas-list .idea-item .info .vote {
+                    padding: 8px 0;
+                    text-align: center;
+                    }
+                .THIS .ideas-list .idea-item .info .vote-points {
+                    font-size: 0.65rem;
+                    width: 64px;
+                    text-align: center;
+                    display: inline-block;
+                    margin-bottom: 8px;
+                    }
+                .THIS .ideas-list .idea-item .info .vote-buttons {
+                    width: 64px;
+                    display: inline-block;
+                    }
+                    .THIS .ideas-list .idea-item .info .vote-buttons .up,
+                    .THIS .ideas-list .idea-item .info .vote-buttons .down {
+                        display: inline-block;
+                        width: 64px;
+                        height: 28px;
+                        border-radius: 3px;
+                        margin-bottom: 5px;
+                        text-decoration: none;
+                        background: #D5D5D5;
+                        text-align: center;
+                        }
+                        .THIS .ideas-list .idea-item .info .vote-buttons .up span,
+                        .THIS .ideas-list .idea-item .info .vote-buttons .down span {
+                            display: inline-block;
+                            margin-top: 7px;
+                            }
+                        .THIS .ideas-list .idea-item .info .vote-buttons .up.selected span,
+                        .THIS .ideas-list .idea-item .info .vote-buttons .down.selected span {
+                            margin-top: 4px;
+                            }
+                    .THIS .ideas-list .idea-item .info .vote-buttons .up.selected,
+                    .THIS .ideas-list .idea-item .info .vote-buttons .down.selected {
+                        background: #FFFFFF;
+                        }
+                    .THIS .ideas-list .idea-item .info .vote-buttons a.up:hover {
+                        background: #20CC55;
+                        }
+                    .THIS .ideas-list .idea-item .info .vote-buttons a.down:hover {
+                        background: #E54020;
+                        }
+            .THIS .ideas-list .idea-item .details .category {
+                color: #54698d;
+                padding: 8px 0;
+                font-size: 0.75rem;
+                }
+            .THIS .ideas-list .idea-item.opened .details {
+                background: #fafafa;
+                }
+            .THIS .ideas-list .idea-item .bottom-info span {
+                color: #aaaaaa;
+                }
+            .THIS .ideas-list .idea-item .bottom-info span.delim {
+                margin: 0 10px;
+                }
+        .THIS .ideas-list .idea-item.new {
+            border-bottom: solid 2px #cc4400;
+            }
+            .THIS .ideas-list .idea-item.new .tag-new {
+                color: #aa4400;
+                float: right;
+                text-transform: uppercase;
+                margin: 5px 15px 0 0;
+                }
+    .THIS .comment-item .date {
+        color: #AAAAAA;
+        font-size: 0.6rem;
+        }
+    .THIS .votes-list .item {
+        width: 64px;
+        height: 64px;
+        margin: 0 5px 5px 0;
+        overflow: hidden;
+        position: relative;
+        }
+        .THIS .votes-list .item span.name {
+            display: block;
+            position: absolute;
+            bottom: -64px;
+            left: 0;
+            width: 64px;
+            padding: 2px;
+            font-size: 10px;
+            opacity: 0.7;
+            color: #ffffff;
+            background: #000000;
+            }
+        .THIS .votes-list .item:hover span.name {
+            bottom: 0;
+            }
+        .THIS .votes-list .item span.icon {
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: -18px;
+            }
+        .THIS .votes-list .item:hover span.icon {
+            left: 2px;
+            }
+    .THIS ul.tabs li{
+        position: relative;
+        }
+        .THIS ul.tabs li .count{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            }
+    .THIS .slds-active .slds-tabs--default__link {
+        border-color: token(colorBorderBrand);
+        }
+    .THIS .slds-tabs--default__link:focus {
+        border-color: token(colorBorderBrand);
+        }
+
+@media screen and (max-width: 64em) {
+    .THIS .header .title {
+        display: none;
+        }
+    .THIS .filters-block {
+        display: none;
+        }
+    .THIS .mobile-filters-block {
+        display: block;
+        }
+}
+
+@media screen and (max-width: 48em) {
+    .THIS .header {
+        background: none;
+        border-bottom: none;
+        padding: 0;
+        }
+    .THIS .ideas-list .idea-item {
+        margin-top: 10px;
+        }
+        .THIS .ideas-list .idea-item .close-btn {
+                top: 50px;
+                right: 0;
+                }
+        .THIS .ideas-list .idea-item > div.slds-grid {
+            flex-wrap: wrap;
+            }
+        .THIS .ideas-list .idea-item .info {
+            padding: 0;
+            background: none;
+            width: 100%;
+            max-width: none;
+            }
+            .THIS .ideas-list .idea-item .info .image {
+                max-width: 32px;
+                }
+            .THIS .ideas-list .idea-item .info .vote {
+                padding: 0;
+                }
+                .THIS .ideas-list .idea-item .info .vote .vote-points {
+                    float: left;
+                    width: 80px;
+                    margin-top: 7px;
+                    }
+                .THIS .ideas-list .idea-item .info .vote .vote-buttons {
+                    float: left;
+                    width: auto;
+                    }
+                    .THIS .ideas-list .idea-item .info .vote-buttons .up,
+                    .THIS .ideas-list .idea-item .info .vote-buttons .down {
+                        width: 38px;
+                        margin: 0 2px;
+                        }
+    .THIS .ideas-list .idea-item .details {
+            padding: 0;
+            }
+        .THIS .ideas-list .idea-item .bottom-info {
+            padding: 1px 7px;
+            background: #C2C2C2;
+            color: #FFFFFF;
+            }
+            .THIS .ideas-list .idea-item .bottom-info span {
+                color: #FFFFFF;
+                }
+    .THIS .ideas-list .idea-item.opened .info {
+        background: none;
+        color: inherit;
+        }
+    .THIS .ideas-list .idea-item.opened .details {
+        background: none;
+        }
+    .THIS .comment-item.slds-box {
+        padding: 5px;
+        }
+    .THIS .comment-item .image {
+        display: none;
+        }
+    .THIS .comment-item .top-info {
+        margin-bottom: 0;
+        }
+}
+
+.THIS.layout-MulS .slds-button{
+    border-radius: 0 !important;
+    }
+.THIS.layout-MulS .header{
+    position: relative;
+    background: none;
+    border-bottom: none;
+    padding: 0 !important;
+    margin-left: 20%;
+    }
+    .THIS.layout-MulS .header .title{
+        display: none !important;
+        }
+    .THIS.layout-MulS .header .search-input{
+        margin-left: 130px;
+        }
+        .THIS.layout-MulS .header .search-input .slds-input{
+            border-left: solid 2px #cacbcc;
+            border-right:  solid 2px #cacbcc;
+            border-top: none;
+            border-bottom: none;
+            border-radius: 0 !important;
+            background: #f4f5f6;
+            min-height: 2.0rem;
+            height: 2.0rem;
+            padding-left: 38px;
+            }
+        .THIS.layout-MulS .header .search-input .slds-input:focus{
+            box-shadow: none;
+            }
+        .THIS.layout-MulS .header .search-input .btn {
+            top: 3px;
+            left: 10px;
+            width: 21px;
+            height: 22px;
+            }
+    .THIS.layout-MulS .header .post-idea-button{
+        position: absolute;
+        top: 0;
+        left: 0;
+        }
+.THIS.layout-MulS .filters-block{
+    margin-top: -44px;
+    }
+.THIS.layout-MulS .header .slds-dropdown-trigger .slds-button{
+    border: none !important;
+    }
