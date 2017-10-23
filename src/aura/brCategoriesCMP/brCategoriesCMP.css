@@ -3,6 +3,8 @@
     width: 265px;
     font-family: Roboto, Helvetica, sans-serif;
     border-right: 1px solid #e3e3e3;
+    display: inline-block;
+    vertical-align: top;
 }
 .THIS i {
   margin-right: 5px;
@@ -131,9 +133,14 @@
 .THIS li > ul {
     display: none;
 }
-.THIS li[data-active=true] > ul {
+.THIS li[data-active=true] > ul,
+.THIS li[data-active=true] > .anchors {
     display: block;
 }
 .THIS li > ul.full ul {
     display: block;
+}
+.THIS .anchors {
+    display: none;
+    padding: 0 0 0 10px;
 }

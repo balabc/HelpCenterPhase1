@@ -15,6 +15,7 @@ public with sharing class brCategoriesCatalogService {
             } else {
                 am.active = false;
             }
+            am.articleSections = k.Article_Sections__c;
             am.id = k.KnowledgeArticleId;
             Set<String> cats = new Set<String>();
             for(Knowledge__DataCategorySelection dc : k.DataCategorySelections) {
