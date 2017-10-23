@@ -10,6 +10,7 @@ private class brEmailNotificationTest {
         insert communitySettings;
 
         String cId = brLghtIdeasHelper.getCommunityId('');
+        system.debug('-33 ' + cId);
         Idea testIdea = new Idea(Title='Test idea_1', Body='Body of test idea_1', Status='New', Categories='test_1',
                                 CommunityId=cId);
         insert testIdea;
