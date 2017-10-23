@@ -1,0 +1,5 @@
+<design:component label="AC Blog Sidebar">
+    <design:attribute name="listPageName"
+                      label="Blog Main Page Name"
+                      description="Name of the main community blog page" />
+</design:component>

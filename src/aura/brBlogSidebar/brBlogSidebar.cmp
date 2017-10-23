@@ -1,0 +1,6 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="listPageName" type="String" default="blog" access="global"/>
+    <div class="slds-p-horizontal--medium">
+        <c:brBlogCategories listPageName="{!v.listPageName}" />
+    </div>
+</aura:component>

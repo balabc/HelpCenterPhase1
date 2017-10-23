@@ -1,0 +1,83 @@
+<aura:component controller="brBlogArticleCreateFormCtrl"
+    implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="categories" type="brBlog_Category__c[]"/>
+    <aura:attribute name="isUserHasAccess" type="Boolean" default="false"/>
+    <aura:attribute name="isModalOpen" type="Boolean" default="false"/>
+    <aura:attribute name="articleName" type="String"/>
+    <aura:attribute name="articleShortBody" type="String"/>
+    <aura:attribute name="articleBody" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!and(v.isUserHasAccess, v.isModalOpen)}">
+        <div role="dialog" tabindex="-1" aura:id="modalbox" aria-labelledby="header43" class="{!v.isModalOpen ? 'slds-modal slds-fade-in-open' : 'slds-modal'}">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <div class="slds-float--right">
+                        <lightning:buttonIcon class="slds-button--icon modal-close-btn"
+                            iconName="utility:close" variant="bare" onclick="{!c.hideModal}"
+                            alternativeText="Close" size="large"/>
+                    </div>
+                    <h2 id="header43" class="slds-text-heading--medium">{!$Label.c.hNewArticle}</h2>
+                </div>
+                <div class="slds-modal__content">
+                    <div class="slds-p-left--xx-large slds-p-right--xx-large">
+                        <lightning:input label="{!$Label.c.fieldArticleName}" aura:id="name" name="Name" class="slds-p-top--medium"
+                            value="{!v.articleName}" required="true" messageWhenValueMissing="Please enter your name" minlength="5" messageWhenBadInput="Your entry must be at least 5 characters."/>
+
+                        <div class="slds-p-top--medium">
+                            <label class="slds-form-element__label">
+                                <abbr class="slds-required">*</abbr>
+                                {!$Label.c.fieldShortBody}
+                            </label>
+                            <lightning:inputRichText aura:id="shortBody" value="{!v.articleShortBody}" onblur="{!c.validateShortBody}" />
+                        </div>
+
+                        <div class="slds-p-top--medium">
+                            <label class="slds-form-element__label abbr.slds-required">
+                                <abbr class="slds-required">*</abbr>
+                                {!$Label.c.fieldBody}
+                            </label>
+                            <lightning:inputRichText aura:id="body" value="{!v.articleBody}" onblur="{!c.validateBody}"/>
+                        </div>
+
+                        <div class="slds-p-top--medium">
+                            <ui:inputSelect class="slds-select spear-select"
+                                aura:id="categories" labelClass="slds-form-element__label"
+                                updateOn="change" multiple="true" required="true"
+                                label="{!$Label.c.fieldCategories}">
+                                <aura:iteration items="{!v.categories}" var="category">
+                                    <ui:inputSelectOption text="{!category.Name}" label="{!category.Name}"/>
+                                </aura:iteration>
+                            </ui:inputSelect>
+                        </div>
+
+<!--                        <lightning:input name="draft" type="checkbox" aura:id="draft"
+                            label="{!$Label.c.fieldDraft}"
+                                    class="slds-p-top&#45;&#45;medium" value="{!v.newArticle.acdevblog__Draft__c}"/>-->
+
+                        <lightning:input label="{!$Label.c.fieldTags}" aura:id="tags" name="tags" class="slds-p-top--medium slds-p-bottom--medium" />
+                        <ui:message class="slds-hide"  aura:id="message" title="Error" severity="error" closable="true">
+                                {!$Label.c.msgError}
+                        </ui:message>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning:button class="slds-button slds-button--neutral"
+                     label="{!$Label.c.btnCancel}"
+                     onclick="{!c.hideModal}" />
+                    <lightning:button class="slds-button slds-button--neutral slds-button--brand"
+                                        aura:id="saveButton" label="{!$Label.c.btnSaveArticle}"
+                                        onclick="{!c.saveNewArticle}" />
+                </div>
+            </div>
+        </div>
+        <div class="{!v.isModalOpen ? 'slds-backdrop slds-backdrop--open' : 'slds-backdrop'}"></div>
+    </aura:if>
+
+    <aura:if isTrue="{!and(v.isUserHasAccess)}">
+        <lightning:button class="slds-button slds-button--neutral slds-m-left--medium" label="{!$Label.c.btnAddArticle}"
+                            onclick="{!c.showModal}" />
+    </aura:if>
+</aura:component>

@@ -1,0 +1,22 @@
+<aura:component description="BlogPaginator">
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="pagesTotal" type="Integer" default="1" />
+    <aura:attribute name="isVisibleBtnNext" type="boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="blogChangePageEvent" type="c:brBlogPageChange"/>
+
+    <lightning:layout horizontalAlign="center" class="slds-m-vertical--large">
+        <lightning:layoutItem>
+            <lightning:button variant="neutral" label="{!$Label.c.btnPrev}" onclick="{!c.openPreviousPage}"
+                              disabled="{!if(greaterthan(v.currentPage, 1), false, true)}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem class="slds-p-top--x-small slds-p-left--small">
+            <span class="slds-text-body--regular pages">{!v.currentPage} of {!v.pagesTotal}</span>
+        </lightning:layoutItem>
+        <lightning:layoutItem class="slds-p-left--small">
+            <lightning:button variant="neutral" label="{!$Label.c.btnNext}" onclick="{!c.openNextPage}"
+                              disabled="{!if(and(greaterthan(v.pagesTotal, 1), lessthan(v.currentPage, v.pagesTotal)), false, true)}" />
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

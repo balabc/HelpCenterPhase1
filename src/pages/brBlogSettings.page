@@ -1,0 +1,37 @@
+<apex:page id="BlogSettings" sideBar="false" title="Blog Settings" controller="brBlogSettingsCtrl">
+    <apex:stylesheet value="{!URLFOR($Resource.Blog, '/css/style.css')}"/>
+
+    <div class="Blog-settings">
+        <div class="settings">
+            <h1>AC Blog Settings</h1>
+            <apex:messages styleClass="messages" />
+            <apex:form >
+                <div class="settings-group">
+                    <div class="field-row">
+                        <div class="label">Allow to add articles from community:</div>
+                        <apex:inputCheckbox value="{!allowPostFromCommunity}" />
+                    </div>
+                    <div class="field-row">
+                        <div class="label">Moderation:</div>
+                        <apex:selectList value="{!selectedModeration}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!moderationOptions}" />
+                        </apex:selectList>
+                    </div>
+                    <div class="field-row">
+                        <div class="label">Email addresses of moderators (separated by comma)</div>
+                        <apex:inputText value="{!moderatorEmailAddresses}" size="50" />
+                    </div>
+                </div>
+                <div class="buttons">
+                    <apex:commandButton action="{!saveSettings}" value="Save changes" />
+                </div>
+            </apex:form>
+        </div>
+        <div class="company-info">
+            <img src="{!URLFOR($Resource.Blog, '/images/ac_logo.png')}" alt="Advanced Communities" class="logo" />
+            <p><span>AC Blog</span> is created and maintained by <span>AdvancedCommunities.com</span> - the Community Cloud experts.</p>
+            <p>We specialize in Community Cloud customization, development and consulting.<br /> Feel free to contact us regarding anything related to Community Cloud.</p>
+            <p><a href="http://advancedcommunities.com">advancedcommunities.com</a><br /> <a href="mailto:sales@advancedcommunities.com">sales@advancedcommunities.com</a></p>
+        </div>
+    </div>
+</apex:page>

@@ -1,0 +1,42 @@
+<aura:component controller="brBlogCategoriesCtrl">
+
+    <aura:attribute name="categories" type="Object[]"/>
+    <aura:attribute name="iconName" type="String" default="utility:chevronright"/>
+    <aura:attribute name="prefixSite" type="String" />
+    <aura:attribute name="listPageName" type="String" default="blog"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+     <div role="dialog" tabindex="-1" aura:id="modalbox" aria-labelledby="header43" class="slds-modal">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <div class="slds-float--right">
+                        <lightning:buttonIcon class="slds-button--icon modal-close-btn" 
+                            iconName="utility:close" variant="bare" onclick="{!c.hideModal}" 
+                            alternativeText="Close" size="large"/>
+                    </div>                  
+                </div>
+                <div class="slds-modal__content">
+                    <h3 onclick="{!c.toggleCategories}">{!$Label.c.hBlogCategories}
+                    <lightning:buttonIcon class="slds-button--icon slds-p-left--xx-small" aura:id="navIcon"
+                                          iconName="{!v.iconName}" variant="bare"
+                                          alternativeText="showCategories" size="medium" />
+                    </h3>
+                    <ul aura:id="categories">
+                        <aura:iteration items="{!v.categories}" var="category">
+                            <li>
+                                <a href="{!$SfdcSite.pathPrefix + '/s/' + v.listPageName + '#category=' + category.urlName}" onclick="{!c.hideModal}">
+                                    {!category.categoryName}
+                                </a> 
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                    <div class="slds-p-bottom--x-small">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop" aura:id="addButton"></div>
+         <lightning:buttonIcon class="slds-button--icon navMenuBtn" 
+                            iconName="utility:rows" variant="bare" onclick="{!c.showModal}" 
+                            alternativeText="Close" size="large"/>
+</aura:component>

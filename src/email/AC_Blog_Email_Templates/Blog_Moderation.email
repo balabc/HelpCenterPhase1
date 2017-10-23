@@ -1,0 +1,5 @@
+Hello.
+
+The new blog article has just been created by {!User.FirstName} {!User.LastName} and should be approved by moderator {!Blog_article__c.Link}
+
+To make it visible to the community please uncheck "Draft" checkbox and save the corresponding Blog Article record or delete it if you believe it contains inappropriate content.

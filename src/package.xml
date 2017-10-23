@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Sidebar</members>
+        <members>Categories</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>brCategoryListController</members>
+        <members>brBlogCategoryTriggerHandler</members>
+        <members>brBlogCategoryTriggerTest</members>
+        <members>brBlogCategoriesCtrlTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>brBlogCategoryTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <version>38.0</version>
+</Package>

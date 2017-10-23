@@ -1,0 +1,12 @@
+.THIS {
+    position: relative;
+    min-height: 300px;
+}
+
+.THIS .forceChatterFeedInner .forceSearchFilterHeader {
+    display: none;
+}
+
+.THIS .forceChatterFeedInner {
+    padding-top: 20px;
+}
