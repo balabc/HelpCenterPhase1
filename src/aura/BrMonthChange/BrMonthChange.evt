@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="MonthChange">
+    <aura:attribute name="year" type="Integer"/>
+    <aura:attribute name="month" type="Integer"/>
+</aura:event>

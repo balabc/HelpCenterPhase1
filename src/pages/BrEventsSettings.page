@@ -1,0 +1,29 @@
+<apex:page id="BrEventsSettings" controller="BrEventsSettingsCtrl">
+    <apex:stylesheet value="{!URLFOR($Resource.BrEvents, '/css/style.css')}"/>
+
+    <div class="BrEvents-settings">
+        <div class="settings">
+            <h1>AC Events Settings Page</h1>
+            <apex:messages styleClass="messages" />
+            <apex:form >
+                <div class="settings-group">
+                    <div class="field-row">
+                        <div class="label">Image Source:</div>
+                        <apex:selectList value="{!selectedImageSource}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!imageSourceOptions}" />
+                        </apex:selectList>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <apex:commandButton action="{!saveSettings}" value="Save changes" />
+                </div>
+            </apex:form>
+        </div>
+        <div class="company-info">
+            <img src="{!URLFOR($Resource.BrEvents, '/images/ac_logo.png')}" alt="Advanced Communities" class="logo" />
+            <p><span>Community Ideas</span> is created and maintained by <span>AdvancedCommunities.com</span> - the Community Cloud experts.</p>
+            <p>We specialize in Community Cloud customization, development and consulting.<br /> Feel free to contact us regarding anything related to Community Cloud.</p>
+            <p><a href="http://advancedcommunities.com">advancedcommunities.com</a><br /> <a href="mailto:sales@advancedcommunities.com">sales@advancedcommunities.com</a></p>
+        </div>
+    </div>
+</apex:page>

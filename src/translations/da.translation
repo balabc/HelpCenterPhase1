@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label><!-- Add Comment Button Label --></label>
+        <name>bedrock__AddComment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All --></label>
+        <name>bedrock__All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel Button Label --></label>
+        <name>bedrock__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Idea category field label --></label>
+        <name>bedrock__CategoryLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Category Filter Title --></label>
+        <name>bedrock__CategoryTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Close button label --></label>
+        <name>bedrock__Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Commented by me filter option label --></label>
+        <name>bedrock__CommentedByMe</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Comments --></label>
+        <name>bedrock__Comments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Comments Tab Label --></label>
+        <name>bedrock__CommentsTabLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Idea description field label --></label>
+        <name>bedrock__DescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Login require message --></label>
+        <name>bedrock__LoginRequireMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Merged --></label>
+        <name>bedrock__Merged</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Merged list tab label --></label>
+        <name>bedrock__MergedTabLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- More comments button label --></label>
+        <name>bedrock__MoreComments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- My ideas filter option label --></label>
+        <name>bedrock__MyIdeas</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Newest First sorting label --></label>
+        <name>bedrock__NewestFirst</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next Pagination Button Label --></label>
+        <name>bedrock__NextPagination</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Comments Message --></label>
+        <name>bedrock__NoCommentsMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Items Message --></label>
+        <name>bedrock__NoItemsMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Oldest First sorting option label --></label>
+        <name>bedrock__OldestFirst</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Post comment form open button label --></label>
+        <name>bedrock__OpenPostComment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Post Idea form open button label --></label>
+        <name>bedrock__OpenPostIdea</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Popular sorting option label --></label>
+        <name>bedrock__PopularSorting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Post button label --></label>
+        <name>bedrock__Post</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Post an Idea window title --></label>
+        <name>bedrock__PostIdeaTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Previous button label in pagination --></label>
+        <name>bedrock__PreviousPagination</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recent option in sorting select --></label>
+        <name>bedrock__RecentSorting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Required fields remark --></label>
+        <name>bedrock__RequiredFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Saving message --></label>
+        <name>bedrock__Saving</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Show filter title --></label>
+        <name>bedrock__ShowTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Similar Ideas Title --></label>
+        <name>bedrock__SimilarIdeas</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Status filter title --></label>
+        <name>bedrock__StatusTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Submitted Submitted --></label>
+        <name>bedrock__Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Idea title field label --></label>
+        <name>bedrock__TitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Trending option in sorting select --></label>
+        <name>bedrock__TrendingSorting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Votes list tab label --></label>
+        <name>bedrock__VotesTabLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Submitted by User --></label>
+        <name>bedrock__by</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- click to open in new window --></label>
+        <name>bedrock__click_to_open_in_new_window</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Default Idea Item Layout Name --></label>
+        <name>bedrock__defaultLayoutName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Notification message for forms fields --></label>
+        <name>bedrock__fieldIsRequiredMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error message for idea creation form --></label>
+        <name>bedrock__fillRequiredFieldsMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Title above ideas search result list component --></label>
+        <name>bedrock__ideasGlobalSearchListTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- for openCreateDialog method in Idea main cmp js controller --></label>
+        <name>bedrock__msgAuthorizationRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Muls Idea Item Layout Name --></label>
+        <name>bedrock__mulsLayoutName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Pagination pages of --></label>
+        <name>bedrock__of</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Ideas points --></label>
+        <name>bedrock__points</name>
+    </customLabels>
+    <customLabels>
+        <label>Alle begivenheder</label>
+        <name>lbl_all_events</name>
+    </customLabels>
+    <customLabels>
+        <label>Vil du deltage?</label>
+        <name>lbl_are_u_going</name>
+    </customLabels>
+    <customLabels>
+        <label>Deltager(e)</label>
+        <name>lbl_attendees</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Back --></label>
+        <name>lbl_back</name>
+    </customLabels>
+    <customLabels>
+        <label>Begivenheder, jeg deltager i</label>
+        <name>lbl_events_im_attending</name>
+    </customLabels>
+    <customLabels>
+        <label>Kommer</label>
+        <name>lbl_going</name>
+    </customLabels>
+    <customLabels>
+        <label>kommer</label>
+        <name>lbl_going_lower</name>
+    </customLabels>
+    <customLabels>
+        <label>Antal per side</label>
+        <name>lbl_items_per_page</name>
+    </customLabels>
+    <customLabels>
+        <label>April</label>
+        <name>lbl_month_apr</name>
+    </customLabels>
+    <customLabels>
+        <label>August</label>
+        <name>lbl_month_aug</name>
+    </customLabels>
+    <customLabels>
+        <label>December</label>
+        <name>lbl_month_dec</name>
+    </customLabels>
+    <customLabels>
+        <label>Februar</label>
+        <name>lbl_month_feb</name>
+    </customLabels>
+    <customLabels>
+        <label>Januar</label>
+        <name>lbl_month_jan</name>
+    </customLabels>
+    <customLabels>
+        <label>Juli</label>
+        <name>lbl_month_jul</name>
+    </customLabels>
+    <customLabels>
+        <label>Juni</label>
+        <name>lbl_month_jun</name>
+    </customLabels>
+    <customLabels>
+        <label>Marts</label>
+        <name>lbl_month_mar</name>
+    </customLabels>
+    <customLabels>
+        <label>Maj</label>
+        <name>lbl_month_may</name>
+    </customLabels>
+    <customLabels>
+        <label>November</label>
+        <name>lbl_month_nov</name>
+    </customLabels>
+    <customLabels>
+        <label>Oktober</label>
+        <name>lbl_month_oct</name>
+    </customLabels>
+    <customLabels>
+        <label>September</label>
+        <name>lbl_month_sep</name>
+    </customLabels>
+    <customLabels>
+        <label>Apr</label>
+        <name>lbl_month_short_apr</name>
+    </customLabels>
+    <customLabels>
+        <label>Aug</label>
+        <name>lbl_month_short_aug</name>
+    </customLabels>
+    <customLabels>
+        <label>Dec</label>
+        <name>lbl_month_short_dec</name>
+    </customLabels>
+    <customLabels>
+        <label>Feb</label>
+        <name>lbl_month_short_feb</name>
+    </customLabels>
+    <customLabels>
+        <label>Jan</label>
+        <name>lbl_month_short_jan</name>
+    </customLabels>
+    <customLabels>
+        <label>Jul</label>
+        <name>lbl_month_short_jul</name>
+    </customLabels>
+    <customLabels>
+        <label>Jun</label>
+        <name>lbl_month_short_jun</name>
+    </customLabels>
+    <customLabels>
+        <label>Mar</label>
+        <name>lbl_month_short_mar</name>
+    </customLabels>
+    <customLabels>
+        <label>Maj</label>
+        <name>lbl_month_short_may</name>
+    </customLabels>
+    <customLabels>
+        <label>Nov</label>
+        <name>lbl_month_short_nov</name>
+    </customLabels>
+    <customLabels>
+        <label>Okt</label>
+        <name>lbl_month_short_oct</name>
+    </customLabels>
+    <customLabels>
+        <label>Sep</label>
+        <name>lbl_month_short_sep</name>
+    </customLabels>
+    <customLabels>
+        <label>flere...</label>
+        <name>lbl_more_lower</name>
+    </customLabels>
+    <customLabels>
+        <label>Næste</label>
+        <name>lbl_next</name>
+    </customLabels>
+    <customLabels>
+        <label>Kommer ikke</label>
+        <name>lbl_not_going</name>
+    </customLabels>
+    <customLabels>
+        <label>af</label>
+        <name>lbl_of</name>
+    </customLabels>
+    <customLabels>
+        <label>Forrige</label>
+        <name>lbl_prev</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Today --></label>
+        <name>lbl_today</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Friday --></label>
+        <name>lbl_weekday_fri</name>
+    </customLabels>
+    <customLabels>
+        <label>Mandag</label>
+        <name>lbl_weekday_mon</name>
+    </customLabels>
+    <customLabels>
+        <label>Lørdag</label>
+        <name>lbl_weekday_sat</name>
+    </customLabels>
+    <customLabels>
+        <label>Fre</label>
+        <name>lbl_weekday_short_fri</name>
+    </customLabels>
+    <customLabels>
+        <label>Man</label>
+        <name>lbl_weekday_short_mon</name>
+    </customLabels>
+    <customLabels>
+        <label>Lør</label>
+        <name>lbl_weekday_short_sat</name>
+    </customLabels>
+    <customLabels>
+        <label>Søn</label>
+        <name>lbl_weekday_short_sun</name>
+    </customLabels>
+    <customLabels>
+        <label>Tor</label>
+        <name>lbl_weekday_short_thu</name>
+    </customLabels>
+    <customLabels>
+        <label>Tir</label>
+        <name>lbl_weekday_short_tue</name>
+    </customLabels>
+    <customLabels>
+        <label>Ons</label>
+        <name>lbl_weekday_short_wed</name>
+    </customLabels>
+    <customLabels>
+        <label>Søndag</label>
+        <name>lbl_weekday_sun</name>
+    </customLabels>
+    <customLabels>
+        <label>Torsdag</label>
+        <name>lbl_weekday_thu</name>
+    </customLabels>
+    <customLabels>
+        <label>Tirsdag</label>
+        <name>lbl_weekday_tue</name>
+    </customLabels>
+    <customLabels>
+        <label>Onsdag</label>
+        <name>lbl_weekday_wed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Zone ID --></label>
+        <name>lbl_zoneid</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Events Zone ID --></label>
+        <name>lbl_zoneid_desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Loft for deltagere overskredet</label>
+        <name>msg_attendees_limit_exceded</name>
+    </customLabels>
+    <customLabels>
+        <label>Kræver tilladelse</label>
+        <name>msg_authorization_required</name>
+    </customLabels>
+    <customLabels>
+        <label>Lav venligst egen oversigt over indstillinger for begivenheden</label>
+        <name>msg_custom_setting_image_source_for_events_obj</name>
+    </customLabels>
+    <customLabels>
+        <label>Gem mislykkedes</label>
+        <name>msg_failed_to_save</name>
+    </customLabels>
+    <customLabels>
+        <label>Ugyldigt antal af begivenheder for bestemt måned</label>
+        <name>msg_invalid_num_events_for_month</name>
+    </customLabels>
+    <customLabels>
+        <label>Du har ikke de nødvendige tilladelser til at redigere denne indstilling</label>
+        <name>msg_no_appr_permissions</name>
+    </customLabels>
+    <customLabels>
+        <label>Du har ikke tilladelse til denne handling</label>
+        <name>msg_no_permissions</name>
+    </customLabels>
+    <customLabels>
+        <label>Gemt succes</label>
+        <name>msg_saved_successfully</name>
+    </customLabels>
+    <customLabels>
+        <label>prøve</label>
+        <name>test</name>
+    </customLabels>
+</Translations>

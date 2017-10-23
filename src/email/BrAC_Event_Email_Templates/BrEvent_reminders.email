@@ -1,0 +1,10 @@
+<messaging:emailTemplate subject="Event reminder" recipientType="User" relatedToType="BR_Participation__c">
+<messaging:htmlEmailBody >
+Dear {!relatedTo.User__r.Name}, <br/><br/>
+
+Event: {!relatedTo.BR_Event__r.Name} <br/>
+Join us for the event beginning on <c:BrEventStartDate startDateValue="{!relatedTo.BR_Event__r.Start_Date__c}"
+timezoneValue="{!relatedTo.User__r.TimeZoneSidKey}" localeValue="{!relatedTo.User__r.LocaleSidKey}"/>.<br/>
+More details can be found on our community.
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

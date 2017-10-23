@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AC Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AC Events</value>
+    </caseValues>
+    <fields>
+        <label><!-- Zone --></label>
+        <name>BR_Events_Zone__c</name>
+        <relationshipLabel><!-- BR Events --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollment not required --></label>
+        <name>Enrollment_not_required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hide attendees --></label>
+        <name>Hide_attendees__c</name>
+    </fields>
+    <fields>
+        <help><!-- Zero means unlimited. --></help>
+        <label><!-- Limit of attendees --></label>
+        <name>Limit_of_attendees__c</name>
+    </fields>
+    <fields>
+        <label><!-- List Image Filename --></label>
+        <name>List_Image_Filename__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Image Filename --></label>
+        <name>Main_Image_Filename__c</name>
+    </fields>
+    <fields>
+        <label><!-- Publicly available --></label>
+        <name>Publicly_available__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Venue Address --></label>
+        <name>Venue_Address__c</name>
+    </fields>
+    <layouts>
+        <layout>BR Event Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,8 @@
+<design:component label="AC Calendar">
+    <design:attribute name="zoneId"
+                      label="Zone ID"
+                      description="Events Zone ID" />
+    <design:attribute name="communityPage"
+                      label="Community page"
+                      description="Name of the community page where Events component added" />
+</design:component>
