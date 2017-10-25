@@ -1,0 +1,90 @@
+<aura:component description="BrEventsListItem" controller="BrEventsListItemController">
+    <aura:attribute name="item" type="BR_Event__c" />
+    <aura:attribute name="rsvpType" type="String" default="{!v.item.item.BR_Participations__r[0].Participate__c}" />
+    <aura:attribute name="isCommunity" type="Boolean"/>
+
+    <aura:registerEvent name="eventsErrorEvent" type="c:BrEventsError" />
+    <aura:registerEvent name="eventsRsvpEvent" type="c:BrEventsRsvp" />
+    <aura:registerEvent name="eventsOpenItemEvent" type="c:BrEventsOpenItem" />
+
+    <div class="slds-card slds-m-bottom--small cont-box cont-box--shadow-sm">
+        <div class="slds-card__body">
+            <div class="two-cols-cont">
+                <div class="two-cols-cont__left">
+                    <div class="wrap-img">
+                        <a href="{!v.isCommunity ? '#' + v.item.item.Id : 'javascript:void(0)'}" data-id="{!v.item.item.Id}" onclick="{!c.openItem}">
+                            <img src="{!v.item.listImageURL}" title="{!v.item.item.Name}"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="two-cols-cont__center list-cont">
+                    <div class="slds-p-horizontal--medium slds-p-vertical--x-small">
+                        <h2 class="h2 slds-section__title">
+                            <a href="{!v.isCommunity ? '#' + v.item.item.Id : 'javascript:void(0)'}" data-id="{!v.item.item.Id}" onclick="{!c.openItem}">
+                                {!v.item.item.Name}
+                            </a>
+                         </h2>
+                        <p class="icontext icontext--clock icontext--only-sm media__text--small slds-truncate">
+                            <span>{!v.item.itemDates}</span>
+                        </p>
+                        <aura:if isTrue="{!not(empty(v.item.item.Venue_Address__c))}">
+                            <p class="icontext icontext--balloon icontext--only-sm media__text--small slds-truncate">
+                                    {!v.item.item.Venue_Address__c}
+                            </p>
+                        </aura:if>
+
+                        <div class="slds-grid slds-p-vertical--x-small width--x-small">
+                            <div class="slds-size--2-of-3">
+                                <div class="slds-media">
+                                    <div class="slds-media__figure image--round image--small">
+                                        <a href="{!v.isCommunity ? 'profile/' + v.item.item.CreatedById : '/one/one.app?#/sObject/'+ v.item.item.CreatedById + '/view'}" target="_blank">
+                                            <img src="{!v.item.item.CreatedBy.SmallPhotoUrl}" class="slds-avatar--small" alt="{!v.item.item.CreatedBy.Name}" />
+                                        </a>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <p class="slds-truncate media__text media__text--small">
+                                            <a href="{!v.isCommunity ? 'profile/' + v.item.item.CreatedById : '/one/one.app?#/sObject/'+ v.item.item.CreatedById + '/view'}" target="_blank">{!v.item.item.CreatedBy.Name}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <aura:if isTrue="{!not(v.item.item.Enrollment_not_required__c)}">
+                                <div class="slds-size--2-of-3 slds-clearfix">
+                                    <p class="slds-truncate media__text media__text--small slds-float--right color--light-grey">{!v.item.attendeesCount}&nbsp;{!$Label.c.lbl_going_lower}</p>
+                                </div>
+                            </aura:if>
+                        </div>
+
+                        <aura:if isTrue="{!not(v.item.item.Enrollment_not_required__c)}">
+                            <div aura:id="dropdown-wrapper-going" class="slds-picklist slds-dropdown-trigger slds-dropdown-trigger--click wrap-dropdown--sm slds-m-top--xxx-small"><!-- .slds-is-open -->
+                                <button class="slds-button slds-button--neutral slds-picklist__label dropdown-button dropdown-button--medium" aria-haspopup="true" onclick="{!c.toggleGoingDropdown}">
+                                    <span class="slds-truncate">{!if(empty(v.rsvpType), $Label.c.lbl_going + '?', if(v.rsvpType == 'Yes', $Label.c.lbl_going, $Label.c.lbl_not_going))}</span>
+                                    <c:BrSvgIcon svgPath="{!$Resource.BrEvents + '/icons/symbols.svg#down'}" category="utility" size="medium" name="down" class="slds-icon slds-icon--medium button-icon" />
+                                </button>
+
+                                <div class="slds-dropdown slds-dropdown--left">
+                                    <ul class="dropdown__list slds-dropdown--length-5" role="menu">
+                                        <li class="{!'slds-dropdown__item' + if(v.rsvpType == 'Yes', ' slds-is-selected ', '')}" role="presentation">
+                                            <a href="javascript:void(0);" role="menuitemcheckbox" data-type="Yes" onclick="{!c.rsvpItem}" tabindex="0">
+                                            <span class="slds-truncate">
+                                                <c:BrSvgIcon svgPath="{!$Resource.BrEvents + '/icons/symbols.svg#check'}"
+                                                                    category="utility" size="x-small" name="check" class="slds-icon slds-icon--x-small slds-icon--selected slds-icon-text-default slds-m-right--x-small" />{!$Label.c.lbl_going}</span>
+                                            </a>
+                                        </li>
+                                        <li class="{!'slds-dropdown__item' + if(v.rsvpType == 'No', ' slds-is-selected ', '')}" role="presentation">
+                                            <a href="javascript:void(0);" role="menuitemcheckbox" data-type="No" onclick="{!c.rsvpItem}" tabindex="-1">
+                                            <span class="slds-truncate">
+                                                <c:BrSvgIcon svgPath="{!$Resource.BrEvents + '/icons/symbols.svg#check'}"
+                                                                    category="utility" size="x-small" name="check" class="slds-icon slds-icon--x-small slds-icon--selected slds-icon-text-default slds-m-right--x-small" />{!$Label.c.lbl_not_going}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div><!-- end of .slds-dropdown -->
+                            </div><!-- end of .slds-picklist -->
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .slds-card -->
+</aura:component>
