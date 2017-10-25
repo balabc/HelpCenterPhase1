@@ -15,7 +15,17 @@ public with sharing class brCategoriesCatalogService {
             } else {
                 am.active = false;
             }
-            am.articleSections = k.Article_Sections__c;
+            if(k.Article_Sections__c != null) {
+            	if(k.Article_Sections__c.length() > 0) {
+	            	List<String> anchors = k.Article_Sections__c.split(';');
+		            String result = '<ul>';
+		            for(Integer li = 0; li < anchors.size(); li++) {
+		            	result = result + '<li>' + '<a class=\'anchor\' href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
+		            }                				
+		            result = result + '</ul>';
+		            am.articleSections = result;            	
+            	}           	
+            }            
             am.id = k.KnowledgeArticleId;
             Set<String> cats = new Set<String>();
             for(Knowledge__DataCategorySelection dc : k.DataCategorySelections) {
