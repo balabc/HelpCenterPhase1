@@ -1,0 +1,4 @@
+<aura:component>
+    <aura:attribute name="listPageName" type="String" default="blog"/>
+    <c:brBlogCategoriesNav listPageName="{!v.listPageName}" />
+</aura:component>

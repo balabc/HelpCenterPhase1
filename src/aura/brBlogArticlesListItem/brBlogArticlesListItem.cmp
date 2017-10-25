@@ -1,0 +1,46 @@
+<aura:component description="BlogArticlesListItem">
+    <aura:attribute name="article" type="brBlogArticleWrapper"/>
+    <aura:attribute name="articleId" type="String"/>
+    <aura:attribute name="routeInput" type="Map"/>
+    <aura:attribute name="prefixSite" type="String" />
+    <aura:attribute name="listPageName" type="String" default="blog"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:layoutItem padding="around-medium" size="12" >
+        <div class="slds-tile">
+            <h2 class="slds-text-heading--medium" title="{!v.article.item.Name}">
+                <forceCommunity:routeLink title="{!v.article.item.Name}" label="{!v.article.item.Name}" routeInput="{!v.routeInput}" onClick="{!c.openArticle}"/>
+            </h2>
+            <div class="slds-tile__detail slds-text-body--small">
+                <p>
+                    <span class="slds-avatar slds-avatar--circle slds-avatar--x-small">
+                        <a href="{!$SfdcSite.pathPrefix + '/s/profile/' + v.article.item.Owner.Id}"><img src="{!v.article.profilePhotoUrl}"  alt="avatar" /></a>
+                    </span>
+                    <ui:outputURL class="slds-p-left--xx-small" value="{!$SfdcSite.pathPrefix + '/s/profile/' + v.article.item.Owner.Id}" label="{!v.article.item.Owner.Name}"/>
+                </p>
+                <ul class="slds-list--horizontal slds-has-dividers--right">
+                    <li class="slds-item"><ui:outputDate value="{!v.article.item.Published_Date__c}"/></li>
+                    <li class="slds-item">
+                        <a href="{!$SfdcSite.pathPrefix + '/s/blog-article/' + v.article.item.Id + '#comments'}">
+                                {!v.article.commentsNumber == 1 ? v.article.commentsNumber + ' ' + 'comment' : v.article.commentsNumber + ' ' + 'comments'}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="slds-text-body--regular slds-p-top--small">
+                <aura:unescapedHtml value="{!v.article.item.Short_Body__c}"/>
+            </div>
+            <lightning:layout multipleRows="true" class="slds-text-body--small slds-p-top--small">
+                <span>{!$Label.c.Categories}</span>
+                <aura:iteration items="{!v.article.categories}" var="category">
+                    <lightning:layoutItem class="slds-m-left--xx-small">
+                        <a href="{!$SfdcSite.pathPrefix + '/s/' + v.listPageName + '#category=' + category.Friendly_URL__c}"><lightning:badge label="{!category.Name}"/>
+                        </a>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </div>
+    </lightning:layoutItem>
+
+</aura:component>

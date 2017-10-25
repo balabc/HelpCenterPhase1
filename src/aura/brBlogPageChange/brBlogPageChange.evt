@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="BlogPageChange">
+    <aura:attribute name="direction" type="String"/>
+</aura:event>

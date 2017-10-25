@@ -1,0 +1,22 @@
+.THIS .select  {
+    height: 160px;
+}
+
+.THIS .uiInputSelect span.required {
+    display: none;
+}
+
+.THIS .uiInputSelect label > span::before {
+    content: "* ";
+}
+
+.THIS .slds-select[size] option, .THIS .slds-select[multiple] option {
+    padding: .3rem;
+    font-size: 0.8rem;
+}
+
+@media (min-width: 48em) {
+    .THIS .slds-modal__container {
+        max-width: 50rem;
+    }
+}

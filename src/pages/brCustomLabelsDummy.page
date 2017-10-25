@@ -1,0 +1,4 @@
+<apex:page id="CustomLabelsDummy">
+    {!$Label.CategoriesFilteredName}
+    {!$Label.TagsFilteredName}
+</apex:page>

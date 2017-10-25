@@ -1,0 +1,86 @@
+<aura:component description="Blog Article Detail" controller="brBlogArticleDetailCtrl"
+                implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="listPageName" type="String" default="blog" access="global"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="wrap" type="brBlogArticleWrapper"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="photoURl" type="String"/>
+
+    <div class="slds-p-horizontal--medium">
+        <div class="slds-hide" aura:id="componentButtons">
+            <lightning:button variant="neutral" label="Back" onclick="{!c.showListArticles}"/>
+            <c:brBlogNavigationMenu listPageName="{!v.listPageName}" />
+        </div>
+        <lightning:spinner variant="brand" size="large" aura:id="spinner"/>
+
+        <aura:if isTrue="{!v.wrap.item}">
+            <lightning:layout class="slds-text-heading--large headline slds-m-top--medium">
+                <lightning:layoutItem>
+                    {!v.wrap.item.Name}
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <aura:if isTrue="{!v.wrap.item.Draft__c}">
+                        <lightning:badge label="{!$Label.c.Draft}" class="slds-m-left--medium draft"  />
+                    </aura:if>
+                </lightning:layoutItem>
+            </lightning:layout>
+
+            <div class="slds-tile__detail slds-text-body--small">
+                <p>
+                    <span class="slds-avatar slds-avatar--circle slds-avatar--x-small">
+                        <a href="{!$SfdcSite.pathPrefix + '/s/profile/' + v.wrap.item.Owner.Id}"><img src="{!v.wrap.profilePhotoUrl}"  alt="avatar" /></a>
+                    </span>
+                    <ui:outputURL class="slds-p-left--xx-small" value="{!$SfdcSite.pathPrefix + '/s/profile/' + v.wrap.item.Owner.Id}" label="{!v.wrap.item.Owner.Name}"/>
+                </p>
+                <ul class="{!v.wrap.item.Draft__c ? 'slds-hide' : 'slds-list--horizontal slds-has-dividers--right'}">
+                    <li class="slds-item"><ui:outputDate value="{!v.wrap.item.Published_Date__c}"/></li>
+                    <li class="slds-item">
+                        <a href="{!'#comments'}">
+                                {!v.wrap.commentsNumber == 1 ? v.wrap.commentsNumber + ' ' + 'comment' : v.wrap.commentsNumber + ' ' + 'comments'}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <lightning:layout >
+                <lightning:layoutItem class="slds-text-body--regular slds-p-top--small" >
+                    <aura:unescapedHtml value="{!v.wrap.item.Body__c}"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:if>
+
+        <aura:if isTrue="{!not(empty(v.wrap.categories))}">
+            <lightning:layout multipleRows="true" class="slds-text-body--small slds-p-top--medium">
+                <p>{!$Label.c.Categories}</p>
+                <aura:iteration items="{!v.wrap.categories}" var="category">
+                    <lightning:layoutItem >
+                        <a href="{!$SfdcSite.pathPrefix + '/s/' + v.listPageName + '#category=' + category.Friendly_URL__c}" class="slds-m-left--xx-small">
+                            <lightning:badge label="{!category.Name}"/>
+                        </a>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </aura:if>
+
+        <aura:if isTrue="{!not(empty(v.wrap.tags))}">
+            <lightning:layout multipleRows="true" class="slds-text-body--small slds-p-top--small">
+                <p>{!$Label.c.Tags}</p>
+                <aura:iteration items="{!v.wrap.tags}" var="tag">
+                    <lightning:layoutItem >
+                        <a href="{!$SfdcSite.pathPrefix + '/s/'+ v.listPageName + '#tag=' + tag.Friendly_URL__c}" class="slds-m-left--xx-small">
+                            <lightning:badge label="{!tag.Name}"/>
+                        </a>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </aura:if>
+
+        <aura:if isTrue="{!v.wrap.item}">
+            <div class="slds-m-top--xx-large" id="comments">
+                <h3 class="slds-p-bottom--medium">{!$Label.c.hWriteComment}</h3>
+                <forceChatter:publisher context="RECORD" recordId="{!v.recordId}" />
+                <forceChatter:feed type="Record" subjectId="{!v.recordId}" feedDesign="DEFAULT"/>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,40 @@
+<aura:component description="BlogArticlesList" controller="brBlogArticlesListCtrl"
+                implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="listPageName" type="String" default="blog" access="global"/>
+    <aura:attribute name="itemsPerPage" type="Integer" default="5" access="global"/>
+    <aura:attribute name="articles" type="brBlogArticleWrapper[]"/>
+    <aura:attribute name="filters" type="Map" default="{}"/>
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="pagesTotal" type="Integer" default="1" />
+    <aura:attribute name="currentFilter" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="aura:locationChange" action="{!c.changeLocation}"/>
+    <aura:handler name="blogChangePageEvent" event="c:brBlogPageChange" action="{!c.changePage}" />
+
+
+    <div>
+        <div class="slds-hide" aura:id="componentButtons">
+        <c:brBlogArticleCreateForm />
+        <c:brBlogNavigationMenu listPageName="{!v.listPageName}"/>
+        </div>
+        <h4 aura:id ="currentFilter">{!v.currentFilter}</h4>
+        <lightning:spinner variant="brand" size="large" aura:id="spinner"/>
+
+        <aura:if isTrue="{!not(empty(v.articles))}">
+            <lightning:layout multipleRows="true">
+                <aura:iteration items="{!v.articles}" var="article">
+                    <c:brBlogArticlesListItem listPageName="{!v.listPageName}" article="{!article}" articleId="{!article.item.Id}" />
+                </aura:iteration>
+            </lightning:layout>
+
+            <c:brBlogPaginator currentPage="{!v.currentPage}" pagesTotal="{!v.pagesTotal}"/>
+
+            <aura:set attribute="else">
+                <div class="slds-m-vertical--medium slds-align--absolute-center">
+                    {!$Label.c.NoItemsText}
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

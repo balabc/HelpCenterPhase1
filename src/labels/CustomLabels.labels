@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+
+
+    <labels>
+        <fullName>Categories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Categories on this post</shortDescription>
+        <value>Categories :</value>
+    </labels>
+    <labels>
+        <fullName>CategoriesFilteredName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Categories filtered</shortDescription>
+        <value>Category:</value>
+    </labels>
+    <labels>
+        <fullName>Draft</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draft</shortDescription>
+        <value>Draft</value>
+    </labels>
+    <labels>
+        <fullName>NoItemsText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No items text</shortDescription>
+        <value>No Items. Please add a first article.</value>
+    </labels>
+    <labels>
+        <fullName>Tags</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tags on this post</shortDescription>
+        <value>Tags :</value>
+    </labels>
+    <labels>
+        <fullName>TagsFilteredName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tags filtered</shortDescription>
+        <value>Tag:</value>
+    </labels>
+    <labels>
+        <fullName>btnAddArticle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add article</shortDescription>
+        <value>Add Article</value>
+    </labels>
+    <labels>
+        <fullName>btnCancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>btnNext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>btnPrev</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>btnSaveArticle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save article</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>fieldArticleName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Article name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>fieldBody</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Body</shortDescription>
+        <value>Body</value>
+    </labels>
+    <labels>
+        <fullName>fieldCategories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Categories</shortDescription>
+        <value>Categories</value>
+    </labels>
+    <labels>
+        <fullName>fieldDraft</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draft</shortDescription>
+        <value>Draft</value>
+    </labels>
+    <labels>
+        <fullName>fieldShortBody</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Short body</shortDescription>
+        <value>Short Body</value>
+    </labels>
+    <labels>
+        <fullName>fieldTags</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tags</shortDescription>
+        <value>Tags</value>
+    </labels>
+    <labels>
+        <fullName>hBlogCategories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All blog categories</shortDescription>
+        <value>Categories</value>
+    </labels>
+    <labels>
+        <fullName>hNewArticle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New article</shortDescription>
+        <value>New Article</value>
+    </labels>
+    <labels>
+        <fullName>hWriteComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Write a comment</shortDescription>
+        <value>Write a comment</value>
+    </labels>
+    <labels>
+        <fullName>msgError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message</shortDescription>
+        <value>Error! Please contact your Admininstator.</value>
+    </labels>
+</CustomLabels>

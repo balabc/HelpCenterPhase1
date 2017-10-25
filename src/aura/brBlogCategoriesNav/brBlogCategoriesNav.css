@@ -1,0 +1,63 @@
+.THIS.navMenuBtn, .THIS.slds-modal, .THIS.slds-backdrop {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .THIS.navMenuBtn, .THIS.slds-modal, .THIS.slds-backdrop {
+        display: block;
+    }
+
+    .THIS.navMenuBtn {
+        position: absolute;
+        top: 0;
+        right: 30px;
+    }
+
+    .THIS .slds-modal__container {
+        margin: 0 !important;
+    }
+
+    .THIS .slds-modal__header, .THIS .slds-modal__content {
+        position: absolute;
+        width: 100%;
+        border-radius: 0;
+        background-color: #165245;
+    }
+
+    .THIS .slds-modal__header {
+        top: 0;
+    }
+
+    .THIS .slds-modal__content {
+        top: 58px;
+    }
+
+    .THIS h3 {
+        cursor: pointer;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        color: #ffffff;
+    }
+
+    .THIS ul {
+        padding: 0 20px;
+    }
+
+    .THIS li {
+        background-color: #43ca97;
+        padding: 10px 0 5px 20px;
+        color: #ffffff;
+    }
+
+    .THIS li > a {
+        color:#ffffff;
+    }
+
+    .THIS .slds-button:hover {
+        color:#737373;
+    }
+    
+    .THIS .slds-button--icon-bare {
+        color: #ffffff;
+    }
+}
