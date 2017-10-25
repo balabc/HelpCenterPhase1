@@ -1,0 +1,38 @@
+<aura:component >
+    <aura:attribute name="commonVars" type="Object" description="Used to share common variables for child components" />
+    <aura:attribute name="comment" type="IdeaComment" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="slds-media slds-box slds-tile slds-theme--default comment-item">
+        <div class="slds-media__figure image">
+            <a href="{!'profile/' + v.comment.CreatedById}">
+                <img src="{!v.comment.CreatorSmallPhotoUrl}" style="width:48px;" alt="" />
+            </a>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-clearfix slds-m-bottom--x-small top-info">
+                <div class="slds-float--left">
+                    <p class="slds-text-body--small slds-m-bottom--xxx-small">
+                        <aura:if isTrue="{!v.commonVars.enableProfileLink}">
+                            <a href="{!'profile/' + v.comment.CreatedById}">
+                                <c:brUserDisplayName userId="{!v.comment.CreatedById}" />
+                            </a>
+                        </aura:if>
+                        <aura:if isTrue="{!not(v.commonVars.enableProfileLink)}">
+                            <c:brUserDisplayName userId="{!v.comment.CreatedById}" />
+                        </aura:if>
+                    </p>
+                </div>
+                <div class="slds-float--right date">
+                    <ui:outputDateTime value="{!v.comment.CreatedDate}" format="MMMM d, y" />
+                    <span>&nbsp;&bull;&nbsp;</span>
+                    <ui:outputDateTime value="{!v.comment.CreatedDate}" format="H:m" />
+                </div>
+            </div>
+            <div class="slds-text-body--regular">
+                <ui:outputRichText value="{!v.comment.CommentBody}" class="slds-text-longform" />
+            </div>
+        </div>
+    </div>
+</aura:component>

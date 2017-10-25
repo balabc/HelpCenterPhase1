@@ -1,0 +1,107 @@
+<aura:component controller="brLghtIdeasController">
+    <aura:attribute name="communityName" type="String" />
+    <aura:attribute name="isVisible" type="Boolean" />
+    <aura:attribute name="isSaving" type="Boolean" default="false" />
+    <aura:attribute name="categoryOptions" type="Map[]" />
+    <aura:attribute name="categoryRequired" type="Boolean" default="true" />
+    <aura:attribute name="activeCategory" type="String" />
+    <aura:attribute name="title" type="String" default="" />
+    <aura:attribute name="category" type="String" />
+    <aura:attribute name="bodyText" type="String" default="" />
+    <aura:attribute name="similarIdeas" type="Idea[]" />
+    <aura:attribute name="fieldsError" type="Object" />
+    <aura:attribute name="errorMsg" type="String" />
+
+    <aura:method name="open" action="{!c.open}"
+                 description="Open idea create form">
+        <aura:attribute name="communityName" type="String" />
+        <aura:attribute name="categoryOptions" type="Map[]" />
+        <aura:attribute name="activeCategory" type="String" />
+    </aura:method>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.isVisible}" action="{!c.handleVisibilityChange}"/>
+
+    <aura:registerevent name="ideaCreateSuccess" type="c:brLghtIdeaCreated" />
+
+    <aura:if isTrue="{!v.isVisible}">
+        <div class="slds-modal slds-fade-in-open idea-post-form">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header">
+                    <h2 class="slds-text-heading--medium">{!$Label.c.PostIdeaTitle}</h2>
+                    <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.cancel}">
+                        <img src="{!$Resource.LghtIdeas + '/images/close-btn.png'}" alt="Close" />
+                    </button>
+                </div>
+                <div class="slds-modal__content slds-p-around--small">
+                    <aura:if isTrue="{!not(empty(v.errorMsg))}">
+                        <div class="slds-notify_container slds-m-bottom--small">
+                            <div class="slds-notify slds-notify--alert slds-theme--alert-texture">
+                                <h2>{!v.errorMsg}</h2>
+                            </div>
+                        </div>
+                    </aura:if>
+                    <div class="slds-form-element slds-m-bottom--small">
+                        <ui:inputText aura:id="ideaTitleInput" label="{!$Label.c.TitleLabel}"
+                                      value="{!v.title}" required="true"
+                                      class="slds-input" labelClass="slds-form-element__label" change="{!c.searchSimilar}" />
+                        <aura:if isTrue="{!v.fieldsError.titleEmpty}">
+                            <p class="slds-notify--alert slds-text-color--error slds-text-body--small">{!$Label.c.fieldIsRequiredMsg}</p>
+                        </aura:if>
+                        <aura:if isTrue="{!v.similarIdeas.length > 0}">
+                        <div class="similar-ideas">
+                            <p>{!$Label.c.SimilarIdeas} <span>({!$Label.c.click_to_open_in_new_window})</span>:</p>
+                            <ul>
+                                <aura:iteration items="{!v.similarIdeas}" var="si">
+                                    <li><a href="{#'#' + si.Id}" target="_blank">{#si.Title}</a></li>
+                                </aura:iteration>
+                            </ul>
+                        </div>
+                        </aura:if>
+                    </div>
+                    <div class="slds-form-element slds-m-bottom--small">
+                        <ui:inputSelect aura:id="ideaCategorySelect" label="{!$Label.c.CategoryLabel}"
+                                        value="{!v.category}" required="{!v.categoryRequired}" class="slds-input"
+                                        labelClass="slds-form-element__label">
+                            <ui:inputSelectOption text="" label="- Choose category -" />
+                            <aura:iteration items="{!v.categoryOptions}" var="cat">
+                                <ui:inputSelectOption text="{#cat.value}" label="{#cat.label}" />
+                            </aura:iteration>
+                        </ui:inputSelect>
+                        <aura:if isTrue="{!v.fieldsError.categoryEmpty}">
+                            <p class="slds-notify--alert slds-text-color--error slds-text-body--small">{!$Label.c.fieldIsRequiredMsg}</p>
+                        </aura:if>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">{!$Label.c.DescriptionLabel}</label>
+                        <lightning:inputRichText aura:id="ideaBodyText" value="{!v.bodyText}" />
+                        <aura:if isTrue="{!v.fieldsError.bodyEmpty}">
+                            <p class="slds-notify--alert slds-text-color--error slds-text-body--small">{!$Label.c.fieldIsRequiredMsg}</p>
+                        </aura:if>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <div class="slds-clearfix">
+                        <div class="slds-float--left">
+                            <p class="slds-text-body--small slds-text-align--left">* - {!$Label.c.RequiredFields}</p>
+                        </div>
+                        <aura:if isTrue="{!not(v.isSaving)}">
+                            <div class="slds-x-small-buttons--horizontal">
+                                <ui:button label="{!$Label.c.Cancel}"
+                                           class="slds-button slds-button--neutral" press="{!c.cancel}" />
+                                <ui:button label="{!$Label.c.Post}"
+                                           class="slds-button slds-button--neutral slds-button--brand" press="{!c.save}" />
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.isSaving}">
+                            <div class="slds-float--right">
+                                <div class="loading-spinner">{!$Label.c.Saving}...</div>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+    </aura:if>
+</aura:component>

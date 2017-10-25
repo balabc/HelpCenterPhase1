@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AddComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Comment Button Label</shortDescription>
+        <value>Add comment</value>
+    </labels>
+    <labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Button Label</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>CategoryTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Category Filter Title</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close button label</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>CommentedByMe</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Commented by me filter option label</shortDescription>
+        <value>Commented by me</value>
+    </labels>
+    <labels>
+        <fullName>Comments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>comments</value>
+    </labels>
+    <labels>
+        <fullName>CommentsTabLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Comments Tab Label</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>CategoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Idea category field label</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>DescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Idea description field label</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>TitleLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Idea title field label</shortDescription>
+        <value>Title</value>
+    </labels>
+    <labels>
+        <fullName>Merged</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merged</shortDescription>
+        <value>Merged</value>
+    </labels>
+    <labels>
+        <fullName>MergedTabLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merged list tab label</shortDescription>
+        <value>Merged</value>
+    </labels>
+    <labels>
+        <fullName>MoreComments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>More comments button label</shortDescription>
+        <value>Show more comments</value>
+    </labels>
+    <labels>
+        <fullName>MyIdeas</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My ideas filter option label</shortDescription>
+        <value>My ideas</value>
+    </labels>
+    <labels>
+        <fullName>NewestFirst</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Newest First sorting label</shortDescription>
+        <value>Newest first</value>
+    </labels>
+    <labels>
+        <fullName>NextPagination</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next Pagination Button Label</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>NoCommentsMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Comments Message</shortDescription>
+        <value>No comments yet</value>
+    </labels>
+    <labels>
+        <fullName>NoItemsMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Items Message</shortDescription>
+        <value>No items</value>
+    </labels>
+    <labels>
+        <fullName>OldestFirst</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Oldest First sorting option label</shortDescription>
+        <value>Oldest first</value>
+    </labels>
+    <labels>
+        <fullName>PopularSorting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Popular sorting option label</shortDescription>
+        <value>Popular</value>
+    </labels>
+    <labels>
+        <fullName>Post</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post button label</shortDescription>
+        <value>Post</value>
+    </labels>
+    <labels>
+        <fullName>OpenPostIdea</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post Idea form open button label</shortDescription>
+        <value>Post Your Idea</value>
+    </labels>
+    <labels>
+        <fullName>OpenPostComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post comment form open button label</shortDescription>
+        <value>Post your comment</value>
+    </labels>
+    <labels>
+        <fullName>PostIdeaTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post an Idea window title</shortDescription>
+        <value>Post an Idea</value>
+    </labels>
+    <labels>
+        <fullName>PreviousPagination</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous button label in pagination</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>RecentSorting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Recent option in sorting select</shortDescription>
+        <value>Recent</value>
+    </labels>
+    <labels>
+        <fullName>RequiredFields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Required fields remark</shortDescription>
+        <value>required fields</value>
+    </labels>
+    <labels>
+        <fullName>Saving</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saving message</shortDescription>
+        <value>Saving</value>
+    </labels>
+    <labels>
+        <fullName>ShowTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show filter title</shortDescription>
+        <value>Show</value>
+    </labels>
+    <labels>
+        <fullName>SimilarIdeas</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Similar Ideas Title</shortDescription>
+        <value>Similar Ideas</value>
+    </labels>
+    <labels>
+        <fullName>StatusTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status filter title</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>TrendingSorting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Trending option in sorting select</shortDescription>
+        <value>Trending</value>
+    </labels>
+    <labels>
+        <fullName>VotesTabLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Votes list tab label</shortDescription>
+        <value>Votes</value>
+    </labels>
+    <labels>
+        <fullName>click_to_open_in_new_window</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>click to open in new window</shortDescription>
+        <value>click to open in new window</value>
+    </labels>
+    <labels>
+        <fullName>of</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pagination pages of</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>points</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ideas points</shortDescription>
+        <value>points</value>
+    </labels>
+    <labels>
+        <fullName>mulsLayoutName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Muls Idea Item Layout Name</shortDescription>
+        <value>MulS</value>
+    </labels>
+    <labels>
+        <fullName>by</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitted by User</shortDescription>
+        <value>by</value>
+    </labels>
+    <labels>
+        <fullName>Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitted Submitted</shortDescription>
+        <value>Submitted</value>
+    </labels>
+    <labels>
+        <fullName>msgAuthorizationRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>for openCreateDialog method in Idea main cmp js controller</shortDescription>
+        <value>Authorization required</value>
+    </labels>
+    <labels>
+        <fullName>defaultLayoutName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default Idea Item Layout Name</shortDescription>
+        <value>Default</value>
+    </labels>
+    <labels>
+        <fullName>ideasGlobalSearchListTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title above ideas search result list component</shortDescription>
+        <value>Ideas</value>
+    </labels>
+    <labels>
+        <fullName>fieldIsRequiredMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification message for forms fields</shortDescription>
+        <value>field is required</value>
+    </labels>
+    <labels>
+        <fullName>fillRequiredFieldsMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message for idea creation form</shortDescription>
+        <value>Please fill in all required fields</value>
+    </labels>
+    <labels>
+        <fullName>IdeasCountLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ideas count label</shortDescription>
+        <value>idea</value>
+    </labels>
+</CustomLabels>
