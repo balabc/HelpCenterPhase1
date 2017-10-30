@@ -49,7 +49,7 @@ private class BrDatePickerControllerTest {
             BR_Events_Zone__c zone = [SELECT Id FROM BR_Events_Zone__c WHERE Name = 'testzone' LIMIT 1];
             String zoneId = String.valueOf(zone.Id);
 
-            List<BR_Event__c> itemsList = DatePickerController.getEventsForMonth(zoneId, year, month);
+            List<BR_Event__c> itemsList = brDatePickerController.getEventsForMonth(zoneId, year, month);
             System.assertEquals(7, itemsList.size(), 'Ivalid number of events for specific month');
         }
     }

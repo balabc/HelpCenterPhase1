@@ -66,7 +66,7 @@ public with sharing class BrEventsHelper {
         selectedDate = filterData.get('date');
 
         if (String.isNotBlank(searchQuery)) {
-            String query = 'FIND \'' + searchQuery + '*\' IN ALL FIELDS RETURNING lovandos__BR_Event__c(Id)';
+            String query = 'FIND \'' + searchQuery + '*\' IN ALL FIELDS RETURNING BR_Event__c(Id)';
             List<List<SObject>> searchList = search.query(query);
 
             for (SObject obj : searchList[0]) {
@@ -86,13 +86,13 @@ public with sharing class BrEventsHelper {
                 DateTime selectedDateStartGMT = DateTime.newInstanceGMT(yearInt, monthInt, dayInt);
                 DateTime selectedDateEndGMT = DateTime.newInstanceGMT(yearInt, monthInt, dayInt, 23, 59, 0);
 
-                whereList.add('lovandos__Start_Date__c > ' + selectedDateStartGMT.formatGmt('YYYY-MM-dd\'T\'HH:mm:ss\'Z\'') + ' AND lovandos__Start_Date__c < '
+                whereList.add('Start_Date__c > ' + selectedDateStartGMT.formatGmt('YYYY-MM-dd\'T\'HH:mm:ss\'Z\'') + ' AND Start_Date__c < '
                         + selectedDateEndGMT.formatGmt('YYYY-MM-dd\'T\'HH:mm:ss\'Z\''));
             }
         }
         else if(String.isNotBlank(tab) && tab == 'Attending'){
-            whereList.add('Id IN (SELECT lovandos__BR_Event__c FROM lovandos__BR_Participation__c WHERE lovandos__User__c = \'' +
-                    UserInfo.getUserId() +'\' AND lovandos__Participate__c = \'Yes\')');
+            whereList.add('Id IN (SELECT BR_Event__c FROM BR_Participation__c WHERE User__c = \'' +
+                    UserInfo.getUserId() +'\' AND Participate__c = \'Yes\')');
         }
 
         return String.join(whereList, ' AND ');
@@ -105,7 +105,7 @@ public with sharing class BrEventsHelper {
     }
 
     public static String getImageSource() {
-        String imageSource = lovandos.BrEventsHelper.getConfigValue('image source');
+        String imageSource = BrEventsHelper.getConfigValue('image source');
 
         if(String.isNotBlank(imageSource)){
             return imageSource;
@@ -116,10 +116,10 @@ public with sharing class BrEventsHelper {
 
 
     public static String getConfigValue(String name) {
-        List<lovandos__BrEvents_Settings__c> settings = [SELECT lovandos__Value__c FROM lovandos__BrEvents_Settings__c WHERE Name = :name LIMIT 1];
+        List<BrEvents_Settings__c> settings = [SELECT Value__c FROM BrEvents_Settings__c WHERE Name = :name LIMIT 1];
 
         if(settings.size() > 0){
-            return settings[0].lovandos__Value__c;
+            return settings[0].Value__c;
         }
         else {
             return '';
@@ -129,8 +129,8 @@ public with sharing class BrEventsHelper {
     public static Map<Id, Map<Id, String>> getAttachmentsForItems(Set<Id> items_ids, String imageSource){
         Map<Id, Map<Id, String>> itemsAttachments = new Map<Id, Map<Id, String>>();
 
-        if(items_ids.size() == 0 || !lovandos.BrEventsHelper.performAccessCheck('read', 'Attachment', null)
-                || !lovandos.BrEventsHelper.performAccessCheck('read', 'ContentDocumentLink', null))
+        if(items_ids.size() == 0 || !BrEventsHelper.performAccessCheck('read', 'Attachment', null)
+                || !BrEventsHelper.performAccessCheck('read', 'ContentDocumentLink', null))
             return itemsAttachments;
 
         //if image source equals 'files' get Chatter Files otherwise regular Attachments
@@ -161,12 +161,12 @@ public with sharing class BrEventsHelper {
 
     @future
     public static void updateParticipateOnChangeEventDate(Set<Id> eventIds) {
-        List<lovandos__BR_Participation__c> updatedParticipation = new List<lovandos__BR_Participation__c>();
-        List<lovandos__BR_Participation__c> participations = [SELECT Id FROM lovandos__BR_Participation__c
-        WHERE lovandos__BR_Event__c IN :eventIds];
+        List<BR_Participation__c> updatedParticipation = new List<BR_Participation__c>();
+        List<BR_Participation__c> participations = [SELECT Id FROM BR_Participation__c
+        WHERE BR_Event__c IN :eventIds];
 
-        for (lovandos__BR_Participation__c participation : participations) {
-            participation.lovandos__TriggerSendReminderWorkflow__c = false;
+        for (BR_Participation__c participation : participations) {
+            participation.TriggerSendReminderWorkflow__c = false;
             updatedParticipation.add(participation);
         }
 
@@ -174,8 +174,8 @@ public with sharing class BrEventsHelper {
 
         updatedParticipation.clear();
 
-        for (lovandos__BR_Participation__c participation : participations) {
-            participation.lovandos__TriggerSendReminderWorkflow__c = true;
+        for (BR_Participation__c participation : participations) {
+            participation.TriggerSendReminderWorkflow__c = true;
             updatedParticipation.add(participation);
         }
         update updatedParticipation;
