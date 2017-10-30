@@ -1,23 +1,37 @@
 public with sharing class brCategoriesCatalogService {
-    public static List<brCategoriesCatalogModel> getCatalog(String selectId) {
+    public static List<brCategoriesCatalogModel> getCatalog(String selectId, String articleType, String dataCategoryName) {
+    	articleType = 'Knowledge__kav';
+        dataCategoryName = 'All';
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
-        List<Knowledge__kav> dailyUpdatesList = brCategoriesCatalogServiceSelector.getArticles();   
+        List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
+        List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType);   
         List<brArticleModel> articles = new List<brArticleModel>();
-        for(Knowledge__kav k : dailyUpdatesList) {
+        for(sObject k : articlesList) {
             brArticleModel am = new brArticleModel();
-            if(k.Nav_Title__c != null) {
-                am.title = k.Nav_Title__c; 
+            if(k.get('Nav_Title__c') != null) {
+                am.title = String.valueOf(k.get('Nav_Title__c')); 
             } else {
-                am.title = k.Title;
+                am.title = String.valueOf(k.get('Title'));
             }
-            if(selectId == k.KnowledgeArticleId) {
-                am.active = true;
+            //selectId = 'kA07F0000009RAkSAM';
+            if(selectId != null) {
+            	Id selId = null;
+            	try {
+            		selId = Id.valueOf(selectId);
+            	} catch(Exception e) {
+            		selId = null;
+            	}
+				if(selId == Id.valueOf(String.valueOf(k.get('Id')))) {
+	                am.active = true;
+	            } else {
+	            	am.active = false;
+	            }            	
             } else {
-                am.active = false;
+            	am.active = false;
             }
-            if(k.Article_Sections__c != null) {
-            	if(k.Article_Sections__c.length() > 0) {
-	            	List<String> anchors = k.Article_Sections__c.split(';');
+            if(k.get('Article_Sections__c') != null) {
+            	if(String.valueOf(k.get('Article_Sections__c')).length() > 0) {
+	            	List<String> anchors = String.valueOf(k.get('Article_Sections__c')).split(';');
 		            String result = '<ul>';
 		            for(Integer li = 0; li < anchors.size(); li++) {
 		            	result = result + '<li>' + '<a class=\'anchor\' href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
@@ -26,17 +40,18 @@ public with sharing class brCategoriesCatalogService {
 		            am.articleSections = result;            	
             	}           	
             }            
-            am.id = k.KnowledgeArticleId;
+            am.id = String.valueOf(k.get('KnowledgeArticleId'));
             Set<String> cats = new Set<String>();
-            for(Knowledge__DataCategorySelection dc : k.DataCategorySelections) {
-                cats.add(dc.DataCategoryName);
-            }        
+            for(Integer i = 0; i < catsList.size(); i++) {
+            	if(String.valueOf(catsList[i].get('ParentId')) == String.valueOf(k.get('Id'))) {
+            		cats.add(String.valueOf(catsList[i].get('DataCategoryName')));
+            	}
+            }
             am.categories = cats;
             articles.add(am);
         }     
-        
-        Map<String,Map<String,Map<String,List<String>>>> categoryHierarchy = brCategorySevice.getCategoryHierarchy('All');
-        Map<String, String> catNameMap = brCategorySevice.getAllCategoriesMap('All');
+        Map<String,Map<String,Map<String,List<String>>>> categoryHierarchy = brCategorySevice.getCategoryHierarchy(dataCategoryName);
+        Map<String, String> catNameMap = brCategorySevice.getAllCategoriesMap(dataCategoryName);
         for(String key : categoryHierarchy.keySet()) {
             brCategoriesCatalogModel ccm = new brCategoriesCatalogModel();
             ccm.id = key;
@@ -98,7 +113,7 @@ public with sharing class brCategoriesCatalogService {
                     }
                 }
             }
-        }               
-        return catCatalogList ;
+        }              
+        return catCatalogList;
     } 
 }

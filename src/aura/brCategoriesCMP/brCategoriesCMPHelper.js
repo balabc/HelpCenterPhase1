@@ -1,11 +1,15 @@
 ({
     getResponse: function(component) {
         var action = component.get("c.getCatalog"),
-            selectId = component.get('v.selectedArticleId');
+            selectId = component.get('v.selectedArticleId'),
+            articleType = component.get('v.articleType'),
+            dataCategoryName = component.get('v.dataCategoryName');
         if (!!selectId) { 
-            console.log(selectId);
+            console.log(selectId, articleType, dataCategoryName);
             action.setParams({ 
-                selectId : selectId
+                selectId : selectId,
+                articleType: articleType,
+                dataCategoryName: dataCategoryName
             });
         }
                
