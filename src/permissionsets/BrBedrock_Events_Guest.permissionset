@@ -69,7 +69,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DatePickerController</apexClass>
+        <apexClass>BrDatePickerController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

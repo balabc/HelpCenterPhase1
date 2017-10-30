@@ -1,5 +1,5 @@
 @isTest
-public with sharing class EventStartDateCtrlTest {
+public with sharing class BrEventStartDateCtrlTest {
     static testMethod void testGetStartDateFormatted() {
         DateTime startDate = DateTime.now();
         BR_Event__c event = new BR_Event__c(Name = 'testEvent', Start_Date__c = startDate
