@@ -14,18 +14,20 @@ public with sharing class brCategorySeviceSelector {
         }       
         list<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
         for(Schema.DescribeDataCategoryGroupStructureResult r : results) { 
-            for( Schema.DataCategory topcat: r.getTopCategories()) {
-                for(Schema.DataCategory ch1 :topcat.childCategories) {
-                    categoryList.add(new brCategoryModel.CategoryWrapper(ch1.name,ch1.label,topcat.name));
-                    for(Schema.DataCategory ch2 : ch1.childCategories) {
-                        categoryList.add(new brCategoryModel.CategoryWrapper(ch2.name,ch2.label,ch1.name));
-                        for(Schema.DataCategory ch3 : ch2.childCategories) {
-                            categoryList.add(new brCategoryModel.CategoryWrapper(ch3.name,ch3.label,ch2.name));
-                        }
-                    }
-
-                }
-            }
+        	if(r.name == categoryGroup) {
+	            for( Schema.DataCategory topcat: r.getTopCategories()) {
+	                for(Schema.DataCategory ch1 :topcat.childCategories) {
+	                    categoryList.add(new brCategoryModel.CategoryWrapper(ch1.name,ch1.label,topcat.name));
+	                    for(Schema.DataCategory ch2 : ch1.childCategories) {
+	                        categoryList.add(new brCategoryModel.CategoryWrapper(ch2.name,ch2.label,ch1.name));
+	                        for(Schema.DataCategory ch3 : ch2.childCategories) {
+	                            categoryList.add(new brCategoryModel.CategoryWrapper(ch3.name,ch3.label,ch2.name));
+	                        }
+	                    }
+	
+	                }
+	            }
+        	}
         }
         return categoryList;
     }  
@@ -43,12 +45,14 @@ public with sharing class brCategorySeviceSelector {
             pairs.add(thisPair);            
         }       
         list<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
-        for(Schema.DescribeDataCategoryGroupStructureResult r : results) { 
-            for( Schema.DataCategory topcat: r.getTopCategories()) {
-                for(Schema.DataCategory ch1 :topcat.childCategories) {
-                    categoryList.add(new brCategoryModel.CategoryWrapper(ch1.name,ch1.label,topcat.name));
-
-                }
+        for(Schema.DescribeDataCategoryGroupStructureResult r : results) {
+        	if(r.name == categoryGroup) {
+	            for( Schema.DataCategory topcat: r.getTopCategories()) {            	
+	                for(Schema.DataCategory ch1 :topcat.childCategories) {                	                	
+	                    categoryList.add(new brCategoryModel.CategoryWrapper(ch1.name,ch1.label,topcat.name));
+	
+	                }
+	            }
             }
         }
         return categoryList;

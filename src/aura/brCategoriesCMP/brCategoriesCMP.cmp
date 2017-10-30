@@ -1,7 +1,12 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="brCategoriesController">
-   <aura:attribute name="selectedArticleId" type="String"/>
-	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brCategoriesController">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="selectedArticleId" type="String"/>
+    <aura:attribute name="articleType" type="String" default="Knowledge__kav"/>
+    <aura:attribute name="dataCategoryName" type="String" default="All"/>
 	<aura:attribute name="items" type="List" /> 
+    
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
+    
     <div class="menu-left"> 
         <ul class="content-pages" id="menu-articles">
         <aura:iteration items="{!v.items}" var="category">
