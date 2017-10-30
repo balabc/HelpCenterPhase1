@@ -3,7 +3,6 @@
 /Soql
 /Logs
 /AnonymousApex
-/src/staticresources/*
 LghtIdeas.sfproj
 LghtIdeas.sfsln
 LghtIdeas.v12.sfuo
@@ -16,6 +15,9 @@ TestsResultsCache.xml
 _dev/gulpfile.js
 _dev/package.json
 .idea
+.project
+/.settings
+salesforce.schema
 .project
 /.settings
 salesforce.schema
