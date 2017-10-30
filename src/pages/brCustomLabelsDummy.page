@@ -10,7 +10,6 @@
     {!$Label.CategoryLabel}
     {!$Label.DescriptionLabel}
     {!$Label.TitleLabel}
-    {!$Label.LoginRequireMsg}
     {!$Label.Merged}
     {!$Label.MergedTabLabel}
     {!$Label.MoreComments}
