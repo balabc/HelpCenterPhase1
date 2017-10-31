@@ -160,7 +160,7 @@
             if (objData.length > 0) {
                 hasData = true;
             }
-            component.set("v.hasData", (hasData? 'on': 'off')); 
+            component.set("v.hasData", hasData); 
             component.set("v.categories", objData);
         });
 	}

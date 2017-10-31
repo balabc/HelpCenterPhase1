@@ -1,11 +1,11 @@
 ({
     doInit: function(component, event, helper) { },
-    searchKeyUp: function(component, event, helper) {    
+    searchKeyUp: function(component, event, helper) {
         var query = component.get("v.searchText");
-        if (query.length >= 3) {
+        if (query.length >= 3) { 
             helper.getSearchResult(component);
         } else {
-            component.set("v.listData", null);
+            component.set("v.categories", null);
             component.set("v.hasData", 'off');
         }
     },
