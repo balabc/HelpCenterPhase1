@@ -1,7 +1,5 @@
 public with sharing class brCategoriesCatalogService {
     public static List<brCategoriesCatalogModel> getCatalog(String selectId, String articleType, String dataCategoryName) {
-    	articleType = 'Knowledge__kav';
-        dataCategoryName = 'All';
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
         List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
         List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType);   
@@ -13,39 +11,38 @@ public with sharing class brCategoriesCatalogService {
             } else {
                 am.title = String.valueOf(k.get('Title'));
             }
-            //selectId = 'kA07F0000009RAkSAM';
             if(selectId != null) {
-            	Id selId = null;
-            	try {
-            		selId = Id.valueOf(selectId);
-            	} catch(Exception e) {
-            		selId = null;
-            	}
-				if(selId == Id.valueOf(String.valueOf(k.get('Id')))) {
-	                am.active = true;
-	            } else {
-	            	am.active = false;
-	            }            	
+                Id selId = null;
+                try {
+                    selId = Id.valueOf(selectId);
+                } catch(Exception e) {
+                    selId = null;
+                }
+                if(selId == Id.valueOf(String.valueOf(k.get('Id')))) {
+                    am.active = true;
+                } else {
+                    am.active = false;
+                }               
             } else {
-            	am.active = false;
+                am.active = false;
             }
             if(k.get('Article_Sections__c') != null) {
-            	if(String.valueOf(k.get('Article_Sections__c')).length() > 0) {
-	            	List<String> anchors = String.valueOf(k.get('Article_Sections__c')).split(';');
-		            String result = '<ul>';
-		            for(Integer li = 0; li < anchors.size(); li++) {
-		            	result = result + '<li>' + '<a class=\'anchor\' href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
-		            }                				
-		            result = result + '</ul>';
-		            am.articleSections = result;            	
-            	}           	
+                if(String.valueOf(k.get('Article_Sections__c')).length() > 0) {
+                    List<String> anchors = String.valueOf(k.get('Article_Sections__c')).split(';');
+                    String result = '<ul>';
+                    for(Integer li = 0; li < anchors.size(); li++) {
+                        result = result + '<li>' + '<a class=\'anchor\' href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
+                    }                               
+                    result = result + '</ul>';
+                    am.articleSections = result;                
+                }               
             }            
             am.id = String.valueOf(k.get('KnowledgeArticleId'));
             Set<String> cats = new Set<String>();
             for(Integer i = 0; i < catsList.size(); i++) {
-            	if(String.valueOf(catsList[i].get('ParentId')) == String.valueOf(k.get('Id'))) {
-            		cats.add(String.valueOf(catsList[i].get('DataCategoryName')));
-            	}
+                if(String.valueOf(catsList[i].get('ParentId')) == String.valueOf(k.get('Id'))) {
+                    cats.add(String.valueOf(catsList[i].get('DataCategoryName')));
+                }
             }
             am.categories = cats;
             articles.add(am);
