@@ -1,7 +1,5 @@
 public with sharing class brCategoriesCatalogService {
     public static List<brCategoriesCatalogModel> getCatalog(String selectId, String articleType, String dataCategoryName) {
-        articleType = 'Knowledge__kav';
-        dataCategoryName = 'All';
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
         List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
         List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType);   
