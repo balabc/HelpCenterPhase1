@@ -1,0 +1,71 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brTopTrendingCtrl">
+    <aura:attribute name="listPopular" type="List"/>
+    <aura:attribute name="listQuestions" type="List"/>
+    <aura:attribute name="listNews" type="List"/>
+    
+    <aura:attribute name="br_Trending_now" type="String" required="true" default="Trending now"/>
+    <aura:attribute name="br_Most_popular_groups" type="String" required="true" default="Most popular groups"/>
+    <aura:attribute name="br_Recent_questions_answered" type="String" required="true" default="Recent questions answered"/>
+    <aura:attribute name="br_Recent_news_and_updates" type="String" required="true" default="Recent news and updates"/>
+     
+    <aura:attribute name="idsPopular" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="container relative z-2">
+        <h2 class="h2 m-top-0 m-bottom-52r text-center">{!v.br_Trending_now}</h2>
+        <div class="row-flex row--pad row-flex--single-row-equalizer">
+            <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
+                <div class="panel-info">
+                    <div class="panel-info__head bg--info1">
+                        <h4 class="h4 panel-info__title truncated">{!v.br_Most_popular_groups}</h4>
+                    </div>
+                    <div class="panel-info__body p-bottom-0">
+                        <ul class="list-group">
+                            <aura:iteration items="{!v.listPopular}" var="item">
+                                <li class="list-group__item" data-id="{!item.id}" onclick="{!c.navigateToArticle}">{!item.name}</li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                    <div class="panel-info__footer">
+                        <a href="javascript:void(0);" class="link" data-id="00B0O000009JuTYUA0" onclick="{!c.navigateToArticle}">{!$Label.c.br_View_more}</a>
+                    </div>
+                </div>
+            </div><!-- / end of .column-flex -->
+            
+            <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
+                <div class="panel-info">
+                    <div class="panel-info__head bg--info2">
+                        <h4 class="h4 panel-info__title truncated">{!v.br_Recent_questions_answered}</h4>
+                    </div>
+                    <div class="panel-info__body p-bottom-0">
+                        <aura:iteration items="{!v.listQuestions}" var="question">
+                            <li class="list-group__item" data-id="{!question.id}" onclick="{!c.navigateToArticle}">{!question.name}</li>
+                        </aura:iteration>
+                    </div>
+                    <div class="panel-info__footer">
+                        <a href="#" class="link">{!$Label.c.br_View_more}</a>
+                    </div>
+                </div>
+            </div><!-- / end of .column-flex -->
+            
+            <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
+                <div class="panel-info">
+                    <div class="panel-info__head bg--info3">
+                        <h4 class="h4 panel-info__title truncated">{!v.br_Recent_news_and_updates}</h4>
+                    </div>
+                    <div class="panel-info__body p-bottom-0">
+                        <ul class="list-group">
+                            <aura:iteration items="{!v.listNews}" var="news">
+                                <li class="list-group__item" data-id="{!news.item.Id}" onclick="{!c.navigateToArticle}">{!news.item.Name}</li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                    <div class="panel-info__footer">
+                        <a href="#" class="link">{!$Label.c.br_View_more}</a>
+                    </div>
+                </div>
+            </div><!-- / end of .column-flex -->
+        </div><!-- / end of .row-flex -->
+    </div><!-- / end of .container -->
+</aura:component>
