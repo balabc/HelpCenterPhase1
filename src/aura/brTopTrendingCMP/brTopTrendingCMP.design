@@ -1,7 +1,3 @@
 <design:component >
 	<design:attribute name="idsPopular" label="Ids"/>
-    <design:attribute name="br_Trending_now" label="Trending now"/>
-    <design:attribute name="br_Most_popular_groups" label="Most popular groups"/>
-    <design:attribute name="br_Recent_questions_answered" label="Recent questions answered"/>
-    <design:attribute name="br_Recent_news_and_updates" label="Recent news and updates"/>
 </design:component>
