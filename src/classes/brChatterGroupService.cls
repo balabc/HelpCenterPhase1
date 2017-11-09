@@ -11,7 +11,7 @@ public with sharing class brChatterGroupService {
 				groupIds.add(ids);
 			}
 		}
-		List<SObject> listGroups = brChatterGroupServiceSelector.getChatterGroup(groupIds);
+		List<SObject> listGroups = brChatterGroupServiceSelector.getChatterGroup(groupIds, 4);
 		List<brChatterGroupModel> chatterGroupModels = new List<brChatterGroupModel>();
 		for(SObject gr : listGroups) {
 			brChatterGroupModel cls = new brChatterGroupModel();
