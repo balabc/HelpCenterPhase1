@@ -1,5 +1,9 @@
 public with sharing class brTopTrendingCtrl {
     @AuraEnabled
+    public static Id getChatterGroupListId() {
+    	return brChatterGroupService.getListId();
+    }	
+    @AuraEnabled
     public static List<brChatterGroupModel> getChatterGroupByStringId(String ids) {
     	return brChatterGroupService.getChatterGroupByStringId(ids);
     }

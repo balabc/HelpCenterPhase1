@@ -5,6 +5,9 @@
         helper.getData(component, 'v.listPopular', 'c.getChatterGroupByStringId', data);
         helper.getData(component, 'v.listQuestions', 'c.getQuestions', false);
         helper.getData(component, 'v.listNews', 'c.getBlogArticles', false);
+        
+        //00B0O000009JuTYUA0
+        helper.getData(component, 'v.idListGroup', 'c.getChatterGroupListId', false);
 	},
     navigateToArticle : function (component, event, helper) {
         console.log(event);

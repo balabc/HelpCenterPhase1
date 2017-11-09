@@ -38,6 +38,8 @@ private class brTopTrendingCtrlTest {
     	
     	
     	Test.startTest();
+    		String groupListView = brTopTrendingCtrl.getChatterGroupListId();
+    		System.assertEquals(true,groupListView.length() > 0);
     		System.assertEquals(1,brTopTrendingCtrl.getChatterGroupByStringId(cg.id).size());
     		System.assertEquals(2,brTopTrendingCtrl.getChatterGroupByStringId(cg.id + ',' + cg2.id).size());
     		System.assertEquals(1,brTopTrendingCtrl.getQuestions().size());

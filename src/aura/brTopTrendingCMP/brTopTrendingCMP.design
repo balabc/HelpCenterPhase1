@@ -1,3 +1,5 @@
 <design:component >
-	<design:attribute name="idsPopular" label="Ids"/>
+	<design:attribute name="idsPopular" label="Groups"/>
+    
+	<design:attribute name="br_Trending_now" label="Title"/>
 </design:component>

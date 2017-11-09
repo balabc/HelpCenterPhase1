@@ -4,11 +4,13 @@
     <aura:attribute name="listNews" type="List"/>
      
     <aura:attribute name="idsPopular" type="String"/>
+    <aura:attribute name="br_Trending_now" type="String"/>
+    <aura:attribute name="idListGroup" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
     <div class="container relative z-2">
-        <h2 class="h2 m-top-0 m-bottom-52r text-center">{!$Label.c.br_Trending_now}</h2>
+        <h2 class="h2 m-top-0 m-bottom-52r text-center">{!v.br_Trending_now}</h2>
         <div class="row-flex row--pad row-flex--single-row-equalizer">
             <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
                 <div class="panel-info">
@@ -23,7 +25,7 @@
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="javascript:void(0);" class="link" data-id="00B0O000009JuTYUA0" onclick="{!c.navigateToListGroup}">{!$Label.c.br_View_more}</a>
+                        <a href="javascript:void(0);" class="link" data-id="{!v.idListGroup}" onclick="{!c.navigateToListGroup}">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->
@@ -39,7 +41,7 @@
                         </aura:iteration>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="#" class="link">{!$Label.c.br_View_more}</a>
+                        <a href="javascript:void(0);" class="link">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->

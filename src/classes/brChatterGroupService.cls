@@ -21,4 +21,7 @@ public with sharing class brChatterGroupService {
 		}
 		return chatterGroupModels;
 	}
+	public static Id getListId() {
+		return brChatterGroupServiceSelector.getListId();
+	}
 }
