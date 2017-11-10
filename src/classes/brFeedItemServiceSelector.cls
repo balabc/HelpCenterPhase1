@@ -7,8 +7,8 @@ public with sharing class brFeedItemServiceSelector {
     	List<SObject> topicAssignments = [SELECT  Id, NetworkId, TopicId, Topic.Name, EntityId,  EntityKeyPrefix FROM TopicAssignment WHERE TopicId IN :ids];
     	return topicAssignments;
     }    
-    public static List<SObject> getQuestion(Set<Id> ids) {
-    	List<SObject> questions = [SELECT id, Title FROM FeedItem where id IN :ids ORDER BY CreatedDate ASC limit 4];
+    public static List<SObject> getQuestion(Set<Id> ids, Integer limitSql) {
+    	List<SObject> questions = [SELECT id, Title FROM FeedItem where id IN :ids ORDER BY CreatedDate DESC limit :limitSql];
     	return questions;
     }     
 }

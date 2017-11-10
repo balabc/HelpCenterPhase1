@@ -11,7 +11,7 @@ public with sharing class brFeedItemService {
 		for(SObject top : topicAssignments) {
 			topicAssignmentIds.add(Id.valueOf(String.valueOf(top.get('EntityId'))));
 		}	
-		List<SObject> topicQuestions = brFeedItemServiceSelector.getQuestion(topicAssignmentIds);
+		List<SObject> topicQuestions = brFeedItemServiceSelector.getQuestion(topicAssignmentIds,4);
 		for(SObject question : topicQuestions) {
 			brFeedItemModel cls = new brFeedItemModel();
 			cls.id = String.valueOf(question.get('Id'));
