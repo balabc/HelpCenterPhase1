@@ -9,7 +9,17 @@ private class brTopTrendingCtrlTest {
     	CollaborationGroup cg2 = new CollaborationGroup();
     	cg2.Name = 'Test2';
     	cg2.CollaborationType = 'Public';
-    	insert cg2;	     	       
+    	insert cg2;	 
+    	
+    	CollaborationGroup cg3 = new CollaborationGroup();
+    	cg3.Name = 'Test3';
+    	cg3.CollaborationType = 'Public';
+    	insert cg3;	 
+    	
+    	CollaborationGroup cg4 = new CollaborationGroup();
+    	cg4.Name = 'Test4';
+    	cg4.CollaborationType = 'Public';
+    	insert cg4;    	   	    	       
     	
     	Topic top = new Topic();
     	top.Name = 'Test';
@@ -42,6 +52,8 @@ private class brTopTrendingCtrlTest {
     		System.assertEquals(true,groupListView.length() > 0);
     		System.assertEquals(1,brTopTrendingCtrl.getChatterGroupByStringId(cg.id).size());
     		System.assertEquals(2,brTopTrendingCtrl.getChatterGroupByStringId(cg.id + ',' + cg2.id).size());
+    		System.assertEquals(3,brTopTrendingCtrl.getChatterGroupByStringId(cg.id + ',' + cg2.id + ',' + cg3.id).size());
+    		System.assertEquals(4,brTopTrendingCtrl.getChatterGroupByStringId(cg.id + ',' + cg2.id + ',' + cg3.id + ',' + cg4.id).size());
     		System.assertEquals(1,brTopTrendingCtrl.getQuestions().size());
     		System.assertEquals(1,brTopTrendingCtrl.getBlogArticles().size());
     	Test.stopTest();

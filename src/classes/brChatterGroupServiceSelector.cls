@@ -28,7 +28,7 @@ public with sharing class brChatterGroupServiceSelector {
     		groupList.add(groupS3);      		
     		SObject groupS4 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[3]]; 
     		groupList.add(groupS4);
-    	}    	    	    	 	
+    	}    	    	   	 	
     	return groupList;
     }
     public static Id getListId() {
