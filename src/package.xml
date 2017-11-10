@@ -12,5 +12,10 @@
         <members>Learning__kav-Learning Layout</members>
         <name>Layout</name>
     </types>
+    <types>
+        <members>BigcommerceCommunity</members>
+        <members>BigcommerceCommunity.resource-meta.xml</members>
+        <name>StaticResource</name>
+    </types>
     <version>41.0</version>
 </Package>
