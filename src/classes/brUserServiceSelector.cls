@@ -5,7 +5,7 @@ public with sharing class brUserServiceSelector {
     								 FROM NetworkMember 
     								 WHERE 
     								 	NetworkId = '0DB0O000000TO4KWAW'  
-    								 ORDER BY ReputationPoints DESC];
+    								 ORDER BY ReputationPoints DESC limit 6];
     	return userMembers;
     }
     
