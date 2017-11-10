@@ -1,8 +1,11 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brLeaderboardCtrl">
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    
     <aura:attribute name="configTitleLeaderboard" type="String" default="Community contributors"/>
     <aura:attribute name="userLeaderboard" type="List" />
+    
+    <ltng:require scripts="{!$Resource.brJsSlider + '/swiper.min.js'}" 
+                  afterScriptsLoaded="{!c.jsLoaded}" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
     <div class="area-bg area-bg-second">
         <div class="skew-lg--top bg-x3lightgrey z-1"></div>
@@ -13,24 +16,76 @@
             <div class="carousel">
                 <div class="carousel__track">
                     <div class="row row--pad">
-                        <aura:iteration items="{!v.userLeaderboard}" var="user">
-                            <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
-                                <div class="panel-person">
-                                    <div class="panel-person__head">
-                                        <div class="panel-person__icon">
-                                            <img src="{!user.photoUrl}" alt="{!user.name}" />
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <aura:iteration items="{!v.userLeaderboard}" var="user">
+                                    <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                        <div class="panel-person">
+                                            <div class="panel-person__head">
+                                                <div class="panel-person__icon">
+                                                    <img src="{!user.photoUrl}" alt="{!user.name}" />
+                                                </div>
+                                            </div>
+                                            <div class="panel-person__body">
+                                                <h4 class="h4 panel-person__title truncated">{!user.name}</h4>
+                                                <p class="panel-person__text type--xsm truncated">{!user.score}</p>
+                                            </div>
+                                            <div class="panel-person__footer">
+                                                <a href="javascript:void(0);" class="panel-person__link truncated">{!user.reputationLevel}</a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="panel-person__body">
-                                        <h4 class="h4 panel-person__title truncated">{!user.name}</h4>
-                                        <p class="panel-person__text type--xsm truncated">{!user.score}</p>
+                                </aura:iteration>
+                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                    <div class="panel-person">
+                                        <div class="panel-person__head">
+                                            <div class="panel-person__icon">
+                                                <img src="/sfsites/c/profilephoto/7290O000000YjBz/F" alt="test" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-person__body">
+                                            <h4 class="h4 panel-person__title truncated">test</h4>
+                                            <p class="panel-person__text type--xsm truncated">1</p>
+                                        </div>
+                                        <div class="panel-person__footer">
+                                            <a href="javascript:void(0);" class="panel-person__link truncated">test</a>
+                                        </div>
                                     </div>
-                                    <div class="panel-person__footer">
-                                        <a href="javascript:void(0);" class="panel-person__link truncated">{!user.reputationLevel}</a>
+                                </div>
+                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                    <div class="panel-person">
+                                        <div class="panel-person__head">
+                                            <div class="panel-person__icon">
+                                                <img src="/sfsites/c/profilephoto/7290O000000YjBz/F" alt="test" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-person__body">
+                                            <h4 class="h4 panel-person__title truncated">test</h4>
+                                            <p class="panel-person__text type--xsm truncated">1</p>
+                                        </div>
+                                        <div class="panel-person__footer">
+                                            <a href="javascript:void(0);" class="panel-person__link truncated">test</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                    <div class="panel-person">
+                                        <div class="panel-person__head">
+                                            <div class="panel-person__icon">
+                                                <img src="/sfsites/c/profilephoto/7290O000000YjBz/F" alt="test" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-person__body">
+                                            <h4 class="h4 panel-person__title truncated">test</h4>
+                                            <p class="panel-person__text type--xsm truncated">1</p>
+                                        </div>
+                                        <div class="panel-person__footer">
+                                            <a href="javascript:void(0);" class="panel-person__link truncated">test</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </aura:iteration>
+                        </div>
                     </div><!-- / end of .row -->
                 </div><!-- / end of .carousel__track -->
             </div><!-- / end of .carousel -->

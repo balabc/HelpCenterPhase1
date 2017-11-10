@@ -4,6 +4,5 @@ public with sharing class brLeaderboardCtrl{
 		
 		return brUserService.getUserLeaderboard();
 		
-	} 
-	
+	} 	
 }

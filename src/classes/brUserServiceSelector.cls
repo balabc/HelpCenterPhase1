@@ -4,7 +4,7 @@ public with sharing class brUserServiceSelector {
     	List<NetworkMember> userMembers = [SELECT MemberId, Member.Name , ReputationPoints 
     								 FROM NetworkMember 
     								 WHERE 
-    								 	NetworkId = '0DB0O000000TO4KWAW'  
+    								 	NetworkId = :Network.getNetworkId()  
     								 ORDER BY ReputationPoints DESC limit 6];
     	return userMembers;
     }
@@ -21,7 +21,7 @@ public with sharing class brUserServiceSelector {
     	List<ReputationLevel> reputationLevels = [SELECT id, Label,LevelNumber,Threshold, ParentId 
     									  FROM ReputationLevel 
     									  WHERE 
-    									  	ParentId = '0DB0O000000TO4KWAW'
+    									  	ParentId = :Network.getNetworkId() 
     									  ORDER BY Threshold ASC];
     	return reputationLevels;
     }     

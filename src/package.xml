@@ -12,5 +12,9 @@
         <members>brLeaderboardComponent</members>
         <name>AuraDefinitionBundle</name>
     </types>
+    <types>
+        <members>brJsSlider</members>
+        <name>StaticResource</name>
+    </types>
     <version>38.0</version>
 </Package>
