@@ -1,10 +1,10 @@
 public with sharing class brUserServiceSelector {	
 	
-    public static List<SObject> getUserMembers() {
+    public static List<SObject> getUserMembers(Id communityId) {
     	List<NetworkMember> userMembers = [SELECT MemberId, Member.Name , ReputationPoints 
     								 FROM NetworkMember 
     								 WHERE 
-    								 	NetworkId = :Network.getNetworkId()  
+    								 	NetworkId = :communityId  
     								 ORDER BY ReputationPoints DESC limit 6];
     	return userMembers;
     }
@@ -17,11 +17,11 @@ public with sharing class brUserServiceSelector {
     	return userMembers;
     }   
     
-    public static List<ReputationLevel> getUserReputationLevels() {
+    public static List<ReputationLevel> getUserReputationLevels(Id communityId) {
     	List<ReputationLevel> reputationLevels = [SELECT id, Label,LevelNumber,Threshold, ParentId 
     									  FROM ReputationLevel 
     									  WHERE 
-    									  	ParentId = :Network.getNetworkId() 
+    									  	ParentId = :communityId
     									  ORDER BY Threshold ASC];
     	return reputationLevels;
     }     

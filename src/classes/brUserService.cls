@@ -1,9 +1,9 @@
 public with sharing class brUserService {
 	
-    public static List<brLeaderboardModel> getUserLeaderboard() {
+    public static List<brLeaderboardModel> getUserLeaderboard(Id communityId) {
     	
     	List<brLeaderboardModel> leaderboardModels = new List<brLeaderboardModel>();
-    	List<NetworkMember> userMembers = brUserServiceSelector.getUserMembers();
+    	List<NetworkMember> userMembers = brUserServiceSelector.getUserMembers(communityId);
     	Set<Id> memberIds = new Set<Id>();
     	
     	for (NetworkMember userMember : userMembers) {
@@ -11,7 +11,7 @@ public with sharing class brUserService {
     	}
     	
     	List<User> userMembersPhotoUrl = brUserServiceSelector.getUserMemberPhotoUrl(memberIds);
-    	List<ReputationLevel> userReputationLevels = brUserServiceSelector.getUserReputationLevels();
+    	List<ReputationLevel> userReputationLevels = brUserServiceSelector.getUserReputationLevels(communityId);
     	
     	for (NetworkMember userMember : userMembers) {
     		brLeaderboardModel lbm = new brLeaderboardModel();
