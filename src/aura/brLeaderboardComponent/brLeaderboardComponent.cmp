@@ -3,9 +3,11 @@
     <aura:attribute name="userLeaderboard" type="List" />
     
     <ltng:require scripts="{!$Resource.brJsSlider + '/swiper.min.js'}" 
+                  styles="{!$Resource.brJsSlider + '/swiper.min.css'}"
                   afterScriptsLoaded="{!c.jsLoaded}" />
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.userLeaderboard}" action="{!c.userLeaderboardChange}"/>
     
     <div class="area-bg area-bg-second">
         <div class="skew-lg--top bg-x3lightgrey z-1"></div>
@@ -18,25 +20,7 @@
                     <div class="row row--pad">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                                <aura:iteration items="{!v.userLeaderboard}" var="user">
-                                    <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
-                                        <div class="panel-person">
-                                            <div class="panel-person__head">
-                                                <div class="panel-person__icon">
-                                                    <img src="{!user.photoUrl}" alt="{!user.name}" />
-                                                </div>
-                                            </div>
-                                            <div class="panel-person__body">
-                                                <h4 class="h4 panel-person__title truncated">{!user.name}</h4>
-                                                <p class="panel-person__text type--xsm truncated">{!user.score}</p>
-                                            </div>
-                                            <div class="panel-person__footer">
-                                                <a href="javascript:void(0);" class="panel-person__link truncated">{!user.reputationLevel}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </aura:iteration>
-                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
                                     <div class="panel-person">
                                         <div class="panel-person__head">
                                             <div class="panel-person__icon">
@@ -52,7 +36,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
                                     <div class="panel-person">
                                         <div class="panel-person__head">
                                             <div class="panel-person__icon">
@@ -68,7 +52,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item swiper-slide">
+                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
                                     <div class="panel-person">
                                         <div class="panel-person__head">
                                             <div class="panel-person__icon">
