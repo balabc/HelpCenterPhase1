@@ -1,0 +1,13 @@
+<aura:component description="brHeaderMobile">
+    <div class="header-mobile header-mobile--make-sticky">
+        <div class="header-mobile__container clr">
+            <div class="header-mobile__left">
+                <a href="/" class="header-mobile__logo-icon header-mobile__logo"></a>
+            </div><!-- / end of .header-mobile__left -->
+            <div class="header-mobile__right">
+                <span class="header-mobile__search-icon header-mobile__search-button"></span>
+                <span class="header-mobile__menu-icon header-mobile__menu-button"></span>
+            </div><!-- / end of .header-mobile__right -->
+        </div><!-- / end of .container -->
+    </div><!-- enf of / .header-mobile -->
+</aura:component>
