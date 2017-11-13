@@ -1,2 +1,19 @@
-.THIS {
+@media only screen and (max-width: 992px) {
+    .THIS .carousel__track {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .THIS .carousel__item {
+        width: 100%;
+    }
+}
+.THIS .carousel__item {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.THIS .carousel__item[data-active="true"] .panel-person__head,
+.THIS .carousel__item[data-active="true"] .panel-person__body {
+    background: #edf1ff;
 }

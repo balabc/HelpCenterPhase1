@@ -21,54 +21,6 @@
                     <div class="row row--pad">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
-                                    <div class="panel-person">
-                                        <div class="panel-person__head">
-                                            <div class="panel-person__icon">
-                                                <img src="/sfsites/c/profilephoto/7290O000000YjBz/F" alt="test" />
-                                            </div>
-                                        </div>
-                                        <div class="panel-person__body">
-                                            <h4 class="h4 panel-person__title truncated">test</h4>
-                                            <p class="panel-person__text type--xsm truncated">1</p>
-                                        </div>
-                                        <div class="panel-person__footer">
-                                            <a href="javascript:void(0);" class="panel-person__link truncated">test</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
-                                    <div class="panel-person">
-                                        <div class="panel-person__head">
-                                            <div class="panel-person__icon">
-                                                <img src="/sfsites/c/profilephoto/7290O000000YjBz/F" alt="test" />
-                                            </div>
-                                        </div>
-                                        <div class="panel-person__body">
-                                            <h4 class="h4 panel-person__title truncated">test</h4>
-                                            <p class="panel-person__text type--xsm truncated">1</p>
-                                        </div>
-                                        <div class="panel-person__footer">
-                                            <a href="javascript:void(0);" class="panel-person__link truncated">test</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column-lg-2 column--pad m-bottom-25 carousel__item">
-                                    <div class="panel-person">
-                                        <div class="panel-person__head">
-                                            <div class="panel-person__icon">
-                                                <img src="/sfsites/c/profilephoto/7290O000000YjBz/F" alt="test" />
-                                            </div>
-                                        </div>
-                                        <div class="panel-person__body">
-                                            <h4 class="h4 panel-person__title truncated">test</h4>
-                                            <p class="panel-person__text type--xsm truncated">1</p>
-                                        </div>
-                                        <div class="panel-person__footer">
-                                            <a href="javascript:void(0);" class="panel-person__link truncated">test</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div><!-- / end of .row -->
