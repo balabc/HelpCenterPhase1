@@ -2,39 +2,34 @@
 	doInit: function(component, event, helper) {
         
 	},
+    
     jsLoaded: function(component, event, helper) {
-        window.mySwiper = new Swiper ('.swiper-container', {
-            slidesPerView: 4,
-      		spaceBetween: 0,
-            slideClass: 'carousel__item',
-            grabCursor: true,
-            init: false
-        });
-        helper.getData(component, 'v.userLeaderboard', 'c.getUserLeaderboard', false);
+        helper.initSlider();
+        helper.getLeaderboardCommunity(component);
         
-        window.mySwiper.on('resize', function() {
+        window.addEventListener('resize', function() {
             if (!!window.mySwiper) {
+                var slidesPerView = 6;
+                
+                console.log(window.mySwiper);
                 if (window.innerWidth > 992) {
-                    window.mySwiper.params.slidesPerView = 6;
-                    window.mySwiper.destroy(false, true);
-                    window.mySwiper.init();
+                    slidesPerView = 6;
                 } else if (window.innerWidth <= 992) {
-                    window.mySwiper.params.slidesPerView = 4;
-                    window.mySwiper.destroy(false, true);
-                    window.mySwiper.init();
+                    slidesPerView = 4;
                 } else if (window.innerWidth < 810) {
-                    window.mySwiper.params.slidesPerView = 3;
-                    window.mySwiper.destroy(false, true);
-                    window.mySwiper.init();
+                    slidesPerView = 3;
                 } else if (window.innerWidth < 610) {
-                    window.mySwiper.params.slidesPerView = 2;
+                    slidesPerView = 2;
+                } else if (window.innerWidth < 410) {
+                    slidesPerView = 1;
+                }
+                if (window.mySwiper.params.slidesPerView !== slidesPerView) {
+                    window.mySwiper.params.slidesPerView = slidesPerView;
                     window.mySwiper.destroy(false, true);
                     window.mySwiper.init();
                 }
-                
             }
         });
-        window.mySwiper.init();
         //window.mySwiper.current = window.innerWidth;
     },
     userLeaderboardChange: function(component, event, helper) {
@@ -42,7 +37,7 @@
         window.mySwiper.removeAllSlides();
         data.forEach(function(element){
             window.mySwiper.appendSlide('<div class="column-lg-2 column--pad m-bottom-25 carousel__item">' +
-                '<div class="panel-person">' +
+                '<div class="panel-person">' + 
                     '<div class="panel-person__head">' +
                         '<div class="panel-person__icon">' +
                         '<img src="' + element.photoUrl + '" alt="' + element.name + '" />' +
@@ -58,57 +53,7 @@
                 '</div>' +
             '</div>');
         });
-        
-        window.mySwiper.appendSlide('<div class="column-lg-2 column--pad m-bottom-25 carousel__item">' +
-                '<div class="panel-person">' +
-                    '<div class="panel-person__head">' +
-                        '<div class="panel-person__icon">' +
-                        '<img src="/support/profilephoto/7290O000000YjBz/F" alt="test" />' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="panel-person__body">' +
-                        '<h4 class="h4 panel-person__title truncated">test</h4>' +
-                        '<p class="panel-person__text type--xsm truncated">test</p>' +
-                        '</div>' +
-                        '<div class="panel-person__footer">' +
-                        '<a href="javascript:void(0);" class="panel-person__link truncated">test</a>' +
-                    '</div>' +
-                '</div>' +
-            '</div>');
-        
-        window.mySwiper.appendSlide('<div class="column-lg-2 column--pad m-bottom-25 carousel__item">' +
-                '<div class="panel-person">' +
-                    '<div class="panel-person__head">' +
-                        '<div class="panel-person__icon">' +
-                        '<img src="/support/profilephoto/7290O000000YjBz/F" alt="test" />' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="panel-person__body">' +
-                        '<h4 class="h4 panel-person__title truncated">test</h4>' +
-                        '<p class="panel-person__text type--xsm truncated">test</p>' +
-                        '</div>' +
-                        '<div class="panel-person__footer">' +
-                        '<a href="javascript:void(0);" class="panel-person__link truncated">test</a>' +
-                    '</div>' +
-                '</div>' +
-            '</div>');
-        
-        window.mySwiper.appendSlide('<div class="column-lg-2 column--pad m-bottom-25 carousel__item">' +
-                '<div class="panel-person">' +
-                    '<div class="panel-person__head">' +
-                        '<div class="panel-person__icon">' +
-                        '<img src="/support/profilephoto/7290O000000YjBz/F" alt="test" />' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="panel-person__body">' +
-                        '<h4 class="h4 panel-person__title truncated">test</h4>' +
-                        '<p class="panel-person__text type--xsm truncated">test</p>' +
-                        '</div>' +
-                        '<div class="panel-person__footer">' +
-                        '<a href="javascript:void(0);" class="panel-person__link truncated">test</a>' +
-                    '</div>' +
-                '</div>' +
-            '</div>');
-        mySwiper.updateSlides();
+        window.mySwiper.destroy(false, true);
+        window.mySwiper.init();
     }
 })

@@ -1,5 +1,6 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brLeaderboardCtrl">
     <aura:attribute name="configTitleLeaderboard" type="String" default="Community contributors"/>
+    <aura:attribute name="idCommunity" type="String" />
     <aura:attribute name="userLeaderboard" type="List" />
     
     <ltng:require scripts="{!$Resource.brJsSlider + '/swiper.min.js'}" 
