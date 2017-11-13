@@ -1,0 +1,149 @@
+<aura:component  implements="forceCommunity:layout" access="global" description="Community homepage content layout">
+    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
+
+    <div class="jumbotron">
+        <div class="jumbotron__content">
+            <h1 class="h1 jumbotron__title">Welcome! How can we help?</h1>
+            <div class="jumbotron__row">
+                <div class="jumbotron__col">
+                    <p class="jumbotron__subtitle">8634</p>
+                    <p class="jumbotron__text">Members</p>
+                </div>
+                <div class="jumbotron__col">
+                    <p class="jumbotron__subtitle">806</p>
+                    <p class="jumbotron__text">Ideas</p>
+                </div>
+                <div class="jumbotron__col">
+                    <p class="jumbotron__subtitle">9587</p>
+                    <p class="jumbotron__text">Solutions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lift-content">
+        <div class="skew--top bg--white"></div>
+        <div class="lift-content__inner">
+            <div class="container">
+                <div class="row row--pad">
+                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                        <div class="panel-media">
+                            <div class="panel-media__wrap-icon">
+                                <div class="panel-media__icon">
+                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                </div>
+                            </div>
+                            <div class="panel-media__wrap-content">
+                                <h4 class="h4 panel-media__title">Articles</h4>
+                                <p class="panel-media__text type--sm">Learn how to build, launch and grow your business with our in-depth articles and learning guides.</p>
+                            </div>
+                        </div>
+                    </div><!-- / end of .column -->
+                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                        <div class="panel-media">
+                            <div class="panel-media__wrap-icon">
+                                <div class="panel-media__icon">
+                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                </div>
+                            </div>
+                            <div class="panel-media__wrap-content">
+                                <h4 class="h4 panel-media__title">Community QA</h4>
+                                <p class="panel-media__text type--sm">Ask questions, find answers and make connections in our community of business owners and experts.</p>
+                            </div>
+                        </div>
+                    </div><!-- / end of .column -->
+                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                        <div class="panel-media">
+                            <div class="panel-media__wrap-icon">
+                                <div class="panel-media__icon">
+                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                </div>
+                            </div>
+                            <div class="panel-media__wrap-content">
+                                <h4 class="h4 panel-media__title">News and updates</h4>
+                                <p class="panel-media__text type--sm">Stay informed with company updates, product release information and other announcements.</p>
+                            </div>
+                        </div>
+                    </div><!-- / end of .column -->
+                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                        <div class="panel-media">
+                            <div class="panel-media__wrap-icon">
+                                <div class="panel-media__icon">
+                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                </div>
+                            </div>
+                            <div class="panel-media__wrap-content">
+                                <h4 class="h4 panel-media__title">Ideas</h4>
+                                <p class="panel-media__text type--sm">Post, vote and comment on ideas for product enhancements, new features, or improving support.</p>
+                            </div>
+                        </div>
+                    </div><!-- / end of .column -->
+                </div><!-- / end of .row -->
+            </div><!-- / end of .container -->
+        </div><!-- / end of .lift-content__inner -->
+    </div><!-- / end of .lift-content -->
+
+    <div>{!v.content}</div>
+
+    <div class="area-bg">
+        <div class="skew-lg--top bg-x3lightgrey z-1"></div>
+        <div class="skew-lg--bottom bg-x3lightgrey z-1"></div>
+
+        <div class="container relative z-2">
+            <h2 class="h2 m-top-0 m-bottom-40r text-center">Featured articles</h2>
+
+            <div class="row row--pad">
+                <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
+                    <ul class="list-group list-group--media-md">
+                        <li class="list-group__item">How to import products</li>
+                        <li class="list-group__item">How to add options to products</li>
+                        <li class="list-group__item">How to point my domain to BigCommerce</li>
+                    </ul>
+                </div><!-- / end of .column -->
+                <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
+                    <ul class="list-group list-group--media-md">
+                        <li class="list-group__item">How to set up third-party email hosting</li>
+                        <li class="list-group__item">How to install a third-party SSL</li>
+                        <li class="list-group__item">How to back up my store's data</li>
+                    </ul>
+                </div><!-- / end of .column -->
+                <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
+                    <ul class="list-group list-group--media-md">
+                        <li class="list-group__item">How to sell on Google Shopping</li>
+                        <li class="list-group__item">How to sell products on eBay through BigCommerce</li>
+                    </ul>
+                </div><!-- / end of .column -->
+            </div><!-- / end of .row -->
+        </div><!-- / end of .container -->
+    </div><!-- / end pf .area-bg -->
+
+    <div class="area-video">
+        <div class="container clr relative z-2">
+            <div class="area-video__left">
+                <h2 class="h2">Get started with our in-depth video series</h2>
+                <p class="type--sm">In this video you will take a quick tour of the <br/> BigCommerce control panel, and learn all the <br/> important areas of your dashboard.</p>
+                <a href="#">Watch more videos</a>
+            </div>
+            <div class="area-video__right">
+                <div class="panel-video">
+                    <iframe width="650" height="366" src="https://www.youtube.com/embed/O_6-2Ryh5WY" frameborder="0"/>
+                </div>
+            </div>
+        </div>
+    </div><!-- / end of .area-video -->
+
+    <div class="pre-footer">
+        <div class="pre-footer__wrap-img">
+            <img src="{!$Resource.BigcommerceCommunity + '/images/pre-footer-img.svg'}" alt="" />
+        </div>
+        <div class="pre-footer__wrap-caption">
+            <div class="pre-footer__caption">
+                <h2 class="h2 pre-footer__title">Lorem ipsum dolor sit amet consectetur</h2>
+                <p class="pre-footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
+                <a href="#" class="button button--default button--sm">Lorem ipsum</a>
+
+            </div>
+        </div>
+    </div><!-- / end of .pre-footer -->
+
+</aura:component>
