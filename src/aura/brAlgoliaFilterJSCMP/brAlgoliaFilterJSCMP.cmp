@@ -1,0 +1,104 @@
+<aura:component >
+    <aura:attribute name="brFilter" type="Map" /> 
+    <aura:attribute name="currentFilter" type="String" default="all" />
+    <aura:attribute name="classFilterActive" type="String" default="filter__section--active" />    
+    
+    <aura:registerEvent name="eventFromBrAlgoliaFilter" type="c:brAlgoliaFilterEvent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.brFilter}" action="{!c.onChangeFilter}"/>
+    <aura:handler name="change" value="{!v.currentFilter}" action="{!c.onChangeFilter}"/>
+
+	<ul class="filter">
+        <li class="{!'filter__section' + ((v.currentFilter == 'all')? v.classFilterActive: '')}" data-active="true" data-type="all">
+            <div class="filter__section-head">
+            	<h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">All</h4>
+            </div>    
+        </li>
+        <li class="{!'filter__section' + ((v.currentFilter == 'kb')? v.classFilterActive: '')}" data-type="kb">
+            <div class="filter__section-head">
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">Knowledge Base</h4>
+                <div class="filter__section-nav-arrow nav-arrow">
+                    <div class="nav-arrow__handler">
+                        <span class="nav-arrow__icon"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="filter__section-body">
+                <h5 class="filter__sub-title">Article Type</h5>
+                <div class="filter__item">
+                    <div class="line-checkbox">
+                        <ui:inputCheckbox label="User Docs" aura:id="kb_article_type_user_docs" value="{!v.brFilter.kb.article_type.user_docs}" />
+                    </div>
+                    <div class="line-checkbox">
+                        <ui:inputCheckbox label="Videos" aura:id="kb_article_type_videos" value="{!v.brFilter.kb.article_type.videos}" />
+                    </div>
+                    <div class="line-checkbox">
+                        <ui:inputCheckbox label="Guides" aura:id="kb_article_type_guides" value="{!v.brFilter.kb.article_type.guides}" />
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="{!'filter__section' + ((v.currentFilter == 'cm')? v.classFilterActive: '')}" data-type="cm">
+            <div class="filter__section-head">
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">Community</h4>
+                <div class="filter__section-nav-arrow nav-arrow">
+                    <div class="nav-arrow__handler">
+                        <span class="nav-arrow__icon"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter_block">
+                <div class="block_title">Posted In</div>
+                <div class="block_values">
+                    <div class="block_value">
+                        <ui:inputRadio label="All" name="cm_posted" aura:id="cm_posted_in_all" change="{!c.onRadio}" value="true" />
+                    </div>
+                    <div class="block_value">
+                        <ui:inputRadio label="Q&amp;A" name="cm_posted" aura:id="cm_posted_in_q_a" change="{!c.onRadio}" value="false" />
+                    </div>
+                    <div class="block_value">
+                        <ui:inputRadio label="Groups" name="cm_posted" aura:id="cm_posted_in_groups" change="{!c.onRadio}" value="false" />
+                    </div>
+                </div>
+            </div>
+            <div class="filter_block">
+                <div class="block_title">Has Answer</div>
+                <div class="block_values">
+                    <div class="block_value">
+                        <ui:inputCheckbox label="Has Answer" aura:id="cm_is_answer" value="{!v.brFilter.cm.is_answer}" />
+                    </div>
+                </div>
+            </div>
+            <div class="filter_block">
+                <div class="block_title">Post Type</div>
+                <div class="block_values">
+                    <div class="block_value">
+                        <ui:inputCheckbox label="Comment" aura:id="cm_record_type_comment" value="{!v.brFilter.cm.record_type.comment}" />
+                    </div>
+                    <div class="block_value">
+                        <ui:inputCheckbox label="Question" aura:id="cm_record_type_question" value="{!v.brFilter.cm.record_type.question}" />
+                    </div>
+                    <div class="block_value">
+                        <ui:inputCheckbox label="Post" aura:id="cm_record_type_post" value="{!v.brFilter.cm.record_type.post}" />
+                    </div>
+                    <div class="block_value">
+                        <ui:inputCheckbox label="Announcement" aura:id="cm_record_type_announcement" value="{!v.brFilter.cm.record_type.announcement}" />
+                    </div>
+                </div>
+            </div>
+            <div class="filter_block">
+                <div class="block_title">Sorting Index</div>
+                <div class="block_values">
+                    <div class="block_value">
+                        <ui:inputSelect aura:id="cm_sorting_index" change="{!c.onSelect}">
+                            <ui:inputSelectOption text="FeedItem_Community" label="Relevance" value="true"/>
+                            <ui:inputSelectOption text="FeedItem_Community_Latest_Post" label="Latest Posts"/>
+                            <ui:inputSelectOption text="FeedItem_Community_Recent_Activity" label="Recent Activity"/>
+                        </ui:inputSelect>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</aura:component>
