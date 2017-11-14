@@ -1,1 +1,10 @@
 .THIS {}
+.THIS .serp__item-description.truncated {
+    white-space: nowrap;
+}
+.THIS .serp__item {
+    overflow: hidden;
+}
+.THIS .serp__filter-section[data-active="false"] {
+    display: none;
+}
