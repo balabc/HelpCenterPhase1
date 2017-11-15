@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Learning__kav</members>
-        <members>Public__kav</members>
-        <members>University__kav</members>
-        <name>CustomObject</name>
+        <members>brSearchModal</members>
+        <members>brAlgoliaFilterJSCMP</members>
+        <members>brAlgoliaSearchJSCMP</members>
+        <members>brToggleSearchModalEvent</members>
+        <members>brThemeHeader</members>
+        <members>brChangeHeaderSearchBarEvent</members>
+        <name>AuraDefinitionBundle</name>
     </types>
-    <types>
-        <members>Public__kav-Public Layout</members>
-        <members>University__kav-Public BCU Layout</members>
-        <members>Learning__kav-Learning Layout</members>
-        <name>Layout</name>
-    </types>
-    <types>
-        <members>BigcommerceCommunity</members>
-        <members>BigcommerceCommunity.resource-meta.xml</members>
-        <name>StaticResource</name>
-    </types>
-    <version>41.0</version>
+    <version>38.0</version>
 </Package>

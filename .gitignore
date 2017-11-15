@@ -15,3 +15,7 @@ TestsResultsCache.xml
 _dev/gulpfile.js
 _dev/package.json
 .idea
+.project
+/.settings
+/Referenced Packages/
+salesforce.schema
