@@ -35,33 +35,35 @@
             <div class="serp__results-section">
                 <div class="serp__panel">
                     <aura:iteration items="{!v.categories}" var="category">
-                        <div class="search_category">
-                            <div class="serp__section">
-                                <h3 class="h3 serp__title"><aura:unescapedHtml value="{!category.name}"/></h3>
-                            </div>
-                            <aura:iteration items="{!category.items}" var="item">
-                                <div class="serp__item">
-                                    <div class="serp__item-left">
-                                        <div class="serp__item-left-inner">
-                                            <aura:unescapedHtml value="{!item.left}"/>
-                                        </div>
-                                    </div>
-                                    <div class="serp__item-right">
-                                        <div class="serp__item-right-inner">
-                                            <aura:iteration items="{!item.right}" var="line">
-                                                <aura:unescapedHtml value="{!line}"/>
-                                            </aura:iteration>
-                                        </div>
-                                    </div>
-                                </div>
-                            </aura:iteration>
-                            <a href="javascript:void(0);" class="serp__section-link">View more results for <aura:unescapedHtml value="{!category.name}"/></a>
+                        <div class="serp__section">
+                            <h3 class="h3 serp__title"><aura:unescapedHtml value="{!category.name}"/></h3>
+                         <aura:iteration items="{!category.items}" var="item">
+                             <div class="serp__item">
+                                 <div class="serp__item-left">
+                                     <div class="serp__item-left-inner">
+                                         <aura:unescapedHtml value="{!item.left}"/>
+                                     </div>
+                                 </div>
+                                 <div class="serp__item-right">
+                                     <div class="serp__item-right-inner">
+                                         <aura:iteration items="{!item.right}" var="line">
+                                             <aura:unescapedHtml value="{!line}"/>
+                                         </aura:iteration>
+                                     </div>
+                                 </div>
+                             </div>
+                         </aura:iteration>
+                         <a href="javascript:void(0);" class="serp__section-link">View more results for <aura:unescapedHtml value="{!category.name}"/></a>
                         </div>
                     </aura:iteration>
                 </div><!-- / end of .serp__panel -->
             </div><!-- / end of .serp__results-section -->
             <aura:set attribute="else">
-                <p class="serp__text-no-result">No results yet. Please begin typing to search the BigCommerce Help Center…</p>
+            <div class="serp__results-section">
+                <div class="serp__panel">
+	                <p class="serp__text-no-result">No results yet. Please begin typing to search the BigCommerce Help Center…</p>
+	            </div><!-- / end of .serp__panel -->
+            </div><!-- / end of .serp__results-section -->    
             </aura:set>
         </aura:if>  
     </div>
