@@ -1,20 +1,22 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="brFilter" type="Map" />
     <aura:attribute name="categories" type="Map"/>
     <aura:attribute name="hasData" type="String" default="off"/>
     <aura:attribute name="searchText" type="String"/> 
     
+    <aura:registerEvent name="brChangeHeaderSearchBarEventHandler" type="c:brChangeHeaderSearchBarEvent"/>
     <aura:handler name="eventFromBrAlgoliaFilter" event="c:brAlgoliaFilterEvent" action="{!c.onChangeFilter}"/>
     
     <ltng:require scripts='/resource/instantsearch/algoliasearch.min.js' afterScriptsLoaded="{!c.jsLoaded}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="change" value="{!v.brFilter}" action="{!c.searchChange}"/>
+    <aura:handler name="change" value="{!v.brFilter}" action="{!c.filterChange}"/>
+    <aura:handler name="change" value="{!v.searchText}" action="{!c.searchChange}"/>
 
     <div class="serp-header">
         <div class="serp__filter-trigger-icon"></div>
         <div class="wrap-searchbox">
             <div class="searchbox">
-                <ui:inputText class="searchbox__input-text" placeholder="Search" value="{!v.searchText}" keyup="{!c.searchKeyUp}" change="{!c.searchChange}"/>
+                <ui:inputText class="searchbox__input-text" placeholder="Search" value="{!v.searchText}"/>
                 
                 <input type="reset" class="searchbox__input-reset" value="Clear" onclick="{!c.clearSearch}"/>
             </div>

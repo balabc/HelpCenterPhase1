@@ -1,22 +1,27 @@
 ({
     doInit: function(component, event, helper) {
-    	component.set("v.hasData", false);
+    	component.set("v.hasData", 'off');
     },
     clearSearch: function(component, event, helper) { 
         component.set("v.searchText", '');
         component.set("v.categories", null);
         component.set("v.hasData", 'off');
     },
-    searchKeyUp: function(component, event, helper) {
-        var query = component.get("v.searchText");
+    searchChange: function(component, event, helper) {
+        var query = component.get("v.searchText"),
+            changeSearch = $A.get("e.c:brChangeHeaderSearchBarEvent");
+        
         if (query.length >= 3) { 
             helper.getSearchResult(component);
         } else {
             component.set("v.categories", null);
             component.set("v.hasData", 'off');
         }
+        console.log(query);
+        changeSearch.setParams({"search": query});
+        changeSearch.fire();
     },
-    searchChange: function(component, event, helper) { 
+    filterChange: function(component, event, helper) { 
         var query = component.get("v.searchText");
         if(!!query && (query.length > 0)) {
             if(query.length >= 3) {

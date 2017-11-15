@@ -1,5 +1,8 @@
-<aura:component description="brThemeHeader" implements="force:appHostable,flexipage:availableForAllPageTypes">
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="search" type="String"/>
+    
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
     
     <header class="header">
         <div class="header__container container clr">
@@ -104,7 +107,7 @@
             </div>
             <div class="header__center">
                 <div class="header__searchbox">
-                    <input type="text" class="header__searchbox-input-text" placeholder="Search" onclick="{!c.toggleSearchModal}"/>
+                    <input type="text" class="header__searchbox-input-text" value="{!v.search}" placeholder="Search" onclick="{!c.toggleSearchModal}"/>
                     <input type="submit" class="header__searchbox-input-button" placeholder="" onclick="{!c.toggleSearchModal}"/>
                 </div>
             </div>

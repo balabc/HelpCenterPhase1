@@ -27,6 +27,7 @@
                 <h5 class="filter__sub-title">Article Type</h5>
                 <div class="filter__item">
                     <div class="line-checkbox">
+                        <lightning:input type="checkbox" label="User Docs" aura:id="kb_article_type_user_docs" value="{!v.brFilter.kb.article_type.user_docs}" />
                         <ui:inputCheckbox label="User Docs" aura:id="kb_article_type_user_docs" value="{!v.brFilter.kb.article_type.user_docs}" />
                     </div>
                     <div class="line-checkbox">
