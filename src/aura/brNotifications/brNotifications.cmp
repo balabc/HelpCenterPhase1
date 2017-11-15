@@ -1,3 +1,4 @@
 <aura:component description="brNotifications">
-    <forceCommunity:notifications/>
+    <!--<aura:registerEvent name="brShowNotificationsEvent" type="c:brShowNotificationsEvent"/>-->
+    <forceCommunity:notifications />
 </aura:component>
