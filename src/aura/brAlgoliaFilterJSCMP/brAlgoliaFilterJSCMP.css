@@ -1,1 +1,10 @@
 .THIS {}
+
+.THIS legend.slds-form-element__legend.slds-form-element__label {
+    display: none;
+}
+
+.THIS fieldset.slds-form-element {
+    padding: 0;
+    border: 0;
+}

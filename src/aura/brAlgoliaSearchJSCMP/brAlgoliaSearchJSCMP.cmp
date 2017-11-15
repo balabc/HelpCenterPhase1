@@ -16,8 +16,8 @@
         <div class="serp__filter-trigger-icon"></div>
         <div class="wrap-searchbox">
             <div class="searchbox">
-                <ui:inputText class="searchbox__input-text" placeholder="Search" value="{!v.searchText}"/>
-                
+                <lightning:input type="text" class="searchbox__input-text" placeholder="Search" name="input-name" label="" value="{!v.searchText}" onchange="{!c.searchChange}"/>
+
                 <input type="reset" class="searchbox__input-reset" value="Clear" onclick="{!c.clearSearch}"/>
             </div>
         </div>

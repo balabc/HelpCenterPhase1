@@ -1,7 +1,15 @@
 <aura:component >
+    <ltng:require styles="/resource/brSLDS/assets/styles/salesforce-lightning-design-system-ltng.css" />
+    
     <aura:attribute name="brFilter" type="Map" /> 
     <aura:attribute name="currentFilter" type="String" default="all" />
-    <aura:attribute name="classFilterActive" type="String" default="filter__section--active" />    
+    <aura:attribute name="classFilterActive" type="String" default="filter__section--active" />  
+    
+    <aura:attribute name="filter_cm_posted" type="List" default="[
+                                                                 {'label': 'All', 'value': 'All'},
+                                                                 {'label': 'Q&amp;A', 'value': 'Q&amp;A'},
+                                                                 {'label': 'Groups', 'value': 'Groups'}
+                                                                 ]"/>
     
     <aura:registerEvent name="eventFromBrAlgoliaFilter" type="c:brAlgoliaFilterEvent"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -26,16 +34,9 @@
             <div class="filter__section-body">
                 <h5 class="filter__sub-title">Article Type</h5>
                 <div class="filter__item">
-                    <div class="line-checkbox">
-                        <lightning:input type="checkbox" label="User Docs" aura:id="kb_article_type_user_docs" value="{!v.brFilter.kb.article_type.user_docs}" />
-                        <ui:inputCheckbox label="User Docs" aura:id="kb_article_type_user_docs" value="{!v.brFilter.kb.article_type.user_docs}" />
-                    </div>
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Videos" aura:id="kb_article_type_videos" value="{!v.brFilter.kb.article_type.videos}" />
-                    </div>
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Guides" aura:id="kb_article_type_guides" value="{!v.brFilter.kb.article_type.guides}" />
-                    </div>
+                    <lightning:input type="checkbox" label="User Docs" aura:id="kb_article_type_user_docs" name="kb_article_type_user_docs" value="User Docs" checked="{!v.brFilter.kb.article_type.user_docs}" />
+                    <lightning:input type="checkbox" label="Videos" aura:id="kb_article_type_videos" name="kb_article_type_videos" value="Videos" checked="{!v.brFilter.kb.article_type.videos}" />
+                    <lightning:input type="checkbox" label="Guides" aura:id="kb_article_type_guides" name="kb_article_type_guides" value="Guides" checked="{!v.brFilter.kb.article_type.guides}" /> 
                 </div>
             </div>
         </li>
@@ -51,49 +52,44 @@
             <div class="filter__section-body">
                 <h5 class="filter__sub-title">Posted In</h5>
                 <div class="filter__item">
-                    <div class="line-radio">
+                    
+                    <lightning:radioGroup aura:id="cm_posted"
+                                          name="cm_posted"
+                                          label="Radio Button Group"
+                                          options="{!v.filter_cm_posted}"
+                                          value="{!v.brFilter.cm.posted_in}"
+                                          onchange="{!c.onRadio}"/>
+                    
+                    
+                    <!--<div class="line-radio">
                         <ui:inputRadio label="All" name="cm_posted" aura:id="cm_posted_in_all" change="{!c.onRadio}" value="true" />
-                    </div>
-                    <div class="line-radio">
                         <ui:inputRadio label="Q&amp;A" name="cm_posted" aura:id="cm_posted_in_q_a" change="{!c.onRadio}" value="false" />
                     </div>
                     <div class="line-radio">
                         <ui:inputRadio label="Groups" name="cm_posted" aura:id="cm_posted_in_groups" change="{!c.onRadio}" value="false" />
-                    </div>
+                    </div>-->
                 </div>
                 
                 <h5 class="filter__sub-title">Has Answer</h5>
                 <div class="filter__item">
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Has Answer" aura:id="cm_is_answer" value="{!v.brFilter.cm.is_answer}" />
-                    </div>
+                    <lightning:input type="checkbox" label="Has Answer" aura:id="cm_is_answer" name="cm_is_answer" value="Answered" checked="{!v.brFilter.cm.is_answer}" /> 
                 </div>
                 
                 <h5 class="filter__sub-title">Post Type</h5>
                 <div class="filter__item">
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Comment" aura:id="cm_record_type_comment" value="{!v.brFilter.cm.record_type.comment}" />
-                    </div>
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Question" aura:id="cm_record_type_question" value="{!v.brFilter.cm.record_type.question}" />
-                    </div>
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Post" aura:id="cm_record_type_post" value="{!v.brFilter.cm.record_type.post}" />
-                    </div>
-                    <div class="line-checkbox">
-                        <ui:inputCheckbox label="Announcement" aura:id="cm_record_type_announcement" value="{!v.brFilter.cm.record_type.announcement}" />
-                    </div>
+                    <lightning:input type="checkbox" label="Comment" aura:id="cm_record_type_comment" name="cm_record_type_comment" value="Comment" checked="{!v.brFilter.cm.record_type.comment}" /> 
+                    <lightning:input type="checkbox" label="Question" aura:id="cm_record_type_question" name="cm_record_type_question" value="Question" checked="{!v.brFilter.cm.record_type.question}" />
+                    <lightning:input type="checkbox" label="Post" aura:id="cm_record_type_post" name="cm_record_type_post" value="Post" checked="{!v.brFilter.cm.record_type.post}" /> 
+                    <lightning:input type="checkbox" label="Announcement" aura:id="cm_record_type_announcement" name="cm_record_type_announcement" value="Announcement" checked="{!v.brFilter.cm.record_type.announcement}" />
                 </div>
                 
                 <h5 class="filter__sub-title">Sorting Index</h5>
                 <div class="filter__item">
-                    <div class="line-select">
-                        <ui:inputSelect aura:id="cm_sorting_index" change="{!c.onSelect}">
-                            <ui:inputSelectOption text="FeedItem_Community" label="Relevance" value="true"/>
-                            <ui:inputSelectOption text="FeedItem_Community_Latest_Post" label="Latest Posts"/>
-                            <ui:inputSelectOption text="FeedItem_Community_Recent_Activity" label="Recent Activity"/>
-                        </ui:inputSelect>
-                    </div>
+                    <lightning:select name="cm_sorting_index" label="" aura:id="cm_sorting_index" value="{!v.brFilter.sorting_index}">
+                        <option text="Relevance" value="FeedItem_Community"/>
+                        <option text="Latest Posts" value="FeedItem_Community_Latest_Post"/>
+                        <option text="Recent Activity" value="FeedItem_Community_Recent_Activity"/>
+                    </lightning:select>
                 </div>
             </div>
         </li>

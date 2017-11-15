@@ -26,13 +26,15 @@
     },
     onRadio: function(component, event) {
         var objFilter = component.get('v.brFilter');
-        objFilter.cm.posted_in = event.getSource().get("v.label");
-        component.set("v.brFilter", objFilter);
+        console.log(objFilter, event);
+        /*objFilter.cm.posted_in = event.getSource().get("v.label");
+        component.set("v.brFilter", objFilter);*/
     },
     onSelect: function(component, event) {
         var objFilter = component.get('v.brFilter');
-        objFilter.cm.sorting_index = event.getSource().get("v.value");
-        component.set("v.brFilter", objFilter);
+        console.log(objFilter, event);
+        /*objFilter.cm.sorting_index = event.getSource().get("v.value");
+        component.set("v.brFilter", objFilter);*/
     },
 	onClickFilterRow : function(component, event, helper) {
 		var parent = event.target.parentElement.parentElement,
