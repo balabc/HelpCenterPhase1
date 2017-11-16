@@ -60,11 +60,11 @@
 }
 
 .THIS .serp__results-section {
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
 }
 
 .THIS .serp__results-section .serp__panel {
-    height: 100%;
+    min-height: 100%;
 }
 
 .THIS .serp__filter-trigger-icon {

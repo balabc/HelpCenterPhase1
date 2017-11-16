@@ -4,6 +4,7 @@
         <members>brAlgoliaFilterEvent</members>
         <members>brAlgoliaFilterJSCMP</members>
         <members>brAlgoliaSearchJSCMP</members>
+        <members>brSearchModal</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <version>38.0</version>
