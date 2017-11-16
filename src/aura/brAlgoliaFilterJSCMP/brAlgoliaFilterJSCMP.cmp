@@ -85,7 +85,7 @@
                 
                 <h5 class="filter__sub-title">Sorting Index</h5>
                 <div class="filter__item">
-                    <lightning:select name="cm_sorting_index" label="" aura:id="cm_sorting_index" value="{!v.brFilter.sorting_index}">
+                    <lightning:select name="cm_sorting_index" label="" aura:id="cm_sorting_index" value="{!v.brFilter.cm.sorting_index}">
                         <option text="Relevance" value="FeedItem_Community"/>
                         <option text="Latest Posts" value="FeedItem_Community_Latest_Post"/>
                         <option text="Recent Activity" value="FeedItem_Community_Recent_Activity"/>
