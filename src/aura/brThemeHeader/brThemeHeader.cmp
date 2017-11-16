@@ -1,6 +1,5 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="search" type="String"/>
-    <aura:attribute name="showNotifications" type="Boolean" default="false"/>
     
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
@@ -88,58 +87,7 @@
             </div>
             <div class="header__right">
                 <a href="#" class="header__link header__link--right-first">Contact</a>
-                <div class="header__notification">
-                    <div class="header__notification-icon">
-                        <c:brNotifications />
-                        <div class="header__notification-icon-flag-cloth"></div>
-                        <!--<span class="header__notification-counter">20</span>-->
-                    </div>
-                    <div style="{!v.showNotifications?'display:block;':'display:none;'}" class="header__notification-wrap-dropdown">
-                        <div class="dropdown">
-                            <div class="dropdown__head header__notification-dropdown-head clr">
-                                <div class="header__notification-dropdown-head-wrap-title">
-                                    <h4 class="h4 header__notification-dropdown-head-title truncated">Notifications</h4>
-                                </div>
-                                <div class="header__notification-dropdown-head-wrap-link">
-                                    <a href="#" class="link link--sm header__notification-dropdown-head-link truncated">Mark all as read</a>
-                                </div>
-                            </div>
-                            <div class="dropdown__body dropdown__body--bottom-border-radius header__notification-dropdown-body">
-                                <ul class="header__notification-list">
-                                    <li class="header__notification-item">
-                                        <div class="header__notification-item-userpic">
-                                            <img src="http://via.placeholder.com/34x34" alt="" />
-                                        </div>
-                                        <div class="header__notification-item-wrap-text">
-                                            <span class="header__notification-item-title">Lorem ipsum dolor sit amet con sectetur adipiscing elit</span>
-                                            <span class="header__notification-item-text-content">Excepteur sint occaecat cupidatat non proident sunt in culpa commod. Sed ut perspiciatis unde omnis iste natus error sit voluptatem? </span>
-                                            <span class="header__notification-item-info">7 min ago in BigCommerce Community &nbsp;<span class="header__notification-item-status"></span></span>
-                                        </div>
-                                    </li>
-                                    <li class="header__notification-item">
-                                        <div class="header__notification-item-userpic">
-                                            <img src="http://via.placeholder.com/34x34" alt="" />
-                                        </div>
-                                        <div class="header__notification-item-wrap-text">
-                                            <span class="header__notification-item-title">Duis aute irure dolor in reprehenderit non proident sunt in culpa commod sunt in culpa perspiciatis</span>
-                                            <span class="header__notification-item-info">12 min ago in BigCommerce Community</span>
-                                        </div>
-                                    </li>
-                                    <li class="header__notification-item">
-                                        <div class="header__notification-item-userpic">
-                                            <img src="http://via.placeholder.com/34x34" alt="" />
-                                        </div>
-                                        <div class="header__notification-item-wrap-text">
-                                            <span class="header__notification-item-title">Lorem ipsum dolor sit amet con sectetur adipiscing elit</span>
-                                            <span class="header__notification-item-text-content">Excepteur sint occaecat cupidatat non proident sunt in culpa commod. Sed ut perspiciatis unde omnis iste natus error sit voluptatem? </span>
-                                            <span class="header__notification-item-info">7 min ago in BigCommerce Community</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!--  / end of .dropdown -->
-                    </div><!-- / end of .header__notification-wrap-dropdown -->
-                </div><!-- / end of .header__notification -->
+                <c:brNotifications />
                 <div class="header__userpic">
                     <img src="http://via.placeholder.com/30x30" alt="" />
                 </div>
