@@ -1,16 +1,4 @@
 ({
-    toggleMobileFilter: function() { 
-        var body_classes = document.body.classList,
-            class_mobile = 'mobile-search-filter-is-activ',
-            body_classes_mobile = body_classes.indexOf(class_mobile);
-        console.log(body_classes, body_classes_mobile);
-        if (body_classes_mobile > -1) {
-            body_classes.splice(body_classes_mobile, 1);
-        } else {
-            body_classes.push(class_mobile);
-        }
-        document.body.classList = body_classes;
-    },
 	getSearchResult: function(component) {
 		var query = component.get("v.searchText"),
             filter = component.get("v.brFilter"),

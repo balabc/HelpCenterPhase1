@@ -55,3 +55,18 @@
     -ms-flex-positive: initial;
     flex-grow: initial;
 }
+.THIS .serp__filter-trigger-icon.icon_disabled {
+    opacity: 0.2;
+}
+
+.THIS .serp__results-section {
+    height: calc(100vh - 70px);
+}
+
+.THIS .serp__results-section .serp__panel {
+    height: 100%;
+}
+
+.THIS .serp__filter-trigger-icon {
+    z-index: 2;
+}
