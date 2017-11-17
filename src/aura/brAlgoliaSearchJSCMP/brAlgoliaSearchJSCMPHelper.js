@@ -94,7 +94,7 @@
                 name_index = '';
             
             for (var i = 0; i < categories.length; ++i) {
-                var category = categories[i],
+                var category = categories[i], 
                     hits = category.hits,
                     tmpListData = [],
                     item = {};

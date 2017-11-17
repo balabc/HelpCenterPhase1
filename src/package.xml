@@ -9,5 +9,9 @@
         <members>brChangeHeaderSearchBarEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
     <version>38.0</version>
 </Package>

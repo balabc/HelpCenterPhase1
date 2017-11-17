@@ -5,7 +5,7 @@
                 var body_classes = document.body.classList,
                         class_is_mobile = 'is-mobile';
                 if (window.innerWidth < 993) {
-                    if (!body_classes.contains(class_is_mobile)) { 
+                    if (!body_classes.contains(class_is_mobile)) {  
                         body_classes.add(class_is_mobile);
                     }
                 } else {

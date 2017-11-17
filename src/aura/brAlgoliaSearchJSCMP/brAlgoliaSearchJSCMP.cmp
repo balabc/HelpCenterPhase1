@@ -12,7 +12,7 @@
     <aura:handler name="change" value="{!v.hasData}" action="{!c.filterChangeState}"/>
     <aura:handler name="change" value="{!v.brFilter}" action="{!c.filterChange}"/>
     <aura:handler name="change" value="{!v.searchText}" action="{!c.searchChange}"/>
-    
+     
     <div class="serp-header">
         <div class="serp__filter-trigger-icon" id="serp__filter-trigger" onclick="{!c.toggleMobileFilter}"></div>
         <div class="wrap-searchbox">

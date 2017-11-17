@@ -93,7 +93,7 @@
                 <c:brNotifications /> 
                 <div class="header__userpic">
                     <img src="http://via.placeholder.com/30x30" alt="" />
-                </div>
+                </div> 
                 <div class="header__dropdown">
                     <div class="header__dropdown-trigger nav-arrow">
                         <div class="nav-arrow__handler">

@@ -5,7 +5,7 @@
             class_modal = 'is-modal';  
 		component.set('v.stateSearchModal', state);
         
-        if (state) {
+        if (state) { 
             if (!document.body.classList.contains(class_modal))
             	document.body.classList.add(class_modal);
         } else {

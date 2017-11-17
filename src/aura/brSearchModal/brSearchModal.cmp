@@ -4,7 +4,7 @@
      
     <div class="modal-overlay" style="{!(v.stateSearchModal? 'display: block;': 'display: none;')}"></div>
     <div class="wrap-modal search-modal-wrapper" style="{!(v.stateSearchModal? 'display: block;': 'display: none;')}">
-        <div class="modal">
+        <div class="modal"> 
             <div class="modal__close-button icon-svg-close-lg-grey" onclick="{!c.toggleSearchModal}"></div>
             <div class="modal__inner">
                 <div class="container relative">

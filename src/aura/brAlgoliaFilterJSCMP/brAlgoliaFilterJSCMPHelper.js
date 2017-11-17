@@ -3,7 +3,7 @@
 		var changeFilter = component.getEvent("eventFromBrAlgoliaFilter"),
             currentFilter = component.get("v.currentFilter"),
             filter = component.get("v.brFilter");
-        console.log(filter);
+        console.log(filter); 
         
         changeFilter.setParams({
             "brFilter" : {
