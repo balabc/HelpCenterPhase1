@@ -1,0 +1,40 @@
+
+<apex:page id="brHeaderContact">
+
+<apex:includeScript value="{!$Resource.brHeaderContact + '/js/se-v2.js'}"/>
+
+<script>
+
+    function askStatus(sp){
+        sp.status({
+            success : function(data) {
+                 parent.postMessage('{"action":"page-status","description":"'+data.status.description+'","indicator":"'+data.status.indicator+'"}', respondURL);
+            }
+            //,error : function(data) {
+            //     parent.postMessage('{"action":"page-status","description":"'+data.message+'","indicator":"error"}', respondURL);
+            //}
+        });
+    }
+
+    var respondURL = '*';//TODO: put url of page requested data
+    try{
+       var sp = new StatusPage.page({ page : 'qbn4dyd29jby' });
+       //askStatus(sp);//if need to check on init
+       window.onmessage = function(e){
+            //console.log('frameOnMessage:',e.data);
+            if (e.data == 'what-status') {
+                askStatus(sp);
+            }
+        };
+    }catch(e){
+        console.log('Exeption', e);
+        parent.postMessage('{"action":"page-status-error","error":"'+e.message+'"}', respondURL);
+    }
+
+    (function() {
+        parent.postMessage('{"action":"page-status-ready"}', respondURL);
+    })();
+
+</script>
+
+</apex:page>

@@ -1,0 +1,17 @@
+
+.THIS #contact-lvl-2{
+   display: none;
+}
+
+.THIS .header__contact {
+    right: -433px;
+    transition: all 0.3s ease;
+    z-index: 4;
+    display: block;/*remove it from CommunityTheme*/
+}
+
+.THIS .header__contact--active {
+    right: 0;
+}
+
+
