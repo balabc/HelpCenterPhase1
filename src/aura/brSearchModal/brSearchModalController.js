@@ -3,6 +3,7 @@
         var state = !component.get('v.stateSearchModal'),
             body_classes = document.body.classList,
             class_modal = 'is-modal';
+        console.log('11112222');
 		component.set('v.stateSearchModal', state);
         
         if (state) {

@@ -16,7 +16,6 @@
             component.set("v.categories", null);
             component.set("v.hasData", 'off');
         }
-        console.log(query);
         changeSearch.setParams({"search": query});
         changeSearch.fire();
     },
@@ -33,7 +32,6 @@
         component.set("v.brFilter", filter);
 	},
     filterChangeState: function(component, event, helper) {
-        console.log('asdfsadfsadsfda');
 		var hasData = component.get("v.hasData"),
             icon = document.getElementById('serp__filter-trigger'),
             class_disabled = 'icon_disabled';
@@ -53,7 +51,8 @@
     },
     jsLoaded: function(component, event, helper) { 
     	component.set("v.hasData", 'off');
-    	document.getElementById('serp__filter-trigger').addEventListener('click', function() {  
+        var elems = document.getElementsByClassName("filter__section-title"),
+            funcFilter = function() {  
             var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
             if (has_filter == 'true') {
                 var body_classes = document.body.classList,
@@ -69,7 +68,11 @@
                 }
                 document.body.classList = body_classes;
             }
-        }, false);
+        };
+    	document.getElementById('serp__filter-trigger').addEventListener('click', funcFilter, false);
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].addEventListener('click', funcFilter, false);
+        }
     }/*,
     toggleMobileFilter: function(component, event, helper) { 
         var body_classes = document.body.classList,
