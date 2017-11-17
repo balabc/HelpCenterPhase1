@@ -34,9 +34,9 @@
             <div class="filter__section-body">
                 <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchArticleType}</h5>
                 <div class="filter__item">
-                    <lightning:input type="checkbox" label="User Docs" aura:id="kb_article_type_user_docs" name="kb_article_type_user_docs" value="User Docs" checked="{!v.brFilter.kb.article_type.user_docs}" />
-                    <lightning:input type="checkbox" label="Videos" aura:id="kb_article_type_videos" name="kb_article_type_videos" value="Videos" checked="{!v.brFilter.kb.article_type.videos}" />
-                    <lightning:input type="checkbox" label="Guides" aura:id="kb_article_type_guides" name="kb_article_type_guides" value="Guides" checked="{!v.brFilter.kb.article_type.guides}" /> 
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchUserDocs}" aura:id="kb_article_type_user_docs" name="kb_article_type_user_docs" value="User Docs" checked="{!v.brFilter.kb.article_type.user_docs}" />
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchVideos}" aura:id="kb_article_type_videos" name="kb_article_type_videos" value="Videos" checked="{!v.brFilter.kb.article_type.videos}" />
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchGuides}" aura:id="kb_article_type_guides" name="kb_article_type_guides" value="Guides" checked="{!v.brFilter.kb.article_type.guides}" /> 
                 </div>
             </div>
         </li>
@@ -55,7 +55,7 @@
                     
                     <lightning:radioGroup aura:id="cm_posted"
                                           name="cm_posted"
-                                          label="Radio Button Group"
+                                          label=" "
                                           options="{!v.filter_cm_posted}"
                                           value="{!v.brFilter.cm.posted_in}"
                                           onchange="{!c.onRadio}"/>
@@ -72,23 +72,23 @@
                 
                 <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchHasAnswer}</h5>
                 <div class="filter__item">
-                    <lightning:input type="checkbox" label="Has Answer" aura:id="cm_is_answer" name="cm_is_answer" value="Answered" checked="{!v.brFilter.cm.is_answer}" /> 
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchHasAnswer}" aura:id="cm_is_answer" name="cm_is_answer" value="Answered" checked="{!v.brFilter.cm.is_answer}" /> 
                 </div>
                 
                 <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchPostType}</h5>
                 <div class="filter__item">
-                    <lightning:input type="checkbox" label="Comment" aura:id="cm_record_type_comment" name="cm_record_type_comment" value="Comment" checked="{!v.brFilter.cm.record_type.comment}" /> 
-                    <lightning:input type="checkbox" label="Question" aura:id="cm_record_type_question" name="cm_record_type_question" value="Question" checked="{!v.brFilter.cm.record_type.question}" />
-                    <lightning:input type="checkbox" label="Post" aura:id="cm_record_type_post" name="cm_record_type_post" value="Post" checked="{!v.brFilter.cm.record_type.post}" /> 
-                    <lightning:input type="checkbox" label="Announcement" aura:id="cm_record_type_announcement" name="cm_record_type_announcement" value="Announcement" checked="{!v.brFilter.cm.record_type.announcement}" />
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchComment}" aura:id="cm_record_type_comment" name="cm_record_type_comment" value="Comment" checked="{!v.brFilter.cm.record_type.comment}" /> 
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchQuestion}" aura:id="cm_record_type_question" name="cm_record_type_question" value="Question" checked="{!v.brFilter.cm.record_type.question}" />
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchPost}" aura:id="cm_record_type_post" name="cm_record_type_post" value="Post" checked="{!v.brFilter.cm.record_type.post}" /> 
+                    <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchAnnouncement}" aura:id="cm_record_type_announcement" name="cm_record_type_announcement" value="Announcement" checked="{!v.brFilter.cm.record_type.announcement}" />
                 </div>
                 
                 <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchSortingIndex}</h5>
                 <div class="filter__item">
                     <lightning:select name="cm_sorting_index" label="" aura:id="cm_sorting_index" value="{!v.brFilter.cm.sorting_index}">
-                        <option text="Relevance" value="FeedItem_Community"/>
-                        <option text="Latest Posts" value="FeedItem_Community_Latest_Post"/>
-                        <option text="Recent Activity" value="FeedItem_Community_Recent_Activity"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchRelevance}" value="FeedItem_Community"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchLatestPosts}" value="FeedItem_Community_Latest_Post"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchRecentActivity}" value="FeedItem_Community_Recent_Activity"/>
                     </lightning:select>
                 </div>
             </div>

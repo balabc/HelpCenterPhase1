@@ -103,7 +103,7 @@
                 if (hits.length > 0) {
                     switch (category.index) {
                         case 'Knowledge_Community': {
-                            name_index = 'Knowledge Community';
+                            name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
                             for (var key in hits) { 
                                 item = {
                                     left: '',
@@ -126,7 +126,7 @@
                         case 'FeedItem_Community':
                         case 'FeedItem_Community_Latest_Post':
                         case 'FeedItem_Community_Recent_Activity': {
-                            name_index = 'Community';
+                            name_index = $A.get('$Label.c.hAlgoliaSearchCommunity');
                             for (var key in hits) { 
                                 item = {
                                     left: '',
