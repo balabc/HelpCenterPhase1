@@ -99,7 +99,6 @@
                     tmpListData = [],
                     item = {};
                 
-                
                 if (hits.length > 0) {
                     switch (category.index) {
                         case 'Knowledge_Community': {
@@ -142,7 +141,7 @@
                                     '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
                                     '&nbsp;&nbsp;&nbsp;<span class="icon-svg-like-sm-grey"></span>&nbsp;' + item.source.LikeCount + 
                                     '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
-                                    '</p>',
+                                    '</p>',  
                                 ];
                                     tmpListData.push(item);
                         	}
@@ -159,6 +158,9 @@
             if (objData.length > 0) {
                 hasData = true;
             }
+                                    
+                                    
+                console.log(hasData);
             component.set("v.hasData", hasData); 
             component.set("v.categories", objData);
         });

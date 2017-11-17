@@ -1,7 +1,7 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="brFilter" type="Map" />
     <aura:attribute name="categories" type="Map"/>
-    <aura:attribute name="hasData" type="String" default="off"/>
+    <aura:attribute name="hasData" type="String" default="false"/>
     <aura:attribute name="searchText" type="String"/> 
     
     <aura:registerEvent name="brChangeHeaderSearchBarEventHandler" type="c:brChangeHeaderSearchBarEvent"/>
@@ -9,11 +9,12 @@
     
     <ltng:require scripts='/resource/instantsearch/algoliasearch.min.js' afterScriptsLoaded="{!c.jsLoaded}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.hasData}" action="{!c.filterChangeState}"/>
     <aura:handler name="change" value="{!v.brFilter}" action="{!c.filterChange}"/>
     <aura:handler name="change" value="{!v.searchText}" action="{!c.searchChange}"/>
 
     <div class="serp-header">
-        <div class="serp__filter-trigger-icon"></div>
+        <div class="serp__filter-trigger-icon" id="serp__filter-trigger" onclick="{!c.toggleMobileFilter}"></div>
         <div class="wrap-searchbox">
             <div class="searchbox">
                 <lightning:input type="text" class="searchbox__input-text" placeholder="Search" name="input-name" label="" value="{!v.searchText}" onchange="{!c.searchChange}"/>

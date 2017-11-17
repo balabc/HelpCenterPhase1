@@ -4,7 +4,7 @@
     <aura:attribute name="brFilter" type="Map" /> 
     <aura:attribute name="currentFilter" type="String" default="all" />
     <aura:attribute name="classFilterActive" type="String" default="filter__section--active" />  
-    
+     
     <aura:attribute name="filter_cm_posted" type="List" default="[
                                                                  {'label': 'All', 'value': 'All'},
                                                                  {'label': 'Q&amp;A', 'value': 'Q&amp;A'},
