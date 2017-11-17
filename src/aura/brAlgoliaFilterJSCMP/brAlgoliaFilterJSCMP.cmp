@@ -19,12 +19,12 @@
     <ul class="filter">
         <li class="{!'filter__section ' + ((v.currentFilter == 'all')? v.classFilterActive: '')}" data-active="true" data-type="all">
             <div class="filter__section-head">
-                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">All</h4>
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchAll}</h4>
             </div>    
-        </li>
+        </li> 
         <li class="{!'filter__section ' + ((v.currentFilter == 'kb')? v.classFilterActive: '')}" data-type="kb">
             <div class="filter__section-head">
-                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">Knowledge Base</h4>
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchKnowledgeBase}</h4>
                 <div class="filter__section-nav-arrow nav-arrow">
                     <div class="nav-arrow__handler">
                         <span class="nav-arrow__icon"></span>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="filter__section-body">
-                <h5 class="filter__sub-title">Article Type</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchArticleType}</h5>
                 <div class="filter__item">
                     <lightning:input type="checkbox" label="User Docs" aura:id="kb_article_type_user_docs" name="kb_article_type_user_docs" value="User Docs" checked="{!v.brFilter.kb.article_type.user_docs}" />
                     <lightning:input type="checkbox" label="Videos" aura:id="kb_article_type_videos" name="kb_article_type_videos" value="Videos" checked="{!v.brFilter.kb.article_type.videos}" />
@@ -42,7 +42,7 @@
         </li>
         <li class="{!'filter__section ' + ((v.currentFilter == 'cm')? v.classFilterActive: '')}" data-type="cm">
             <div class="filter__section-head">
-                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">Community</h4>
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchCommunity}</h4>
                 <div class="filter__section-nav-arrow nav-arrow">
                     <div class="nav-arrow__handler">
                         <span class="nav-arrow__icon"></span>
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="filter__section-body">
-                <h5 class="filter__sub-title">Posted In</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchPostedIn}</h5>
                 <div class="filter__item">
                     
                     <lightning:radioGroup aura:id="cm_posted"
@@ -70,12 +70,12 @@
                     </div>-->
                 </div>
                 
-                <h5 class="filter__sub-title">Has Answer</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchHasAnswer}</h5>
                 <div class="filter__item">
                     <lightning:input type="checkbox" label="Has Answer" aura:id="cm_is_answer" name="cm_is_answer" value="Answered" checked="{!v.brFilter.cm.is_answer}" /> 
                 </div>
                 
-                <h5 class="filter__sub-title">Post Type</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchPostType}</h5>
                 <div class="filter__item">
                     <lightning:input type="checkbox" label="Comment" aura:id="cm_record_type_comment" name="cm_record_type_comment" value="Comment" checked="{!v.brFilter.cm.record_type.comment}" /> 
                     <lightning:input type="checkbox" label="Question" aura:id="cm_record_type_question" name="cm_record_type_question" value="Question" checked="{!v.brFilter.cm.record_type.question}" />
@@ -83,7 +83,7 @@
                     <lightning:input type="checkbox" label="Announcement" aura:id="cm_record_type_announcement" name="cm_record_type_announcement" value="Announcement" checked="{!v.brFilter.cm.record_type.announcement}" />
                 </div>
                 
-                <h5 class="filter__sub-title">Sorting Index</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchSortingIndex}</h5>
                 <div class="filter__item">
                     <lightning:select name="cm_sorting_index" label="" aura:id="cm_sorting_index" value="{!v.brFilter.cm.sorting_index}">
                         <option text="Relevance" value="FeedItem_Community"/>

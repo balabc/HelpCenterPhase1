@@ -48,13 +48,13 @@
             id = event.target.getAttribute('data-id');
         component.set("v.searchText", listData[id].data.name); 
         component.set("v.hasData", 'off'); 
-    },
+    }, 
     jsLoaded: function(component, event, helper) { 
     	component.set("v.hasData", 'off'); 
         var elems = document.getElementsByClassName("filter__section-title"),
             funcFilter = function() {  
             var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
-                console.log(has_filter);
+                console.log(has_filter); 
             if (has_filter == 'true') {
                 var body_classes = document.body.classList,
                     class_is_mobile = 'is-mobile', 

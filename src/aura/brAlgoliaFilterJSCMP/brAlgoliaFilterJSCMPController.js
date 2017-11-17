@@ -29,7 +29,7 @@
         console.log(objFilter, event);
         objFilter.cm.posted_in = event.getSource().get("v.label");
         component.set("v.brFilter", objFilter);*/
-    },
+    }, 
     onSelect: function(component, event) {
         /*var objFilter = component.get('v.brFilter'); 
         console.log(objFilter, event); 

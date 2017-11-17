@@ -11,7 +11,7 @@
                 } else {
                     body_classes.remove(class_is_mobile);
                 }  
-            };
+            }; 
             funcResizeMobile();
             window.addEventListener('resize', funcResizeMobile);
         });

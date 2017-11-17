@@ -90,7 +90,7 @@
             <div class="header__right">
                 <a href="javascript:void(0);" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">Contact</a>
 
-                <c:brNotifications />
+                <c:brNotifications /> 
                 <div class="header__userpic">
                     <img src="http://via.placeholder.com/30x30" alt="" />
                 </div>

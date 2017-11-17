@@ -22,7 +22,7 @@
                 <input type="reset" class="searchbox__input-reset" value="Clear" onclick="{!c.clearSearch}"/>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="serp clr">
         <div class="serp__filter-section" data-active="{!v.hasData != 'off'}">
             <div class="serp__panel">
