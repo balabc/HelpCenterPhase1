@@ -1,37 +1,30 @@
 
 <aura:component description="brHeaderContact">
 
-    <aura:attribute name="frameID" type="String" default="probablyUniqId"/><!-- generate or static -->
-    <aura:attribute name="vfPageURL" type="String" default="#"/><!-- future use -->
-    <aura:attribute name="vfPageName" type="String" default="#"/><!-- future use -->
-    <aura:attribute name="frameURL" type="String" default="https://c.eu9.visual.force.com/apex/brHeaderContact"/><!-- retrieve this -->
-    <aura:attribute name="frameStatusReady" type="Boolean" default="false"/>
-    <aura:attribute name="statusPageRefreshTime" type="String" default="#"/><!-- future use -->
-
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <aura:method name="showMe" description="Show Header Contact" />
     <aura:method name="hideMe" description="Hide Header Contact" />
-
+<!--
     <aura:handler event="c:brToggleHeaderContactEvent" action="{!c.toogleHandler}"/>
-
-    <iframe src="{!v.frameURL}" width="0px" height="0px;" id="{!v.frameID}" frameBorder="0"/>
-
+-->
     <style>
-#contact-lvl-2{
-   display: none;
-}
+    /*
+        #contact-lvl-2{
+           display: none;
+        }
 
-.header__contact {
-    right: -433px;
-    transition: all 0.3s ease;
-    z-index: 4;
-    display: block;/*remove it from CommunityTheme and update resource css new at 2613-2638 lines*/
-}
+        .header__contact {
+            right: -433px;
+            transition: all 0.3s ease;
+            z-index: 4;
+            display: block;
+        }
 
-.header__contact--active {
-    right: 0;
-}
+        .header__contact--active {
+            right: 0;
+        }
+        */
     </style>
 
     <div class="header__contact popover">
@@ -42,122 +35,59 @@
         <div class="header__contact-body popover__body">
             <div class="header__contact-body-inner popover__body-inner">
                 <div id="contact-lvl-1" class="header__contact-body-container popover__body-container">
-                    <h4 class="h4 header__contact-body-h4">System Status</h4>
-                    <div class="panel-media-small">
+                    <c:brStatusPagePanel aura:id="statusPanel" />
+
+                    <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hGetHelp}</h4>
+                    <div class="panel-media-small" onclick="{!c.openAskCommunity}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon relative">
-                                <div class="panel-media-small__status bg--success"></div>
+                            <div class="panel-media-small__icon">
+                                <img src="http://via.placeholder.com/46x46" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">All systems operational</h5>
-                            <p class="panel-media-small__text">Refreshed 2 minutes ago</p>
+                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hAsktheCommunity}</h5>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hAsktheCommunityAbout}</p>
                         </div>
                     </div>
-                    <div class="panel-media-small">
+                    <div class="panel-media-small" onclick="{!c.openLiveChat}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon relative">
-                                <div class="panel-media-small__status bg--default"></div>
+                            <div class="panel-media-small__icon">
+                                <img src="http://via.placeholder.com/46x46" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Degraded performance</h5>
-                            <p class="panel-media-small__text">Refreshed 2 minutes ago</p>
+                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hLiveChat}</h5>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="#">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
                         </div>
                     </div>
-                    <div class="panel-media-small">
+                    <div class="panel-media-small" onclick="{!c.openPhoneSupport}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon relative">
-                                <div class="panel-media-small__status bg--warning"></div>
+                            <div class="panel-media-small__icon">
+                                <img src="http://via.placeholder.com/46x46" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Partial outage</h5>
-                            <p class="panel-media-small__text">Refreshed 2 minutes ago</p>
+                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hPhoneSupport}</h5>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hPhoneSupportAbout}</p>
                         </div>
                     </div>
-                    <div class="panel-media-small">
+                    <div class="panel-media-small" onclick="{!c.openEmailSupport}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon relative">
-                                <div class="panel-media-small__status bg--partial-danger"></div>
+                            <div class="panel-media-small__icon">
+                                <img src="http://via.placeholder.com/46x46" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Major outage</h5>
-                            <p class="panel-media-small__text">Refreshed 2 minutes ago</p>
-                        </div>
-                    </div>
-                    <div class="panel-media-small">
-                        <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon relative">
-                                <div class="panel-media-small__status bg--danger"></div>
-                            </div>
-                        </div>
-                        <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Maintenance</h5>
-                            <p class="panel-media-small__text">Refreshed 2 minutes ago</p>
+                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hEmailSupport}</h5>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="#">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
                         </div>
                     </div>
 
-                    <h4 class="h4 header__contact-body-h4 m-top-30">Get Help</h4>
-                    <div class="panel-media-small">
-                        <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
-                            </div>
-                        </div>
-                        <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Ask the Community</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">Get answers from business owners and experts</p>
-                        </div>
-                    </div>
-                    <div class="panel-media-small">
-                        <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
-                            </div>
-                        </div>
-                        <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Live Chat</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">Your <a href="#">Support Pin</a> is required</p>
-                        </div>
-                    </div>
-                    <div class="panel-media-small">
-                        <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
-                            </div>
-                        </div>
-                        <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Phone Support</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">Call us 24/7 from anywhere in the world</p>
-                        </div>
-                    </div>
-                    <div class="panel-media-small">
-                        <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
-                            </div>
-                        </div>
-                        <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">Email Support</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">Your <a href="#">Support Pin</a> is required</p>
-                        </div>
-                    </div>
-
-                    <h4 class="h4 header__contact-body-h4 m-top-30">Common Questions</h4>
-                    <p><a href="#">How do I import products?</a></p>
-                    <p><a href="#">How do I add options to my products?</a></p>
-                    <p><a href="#">How do I sell on Google Shopping?</a></p>
-                    <p><a href="#">How do I point my domain to BigCommerce?</a></p>
-                    <p><a href="#">How do I sell products on eBay through BigCommerce?</a></p>
-                    <p><a href="#">How do I set up third-party email hosting?</a></p>
-                    <p><a href="#">How do I install a third-party SSL?</a></p>
-                    <p><a href="#">How do I back up my store's data?</a></p>
+                    <c:brStatusPagePanel aura:id="commonQuestions" />
                 </div><!-- / end of .header__contact-body-container popover__body-container -->
 
                 <div id="contact-lvl-2" class="header__contact-body-container popover__body-container">
-                    <div class="header__contact-body-nav-goback popover__body-nav-goback">
+                    <div class="header__contact-body-nav-goback popover__body-nav-goback"  onclick="{!c.closePhoneSupport}">
                         <div class="header__contact-body-goback popover__body-goback">
                             <div class="header__contact-body-arrow-angular-right nav-arrow-hor-angular">
                                 <div class="nav-arrow-hor-angular__handler">
@@ -166,7 +96,7 @@
                             </div>
                         </div>
                         <a href="#" class="h4 header__contact-body-container-link popover__body-container-link truncated">
-                            <span class="h4 header__contact-body-container-text popover__body-container-text truncated">Knowledge Base</span>
+                            <span class="h4 header__contact-body-container-text popover__body-container-text truncated">{!$Label.c.hKnowledgeBase}</span>
                         </a>
                     </div>
                     <div class="header__contact-body-container-content popover__body-container-content">

@@ -10,25 +10,22 @@
         .wrap-modal{
             display: none;
         }
-        .header__contact{
-            display: none;
-        }
     </style>
 
-    <c:brMobileNavMenu/>
-    <c:brSearchModal/>
+    <c:brMobileNavMenu />
+    <c:brSearchModal />
 
     <div class="body-inner main-content">
         <div class="wrapper-for-sticky-footer-structure">
-            <c:brThemeHeader/>
+            <c:brThemeHeader />
 
-            <c:brHeaderMobile/>
+            <c:brHeaderMobile />
 
             {!v.body}
 
             <div class="empty-block-for-sticky-footer"></div><!-- do not remove this empty element -->
         </div><!-- / .wrapper-for-sticky-footer-structure -->
 
-        <c:brThemeFooter/>
+        <c:brThemeFooter />
     </div><!-- / .body-inner -->
 </aura:component>

@@ -1,0 +1,15 @@
+
+<aura:component description="brCommonQuestions">
+
+    <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hCommonQuestions}</h4>
+
+    <p><a href="#">How do I import products?</a></p>
+    <p><a href="#">How do I add options to my products?</a></p>
+    <p><a href="#">How do I sell on Google Shopping?</a></p>
+    <p><a href="#">How do I point my domain to BigCommerce?</a></p>
+    <p><a href="#">How do I sell products on eBay through BigCommerce?</a></p>
+    <p><a href="#">How do I set up third-party email hosting?</a></p>
+    <p><a href="#">How do I install a third-party SSL?</a></p>
+    <p><a href="#">How do I back up my store's data?</a></p>
+
+</aura:component>

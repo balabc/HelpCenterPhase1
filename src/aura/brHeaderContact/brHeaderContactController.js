@@ -1,34 +1,40 @@
 
 ({
-    /*
-    afterScriptsLoaded : function(component, event, helper) {
-        console.log('afterScriptsLoaded');
-    },
-    */
     hideMe : function(component, event, helper) {
         //console.log('hideMe');
-        var contactPanel = document.getElementsByClassName( 'header__contact' )[0];
+        var contactPanel = document.getElementsByClassName( 'header__contact' )[0];//TODO: possible bug if structure will change
         contactPanel.classList.remove( 'header__contact--active' );
+        document.getElementById("contact-lvl-2").classList.remove('contact-lvl-2--active');
     },
     showMe : function(component, event, helper) {
         //console.log('showMe');
         helper.askPageStatus(component);
         try{
-            var contactPanel = document.getElementsByClassName( 'header__contact' )[0];
+            var contactPanel = document.getElementsByClassName( 'header__contact' )[0];//TODO: possible bug if structure will change
             //console.log('showMecontactPanel', contactPanel);
             contactPanel.classList.add( 'header__contact--active' );
         }catch(ee){
             console.log(ee.message);
         }
-        /*var params = event.getParam('arguments'); if (params) { var message = params.message; return message; }*/
     },
     doInit : function(component, event, helper) {
         //console.log('HeaderContact init');
-        helper.initMessageListener(component);
-
-        //setTimeout(function(){//tmp
-        //    helper.askPageStatus(component);
-        //}, 5000);
-
+    },
+    openEmailSupport : function(component){
+        console.log('openEmailSupport');
+    },
+    openPhoneSupport : function(component){
+        console.log('openPhoneSupport');
+        document.getElementById("contact-lvl-2").classList.add('contact-lvl-2--active');
+    },
+    closePhoneSupport : function(component){
+        console.log('closePhoneSupport');
+        document.getElementById("contact-lvl-2").classList.remove('contact-lvl-2--active');
+    },
+    openAskCommunity : function(component){
+        console.log('openAskCommunity');
+    },
+    openLiveChat : function(component){
+        console.log('openLiveChat');
     }
 })
