@@ -1,0 +1,52 @@
+<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes" description="brMainNavMenu">
+    <div class="header__wrap-nav clr">
+        <ul class="header__nav">
+            <li class="header__nav-item">
+                <div class="header__nav-item-cont">
+                    <a href="#" class="header__link header__nav-link">Help center</a>
+                    <div class="header__nav-arrow nav-arrow nav-arrow--up">
+                        <div class="nav-arrow__handler">
+                            <span class="nav-arrow__icon"></span>
+                        </div>
+                    </div>
+
+                    <div class="header__wrap-dropdown-menu">
+                        <div class="container">
+                            <div class="header__dropdown-menu clr">
+                                <div class="header__dropdown-menu-section header__dropdown-menu-section--main">
+                                    <ul class="header__dropdown-menu-submenu" onclick="{!c.onClick}">
+                                        <aura:iteration items="{!v.menuItems}" var="item" >
+                                            <aura:if isTrue="{!not(item.subMenu)}">
+                                                <li class="header__dropdown-menu-item">
+                                                    <a class="header__dropdown-menu-link" data-menu-item-id="{!item.id}" href="">{!item.label}</a>
+                                                </li>
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </ul>
+                                </div>
+
+                                <aura:iteration items="{!v.menuItems}" var="i" indexVar="index">
+                                    <aura:if isTrue="{!i.subMenu}">
+                                        <div class="{!'header__dropdown-menu-section header__dropdown-menu-section--' + index}">
+                                            <p class="header__dropdown-menu-title">
+                                                <span class="header__dropdown-menu-title-link">{!i.label}</span>
+                                            </p>
+                                            <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu">
+                                                <aura:iteration items="{!i.subMenu}" var="subItem">
+                                                    <li class="header__dropdown-menu-item">
+                                                        <a class="header__dropdown-menu-link" data-menu-item-id="{!subItem.id}" href="">{!subItem.label}</a>
+                                                    </li>
+                                                </aura:iteration>
+                                            </ul>
+                                        </div>
+                                    </aura:if>
+                                </aura:iteration>
+                            </div>
+                        </div><!-- / end of .container -->
+                    </div><!-- / end of .header__wrap-dropdown-menu -->
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</aura:component>
