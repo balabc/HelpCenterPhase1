@@ -1,14 +1,20 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="isAltMainNav" type="Boolean" />
     <aura:attribute name="search" type="String"/>
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
 
-    <header class="header">
+    <header class="{!if(not(v.isAltMainNav), 'header', 'header header--upd')}">
         <div class="header__container container clr">
             <div class="header__left">
                 <a href="/" class="header__logo-icon header__logo"></a>
-                <c:brMainNavMenu/>
+                <aura:if isTrue="{!not(v.isAltMainNav)}">
+                    <c:brMainNavMenu/>
+                    <aura:set attribute="else">
+                        <c:brMainNavMenuAlt/>
+                    </aura:set>
+                </aura:if>
             </div>
             <div class="header__right">
                 <a href="#" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">Contact</a>

@@ -1,5 +1,5 @@
 <aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
-    <aura:attribute name="testVar" type="Boolean" default="false"/>
+    <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
 
     <ltng:require styles="{!$Resource.BigcommerceCommunity + '/css/styles.css'}" />
 
@@ -17,7 +17,7 @@
 
     <div class="body-inner main-content">
         <div class="wrapper-for-sticky-footer-structure">
-            <c:brThemeHeader />
+            <c:brThemeHeader isAltMainNav="{!v.isAltMainNav}" />
 
             <c:brHeaderMobile />
 
