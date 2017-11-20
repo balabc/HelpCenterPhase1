@@ -19,6 +19,7 @@
     },
     doInit : function(component, event, helper) {
         //console.log('HeaderContact init');
+        helper.fillPhoneList(component);
     },
     openEmailSupport : function(component){
         console.log('openEmailSupport');
