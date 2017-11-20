@@ -2364,12 +2364,12 @@ textarea::placeholder {
 
 .uiPanel--notificationsPanel.open.active {
   top: 65px !important;
-  width: 356px;
+  width: 300px;
   z-index: 36 !important;
 }
 .uiPanel--notificationsPanel.open.active > .container {
   position: relative !important;
-  width: 356px;
+  width: 300px;
   padding: 0;
   border-radius: 5px;
   background: #ffffff;
@@ -2401,8 +2401,8 @@ textarea::placeholder {
 span.titleName {
   display: table-cell;
   width: 50%;
-  padding: 11px 10px !important;
-  text-align: center;
+  padding: 11px 10px 11px 23px !important;
+  text-align: left;
   font-family: 'source_sans_proregular', Arial, sans-serif !important;
   font-size: 1.125rem !important;
   line-height: 1.5625rem;
@@ -2430,14 +2430,12 @@ span.titleOptions {
 }
 .listContainer.scrollable {
   overflow-y: auto !important;
-  max-height: 480px;
   height: auto;
   margin: 0;
   padding: 0;
   border-radius: 0 0 5px 5px;
   list-style: none;
-  width: 356px;
-  max-height: 480px;
+  width: 300px;
 }
 .scroller > ul {
   height: auto;
@@ -2446,13 +2444,20 @@ span.titleOptions {
   border-radius: 0 0 5px 5px;
   list-style: none;
 }
+.unsNotificationsVirtualList {
+    max-height: 480px;
+}
 .unsNotificationsListRow.notification-row {
   display: block;
   position: relative;
   border-bottom: 2px solid #d1d7e0;
+  background: #ffffff;
 }
 .unsNotificationsListRow.notification-row:nth-child(odd) {
   background: #f5f7ff;
+}
+.unsNotificationsListRow.notification-row:nth-child(even) {
+    background: #ffffff !important;
 }
 .unsNotificationsListRow.notification-row:last-child {
   border: none !important;
@@ -2494,16 +2499,16 @@ span.notification-age.uiOutputText:after {
 }
 a.notification-link {
   position: relative;
-  padding: 20px 25px !important;
+  padding: 20px 20px 20px 25px !important;
 }
 .unsNotificationsListRow .assistive-unread-mark {
     color: #4b71fc !important;
 }
 .header-mobile__right .cBrNotifications .unsNotificationsCounter .headerButtonBody {
-    right: 30px;
-    width: calc(100% - 20px);
+    right: 5px;
     z-index: 36;
 }
+
 
 .header__profile-dropdown {
   position: relative;
