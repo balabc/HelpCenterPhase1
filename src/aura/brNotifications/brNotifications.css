@@ -1,0 +1,57 @@
+.THIS {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    min-height: 70px;
+    margin-left: 20px;
+    text-align: left;
+}
+.THIS > .slds-button {
+    position:absolute;
+    top:45%;
+}
+.THIS .unsNotificationsCounter .headerButtonBody svg{
+  display: none;
+}
+.THIS .unsNotificationsCounter .headerButtonBody {
+    width: 14px;
+    height: 18px;
+    border-left: 2px solid #d0d6e0;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+}
+.THIS .unsNotificationsCounter .headerButtonBody:before {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    content: "";
+    width: 10px;
+    height: 8px;
+    background-position: -109px -115px;
+    background-image: url("../resource/1510743638000/BigcommerceCommunity/images/sprites/sprite.svg");
+    background-size: 596px 487px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+.THIS .unsNotificationsCounter .headerButtonBody > .countDot {
+    width: 17px;
+    height: 14px;
+    border-radius: 7px;
+    background-color: #fe4f81;
+    left: 10px;
+}
+.THIS .countDot > .counterLabel {
+    font-family: SourceSansPro;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    text-align: center;
+    color: #ffffff;
+    padding: 0;
+    display: block;
+}
+
+
+
