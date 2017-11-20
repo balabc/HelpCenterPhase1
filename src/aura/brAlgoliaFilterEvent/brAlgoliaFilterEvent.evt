@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="value from filter to search" >
+     <aura:attribute name="brFilter" type="Map" required="true" />
+</aura:event>
