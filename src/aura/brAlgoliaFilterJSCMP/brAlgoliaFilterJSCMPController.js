@@ -7,7 +7,7 @@
                     videos: false,
                     guides: false
                 }
-            },
+            }, 
             cm: {
                 posted_in: 'All',
                 is_answer: false,
@@ -18,6 +18,26 @@
                     announcement: true
                 },
                 sorting_index: 'FeedItem_Community'
+            },
+            ideas: {
+                record_type: 'All',
+                is_merged: false,
+                status: {
+                    under_point_threshold: false,
+                    closed: false,
+                    delivered: false,
+                    in_planning: false,
+                    is_new: false,
+                    existing_feature: false,
+                    future: false,
+                    app_available: false,
+                    in_development: false,
+                    not_planned: false,
+                    in_beta: false,
+                    partner_solution: false,
+                    under_consideration: false
+                },
+                sorting_index: 'Ideas_Community'
             }
             
         };
@@ -37,7 +57,7 @@
         component.set("v.brFilter", objFilter);*/
     },
 	onClickFilterRow : function(component, event, helper) {
-		var parent = event.target.parentElement.parentElement,
+        var parent = event.target.closest('.filter__section-head').parentElement,
         	active = parent.getAttribute('data-active'),
         	currentFilter = parent.getAttribute('data-type'),
             allChildOff = function(_parent) {

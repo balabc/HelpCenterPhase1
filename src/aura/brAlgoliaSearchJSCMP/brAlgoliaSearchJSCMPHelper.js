@@ -1,51 +1,68 @@
 ({
-	getSearchResult: function(component) {
-		var query = component.get("v.searchText"),
+    getSearchResult: function(component) {
+        var query = component.get("v.searchText"),
             filter = component.get("v.brFilter"),
             client = algoliasearch("QUTLQTIH9V", "1c0e6fe333993632fcb545ca781bd6bd"),
             queries = [],
             facetFilters = [],
             facetFilter = [],
-            strFilter = '';
+            strFilter = '',
+            indexName = '';
         
-        console.log(filter);
         switch (filter.type) {
             case 'kb': {
+                indexName = 'Knowledge_Community';
                 for (var key in filter.values.article_type) {
                     if (filter.values.article_type[key])
-                		facetFilter.push("type__c:" + key);
+                        facetFilter.push("type__c:" + key);
                 }
                 facetFilters.push(facetFilter);
                 queries.push({
-                    indexName: 'Knowledge_Community', 
+                    indexName: indexName, 
                     query: query,
                     params: {
                         attributesToRetrieve: "*",
                         facets: ["type__c"],
- 						facetFilters: facetFilters
+                        facetFilters: facetFilters
+                    }
+                });
+                queries.push({
+                    indexName: 'FeedItem_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
+                    }
+                });
+                queries.push({
+                    indexName: 'Ideas_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
                     }
                 });
                 break;
             }
             case 'cm': {
-                var indexName = 'FeedItem_Community';
+                indexName = 'FeedItem_Community';
                 if (filter.values.posted_in != 'All')
                     facetFilter.push('PostedIn:' + filter.values.posted_in);
                 
                 if (facetFilter.length > 0)
-                	facetFilters.push(facetFilter);
+                    facetFilters.push(facetFilter);
                 facetFilter = [];
                 for (var key in filter.values.record_type) {
                     if (filter.values.record_type[key])
-                		facetFilter.push("RecordType:" + key);
+                        facetFilter.push('RecordType:' + key);
                 }
                 if (facetFilter.length > 0)
-                	facetFilters.push(facetFilter);
+                    facetFilters.push(facetFilter);
                 facetFilter = [];
                 
                 
                 if (filter.values.is_answer) {
-                    facetFilters.push(["IsAnswered:Answered"]);
+                    facetFilters.push(['IsAnswered:Answered']);
                 }
                 
                 if (filter.values.sorting_index != 'FeedItem_Community') {
@@ -55,11 +72,81 @@
                     indexName: indexName, 
                     query: query,
                     params: {
-                        attributesToRetrieve: "*",
-                        facets: ["RecordType", "PostedIn", "IsAnswered"],
+                        attributesToRetrieve: '*',
+                        facets: ['RecordType', 'PostedIn', 'IsAnswered'],
                         facetFilters: facetFilters
                     }
                 });
+                queries.push({
+                    indexName: 'Knowledge_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
+                    }
+                });
+                queries.push({
+                    indexName: 'Ideas_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
+                    }
+                });
+                filter.type = indexName;
+                break;
+            } 
+            case 'ideas': { 
+                indexName = 'Ideas_Community';
+                if (filter.values.record_type != 'All')
+                    facetFilter.push('RecordType:' + filter.values.record_type);
+                
+                if (facetFilter.length > 0)
+                    facetFilters.push(facetFilter);
+                facetFilter = [];
+                for (var key in filter.values.status) {
+                    if (filter.values.status[key]) {
+                        facetFilter.push('Status:' + component.find('algolia_search_filter').find('ideas_' + key).get("v.value"));
+                    }
+                }
+                if (facetFilter.length > 0)
+                    facetFilters.push(facetFilter);
+                facetFilter = [];
+                
+                
+                if (filter.values.is_merged) {
+                    facetFilters.push(['IsMerged:Merged']);
+                }
+                
+                if (filter.values.sorting_index != 'Ideas_Community') {
+                    indexName = filter.values.sorting_index;
+                }
+                queries.push({
+                    indexName: indexName, 
+                    query: query,
+                    params: {
+                        attributesToRetrieve: '*',
+                        facets: ['RecordType', 'IsMerged', 'Status'],
+                        facetFilters: facetFilters
+                    }
+                });
+                queries.push({
+                    indexName: 'Knowledge_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
+                    }
+                });
+                queries.push({
+                    indexName: 'FeedItem_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
+                    }
+                });
+                filter.type = indexName;
                 break;
             }
             default: {
@@ -68,7 +155,7 @@
                     query: query,
                     params: {
                         hitsPerPage: 3,
-                        attributesToRetrieve: "*"
+                        attributesToRetrieve: '*'
                     }
                 });
                 queries.push({
@@ -76,12 +163,22 @@
                     query: query,
                     params: {
                         hitsPerPage: 3,
-                    	attributesToRetrieve: "*"
+                        attributesToRetrieve: '*'
                     }
                 });
+                queries.push({
+                    indexName: 'Ideas_Community', 
+                    query: query,
+                    params: {
+                        hitsPerPage: 3,
+                        attributesToRetrieve: '*'
+                    }
+                });
+                indexName = 'All';
                 break;
-            }
+             }
         }
+        filter.type = indexName;
         
         //index.search({ query: query }, function searchDone(err, content) {
         client.search(queries, function searchDone(err, content) {    
@@ -91,7 +188,8 @@
                 categories = content.results,
                 k = 0,
                 hasData = false,
-                name_index = '';
+                name_index = '',
+                filterCounts = {};
             
             for (var i = 0; i < categories.length; ++i) {
                 var category = categories[i], 
@@ -99,8 +197,10 @@
                     tmpListData = [],
                     item = {};
                 
+                filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
+                component.set('v.filterCounts', filterCounts);
                 
-                if (hits.length > 0) {
+                if ((hits.length > 0) && ((filter.type == category.index) || (filter.type == 'All'))) {
                     switch (category.index) {
                         case 'Knowledge_Community': {
                             name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
@@ -136,31 +236,57 @@
                                 item.left = '<p class="serp__item-left-text">' + item.source.PostedTo + '</p>';
                                 item.right = [
                                     '<p class="serp__item-title truncated">' + item.source.Title + '</p>',
-                                    //'<div class="item_body">' + item.source.Body + '</div>',
+                                    '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
                                     '<p class="serp__item-description truncated">' + 
                                     (item.source.IsAnswered? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
                                     '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
                                     '&nbsp;&nbsp;&nbsp;<span class="icon-svg-like-sm-grey"></span>&nbsp;' + item.source.LikeCount + 
                                     '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
-                                    '</p>',
+                                    '</p>'
                                 ];
-                                    tmpListData.push(item);
-                        	}
+                                tmpListData.push(item);
+                            }
                             break;
-      					} 
-         			}
+                        } 
+                        case 'Ideas_Community':
+                        case 'Ideas_Community_Trending':
+                        case 'Ideas_Community_Popular':
+                        case 'Ideas_Community_Recent': {
+                            name_index = $A.get('$Label.c.hAlgoliaSearchIdeas');
+                            for (var key in hits) { 
+                                item = {
+                                    left: '',
+                                    right: [],
+                                    source: hits[key]
+                                };
+                                item.left = '<p class="serp__item-left-text">' + item.source.Categories + '</p>';
+                                item.right = [
+                                    '<p class="serp__item-title truncated">' + item.source.Title + '</p>',
+                                    '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
+                                    '<p class="serp__item-description truncated">' + 
+                                    (item.source.Status? (item.source.Status + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
+                                    '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
+                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
+                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-star-sm-grey"></span>&nbsp;' + item.source.Votes + 
+                                    '</p>'
+                                ];
+                                tmpListData.push(item);
+                            }
+                            break;
+                        }            
+                    }
                     objData.push({
-                    	name: name_index,
-                   		items: tmpListData
+                        name: name_index,
+                        items: tmpListData
                     });
-        		}           
-    		}
+                }           
+            }
             
             if (objData.length > 0) {
                 hasData = true;
             }
-            component.set("v.hasData", hasData); 
-            component.set("v.categories", objData);
+            component.set('v.hasData', hasData); 
+            component.set('v.categories', objData);
         });
-	}
+    }
 })

@@ -9,7 +9,7 @@
     searchChange: function(component, event, helper) {
         var query = component.get("v.searchText"),
             changeSearch = $A.get("e.c:brChangeHeaderSearchBarEvent");
-        
+         
         if (query.length >= 3) { 
             helper.getSearchResult(component);
         } else {

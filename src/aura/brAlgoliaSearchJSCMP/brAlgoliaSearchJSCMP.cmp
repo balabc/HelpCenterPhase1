@@ -4,6 +4,9 @@
     <aura:attribute name="hasData" type="String" default="false"/>
     <aura:attribute name="searchText" type="String"/> 
     
+    <aura:attribute name="filterCounts" type="Object"/> 
+    
+    
     <aura:registerEvent name="brChangeHeaderSearchBarEventHandler" type="c:brChangeHeaderSearchBarEvent"/>
     <aura:handler name="eventFromBrAlgoliaFilter" event="c:brAlgoliaFilterEvent" action="{!c.onChangeFilter}"/>
     
@@ -28,7 +31,7 @@
             <div class="serp__panel">
                 <div class="serp__filter-section-panel-inner">
                     <h3 class="h3 serp__title">{!$Label.c.hAlgoliaSearchRefine}</h3>
-                    <c:brAlgoliaFilterJSCMP />
+                    <c:brAlgoliaFilterJSCMP filterCounts="{!v.filterCounts}" aura:id="algolia_search_filter" />
                 </div>    
             </div>    
         </div>    
@@ -43,7 +46,7 @@
                                     <div class="serp__item-left">
                                         <div class="serp__item-left-inner">
                                             <aura:unescapedHtml value="{!item.left}"/>
-                                        </div>
+                                        </div> 
                                     </div>
                                     <div class="serp__item-right">
                                         <div class="serp__item-right-inner">

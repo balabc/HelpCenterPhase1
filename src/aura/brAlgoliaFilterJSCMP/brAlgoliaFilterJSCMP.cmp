@@ -1,30 +1,37 @@
-<aura:component >
+<aura:component access="global">
     <ltng:require styles="/resource/brSLDS/assets/styles/salesforce-lightning-design-system-ltng.css" />
     
     <aura:attribute name="brFilter" type="Map" /> 
     <aura:attribute name="currentFilter" type="String" default="all" />
+    <aura:attribute name="filterCounts" type="Object" />
     <aura:attribute name="classFilterActive" type="String" default="filter__section--active" />  
-     
+    
     <aura:attribute name="filter_cm_posted" type="List" default="[
                                                                  {'label': 'All', 'value': 'All'},
                                                                  {'label': 'Q&amp;A', 'value': 'Q&amp;A'},
                                                                  {'label': 'Groups', 'value': 'Groups'}
                                                                  ]"/>
+     
+    <aura:attribute name="filter_ideas_record_type" type="List" default="[
+                                                                         {'label': 'All', 'value': 'All'},
+                                                                         {'label': 'Ideas', 'value': 'Ideas'},
+                                                                         {'label': 'Comments', 'value': 'Comments'}
+                                                                         ]"/>
     
     <aura:registerEvent name="eventFromBrAlgoliaFilter" type="c:brAlgoliaFilterEvent"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.brFilter}" action="{!c.onChangeFilter}"/>
     <aura:handler name="change" value="{!v.currentFilter}" action="{!c.onChangeFilter}"/>
-     
+    
     <ul class="filter">
         <li class="{!'filter__section ' + ((v.currentFilter == 'all')? v.classFilterActive: '')}" data-active="true" data-type="all">
             <div class="filter__section-head">
                 <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchAll}</h4>
             </div>    
         </li> 
-        <li class="{!'filter__section ' + ((v.currentFilter == 'kb')? v.classFilterActive: '')}" data-type="kb">
+        <li class="{!'filter__section ' + ((v.currentFilter == 'kb')? v.classFilterActive: '')}" aura:id="filter_row_kb" data-type="kb">
             <div class="filter__section-head">
-                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchKnowledgeBase}</h4>
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchKnowledgeBase}<span>{!v.filterCounts.knowledge_community}</span></h4>
                 <div class="filter__section-nav-arrow nav-arrow">
                     <div class="nav-arrow__handler">
                         <span class="nav-arrow__icon"></span>
@@ -40,9 +47,9 @@
                 </div>
             </div>
         </li>
-        <li class="{!'filter__section ' + ((v.currentFilter == 'cm')? v.classFilterActive: '')}" data-type="cm">
+        <li class="{!'filter__section ' + ((v.currentFilter == 'cm')? v.classFilterActive: '')}" aura:id="filter_row_cm" data-type="cm">
             <div class="filter__section-head">
-                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchCommunity}</h4>
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchCommunity}<span>{!v.filterCounts.feeditem_community}</span></h4>
                 <div class="filter__section-nav-arrow nav-arrow">
                     <div class="nav-arrow__handler">
                         <span class="nav-arrow__icon"></span>
@@ -89,6 +96,143 @@
                         <option text="{!$Label.c.fieldAlgoliaSearchRelevance}" value="FeedItem_Community"/>
                         <option text="{!$Label.c.fieldAlgoliaSearchLatestPosts}" value="FeedItem_Community_Latest_Post"/>
                         <option text="{!$Label.c.fieldAlgoliaSearchRecentActivity}" value="FeedItem_Community_Recent_Activity"/>
+                    </lightning:select>
+                </div>
+            </div>
+        </li>
+        <li class="{!'filter__section ' + ((v.currentFilter == 'ideas')? v.classFilterActive: '')}" aura:id="filter_row_ideas" data-type="ideas">
+            <div class="filter__section-head">
+                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchIdeas}<span>{!v.filterCounts.ideas_community}</span></h4>
+                <div class="filter__section-nav-arrow nav-arrow">
+                    <div class="nav-arrow__handler">
+                        <span class="nav-arrow__icon"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="filter__section-body">
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchType}</h5>
+                <div class="filter__item">
+                    
+                    <lightning:radioGroup aura:id="ideas_record_type"
+                                          name="ideas_record_type"
+                                          label=" "
+                                          options="{!v.filter_ideas_record_type}"
+                                          value="{!v.brFilter.ideas.record_type}"
+                                          onchange="{!c.onRadio}"/>
+                </div>
+                
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchMergedIdeas}</h5>
+                <div class="filter__item">
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchIsMerged}" 
+                                     aura:id="cm_is_merged" 
+                                     name="cm_is_merged" 
+                                     value="IsMerged" 
+                                     checked="{!v.brFilter.ideas.is_merged}" /> 
+                </div>
+                
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchPostType}</h5>
+                <div class="filter__item">
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchUnderPointThreshold}" 
+                                     aura:id="ideas_under_point_threshold" 
+                                     name="ideas_under_point_threshold" 
+                                     value="Under Point Threshold" 
+                                     checked="{!v.brFilter.ideas.status.under_point_threshold}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchClosed}" 
+                                     aura:id="ideas_closed" 
+                                     name="ideas_closed" 
+                                     value="Closed" 
+                                     checked="{!v.brFilter.ideas.status.closed}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchDelivered}" 
+                                     aura:id="ideas_delivered" 
+                                     name="ideas_delivered" 
+                                     value="Delivered" 
+                                     checked="{!v.brFilter.ideas.status.delivered}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchInPlanning}" 
+                                     aura:id="ideas_in_planning" 
+                                     name="ideas_in_planning" 
+                                     value="In Planning" 
+                                     checked="{!v.brFilter.ideas.status.in_planning}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchNew}" 
+                                     aura:id="ideas_is_new" 
+                                     name="ideas_is_new" 
+                                     value="New" 
+                                     checked="{!v.brFilter.ideas.status.is_new}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchExistingFeature}" 
+                                     aura:id="ideas_existing_feature" 
+                                     name="ideas_existing_feature" 
+                                     value="Existing Feature" 
+                                     checked="{!v.brFilter.ideas.status.existing_feature}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchFuture}" 
+                                     aura:id="ideas_future" 
+                                     name="ideas_future" 
+                                     value="Future" 
+                                     checked="{!v.brFilter.ideas.status.future}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchAppAvailable}" 
+                                     aura:id="ideas_app_available" 
+                                     name="ideas_app_available" 
+                                     value="App Available" 
+                                     checked="{!v.brFilter.ideas.status.app_available}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchInDevelopment}" 
+                                     aura:id="ideas_in_development" 
+                                     name="ideas_in_development" 
+                                     value="In Development" 
+                                     checked="{!v.brFilter.ideas.status.in_development}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchNotPlanned}" 
+                                     aura:id="ideas_not_planned" 
+                                     name="ideas_not_planned" 
+                                     value="Not Planned" 
+                                     checked="{!v.brFilter.ideas.status.not_planned}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchInBeta}" 
+                                     aura:id="ideas_in_beta" 
+                                     name="ideas_in_beta" 
+                                     value="In Beta" 
+                                     checked="{!v.brFilter.ideas.status.in_beta}" /> 
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchPartnerSolution}" 
+                                     aura:id="ideas_partner_solution" 
+                                     name="ideas_partner_solution" 
+                                     value="Partner Solution" 
+                                     checked="{!v.brFilter.ideas.status.partner_solution}" /> 
+                    
+                    
+                    <lightning:input type="checkbox" 
+                                     label="{!$Label.c.fieldAlgoliaSearchUnderConsideration}" 
+                                     aura:id="ideas_under_consideration" 
+                                     name="ideas_under_consideration" 
+                                     value="Under Consideration" 
+                                     checked="{!v.brFilter.ideas.status.under_consideration}" /> 
+                </div>
+                
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchSortingIndex}</h5>
+                <div class="filter__item">
+                    <lightning:select name="ideas_sorting_index" label="" aura:id="ideas_sorting_index" value="{!v.brFilter.ideas.sorting_index}">
+                        <option text="{!$Label.c.fieldAlgoliaSearchRelevance}" value="Ideas_Community"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchTrending}" value="Ideas_Community_Trending"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchPopular}" value="Ideas_Community_Popular"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchRecent}" value="Ideas_Community_Recent"/>
                     </lightning:select>
                 </div>
             </div>
