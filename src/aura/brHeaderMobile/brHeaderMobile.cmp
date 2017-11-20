@@ -5,6 +5,9 @@
                 <a href="/" class="header-mobile__logo-icon header-mobile__logo"></a>
             </div><!-- / end of .header-mobile__left -->
             <div class="header-mobile__right">
+                <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+                    <c:brNotifications />
+                </aura:if>
                 <span class="header-mobile__search-icon header-mobile__search-button"></span>
                 <span class="header-mobile__menu-icon header-mobile__menu-button"></span>
             </div><!-- / end of .header-mobile__right -->

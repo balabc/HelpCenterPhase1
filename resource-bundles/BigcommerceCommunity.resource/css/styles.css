@@ -2361,14 +2361,12 @@ textarea::placeholder {
     border: 1px solid #1949fb;
     border-radius: 50%;
     background: #4b71fc; }
+
 .uiPanel--notificationsPanel.open.active {
-  position: absolute !important;
   top: 65px !important;
-  margin-left: -260px;
   width: 356px;
   z-index: 36 !important;
 }
-
 .uiPanel--notificationsPanel.open.active > .container {
   position: relative !important;
   width: 356px;
@@ -2381,9 +2379,7 @@ textarea::placeholder {
   display: none;
 }
 .uiPanel>.pointer {
-  position: absolute !important;
   top: -8px !important;
-  left: 319px !important;
   border-style: solid;
   width: 0;
   height: 0;
@@ -2441,7 +2437,6 @@ span.titleOptions {
   border-radius: 0 0 5px 5px;
   list-style: none;
   width: 356px;
-  overflow-y: auto;
   max-height: 480px;
 }
 .scroller > ul {
@@ -2494,17 +2489,20 @@ span.notification-age {
   line-height: 1.1875rem;
   color: #6d6e7a !important;
 }
+span.notification-age.uiOutputText:after {
+    content: ' in BigCommerce Community';
+}
 a.notification-link {
   position: relative;
   padding: 20px 25px !important;
 }
 .unsNotificationsListRow .assistive-unread-mark {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border: 1px solid #1949fb;
-  border-radius: 50%;
-  background: #4b71fc;
+    color: #4b71fc !important;
+}
+.header-mobile__right .cBrNotifications .unsNotificationsCounter .headerButtonBody {
+    right: 30px;
+    width: calc(100% - 20px);
+    z-index: 36;
 }
 
 .header__profile-dropdown {
