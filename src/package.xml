@@ -11,6 +11,11 @@
         <members>brMainNavMenu</members>
         <members>brMainNavMenuAlt</members>
         <name>AuraDefinitionBundle</name>
+    </types>        
+    <types>       
+		<members>brCommonQuestionsCtrl</members>
+		<members>brCommonQuestionsCtrlTest</members>
+		<name>ApexClass</name>
     </types>
     <version>41.0</version>
 </Package>

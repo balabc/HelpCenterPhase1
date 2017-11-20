@@ -1,15 +1,22 @@
 
-<aura:component description="brCommonQuestions">
+<aura:component description="brCommonQuestions" controller="brCommonQuestionsCtrl">
+
+    <aura:attribute name="articlesList" type="Object[]"/>
+    <aura:attribute name="articlesCount" type="Integer" default="0"/>
+    <aura:attribute name="baseURL" type="Integer" default=""/>
+
+    <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
+    <aura:method name="reInit" action="{!c.onInit}"></aura:method>
 
     <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hCommonQuestions}</h4>
 
-    <p><a href="#">How do I import products?</a></p>
-    <p><a href="#">How do I add options to my products?</a></p>
-    <p><a href="#">How do I sell on Google Shopping?</a></p>
-    <p><a href="#">How do I point my domain to BigCommerce?</a></p>
-    <p><a href="#">How do I sell products on eBay through BigCommerce?</a></p>
-    <p><a href="#">How do I set up third-party email hosting?</a></p>
-    <p><a href="#">How do I install a third-party SSL?</a></p>
-    <p><a href="#">How do I back up my store's data?</a></p>
+    <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
+        <aura:iteration items="{!v.articlesList}" var="articleItem">
+            <p><a href="{!v.baseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a></p>
+        </aura:iteration>
+        <aura:set attribute="else">
+            <p>no items</p>
+        </aura:set>
+    </aura:if>
 
 </aura:component>
