@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="filter__section-body">
-                <h5 class="filter__sub-title">Type</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchType}</h5>
                 <div class="filter__item">
                     
                     <lightning:radioGroup aura:id="ideas_record_type"
@@ -120,7 +120,7 @@
                                           onchange="{!c.onRadio}"/>
                 </div>
                 
-                <h5 class="filter__sub-title">Merged Ideas</h5>
+                <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchMergedIdeas}</h5>
                 <div class="filter__item">
                     <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchIsMerged}" aura:id="cm_is_merged" name="cm_is_merged" value="IsMerged" checked="{!v.brFilter.ideas.is_merged}" /> 
                 </div>
@@ -128,84 +128,84 @@
                 <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchPostType}</h5>
                 <div class="filter__item">
                     <lightning:input type="checkbox" 
-                                     label="Under Point Threshold" 
+                                     label="{!$Label.c.fieldAlgoliaSearchUnderPointThreshold}" 
                                      aura:id="ideas_under_point_threshold" 
                                      name="ideas_under_point_threshold" 
                                      value="Under Point Threshold" 
                                      checked="{!v.brFilter.ideas.status.under_point_threshold}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="Closed" 
+                                     label="{!$Label.c.fieldAlgoliaSearchClosed}" 
                                      aura:id="ideas_closed" 
                                      name="ideas_closed" 
                                      value="Closed" 
                                      checked="{!v.brFilter.ideas.status.closed}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="Delivered" 
+                                     label="{!$Label.c.fieldAlgoliaSearchDelivered}" 
                                      aura:id="ideas_delivered" 
                                      name="ideas_delivered" 
                                      value="Delivered" 
                                      checked="{!v.brFilter.ideas.status.delivered}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="In Planning" 
+                                     label="{!$Label.c.fieldAlgoliaSearchInPlanning}" 
                                      aura:id="ideas_in_planning" 
                                      name="ideas_in_planning" 
                                      value="In Planning" 
                                      checked="{!v.brFilter.ideas.status.in_planning}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="New" 
+                                     label="{!$Label.c.fieldAlgoliaSearchNew}" 
                                      aura:id="ideas_is_new" 
                                      name="ideas_is_new" 
                                      value="New" 
                                      checked="{!v.brFilter.ideas.status.is_new}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="Existing Feature" 
+                                     label="{!$Label.c.fieldAlgoliaSearchExistingFeature}" 
                                      aura:id="ideas_existing_feature" 
                                      name="ideas_existing_feature" 
                                      value="Existing Feature" 
                                      checked="{!v.brFilter.ideas.status.existing_feature}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="Future" 
+                                     label="{!$Label.c.fieldAlgoliaSearchFuture}" 
                                      aura:id="ideas_future" 
                                      name="ideas_future" 
                                      value="Future" 
                                      checked="{!v.brFilter.ideas.status.future}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="App Available" 
+                                     label="{!$Label.c.fieldAlgoliaSearchAppAvailable}" 
                                      aura:id="ideas_app_available" 
                                      name="ideas_app_available" 
                                      value="App Available" 
                                      checked="{!v.brFilter.ideas.status.app_available}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="In Development" 
+                                     label="{!$Label.c.fieldAlgoliaSearchInDevelopment}" 
                                      aura:id="ideas_in_development" 
                                      name="ideas_in_development" 
                                      value="In Development" 
                                      checked="{!v.brFilter.ideas.status.in_development}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="Not Planned" 
+                                     label="{!$Label.c.fieldAlgoliaSearchNotPlanned}" 
                                      aura:id="ideas_not_planned" 
                                      name="ideas_not_planned" 
                                      value="Not Planned" 
                                      checked="{!v.brFilter.ideas.status.not_planned}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="In Beta" 
+                                     label="{!$Label.c.fieldAlgoliaSearchInBeta}" 
                                      aura:id="ideas_in_beta" 
                                      name="ideas_in_beta" 
                                      value="In Beta" 
                                      checked="{!v.brFilter.ideas.status.in_beta}" /> 
                     
                     <lightning:input type="checkbox" 
-                                     label="Partner Solution" 
+                                     label="{!$Label.c.fieldAlgoliaSearchPartnerSolution}" 
                                      aura:id="ideas_partner_solution" 
                                      name="ideas_partner_solution" 
                                      value="Partner Solution" 
@@ -213,7 +213,7 @@
                     
                     
                     <lightning:input type="checkbox" 
-                                     label="Under Consideration" 
+                                     label="{!$Label.c.fieldAlgoliaSearchUnderConsideration}" 
                                      aura:id="ideas_under_consideration" 
                                      name="ideas_under_consideration" 
                                      value="Under Consideration" 
@@ -224,9 +224,9 @@
                 <div class="filter__item">
                     <lightning:select name="ideas_sorting_index" label="" aura:id="ideas_sorting_index" value="{!v.brFilter.ideas.sorting_index}">
                         <option text="{!$Label.c.fieldAlgoliaSearchRelevance}" value="Ideas_Community"/>
-                        <option text="Trending" value="Ideas_Community_Trending"/>
-                        <option text="Popular" value="Ideas_Community_Popular"/>
-                        <option text="Recent" value="Ideas_Community_Recent"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchTrending}" value="Ideas_Community_Trending"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchPopular}" value="Ideas_Community_Popular"/>
+                        <option text="{!$Label.c.fieldAlgoliaSearchRecent}" value="Ideas_Community_Recent"/>
                     </lightning:select>
                 </div>
             </div>
