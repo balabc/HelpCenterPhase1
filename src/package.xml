@@ -16,7 +16,8 @@
         <members>brNavigationMenu</members>
         <members>brNotifications</members>
         <members>brStatusPagePanel</members>
-		<members>brHomeLayout</members>
+        <members>brHomeLayout</members>
+        <members>brUserMenu</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -29,6 +30,10 @@
         <members>brHeaderContactCtrl</members>
         <members>brHeaderContactCtrlTest</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>brCommunityMetadata.User_Menu_Items</members>
+        <name>CustomMetadata</name>
     </types>
     <types>
         <members>Learning__kav</members>

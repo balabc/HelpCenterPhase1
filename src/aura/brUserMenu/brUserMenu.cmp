@@ -1,0 +1,52 @@
+<aura:component description="brUserMenu">
+    <div class="header__userpic">
+        <img src="http://via.placeholder.com/28x28" alt="" />
+    </div>
+    <div class="header__profile-dropdown">
+        <div class="header__profile-dropdown-trigger nav-arrow">
+            <div class="nav-arrow__handler">
+                <span class="nav-arrow__icon"></span>
+            </div>
+        </div>
+        <div class="header__profile-dropdown-wrap-list">
+            <div class="dropdown">
+                <div class="dropdown__head header__profile-dropdown-head">
+                    <div class="header__profile-dropdown-info">
+                        <div class="header__profile-dropdown-userpic">
+                            <img src="http://via.placeholder.com/45x45" alt="" />
+                        </div>
+                        <div class="header__profile-dropdown-text-info">
+                            <span class="h4 header__profile-dropdown-title truncated">Steven Bennett</span>
+                            <span class="type--sm header__profile-dropdown-description truncated">Observer (128 pts)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown__body">
+                    <ul class="header__profile-dropdown-list">
+                        <li class="header__profile-dropdown-list-item">
+                            <a href="#" class="header__profile-dropdown-list-link truncated">Item 1</a>
+                        </li>
+                        <li class="header__profile-dropdown-list-item">
+                            <a href="#" class="header__profile-dropdown-list-link truncated">Item 2</a>
+                        </li>
+                        <li class="header__profile-dropdown-list-item">
+                            <a href="#" class="header__profile-dropdown-list-link truncated">Item 3</a>
+                        </li>
+                        <li class="header__profile-dropdown-list-item">
+                            <a href="#" class="header__profile-dropdown-list-link truncated">Item 4</a>
+                        </li>
+                        <li class="header__profile-dropdown-list-item">
+                            <a href="#" class="header__profile-dropdown-list-link truncated">Item 5</a>
+                        </li>
+                        <li class="header__profile-dropdown-list-item">
+                            <a href="#" class="header__profile-dropdown-list-link truncated">Item 6</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown__footer header__profile-dropdown-footer">
+                    <a href="#" class="header__profile-dropdown-list-link">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- / end of .header__profile-dropdown -->
+</aura:component>

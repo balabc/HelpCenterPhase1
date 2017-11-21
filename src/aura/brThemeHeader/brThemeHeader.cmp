@@ -20,24 +20,8 @@
                 <a href="#" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">Contact</a>
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
                     <c:brNotifications />
+                    <c:brUserMenu />
                 </aura:if>
-                <div class="header__userpic">
-                    <img src="http://via.placeholder.com/30x30" alt="" />
-                </div>
-                <div class="header__dropdown">
-                    <div class="header__dropdown-trigger nav-arrow">
-                        <div class="nav-arrow__handler">
-                            <span class="nav-arrow__icon"></span>
-                        </div>
-                    </div>
-                    <div class="header__dropdown-wrap-list">
-                        <ul class="header__dropdown-list">
-                            <li class="header__dropdown-list-item">
-                                <a href="#" class="header__dropdown-list-link">Item</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div class="header__center">
                 <div class="header__searchbox">
