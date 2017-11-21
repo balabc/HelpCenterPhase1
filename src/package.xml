@@ -29,6 +29,7 @@
         <members>brCommonQuestionsCtrlTest</members>
         <members>brHeaderContactCtrl</members>
         <members>brHeaderContactCtrlTest</members>
+        <members>brUserMenuCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
