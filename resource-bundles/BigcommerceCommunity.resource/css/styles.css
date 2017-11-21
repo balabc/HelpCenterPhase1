@@ -2364,12 +2364,10 @@ textarea::placeholder {
 
 .uiPanel--notificationsPanel.open.active {
   top: 65px !important;
-  width: 300px;
   z-index: 36 !important;
 }
 .uiPanel--notificationsPanel.open.active > .container {
   position: relative !important;
-  width: 300px;
   padding: 0;
   border-radius: 5px;
   background: #ffffff;
@@ -2435,7 +2433,6 @@ span.titleOptions {
   padding: 0;
   border-radius: 0 0 5px 5px;
   list-style: none;
-  width: 300px;
 }
 .scroller > ul {
   height: auto;
@@ -2508,7 +2505,12 @@ a.notification-link {
     right: 5px;
     z-index: 36;
 }
-
+.DESKTOP .unsNotificationsPanel>div {
+  width: 365px !important;
+}
+.visible {
+    display: none !important;
+}
 
 .header__profile-dropdown {
   position: relative;
