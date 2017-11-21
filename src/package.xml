@@ -7,6 +7,7 @@
         <members>brToggleSearchModalEvent</members>
         <members>brThemeHeader</members>
         <members>brChangeHeaderSearchBarEvent</members>
+        <members>brHeaderMobile</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

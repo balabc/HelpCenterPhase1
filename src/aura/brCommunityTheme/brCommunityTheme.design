@@ -1,3 +1,0 @@
-<design:component label="Small Header">
-    <design:attribute name="testVar" label="Test Variable"/>
-</design:component>

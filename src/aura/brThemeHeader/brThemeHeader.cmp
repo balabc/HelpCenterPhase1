@@ -4,7 +4,7 @@
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
-
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <header class="{!if(not(v.isAltMainNav), 'header', 'header header--upd')}">
         <div class="header__container container clr">
             <div class="header__left">
