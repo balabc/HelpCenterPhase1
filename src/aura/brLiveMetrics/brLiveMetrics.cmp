@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="brLiveMetricsCtrl">
+    <div class="jumbotron">
+        <div class="jumbotron__content">
+            <h1 class="h1 jumbotron__title">Welcome! How can we help?</h1>
+            <div class="jumbotron__row">
+                <div class="jumbotron__col">
+                    <p class="jumbotron__subtitle">8634</p>
+                    <p class="jumbotron__text">Members</p>
+                </div>
+                <div class="jumbotron__col">
+                    <p class="jumbotron__subtitle">806</p>
+                    <p class="jumbotron__text">Ideas</p>
+                </div>
+                <div class="jumbotron__col">
+                    <p class="jumbotron__subtitle">9587</p>
+                    <p class="jumbotron__text">Solutions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>
