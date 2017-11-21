@@ -893,16 +893,6 @@
         <value>Refreshed</value>
     </labels>
     <labels>
-        <fullName>minutes_ago</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>minutes_ago</shortDescription>
-        <value>minutes ago</value>
-        <shortDescription>hRefreshed</shortDescription>
-        <value>Refreshed</value>
-    </labels>
-    <labels>
         <fullName>hSupportPin</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -1395,110 +1385,6 @@
         <value>less than 1 minute ago</value>
     </labels>
     <labels>
-        <fullName>hSystemStatus</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hSystemStatus</shortDescription>
-        <value>System Status</value>
-    </labels>
-    <labels>
-        <fullName>hGetHelp</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hGetHelp</shortDescription>
-        <value>Get Help</value>
-    </labels>
-    <labels>
-        <fullName>hAsktheCommunity</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hAsktheCommunity</shortDescription>
-        <value>Ask the Community</value>
-    </labels>
-    <labels>
-        <fullName>hAsktheCommunityAbout</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hAsktheCommunityAbout</shortDescription>
-        <value>Get answers from business owners and experts</value>
-    </labels>
-    <labels>
-        <fullName>hLiveChat</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hLiveChat</shortDescription>
-        <value>Live Chat</value>
-    </labels>
-    <labels>
-        <fullName>hPhoneSupport</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hPhoneSupport</shortDescription>
-        <value>Phone Support</value>
-    </labels>
-    <labels>
-        <fullName>hPhoneSupportAbout</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hPhoneSupportAbout</shortDescription>
-        <value>Call us 24/7 from anywhere in the world</value>
-    </labels>
-    <labels>
-        <fullName>hEmailSupport</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hEmailSupport</shortDescription>
-        <value>Email Support</value>
-    </labels>
-    <labels>
-        <fullName>hYour</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hYour</shortDescription>
-        <value>Your</value>
-    </labels>
-    <labels>
-        <fullName>hSupportPin</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hSupportPin</shortDescription>
-        <value>Support Pin</value>
-    </labels>
-    <labels>
-        <fullName>is_required</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>is_required</shortDescription>
-        <value>is required</value>
-    </labels>
-    <labels>
-        <fullName>hCommonQuestions</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hCommonQuestions</shortDescription>
-        <value>Common Questions</value>
-    </labels>
-    <labels>
-        <fullName>hKnowledgeBase</fullName>
-        <categories>HeaderContact</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hKnowledgeBase</shortDescription>
-        <value>Knowledge Base</value>
-    </labels>
-
         <fullName>lnkAlgoliaSearchViewmoreresultsfor</fullName>
         <categories>AlgoliaSearch</categories>
         <language>en_US</language>
