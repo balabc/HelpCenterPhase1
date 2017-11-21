@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AddComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Comment Button Label</shortDescription>
+        <value>Add comment</value>
+    </labels>
+    <labels>
+        <fullName>All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Button Label</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Categories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Categories on this post</shortDescription>
+        <value>Categories :</value>
+    </labels>
+    <labels>
+        <fullName>CategoriesFilteredName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Categories filtered</shortDescription>
+        <value>Category:</value>
+    </labels>
+    <labels>
+        <fullName>CategoryLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Idea category field label</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>CategoryTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Category Filter Title</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close button label</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>CommentedByMe</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Commented by me filter option label</shortDescription>
+        <value>Commented by me</value>
+    </labels>
+    <labels>
+        <fullName>Comments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>comments</value>
+    </labels>
+    <labels>
+        <fullName>CommentsTabLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Comments Tab Label</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>DescriptionLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Idea description field label</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Draft</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draft</shortDescription>
+        <value>Draft</value>
+    </labels>
+    <labels>
+        <fullName>IdeasCountLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ideas count label</shortDescription>
+        <value>idea</value>
+    </labels>
+    <labels>
+        <fullName>Merged</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merged</shortDescription>
+        <value>Merged</value>
+    </labels>
+    <labels>
+        <fullName>MergedTabLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merged list tab label</shortDescription>
+        <value>Merged</value>
+    </labels>
+    <labels>
+        <fullName>MoreComments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>More comments button label</shortDescription>
+        <value>Show more comments</value>
+    </labels>
+    <labels>
+        <fullName>MyIdeas</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My ideas filter option label</shortDescription>
+        <value>My ideas</value>
+    </labels>
+    <labels>
+        <fullName>NewestFirst</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Newest First sorting label</shortDescription>
+        <value>Newest first</value>
+    </labels>
+    <labels>
+        <fullName>NextPagination</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next Pagination Button Label</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>NoCommentsMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Comments Message</shortDescription>
+        <value>No comments yet</value>
+    </labels>
+    <labels>
+        <fullName>NoItemsMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Items Message</shortDescription>
+        <value>No items</value>
+    </labels>
+    <labels>
+        <fullName>NoItemsText</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No items text</shortDescription>
+        <value>No Items. Please add a first article.</value>
+    </labels>
+    <labels>
+        <fullName>OldestFirst</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Oldest First sorting option label</shortDescription>
+        <value>Oldest first</value>
+    </labels>
+    <labels>
+        <fullName>OpenPostComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post comment form open button label</shortDescription>
+        <value>Post your comment</value>
+    </labels>
+    <labels>
+        <fullName>OpenPostIdea</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post Idea form open button label</shortDescription>
+        <value>Post Your Idea</value>
+    </labels>
+    <labels>
+        <fullName>PopularSorting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Popular sorting option label</shortDescription>
+        <value>Popular</value>
+    </labels>
+    <labels>
+        <fullName>Post</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post button label</shortDescription>
+        <value>Post</value>
+    </labels>
+    <labels>
+        <fullName>PostIdeaTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Post an Idea window title</shortDescription>
+        <value>Post an Idea</value>
+    </labels>
+    <labels>
+        <fullName>PreviousPagination</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous button label in pagination</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>RecentSorting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Recent option in sorting select</shortDescription>
+        <value>Recent</value>
+    </labels>
+    <labels>
+        <fullName>RequiredFields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Required fields remark</shortDescription>
+        <value>required fields</value>
+    </labels>
+    <labels>
+        <fullName>Saving</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saving message</shortDescription>
+        <value>Saving</value>
+    </labels>
+    <labels>
+        <fullName>ShowTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show filter title</shortDescription>
+        <value>Show</value>
+    </labels>
+    <labels>
+        <fullName>SimilarIdeas</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Similar Ideas Title</shortDescription>
+        <value>Similar Ideas</value>
+    </labels>
+    <labels>
+        <fullName>StatusTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status filter title</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitted Submitted</shortDescription>
+        <value>Submitted</value>
+    </labels>
+    <labels>
+        <fullName>Tags</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tags on this post</shortDescription>
+        <value>Tags :</value>
+    </labels>
+    <labels>
+        <fullName>TagsFilteredName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tags filtered</shortDescription>
+        <value>Tag:</value>
+    </labels>
+    <labels>
+        <fullName>TitleLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Idea title field label</shortDescription>
+        <value>Title</value>
+    </labels>
+    <labels>
+        <fullName>TrendingSorting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Trending option in sorting select</shortDescription>
+        <value>Trending</value>
+    </labels>
+    <labels>
+        <fullName>View_more</fullName>
+        <categories>common</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View more</shortDescription>
+        <value>View more</value>
+    </labels>
+    <labels>
+        <fullName>VotesTabLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Votes list tab label</shortDescription>
+        <value>Votes</value>
+    </labels>
+    <labels>
+        <fullName>br_Legend</fullName>
+        <categories>Common</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>br Legend</shortDescription>
+        <value>Legend</value>
+    </labels>
+    <labels>
+        <fullName>br_Most_popular_groups</fullName>
+        <categories>TopTrending</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>br Most popular groups</shortDescription>
+        <value>Most popular groups</value>
+    </labels>
+    <labels>
+        <fullName>br_Recent_news_and_updates</fullName>
+        <categories>TopTrending</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>br Recent news and updates</shortDescription>
+        <value>Recent news and updates</value>
+    </labels>
+    <labels>
+        <fullName>br_Recent_questions</fullName>
+        <categories>TopTrending</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>br Recent questions</shortDescription>
+        <value>Recent questions</value>
+    </labels>
+    <labels>
+        <fullName>br_Trending_now</fullName>
+        <categories>TopTrending</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>br Trending now</shortDescription>
+        <value>Trending now</value>
+    </labels>
+    <labels>
+        <fullName>br_View_more</fullName>
+        <categories>Common</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>br View more</shortDescription>
+        <value>View more</value>
+    </labels>
+    <labels>
+        <fullName>btnAddArticle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add article</shortDescription>
+        <value>Add Article</value>
+    </labels>
+    <labels>
+        <fullName>btnCancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>btnNext</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>btnPrev</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>btnSaveArticle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save article</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>by</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitted by User</shortDescription>
+        <value>by</value>
+    </labels>
+    <labels>
+        <fullName>click_to_open_in_new_window</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>click to open in new window</shortDescription>
+        <value>click to open in new window</value>
+    </labels>
+    <labels>
+        <fullName>defaultLayoutName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default Idea Item Layout Name</shortDescription>
+        <value>Default</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchAnnouncement</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Announcement</shortDescription>
+        <value>Announcement</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchAppAvailable</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch App Available</shortDescription>
+        <value>App Available</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchClear</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Clear</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchClosed</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Closed</shortDescription>
+        <value>Closed</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchComment</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Comment</shortDescription>
+        <value>Comment</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchDelivered</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Delivered</shortDescription>
+        <value>Delivered</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchExistingFeature</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Existing Feature AlgoliaSearch</shortDescription>
+        <value>Existing Feature</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchFuture</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Future</shortDescription>
+        <value>Future</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchGuides</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Guides</shortDescription>
+        <value>Guides</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchHasAnswer</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Has Answer</shortDescription>
+        <value>Has Answer</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchInBeta</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch In Beta</shortDescription>
+        <value>In Beta</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchInDevelopment</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch In Development</shortDescription>
+        <value>In Development</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchInPlanning</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch In Planning</shortDescription>
+        <value>In Planning</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchIsMerged</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Is Merged</shortDescription>
+        <value>Merged Ideas</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchLatestPosts</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Latest Posts</shortDescription>
+        <value>Latest Posts</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchNew</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchNotPlanned</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Not Planned</shortDescription>
+        <value>Not Planned</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchPartnerSolution</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Partner Solution</shortDescription>
+        <value>Partner Solution</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchPopular</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Popular</shortDescription>
+        <value>Popular</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchPost</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Post</shortDescription>
+        <value>Post</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchQuestion</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Question</shortDescription>
+        <value>Question</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchRecent</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Recent</shortDescription>
+        <value>Recent</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchRecentActivity</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Recent Activity</shortDescription>
+        <value>Recent Activity</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchRelevance</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Relevance</shortDescription>
+        <value>Relevance</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchSearch</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchTrending</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Trending</shortDescription>
+        <value>Trending</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchUnderConsideration</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Under Consideration</shortDescription>
+        <value>Under Consideration</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchUnderPointThreshold</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Under Point Threshold</shortDescription>
+        <value>Under Point Threshold</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchUserDocs</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch User Docs</shortDescription>
+        <value>User Docs</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchVideos</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Videos</shortDescription>
+        <value>Videos</value>
+    </labels>
+    <labels>
+        <fullName>fieldArticleName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Article name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>fieldBody</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Body</shortDescription>
+        <value>Body</value>
+    </labels>
+    <labels>
+        <fullName>fieldCategories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Categories</shortDescription>
+        <value>Categories</value>
+    </labels>
+    <labels>
+        <fullName>fieldDraft</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Draft</shortDescription>
+        <value>Draft</value>
+    </labels>
+    <labels>
+        <fullName>fieldIdeas</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Ideas</shortDescription>
+        <value>Ideas</value>
+    </labels>
+    <labels>
+        <fullName>fieldIsRequiredMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Notification message for forms fields</shortDescription>
+        <value>field is required</value>
+    </labels>
+    <labels>
+        <fullName>fieldMembers</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Members</shortDescription>
+        <value>Members</value>
+    </labels>
+    <labels>
+        <fullName>fieldShortBody</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Short body</shortDescription>
+        <value>Short Body</value>
+    </labels>
+    <labels>
+        <fullName>fieldSolutions</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Solutions</shortDescription>
+        <value>Solutions</value>
+    </labels>
+    <labels>
+        <fullName>fieldTags</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tags</shortDescription>
+        <value>Tags</value>
+    </labels>
+    <labels>
+        <fullName>fillRequiredFieldsMsg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message for idea creation form</shortDescription>
+        <value>Please fill in all required fields</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchAll</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchArticleType</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Article Type</shortDescription>
+        <value>Article Type</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchCommunity</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Community</shortDescription>
+        <value>Community</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchHasAnswer</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Has Answer</shortDescription>
+        <value>Has Answer</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchIdeas</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Ideas</shortDescription>
+        <value>Ideas</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchKnowledgeBase</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Knowledge Base</shortDescription>
+        <value>Knowledge Base</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchMergedIdeas</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Merged Ideas</shortDescription>
+        <value>Merged Ideas</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchPostType</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Post Type</shortDescription>
+        <value>Post Type</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchPostedIn</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Posted In</shortDescription>
+        <value>Posted In</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchRefine</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Refine</shortDescription>
+        <value>Refine</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchSortingIndex</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Sorting Index</shortDescription>
+        <value>Sorting Index</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchType</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>hAsktheCommunity</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hAsktheCommunity</shortDescription>
+        <value>Ask the Community</value>
+    </labels>
+    <labels>
+        <fullName>hAsktheCommunityAbout</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hAsktheCommunityAbout</shortDescription>
+        <value>Get answers from business owners and experts</value>
+    </labels>
+    <labels>
+        <fullName>hBlogCategories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All blog categories</shortDescription>
+        <value>Categories</value>
+    </labels>
+    <labels>
+        <fullName>hCommonQuestions</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hCommonQuestions</shortDescription>
+        <value>Common Questions</value>
+    </labels>
+    <labels>
+        <fullName>hEmailSupport</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hEmailSupport</shortDescription>
+        <value>Email Support</value>
+    </labels>
+    <labels>
+        <fullName>hGetHelp</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hGetHelp</shortDescription>
+        <value>Get Help</value>
+    </labels>
+    <labels>
+        <fullName>hKnowledgeBase</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hKnowledgeBase</shortDescription>
+        <value>Knowledge Base</value>
+    </labels>
+    <labels>
+        <fullName>hLiveChat</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hLiveChat</shortDescription>
+        <value>Live Chat</value>
+    </labels>
+    <labels>
+        <fullName>hLiveMetricsTitle</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Title</shortDescription>
+        <value>Welcome! How can we help?</value>
+    </labels>
+    <labels>
+        <fullName>hNewArticle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New article</shortDescription>
+        <value>New Article</value>
+    </labels>
+    <labels>
+        <fullName>hPhoneSupport</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hPhoneSupport</shortDescription>
+        <value>Phone Support</value>
+    </labels>
+    <labels>
+        <fullName>hPhoneSupportAbout</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hPhoneSupportAbout</shortDescription>
+        <value>Call us 24/7 from anywhere in the world</value>
+    </labels>
+    <labels>
+        <fullName>hRefreshed</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hRefreshed</shortDescription>
+        <value>Refreshed</value>
+    </labels>
+    <labels>
+        <fullName>hSupportPin</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hSupportPin</shortDescription>
+        <value>Support Pin</value>
+    </labels>
+    <labels>
+        <fullName>hSystemStatus</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hSystemStatus</shortDescription>
+        <value>System Status</value>
+    </labels>
+    <labels>
+        <fullName>hWriteComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Write a comment</shortDescription>
+        <value>Write a comment</value>
+    </labels>
+    <labels>
+        <fullName>hYour</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hYour</shortDescription>
+        <value>Your</value>
+    </labels>
+    <labels>
+        <fullName>ideasGlobalSearchListTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Title above ideas search result list component</shortDescription>
+        <value>Ideas</value>
+    </labels>
+    <labels>
+        <fullName>is_required</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>is_required</shortDescription>
+        <value>is required</value>
+    </labels>
+    <labels>
+        <fullName>lbl_all_events</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All events</shortDescription>
+        <value>All events</value>
+    </labels>
+    <labels>
+        <fullName>lbl_are_u_going</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Are you going?</shortDescription>
+        <value>Are you going?</value>
+    </labels>
+    <labels>
+        <fullName>lbl_attendees</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Attendees</shortDescription>
+        <value>Attendees</value>
+    </labels>
+    <labels>
+        <fullName>lbl_back</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>lbl_events_im_attending</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Events I&apos;m attending</shortDescription>
+        <value>Events I&apos;m attending</value>
+    </labels>
+    <labels>
+        <fullName>lbl_going</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Going</shortDescription>
+        <value>Going</value>
+    </labels>
+    <labels>
+        <fullName>lbl_going_lower</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>going</shortDescription>
+        <value>going</value>
+    </labels>
+    <labels>
+        <fullName>lbl_items_per_page</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Items Per Page</shortDescription>
+        <value>Items Per Page</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_apr</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>April</shortDescription>
+        <value>April</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_aug</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>August</shortDescription>
+        <value>August</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_dec</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>December</shortDescription>
+        <value>December</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_feb</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>February</shortDescription>
+        <value>February</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_jan</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>January</shortDescription>
+        <value>January</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_jul</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>July</shortDescription>
+        <value>July</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_jun</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>June</shortDescription>
+        <value>June</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_mar</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>March</shortDescription>
+        <value>March</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_may</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>May</shortDescription>
+        <value>May</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_nov</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>November</shortDescription>
+        <value>November</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_oct</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>October</shortDescription>
+        <value>October</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_sep</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>September</shortDescription>
+        <value>September</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_apr</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apr</shortDescription>
+        <value>Apr</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_aug</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Aug</shortDescription>
+        <value>Aug</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_dec</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dec</shortDescription>
+        <value>Dec</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_feb</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Feb</shortDescription>
+        <value>Feb</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_jan</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Jan</shortDescription>
+        <value>Jan</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_jul</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Jul</shortDescription>
+        <value>Jul</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_jun</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Jun</shortDescription>
+        <value>Jun</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_mar</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mar</shortDescription>
+        <value>Mar</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_may</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>May</shortDescription>
+        <value>May</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_nov</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Nov</shortDescription>
+        <value>Nov</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_oct</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Oct</shortDescription>
+        <value>Oct</value>
+    </labels>
+    <labels>
+        <fullName>lbl_month_short_sep</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sep</shortDescription>
+        <value>Sep</value>
+    </labels>
+    <labels>
+        <fullName>lbl_more_lower</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>more...</shortDescription>
+        <value>more...</value>
+    </labels>
+    <labels>
+        <fullName>lbl_next</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>lbl_not_going</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not going</shortDescription>
+        <value>Not going</value>
+    </labels>
+    <labels>
+        <fullName>lbl_of</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>of</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>lbl_past_events</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Past events tab</shortDescription>
+        <value>Past</value>
+    </labels>
+    <labels>
+        <fullName>lbl_prev</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Prev</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>lbl_today</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Today</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_fri</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Friday</shortDescription>
+        <value>Friday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_mon</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Monday</shortDescription>
+        <value>Monday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_sat</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saturday</shortDescription>
+        <value>Saturday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_fri</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>fri</shortDescription>
+        <value>Fri</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_mon</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mon</shortDescription>
+        <value>Mon</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_sat</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>sat</shortDescription>
+        <value>Sat</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_sun</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sun</shortDescription>
+        <value>Sun</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_thu</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>thu</shortDescription>
+        <value>Thu</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_tue</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tue</shortDescription>
+        <value>Tue</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_short_wed</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wed</shortDescription>
+        <value>Wed</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_sun</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sunday</shortDescription>
+        <value>Sunday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_thu</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Thursday</shortDescription>
+        <value>Thursday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_tue</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tuesday</shortDescription>
+        <value>Tuesday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_weekday_wed</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wednesday</shortDescription>
+        <value>Wednesday</value>
+    </labels>
+    <labels>
+        <fullName>lbl_zoneid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zone ID</shortDescription>
+        <value>Zone ID</value>
+    </labels>
+    <labels>
+        <fullName>lbl_zoneid_desc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Events Zone ID</shortDescription>
+        <value>Events Zone ID</value>
+    </labels>
+    <labels>
+        <fullName>less_minute_ago</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>less_minute_ago</shortDescription>
+        <value>less than 1 minute ago</value>
+    </labels>
+    <labels>
+        <fullName>lnkAlgoliaSearchViewmoreresultsfor</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch View more results for</shortDescription>
+        <value>View more results for</value>
+    </labels>
+    <labels>
+        <fullName>minutes_ago</fullName>
+        <categories>HeaderContact</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>minutes_ago</shortDescription>
+        <value>minutes ago</value>
+    </labels>
+    <labels>
+        <fullName>msgAlgoliaSearchNoResult</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch No Result</shortDescription>
+        <value>No results yet. Please begin typing to search the BigCommerce Help Center…</value>
+    </labels>
+    <labels>
+        <fullName>msgAuthorizationRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>for openCreateDialog method in Idea main cmp js controller</shortDescription>
+        <value>Authorization required</value>
+    </labels>
+    <labels>
+        <fullName>msgError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message</shortDescription>
+        <value>Error! Please contact your Admininstator.</value>
+    </labels>
+    <labels>
+        <fullName>msg_attendees_limit_exceded</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Limit of attendees exceeded.</shortDescription>
+        <value>Limit of attendees exceeded.</value>
+    </labels>
+    <labels>
+        <fullName>msg_authorization_required</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorization required</shortDescription>
+        <value>Authorization required</value>
+    </labels>
+    <labels>
+        <fullName>msg_custom_setting_image_source_for_events_obj</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please create a settings record (Name=&apos;image source&apos;) within BrEvents Settings</shortDescription>
+        <value>Please create a custom settings record (Name=&apos;image source&apos;) within BrEvents Settings object</value>
+    </labels>
+    <labels>
+        <fullName>msg_failed_to_save</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failed to save</shortDescription>
+        <value>Failed to save</value>
+    </labels>
+    <labels>
+        <fullName>msg_invalid_num_events_for_month</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ivalid number of events for specific month</shortDescription>
+        <value>Ivalid number of events for specific month</value>
+    </labels>
+    <labels>
+        <fullName>msg_no_appr_permissions</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No appropriate permissions to edit this settings</shortDescription>
+        <value>You don&apos;t have appropriate permissions to edit this settings</value>
+    </labels>
+    <labels>
+        <fullName>msg_no_permissions</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You don&apos;t have perrmissions for this action</shortDescription>
+        <value>You don&apos;t have perrmissions for this action</value>
+    </labels>
+    <labels>
+        <fullName>msg_saved_successfully</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saved successfully</shortDescription>
+        <value>Saved successfully</value>
+    </labels>
+    <labels>
+        <fullName>mulsLayoutName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Muls Idea Item Layout Name</shortDescription>
+        <value>MulS</value>
+    </labels>
+    <labels>
+        <fullName>of</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pagination pages of</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>points</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ideas points</shortDescription>
+        <value>points</value>
+    </labels>
+    <labels>
+        <fullName>test</fullName>
+        <categories>Events</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>test</shortDescription>
+        <value>test</value>
+    </labels>
+</CustomLabels>

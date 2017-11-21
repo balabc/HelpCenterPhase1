@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>brLiveMetrics</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>brLiveMetricsCtrl</members>
+        <members>brLiveMetricsCtrlTest</members>
+        <members>brIdeaService</members>
+        <members>brIdeaServiceSelector</members>
         <members>brUserService</members>
         <members>brUserServiceSelector</members>
         <members>brFeedItemService</members>
@@ -8,8 +16,8 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>brLiveMetrics</members>
-        <name>AuraDefinitionBundle</name>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
     </types>
     <version>38.0</version>
 </Package>

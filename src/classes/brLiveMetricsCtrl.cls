@@ -12,7 +12,7 @@ public with sharing class brLiveMetricsCtrl {
 	
 	@AuraEnabled
 	public static Integer getFeedItemCount() {
-		return brFeedItemService.getQuestions().size();
+		return brFeedItemService.getFeedItemCount();
 	}	
 	
 	@AuraEnabled
