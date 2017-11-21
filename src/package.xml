@@ -10,9 +10,14 @@
         <members>brHeaderContact</members>
         <members>brMainNavMenu</members>
         <members>brMainNavMenuAlt</members>
+        <members>brHeaderMobile</members>
         <name>AuraDefinitionBundle</name>
-    </types>        
-    <types>       
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
 		<members>brCommonQuestionsCtrl</members>
 		<members>brCommonQuestionsCtrlTest</members>
 		<name>ApexClass</name>

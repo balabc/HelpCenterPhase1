@@ -1,11 +1,12 @@
 <aura:component description="brHeaderMobile">
+	<aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <div class="header-mobile header-mobile--make-sticky">
         <div class="header-mobile__container clr">
             <div class="header-mobile__left">
                 <a href="/" class="header-mobile__logo-icon header-mobile__logo"></a>
             </div><!-- / end of .header-mobile__left -->
             <div class="header-mobile__right">
-                <span class="header-mobile__search-icon header-mobile__search-button"></span>
+                <span class="header-mobile__search-icon header-mobile__search-button" onclick="{!c.toggleSearch}"></span>
                 <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
                     <c:brNotifications />
                 </aura:if>
