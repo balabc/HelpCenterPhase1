@@ -16,6 +16,7 @@
         <members>brNavigationMenu</members>
         <members>brNotifications</members>
         <members>brStatusPagePanel</members>
+		<members>brHomeLayout</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
