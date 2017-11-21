@@ -11,6 +11,11 @@
         <members>brMainNavMenu</members>
         <members>brMainNavMenuAlt</members>
         <members>brHeaderMobile</members>
+        <members>brCommonQuestions</members>
+        <members>brCommunityTheme</members>
+        <members>brNavigationMenu</members>
+        <members>brNotifications</members>
+        <members>brStatusPagePanel</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -18,9 +23,28 @@
         <name>CustomLabels</name>
     </types>
     <types>
-		<members>brCommonQuestionsCtrl</members>
-		<members>brCommonQuestionsCtrlTest</members>
-		<name>ApexClass</name>
+        <members>brCommonQuestionsCtrl</members>
+        <members>brCommonQuestionsCtrlTest</members>
+        <members>brHeaderContactCtrl</members>
+        <members>brHeaderContactCtrlTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Learning__kav</members>
+        <members>Public__kav</members>
+        <members>University__kav</members>
+        <members>brPhoneSupportList__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Learning__kav-Learning Layout</members>
+        <members>Public__kav-Public Layout</members>
+        <members>University__kav-Public BCU Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>BigcommerceCommunity</members>
+        <name>StaticResource</name>
     </types>
     <version>41.0</version>
 </Package>
