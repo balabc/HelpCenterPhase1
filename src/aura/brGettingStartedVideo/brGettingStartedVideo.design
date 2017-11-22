@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="title" label="Title" description="title for video" />
+    <design:attribute name="videoDescription" label="Description" description="description for video" />
+    <design:attribute name="videoUrl" label="URL" description="url for video" />
+</design:component>

@@ -1,0 +1,10 @@
+.THIS p.type--sm {
+    width: 316px;
+    margin: 17px 0 20px 0;
+}
+.THIS a{
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    text-decoration: none;
+    color: #4b71fc;
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,21 @@
+<aura:component description="brGettingStartedVideo" implements="forceCommunity:availableForAllPageTypes" >
+    <aura:attribute name="title" type="String" default="Get started with our in-depth video series" access="global"/>
+    <aura:attribute name="videoDescription" type="String" default="In this video you will take a quick tour of the
+    BigCommerce control panel, and learn all the important areas of your dashboard." access="global" />
+    <aura:attribute name="videoUrl" type="String" access="global"/>
+
+    <div class="area-video">
+        <div class="container clr relative z-2">
+            <div class="area-video__left">
+                <h2 class="h2">{!v.title}</h2>
+                <p class="type--sm">{!v.videoDescription}</p>
+                <a href="#">{!$Label.c.btnMoreVideos}</a>
+            </div>
+            <div class="area-video__right">
+                <div class="panel-video">
+                    <iframe width="650" height="366" src="{!v.videoUrl}" frameborder="0"/>
+                </div>
+            </div>
+        </div>
+    </div><!-- / end of .area-video -->
+</aura:component>

@@ -365,6 +365,13 @@
         <value>Cancel</value>
     </labels>
     <labels>
+        <fullName>btnMoreVideos</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>button for showing more videos</shortDescription>
+        <value>Watch more videos</value>
+    </labels>
+    <labels>
         <fullName>btnNext</fullName>
         <language>en_US</language>
         <protected>false</protected>

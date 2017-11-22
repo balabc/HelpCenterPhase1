@@ -99,21 +99,6 @@
         </div><!-- / end of .container -->
     </div><!-- / end pf .area-bg -->
 
-    <div class="area-video">
-        <div class="container clr relative z-2">
-            <div class="area-video__left">
-                <h2 class="h2">Get started with our in-depth video series</h2>
-                <p class="type--sm">In this video you will take a quick tour of the <br/> BigCommerce control panel, and learn all the <br/> important areas of your dashboard.</p>
-                <a href="#">Watch more videos</a>
-            </div>
-            <div class="area-video__right">
-                <div class="panel-video">
-                    <iframe width="650" height="366" src="https://www.youtube.com/embed/O_6-2Ryh5WY" frameborder="0"/>
-                </div>
-            </div>
-        </div>
-    </div><!-- / end of .area-video -->
-
     <div class="pre-footer">
         <div class="pre-footer__wrap-img">
             <img src="{!$Resource.BigcommerceCommunity + '/images/pre-footer-img.svg'}" alt="" />
