@@ -24,14 +24,44 @@
                 menuItems = response.getReturnValue();
 
             if (state === 'SUCCESS') {
-                console.log('menuItems: ' + menuItems);
                 var menuItemsJSON = JSON.parse(menuItems);
-                /*for (var i=0;i<parsedJSON.length;i++) {
-                    console.log('totle:' + parsedJSON[i].title);
-                }*/
                 cmp.set('v.menuItems', menuItemsJSON);
             } else {
                 console.log('callback error: setUserMenuItems in brUserMenu.js');
+            }
+        });
+
+        $A.enqueueAction(action);
+    },
+
+    getReputationPoints: function (cmp, event) {
+        var action = cmp.get('c.getUserReputationPoints');
+
+        action.setCallback(this, function (response) {
+            var state = response.getState(),
+                reputationPoints = response.getReturnValue();
+
+            if (state === 'SUCCESS') {
+                cmp.set('v.reputationPoints', reputationPoints);
+            } else {
+                console.log('callback error: getReputationPoints in brUserMenu.js');
+            }
+        });
+
+        $A.enqueueAction(action);
+    },
+
+    getReputationLevel: function (cmp, event) {
+        var action = cmp.get('c.getUserReputationLevel');
+
+        action.setCallback(this, function (response) {
+            var state = response.getState(),
+                reputationLevel = response.getReturnValue();
+
+            if (state === 'SUCCESS') {
+                cmp.set('v.reputationLevel', reputationLevel);
+            } else {
+                console.log('callback error: getReputationLevel in brUserMenu.js');
             }
         });
 

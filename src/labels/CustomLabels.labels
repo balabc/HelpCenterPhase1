@@ -675,6 +675,14 @@
         <value>Draft</value>
     </labels>
     <labels>
+        <fullName>fieldIdeas</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Ideas</shortDescription>
+        <value>Ideas</value>
+    </labels>
+    <labels>
         <fullName>fieldIsRequiredMsg</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -682,11 +690,27 @@
         <value>field is required</value>
     </labels>
     <labels>
+        <fullName>fieldMembers</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Members</shortDescription>
+        <value>Members</value>
+    </labels>
+    <labels>
         <fullName>fieldShortBody</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Short body</shortDescription>
         <value>Short Body</value>
+    </labels>
+    <labels>
+        <fullName>fieldSolutions</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Solutions</shortDescription>
+        <value>Solutions</value>
     </labels>
     <labels>
         <fullName>fieldTags</fullName>
@@ -860,6 +884,14 @@
         <protected>false</protected>
         <shortDescription>hLiveChat</shortDescription>
         <value>Live Chat</value>
+    </labels>
+    <labels>
+        <fullName>hLiveMetricsTitle</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Live Metrics Title</shortDescription>
+        <value>Welcome! How can we help?</value>
     </labels>
     <labels>
         <fullName>hNewArticle</fullName>
@@ -1393,6 +1425,13 @@
         <value>View more results for</value>
     </labels>
     <labels>
+        <fullName>lnkLogOut</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>log out from user menu</shortDescription>
+        <value>Log Out</value>
+    </labels>
+    <labels>
         <fullName>minutes_ago</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -1416,11 +1455,25 @@
         <value>Authorization required</value>
     </labels>
     <labels>
+        <fullName>msgAvatar</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>avatar</shortDescription>
+        <value>Avatar</value>
+    </labels>
+    <labels>
         <fullName>msgError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Error message</shortDescription>
         <value>Error! Please contact your Admininstator.</value>
+    </labels>
+    <labels>
+        <fullName>msgPoints</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show points on user menu</shortDescription>
+        <value>pts</value>
     </labels>
     <labels>
         <fullName>msg_attendees_limit_exceded</fullName>

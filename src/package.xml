@@ -18,6 +18,7 @@
         <members>brStatusPagePanel</members>
         <members>brHomeLayout</members>
         <members>brUserMenu</members>
+        <members>brUserMenuItem</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -30,6 +31,7 @@
         <members>brHeaderContactCtrl</members>
         <members>brHeaderContactCtrlTest</members>
         <members>brUserMenuCtrl</members>
+        <members>brUserMenuCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>

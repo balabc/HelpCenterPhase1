@@ -1,14 +1,16 @@
 <aura:component description="brUserMenu" controller="brUserMenuCtrl">
     <aura:attribute name="user" type="User"/>
     <aura:attribute name="menuItems" type="Object[]"/>
+    <aura:attribute name="reputationPoints" type="Integer"/>
+    <aura:attribute name="reputationLevel" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <div class="header__userpic">
+    <div class="header__userpic" onclick="{!c.toggleDropdownMenu}">
         <aura:if isTrue="{!!equals(v.user.Id, null)}">
-            <img src="{!v.user.SmallPhotoUrl}"  alt="{!$Label.c.msgAvatar}" />
+            <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
             <aura:set attribute="else">
-                <img src="../images/group-4.png"  alt="{!$Label.c.msgAvatar}" />
+                <img src="../images/group-4.png" alt="{!$Label.c.msgAvatar}" />
             </aura:set>
         </aura:if>
     </div>
@@ -29,7 +31,7 @@
                         </div>
                         <div class="header__profile-dropdown-text-info">
                             <span class="h4 header__profile-dropdown-title truncated">{!v.user.Name}</span>
-                            <span class="type--sm header__profile-dropdown-description truncated">Observer (128 pts)</span>
+                            <span class="type--sm header__profile-dropdown-description truncated">{!v.reputationLevel} ({!v.reputationPoints + ' ' + $Label.c.msgPoints})</span>
                         </div>
                     </div>
                 </div>
@@ -37,22 +39,13 @@
                     <ul class="header__profile-dropdown-list">
                         <aura:iteration items="{!v.menuItems}" var="menuItem">
                             <li class="header__profile-dropdown-list-item">
-                                <aura:if isTrue="{!menuItem.url == 'profile' || menuItem.url == 'settings'}">
-                                    <a href="{!$SfdcSite.pathPrefix + '/s/'+menuItem.url+'/' + v.user.Id}" target="{!menuItem.new_window?'_blank':''}"
-                                       class="header__profile-dropdown-list-link truncated">{!menuItem.title}
-                                    </a>
-                                    <aura:set attribute="else">
-                                        <a href="{!$SfdcSite.pathPrefix + '/s/'+menuItem.url}" target="{!menuItem.new_window?'_blank':''}"
-                                           class="header__profile-dropdown-list-link truncated">{!menuItem.title}
-                                        </a>
-                                    </aura:set>
-                                </aura:if>
+                                <c:brUserMenuItem menuItem = "{!menuItem}" userId = "{!v.user.Id}" />
                             </li>
                         </aura:iteration>
                     </ul>
                 </div>
                 <div class="dropdown__footer header__profile-dropdown-footer">
-                    <a href="https://bc-community-developer-edition.eu9.force.com/support/secur/logout.jsp" class="header__profile-dropdown-list-link">Log Out</a>
+                    <a href="{!$SfdcSite.pathPrefix +'/secur/logout.jsp'}" class="header__profile-dropdown-list-link">{!$Label.c.lnkLogOut}</a>
                 </div>
             </div>
         </div>
