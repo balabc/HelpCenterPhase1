@@ -22,6 +22,7 @@
         <members>brGettingStartedVideo</members>
         <members>brPreFooter</members>
         <members>brTopTrendingCMP</members>
+        <members>brLeaderboardComponent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -42,6 +43,11 @@
         <members>brFeedItemModel</members>
         <members>brFeedItemService</members>
         <members>brFeedItemServiceSelector</members>
+        <members>brLeaderboardCtrl</members>
+        <members>brLeaderboardCtrlTest</members>
+        <members>brLeaderboardModel</members>
+        <members>brUserService</members>
+        <members>brUserServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -63,6 +69,7 @@
     </types>
     <types>
         <members>BigcommerceCommunity</members>
+        <members>brJsSlider</members>
         <name>StaticResource</name>
     </types>
     <version>41.0</version>
