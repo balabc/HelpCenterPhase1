@@ -103,18 +103,4 @@
         </div><!-- / end of .container -->
     </div><!-- / end pf .area-bg -->
 
-    <div class="pre-footer">
-        <div class="pre-footer__wrap-img">
-            <img src="{!$Resource.BigcommerceCommunity + '/images/pre-footer-img.svg'}" alt="" />
-        </div>
-        <div class="pre-footer__wrap-caption">
-            <div class="pre-footer__caption">
-                <h2 class="h2 pre-footer__title">Lorem ipsum dolor sit amet consectetur</h2>
-                <p class="pre-footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
-                <a href="#" class="button button--default button--sm">Lorem ipsum</a>
-
-            </div>
-        </div>
-    </div><!-- / end of .pre-footer -->
-
 </aura:component>
