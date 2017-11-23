@@ -1,0 +1,230 @@
+<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="currentMenu" type="Object" default="{lvl: 1; title: ''}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div id="mobile-nav-1" class="header-mobile__nav" data-active="{!(v.currentMenu.lvl == 1)? 'true': 'false'}">
+        <div class="header-mobile__nav-inner">
+            <ul class="header-mobile__menu">
+                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="Knowledge Base">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Knowledge Base</span>
+                    </a>
+                    <div class="header-mobile__menu-tosub">
+                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                            <div class="nav-arrow-hor-simple__handler">
+                                <span class="nav-arrow-hor-simple__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">News&amp;Updates</span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="Community">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Community</span>
+                    </a>
+                    <div class="header-mobile__menu-tosub">
+                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                            <div class="nav-arrow-hor-simple__handler">
+                                <span class="nav-arrow-hor-simple__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">News&amp;Updates</span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Ideas</span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="Contact">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Contact</span>
+                    </a>
+                    <div class="header-mobile__menu-tosub">
+                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                            <div class="nav-arrow-hor-simple__handler">
+                                <span class="nav-arrow-hor-simple__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="Notifications">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Notifications</span>
+                    </a>
+                    <div class="header-mobile__menu-tosub">
+                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                            <div class="nav-arrow-hor-simple__handler">
+                                <span class="nav-arrow-hor-simple__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="Steven Benett">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                    <span class="header-mobile__menu-shape">
+                        <img src="http://via.placeholder.com/30x30" class="header-mobile__menu-userpic" alt=""/>
+                    </span>
+                        <span class="header-mobile__menu-text truncated">Steven Benett</span>
+                    </a>
+                    <div class="header-mobile__menu-tosub">
+                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                            <div class="nav-arrow-hor-simple__handler">
+                                <span class="nav-arrow-hor-simple__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul><!-- / end of .header-mobile__menu -->
+        </div><!-- / end of .header-mobile__nav-inner -->
+    </div><!-- / end of .header-mobile__nav -->
+    <div id="mobile-nav-2" class="header-mobile__nav" data-active="{!(v.currentMenu.lvl == 2)? 'true': 'false'}">
+        <div class="header-mobile__menu-item-goback" onclick="{!c.prevLvlMenu}">
+            <div class="header-mobile__menu-goback">
+                <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
+                    <div class="nav-arrow-hor-angular__handler">
+                        <span class="nav-arrow-hor-angular__icon"></span>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                <span class="header-mobile__menu-text truncated">{!v.currentMenu.title}</span>
+            </a>
+        </div>
+        <div class="header-mobile__nav-inner">
+            <ul class="header-mobile__menu">
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Articles</span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Learning Guides</span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Videos</span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Developer Docs <i class="icon-svg-docs-sm"></i></span>
+                    </a>
+                </li>
+                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="Phone Support">
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">Phone Support</span>
+                    </a>
+                    <div class="header-mobile__menu-tosub">
+                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                            <div class="nav-arrow-hor-simple__handler">
+                                <span class="nav-arrow-hor-simple__icon"></span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul><!-- / end of .header-mobile__menu -->
+        </div><!-- / end of .header-mobile__nav-inner -->
+    </div><!-- / end of .header-mobile__nav -->
+    <div id="mobile-nav-3" class="header-mobile__nav" data-active="{!(v.currentMenu.lvl == 3)? 'true': 'false'}">
+        <div class="header-mobile__menu-item-goback" onclick="{!c.prevLvlMenu}">
+            <div class="header-mobile__menu-goback">
+                <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
+                    <div class="nav-arrow-hor-angular__handler">
+                        <span class="nav-arrow-hor-angular__icon"></span>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                <span class="header-mobile__menu-text truncated">{!v.currentMenu.title}</span>
+            </a>
+        </div>
+        <div class="header-mobile__nav-inner">
+            <ul class="header-mobile__menu">
+                <li class="header-mobile__menu-content">
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <p class="m-vertical-0 color-primary">1-888-699-8911</p>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                    <br/>
+                    <p class="m-bottom-0">USA &amp; Canada</p>
+                    <a href="#">1-888-699-8911</a>
+                </li>
+            </ul><!-- / end of .header-mobile__menu -->
+        </div><!-- / end of .header-mobile__nav-inner -->
+    </div><!-- / end of .header-mobile__nav -->
+</aura:component>
