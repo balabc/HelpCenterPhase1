@@ -21,6 +21,7 @@
         <members>brUserMenuItem</members>
         <members>brGettingStartedVideo</members>
         <members>brPreFooter</members>
+        <members>brTopTrendingCMP</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -34,6 +35,13 @@
         <members>brHeaderContactCtrlTest</members>
         <members>brUserMenuCtrl</members>
         <members>brUserMenuCtrlTest</members>
+        <members>brChatterGroupModel</members>
+        <members>brChatterGroupService</members>
+        <members>brChatterGroupServiceSelector</members>
+        <members>brTopTrendingCtrl</members>
+        <members>brFeedItemModel</members>
+        <members>brFeedItemService</members>
+        <members>brFeedItemServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>
