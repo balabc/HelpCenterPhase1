@@ -12,12 +12,13 @@
                         <div class="panel-media">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
-                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles.png'}"
+                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles-2x.png 2x'}" alt="" />
                                 </div>
                             </div>
                             <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">Articles</h4>
-                                <p class="panel-media__text type--sm">Learn how to build, launch and grow your business with our in-depth articles and learning guides.</p>
+                                <h4 class="h4 panel-media__title">{!$Label.c.hArticles}</h4>
+                                <p class="panel-media__text type--sm">{!$Label.c.msgArticles}</p>
                             </div>
                         </div>
                     </div><!-- / end of .column -->
@@ -25,12 +26,13 @@
                         <div class="panel-media">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
-                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Community.png'}"
+                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Community-2x.png 2x'}" alt="" />
                                 </div>
                             </div>
                             <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">Community QA</h4>
-                                <p class="panel-media__text type--sm">Ask questions, find answers and make connections in our community of business owners and experts.</p>
+                                <h4 class="h4 panel-media__title">{!$Label.c.hCommunityQA}</h4>
+                                <p class="panel-media__text type--sm">{!$Label.c.msgCommunityQA}</p>
                             </div>
                         </div>
                     </div><!-- / end of .column -->
@@ -38,12 +40,13 @@
                         <div class="panel-media">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
-                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates.png'}"
+                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates-2x.png 2x'}" alt="" />
                                 </div>
                             </div>
                             <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">News and updates</h4>
-                                <p class="panel-media__text type--sm">Stay informed with company updates, product release information and other announcements.</p>
+                                <h4 class="h4 panel-media__title">{!$Label.c.hNewsAndUpdates}</h4>
+                                <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
                             </div>
                         </div>
                     </div><!-- / end of .column -->
@@ -51,12 +54,13 @@
                         <div class="panel-media">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
-                                    <img src="http://via.placeholder.com/80x80" alt="" />
+                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas.png'}"
+                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas-2x.png 2x'}" alt="" />
                                 </div>
                             </div>
                             <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">Ideas</h4>
-                                <p class="panel-media__text type--sm">Post, vote and comment on ideas for product enhancements, new features, or improving support.</p>
+                                <h4 class="h4 panel-media__title">{!$Label.c.hIdeas}</h4>
+                                <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}</p>
                             </div>
                         </div>
                     </div><!-- / end of .column -->

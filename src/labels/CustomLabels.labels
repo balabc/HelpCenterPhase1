@@ -830,6 +830,13 @@
         <value>Type</value>
     </labels>
     <labels>
+        <fullName>hArticles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show header for articles</shortDescription>
+        <value>Articles</value>
+    </labels>
+    <labels>
         <fullName>hAsktheCommunity</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -861,6 +868,13 @@
         <value>Common Questions</value>
     </labels>
     <labels>
+        <fullName>hCommunityQA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for community QA</shortDescription>
+        <value>Community QA</value>
+    </labels>
+    <labels>
         <fullName>hEmailSupport</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -875,6 +889,13 @@
         <protected>false</protected>
         <shortDescription>hGetHelp</shortDescription>
         <value>Get Help</value>
+    </labels>
+    <labels>
+        <fullName>hIdeas</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for ideas</shortDescription>
+        <value>Ideas</value>
     </labels>
     <labels>
         <fullName>hKnowledgeBase</fullName>
@@ -906,6 +927,13 @@
         <protected>false</protected>
         <shortDescription>New article</shortDescription>
         <value>New Article</value>
+    </labels>
+    <labels>
+        <fullName>hNewsAndUpdates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for news and updates</shortDescription>
+        <value>News and updates</value>
     </labels>
     <labels>
         <fullName>hPhoneSupport</fullName>
@@ -1455,6 +1483,13 @@
         <value>No results yet. Please begin typing to search the BigCommerce Help Center…</value>
     </labels>
     <labels>
+        <fullName>msgArticles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show description under article header</shortDescription>
+        <value>Learn how to build, launch and grow your business with our in-depth articles and learning guides.</value>
+    </labels>
+    <labels>
         <fullName>msgAuthorizationRequired</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1469,11 +1504,32 @@
         <value>Avatar</value>
     </labels>
     <labels>
+        <fullName>msgCommunityQA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>description for community QA</shortDescription>
+        <value>Ask questions, find answers and make connections in our community of business owners and experts.</value>
+    </labels>
+    <labels>
         <fullName>msgError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Error message</shortDescription>
         <value>Error! Please contact your Admininstator.</value>
+    </labels>
+    <labels>
+        <fullName>msgIdeas</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>description for ideas</shortDescription>
+        <value>Post, vote and comment on ideas for product enhancements, new features, or improving support.</value>
+    </labels>
+    <labels>
+        <fullName>msgNewsAndUpdates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>description for new and updates</shortDescription>
+        <value>Stay informed with company updates, product release information and other announcements.</value>
     </labels>
     <labels>
         <fullName>msgPoints</fullName>

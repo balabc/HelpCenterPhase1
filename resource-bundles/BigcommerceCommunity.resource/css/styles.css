@@ -1496,7 +1496,7 @@ textarea::placeholder {
 .panel-media {
   position: relative;
   min-height: 80px;
-  padding: 43px;
+  padding: 43px 43px 43px 33px;
   border-radius: 5px;
   background: #ffffff;
   box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1); }
@@ -1504,24 +1504,23 @@ textarea::placeholder {
     position: absolute;
     top: 43px;
     left: 43px;
-    width: 80px;
+    width: 112px;
     height: 80px; }
-  .panel-media__icon {
-    border-radius: 5px;
-    box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1); }
     .panel-media__icon img {
       display: block;
-      width: 80px;
+      width: 112px;
       height: 80px;
       margin: 0;
       border-radius: 5px; }
   .panel-media__wrap-content {
     min-height: 80px;
     padding-top: 3px;
-    padding-left: 110px; }
+    padding-left: 140px; }
   .panel-media__title {
+    width: 330px;
     margin: 0 0 2px; }
   .panel-media__text {
+    width: 330px;
     margin: 0; }
 
 .panel-media-small {
