@@ -1,7 +1,7 @@
 public with sharing class brUserMenuCtrl {
     @AuraEnabled
     public static User getCurrentUser() {
-        return [SELECT Id, Name, SmallPhotoUrl FROM User WHERE Id = :userInfo.getUserId() LIMIT 1];
+        return [SELECT Id, Name, UserType, SmallPhotoUrl FROM User WHERE Id = :userInfo.getUserId() LIMIT 1];
     }
 
     @AuraEnabled

@@ -17,3 +17,18 @@
     text-decoration: none;
     transition: all 0.3s ease;
 }
+.THIS .login {
+    text-transform: uppercase;
+    width: 47px;
+    height: 18px;
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    transform: translate(0, -50%);
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="title" label="Title" description="title for pre footer" />
+    <design:attribute name="description" label="Description" description="description for pre footer" />
+    <design:attribute name="textButton" label="Text for button" description="text for button" />
+    <design:attribute name="url" label="URL" description="url for button" />
+</design:component>

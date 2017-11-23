@@ -6,18 +6,24 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <div class="header__userpic" onclick="{!c.toggleDropdownMenu}">
-        <aura:if isTrue="{!!equals(v.user.Id, null)}">
+    <div class="header__userpic" onclick="{!notequals(v.user.UserType, 'Guest')?c.toggleDropdownMenu:''}">
+        <aura:if isTrue="{!notequals(v.user.UserType, 'Guest')}">
             <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
             <aura:set attribute="else">
-                <img src="../images/group-4.png" alt="{!$Label.c.msgAvatar}" />
+                <img src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
+                     srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
             </aura:set>
         </aura:if>
     </div>
     <div class="header__profile-dropdown">
         <div class="header__profile-dropdown-trigger nav-arrow">
             <div class="nav-arrow__handler">
-                <span class="nav-arrow__icon" onclick="{!c.toggleDropdownMenu}"></span>
+                <aura:if isTrue="{!notequals(v.user.UserType, 'Guest')}">
+                    <span class="nav-arrow__icon" onclick="{!c.toggleDropdownMenu}"></span>
+                    <aura:set attribute="else">
+                        <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login">{!$Label.c.lnkLogIn}</a></span>
+                    </aura:set>
+                </aura:if>
             </div>
         </div>
         <div aura:id="dropdownMenu" class="header__profile-dropdown-wrap-list toggle">

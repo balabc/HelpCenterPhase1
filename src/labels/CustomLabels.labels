@@ -1460,6 +1460,13 @@
         <value>View more results for</value>
     </labels>
     <labels>
+        <fullName>lnkLogIn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>name log in link</shortDescription>
+        <value>Log in</value>
+    </labels>
+    <labels>
         <fullName>lnkLogOut</fullName>
         <language>en_US</language>
         <protected>false</protected>

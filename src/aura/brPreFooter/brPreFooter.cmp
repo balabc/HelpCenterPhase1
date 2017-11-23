@@ -1,0 +1,17 @@
+<aura:component description="brPreFooter" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="title" type="String" access="global"/>
+    <aura:attribute name="description" type="String" access="global" />
+    <aura:attribute name="textButton" type="String" access="global"/>
+    <aura:attribute name="url" type="String" access="global"/>
+
+    <div class="pre-footer">
+        <div class="pre-footer__wrap-img"></div>
+        <div class="pre-footer__wrap-caption">
+            <div class="pre-footer__caption">
+                <h2 class="h2 pre-footer__title">{!v.title}</h2>
+                <p class="pre-footer__text">{!v.description}</p>
+                <a class="button button--default button--sm" onclick="{!c.showNewPage}">{!v.textButton}</a>
+            </div>
+        </div>
+    </div><!-- / end of .pre-footer -->
+</aura:component>

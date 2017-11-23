@@ -1525,10 +1525,8 @@ textarea::placeholder {
     padding-top: 3px;
     padding-left: 140px; }
   .panel-media__title {
-    width: 330px;
     margin: 0 0 2px; }
   .panel-media__text {
-    width: 330px;
     margin: 0; }
 
 .panel-media-small {
@@ -3072,7 +3070,9 @@ a.notification-link {
   position: relative; }
   .pre-footer__wrap-img {
     overflow: hidden;
-    height: 374px; }
+    height: 374px;
+      background-image: url('../images/HomePage-pre-footer.png');
+      background-position-x: center;  }
   .pre-footer img {
     display: block;
     width: auto;
@@ -3266,6 +3266,9 @@ a.notification-link {
     width: 38%;
     padding-top: 25px;
     padding-right: 20px; }
+.videoDescription {
+    width: 336px;
+}
   .area-video__right {
     float: left;
     width: 62%; }
@@ -3307,6 +3310,9 @@ a.notification-link {
     margin-bottom: 25px;
     padding: 0;
     text-align: center; }
+     .videoDescription {
+     width: 100%;
+}
   .is-mobile .area-video__right {
     float: none;
     width: 100%;

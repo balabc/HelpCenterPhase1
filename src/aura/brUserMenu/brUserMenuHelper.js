@@ -8,6 +8,7 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.user', user);
+                console.log('type: ' + user.UserType);
             } else {
                 console.log('callback error: getCurrentUser in brUserMenu.js');
             }

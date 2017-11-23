@@ -8,7 +8,7 @@
         <div class="container clr relative z-2">
             <div class="area-video__left">
                 <h2 class="h2">{!v.title}</h2>
-                <p class="type--sm">{!v.videoDescription}</p>
+                <p class="type--sm videoDescription">{!v.videoDescription}</p>
                 <a href="#">{!$Label.c.btnMoreVideos}</a>
             </div>
             <div class="area-video__right">
