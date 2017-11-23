@@ -20,6 +20,7 @@
         <members>brUserMenu</members>
         <members>brUserMenuItem</members>
         <members>brGettingStartedVideo</members>
+        <members>brFeaturedArticles</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
