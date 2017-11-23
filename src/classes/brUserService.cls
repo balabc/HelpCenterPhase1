@@ -1,5 +1,11 @@
 public with sharing class brUserService {
 	
+	public static Integer getUserCount(Id communityId) {
+
+		return brUserServiceSelector.getUserMembers(communityId, 50000).size();
+
+	}
+
     public static List<brLeaderboardModel> getUserLeaderboard(Id communityId) {
     	
     	List<brLeaderboardModel> leaderboardModels = new List<brLeaderboardModel>();

@@ -23,6 +23,7 @@
         <members>brPreFooter</members>
         <members>brTopTrendingCMP</members>
         <members>brLeaderboardComponent</members>
+        <members>brLiveMetrics</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -48,6 +49,10 @@
         <members>brLeaderboardModel</members>
         <members>brUserService</members>
         <members>brUserServiceSelector</members>
+        <members>brLiveMetricsCtrl</members>
+        <members>brLiveMetricsCtrlTest</members>
+        <members>brIdeaService</members>
+        <members>brIdeaServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>
