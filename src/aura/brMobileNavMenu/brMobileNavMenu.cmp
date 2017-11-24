@@ -3,11 +3,12 @@
 	<aura:attribute name="menuItems" type="Object"/>
     <aura:attribute name="phoneList" type="Object[]"/>
     <aura:attribute name="menuList" type="Object"/>
+    <aura:attribute name="user" type="Object"/>
 	<aura:attribute name="phoneCount" type="Integer" default="0"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.menuItems}" action="{!c.changeMenu}"/>
-
+	<aura:handler name="change" value="{!v.user}" action="{!c.changeUser}"/>
 
     <div id="mobile-nav-1" class="header-mobile__nav" data-active="{!(v.currentMenu.lvl == 1)? 'true': 'false'}">
         <div class="header-mobile__nav-inner">
@@ -16,13 +17,16 @@
                 <aura:iteration items="{!v.menuList}" var="item" >
                     <aura:if isTrue="{!item.subMenu == undefined}">
                         <li class="header-mobile__menu-item">                           
-                            <a href="javascript:void(0);" class="header-mobile__menu-link truncated" data-menu-item-id="{!item.id}" onclick="{!c.onClick}">
+                            <a href="{!((item.url == undefined)? 'javascript:void(0);': item.url)}" class="header-mobile__menu-link truncated" data-menu-item-id="{!item.id}" onclick="{!c.onClick}">
                                 <span class="header-mobile__menu-text truncated">{!item.label}</span>
                             </a>                          
                         </li>
                         <aura:set attribute="else">
                             <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="{!item.label}" data-id="{!item.id}">
-                                <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                                <a href="{!((item.url == undefined)? 'javascript:void(0);': item.url)}" class="header-mobile__menu-link truncated">
+                                    <aura:if isTrue="{!(item.picture != undefined)}">
+                                        <aura:unescapedHtml value="{!item.picture}" />
+                                    </aura:if>
                                     <span class="header-mobile__menu-text truncated">{!item.label}</span>
                                 </a>
                                 <div class="header-mobile__menu-tosub">
@@ -35,16 +39,7 @@
                             </li>                      
                         </aura:set>
                     </aura:if>
-                </aura:iteration> 
-                
-                <li class="header-mobile__menu-item">
-                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated" data-menu-item-id="">
-                        <span class="header-mobile__menu-shape">
-                            <img src="http://via.placeholder.com/30x30" class="header-mobile__menu-userpic" alt=""/>
-                        </span>
-                        <span class="header-mobile__menu-text truncated">Steven Benett</span>
-                    </a>
-                </li>                
+                </aura:iteration>            
             </ul>    
             <!-- / end of .header-mobile__menu -->
         </div><!-- / end of .header-mobile__nav-inner -->
@@ -67,7 +62,7 @@
                 <aura:iteration items="{!v.menuList}" var="item" >
                     <aura:if isTrue="{!item.subMenu == undefined}">
                         <li class="header-mobile__menu-item">                           
-                            <a href="javascript:void(0);" class="header-mobile__menu-link truncated" data-menu-item-id="{!item.id}" onclick="{!c.onClick}">
+                            <a href="{!((item.url == undefined)? 'javascript:void(0);': item.url)}" class="header-mobile__menu-link truncated" data-menu-item-id="{!item.id}" onclick="{!c.onClick}">
                                 <span class="header-mobile__menu-text truncated">{!item.label}<i class="{!item.icon}"></i></span>
                             </a>                          
                         </li>

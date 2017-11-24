@@ -6,4 +6,9 @@ public with sharing class brMobileNavMenuCtrl {
         return phoneList;
     }    
     
+    @AuraEnabled
+    public static brLeaderboardModel getUserInfo () {
+    	return brUserService.getUserInfo();
+    }
+    
 }

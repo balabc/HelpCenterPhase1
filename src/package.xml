@@ -6,6 +6,8 @@
     </types>
     <types>
         <members>brMobileNavMenuCtrl</members>
+        <members>brUserService</members>
+        <members>brUserServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <version>38.0</version>
