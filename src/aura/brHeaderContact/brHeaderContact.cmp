@@ -5,6 +5,7 @@
 
     <aura:attribute name="phoneList" type="Object[]"/>
     <aura:attribute name="phoneCount" type="Integer" default="0"/>
+    <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
 
     <aura:method name="showMe" description="Show Header Contact" />
     <aura:method name="hideMe" description="Hide Header Contact" />
@@ -24,6 +25,7 @@
                     <c:brStatusPagePanel aura:id="statusPanel" />
 
                     <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hGetHelp}</h4>
+                    {!v.askbutton}
                     <div class="panel-media-small" onclick="{!c.openAskCommunity}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="panel-media-small__icon">
