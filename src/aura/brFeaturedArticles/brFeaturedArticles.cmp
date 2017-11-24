@@ -1,33 +1,36 @@
-<aura:component description="brFeaturedArticles" implements="forceCommunity:availableForAllPageTypes" access="global">
+<aura:component description="brFeaturedArticles" controller="brFeaturedArticlesCtrl" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="articlesList" type="Object[]"/>
+    <aura:attribute name="articlesCount" type="Integer" default="0"/>
+    <aura:attribute name="articleBaseURL" type="String" />
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
     <div class="area-bg">
         <div class="skew-lg--top bg-x3lightgrey z-1"></div>
         <div class="skew-lg--bottom bg-x3lightgrey z-1"></div>
 
         <div class="container relative z-2">
-            <h2 class="h2 m-top-0 m-bottom-40r text-center">Featured articles</h2>
+            <h2 class="h2 m-top-0 m-bottom-40r text-center">{!$Label.c.hFeaturedArticles}</h2>
 
             <div class="row row--pad">
-                <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
-                    <ul class="list-group list-group--media-md">
-                        <li class="list-group__item">How to import products</li>
-                        <li class="list-group__item">How to add options to products</li>
-                        <li class="list-group__item">How to point my domain to BigCommerce</li>
-                    </ul>
-                </div><!-- / end of .column -->
-                <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
-                    <ul class="list-group list-group--media-md">
-                        <li class="list-group__item">How to set up third-party email hosting</li>
-                        <li class="list-group__item">How to install a third-party SSL</li>
-                        <li class="list-group__item">How to back up my store's data</li>
-                    </ul>
-                </div><!-- / end of .column -->
-                <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
-                    <ul class="list-group list-group--media-md">
-                        <li class="list-group__item">How to sell on Google Shopping</li>
-                        <li class="list-group__item">How to sell products on eBay through BigCommerce</li>
-                    </ul>
-                </div><!-- / end of .column -->
-            </div><!-- / end of .row -->
+                <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
+                    <aura:iteration items="{!v.articlesList}" var="articleItem" indexVar="index">
+                        <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
+                            <ul class="list-group list-group--media-md"><!-- and(equals(v.articlesCount % 3, 1), equals(index, v.articlesList.length-1)),-->
+                                <li class="{!or(
+                                        and(equals(v.articlesCount % 3, 0), and(greaterthanorequal(index, v.articlesList.length-3), lessthanorequal(index, v.articlesList.length-1))),
+                                        and(equals(v.articlesCount % 3, 2), and(greaterthanorequal(index, v.articlesList.length-2), lessthanorequal(index, v.articlesList.length-1))) )?'itemBorder list-group__item':'list-group__item'}">
+                                    <a href="{!v.articleBaseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </aura:iteration>
+                    <aura:set attribute="else">
+                        <p>{!$Label.c.msgNoItems}</p>
+                    </aura:set>
+                </aura:if>
+            </div>
+
         </div><!-- / end of .container -->
     </div><!-- / end pf .area-bg -->
 </aura:component>

@@ -1,0 +1,19 @@
+.THIS .list-group__item:last-child  {
+    border-bottom: 1px solid #e4e7ed;
+}
+.THIS .list-group__item a {
+    font-family: 'source_sans_prolight', Arial, sans-serif;
+    text-decoration: none;
+    color: #4c4b58;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.THIS .list-group__item {
+    padding: 0 0 17px 0;
+}
+.THIS .itemBorder {
+    border-bottom: none !important;
+}

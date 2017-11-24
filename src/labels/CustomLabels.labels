@@ -883,6 +883,13 @@
         <value>Email Support</value>
     </labels>
     <labels>
+        <fullName>hFeaturedArticles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for featured articles</shortDescription>
+        <value>Featured articles</value>
+    </labels>
+    <labels>
         <fullName>hGetHelp</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -1537,6 +1544,13 @@
         <protected>false</protected>
         <shortDescription>description for new and updates</shortDescription>
         <value>Stay informed with company updates, product release information and other announcements.</value>
+    </labels>
+    <labels>
+        <fullName>msgNoItems</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for featured ideas</shortDescription>
+        <value>no items</value>
     </labels>
     <labels>
         <fullName>msgPoints</fullName>
