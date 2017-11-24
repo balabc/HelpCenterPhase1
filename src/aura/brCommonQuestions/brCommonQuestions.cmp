@@ -3,7 +3,8 @@
 
     <aura:attribute name="articlesList" type="Object[]"/>
     <aura:attribute name="articlesCount" type="Integer" default="0"/>
-    <aura:attribute name="baseURL" type="Integer" default=""/>
+    <aura:attribute name="baseURL" type="String" default=""/><!-- deprecated? -->
+    <aura:attribute name="articleBaseURL" type="String" default=""/>
 
     <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
     <aura:method name="reInit" action="{!c.onInit}"></aura:method>
@@ -12,7 +13,7 @@
 
     <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
         <aura:iteration items="{!v.articlesList}" var="articleItem">
-            <p><a href="{!v.baseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a></p>
+            <p><a href="{!v.articleBaseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a></p>
         </aura:iteration>
         <aura:set attribute="else">
             <p>no items</p>
