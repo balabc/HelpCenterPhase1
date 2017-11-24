@@ -53,6 +53,7 @@
         <members>brLiveMetricsCtrlTest</members>
         <members>brIdeaService</members>
         <members>brIdeaServiceSelector</members>
+        <members>brTopTrendingCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>

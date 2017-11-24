@@ -3286,12 +3286,15 @@ a.notification-link {
       float: none;
       width: 100%;
       margin-bottom: 25px;
-      padding: 0;
+      padding: 0 30px;
       text-align: center; }
     .area-video__right {
       float: none;
       width: 100%;
-      padding: 0 10px; } }
+      padding: 0 30px; }
+  .videoDescription {
+    width: 100%;
+    padding: 0 29px 0 30px; }}
 
 .is-mobile [class^='skew-'] {
   display: none; }
@@ -3310,9 +3313,7 @@ a.notification-link {
     margin-bottom: 25px;
     padding: 0;
     text-align: center; }
-     .videoDescription {
-     width: 100%;
-}
+
   .is-mobile .area-video__right {
     float: none;
     width: 100%;
