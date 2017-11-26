@@ -1,5 +1,14 @@
 ({
 	doInit : function(component, event, helper) {
+        component.set('v.currentMenu', {
+            title: '',
+            titles: [],
+            items: []
+        });
+        component.set('v.currentLvl', 1);
+        component.set('v.menuItems', {});
+        component.set('v.phoneList', []);
+        component.set('v.menuList', []); 
         document.addEventListener('DOMContentLoaded', function(){
             var funcMenu = function() {  
                 var menu_icon = document.getElementsByClassName('header-mobile__menu-icon')[0],
@@ -27,62 +36,50 @@
             };
             document.getElementsByClassName('header-mobile__menu-icon')[0].addEventListener('click', funcMenu);
             
-        });
-        helper.fillPhoneList(component);    
-        helper.getUserInfo(component);    
+        });   
+        helper.getUserInfo(component); 
+        helper.fillPhoneList(component);        
 	},
-	changeUser : function(component, event, helper) {
-		var items = component.get('v.menuList'),
-			us = component.get('v.user');
-		if (us) {
-			items.pop();
-			items.push({
-	            id: 'user', 
-	            label: us.name, 
-	            picture: '<span class="header-mobile__menu-shape"><img src="'+us.photoUrl+'" class="header-mobile__menu-userpic" alt=""></span>',
-	            subMenu: [                       
-	                {id: 'profile', label: 'Profile', url: '/support/s/profile/' + us.id},
-	                {id: 'my_messages', label: 'My Messages', url: '/support/s/messages/Home'},
-	                {id: 'my_feed', label: 'My Feed', url: '/support/s/feed'},
-	                {id: 'my_cases', label: 'My Cases', url: '/support/s/case'},
-	                {id: 'my_files', label: 'My Files', url: '/support/s/MyFeed'},
-	                {id: 'log_out', label: 'Log Out', url: '/support/secur/logout.jsp'}
-	            ]
-	        });		
-		}
-        component.set('v.menuList', items);
-        component.set('v.currentMenu', {
-            lvl: 1, 
-            title: '',
-            titles: [],
-            items: [0, items]
-        });
-	},
-    changeMenu : function(component, event, helper) {
-        var items = component.get('v.menuItems');
-        items.push({id: 'contact', label: 'Contact', subMenu: [
-            {id: 'articles', label: 'Articles'},
-            {id: 'learning_guides', label: 'Learning Guides'},
-            {id: 'videos', label: 'Videos'},
-            {id: 'articles', label: 'Articles'},
-            {id: 'developer_docs', label: 'Developer Docs', icon: 'icon-svg-docs-sm'},
-            {id: 'phone_support', label: 'Phone Support', subMenu: []}
-        ]});
-        items.push({id: 'notifications', label: 'Notifications'});
-        items.push({
-            id: 'login', 
-            label: 'Login',
-            url: '/support/s/login/'  
-        });
+    changeUser: function(component, event, helper) {
+        var items = component.get('v.menuItems'),
+            user = component.get('v.user');
         
         
-        component.set('v.menuList', items);
-        component.set('v.currentMenu', {
-            lvl: 1, 
-            title: '',
-            titles: [],
-            items: [0, items]
-        });
+        if (items.length > 0) {
+            items.shift();
+            items.push({id: 'contact', label: $A.get('$Label.c.lnkContact'), subMenu: [
+                {id: 'articles', label: $A.get('$Label.c.lnkArticles')},
+                {id: 'learning_guides', label: 'Learning Guides'},
+                {id: 'videos', label: $A.get('$Label.c.lnkVideos')},
+                {id: 'developer_docs', label: $A.get('$Label.c.lnkDeveloperDocs'), icon: 'icon-svg-docs-sm'},
+                {id: 'phone_support', label: $A.get('$Label.c.lnkPhoneSupport'), subMenu: []}
+            ]});
+            items.push({
+                id: 'login', 
+                label: $A.get('$Label.c.lnkLogIn'),
+                type: 4, 
+                source: '/s/login/'
+            });	 
+            
+            if (user) {
+                items.pop();
+                items.push({
+                    id: 'user', 
+                    label: user.name, 
+                    has_picture: true,
+                    picture: '<span class="header-mobile__menu-shape"><img src="' + user.photoUrl + '" class="header-mobile__menu-userpic" alt=""></span>',
+                    subMenu: helper.getSubMenuUser(component, user)
+                });		
+            }
+            
+            component.set('v.menuList', items);
+            component.set('v.currentLvl', 1);
+            component.set('v.currentMenu', {
+                title: '',
+                titles: [],
+                items: [0, items]
+            });
+        }
     },
     nextLvlMenu : function(component, event, helper) {
 		var menu = component.get('v.currentMenu'),
@@ -90,13 +87,12 @@
             title = li.getAttribute('data-title'),
             id = li.getAttribute('data-id'),
             items = component.get('v.menuList'), 
+            lvl = component.get('v.currentLvl'), 
             sub_menu = [];
         
-        
-        
         if (title) {
-        	menu.lvl++;
-        	menu.titles[menu.lvl] = title;
+        	lvl++;
+        	menu.titles[lvl] = title;
         	menu.title = title;
             for (var i in items) {
                 if (items[i].id == id) {
@@ -104,31 +100,63 @@
                     break;
                 }
             }
-            menu.items[menu.lvl] = sub_menu;
-            console.log(menu);
-            
+            menu.items[lvl] = sub_menu;
         	component.set('v.currentMenu', menu);
+        	component.set('v.currentLvl', lvl);
             component.set('v.menuList', sub_menu);  
         }
 	},
     prevLvlMenu : function(component, event, helper) {
 		var menu = component.get('v.currentMenu'),
-            items = [];
-        menu.lvl = menu.lvl - 1;
+            items = [],
+            lvl = component.get('v.currentLvl');
+        lvl--;
         if (menu.titles.length > 0) {
-            console.log(menu);
-            menu.title = menu.titles[menu.lvl];
-            items = menu.items[menu.lvl];
+            menu.title = menu.titles[lvl];
+            items = menu.items[lvl];
             component.set('v.menuList', items);
+            console.log(items);
             menu.titles.pop();
             menu.items.pop();
         }
+        component.set('v.currentLvl', lvl);
         component.set('v.currentMenu', menu);
+        console.log(menu);
 	},
     onClick : function(component, event, helper) {
-        var id = event.target.closest('.header-mobile__menu-link').dataset.menuItemId;
-        if (id) {
-            component.getSuper().navigate(id);
-         }
+        var link = event.target.closest('.header-mobile__menu-link'),
+            type = parseInt(link.getAttribute('data-type')),
+            data = link.getAttribute('data-source'),
+        	id = link.dataset.menuItemId,
+            urlEvent;
+        
+        switch (type) {
+            case 1: { 
+                if (id) {
+                    component.getSuper().navigate(id);
+                }
+                break; 
+            }
+            case 2: {
+                if (data) {
+                    urlEvent = $A.get('e.force:navigateToURL');
+                    urlEvent.setParams({
+                        'url': data
+                    });
+                    urlEvent.fire();
+                }
+                break;
+            } 
+            case 3: {
+                if (data) {
+                    urlEvent = $A.get('e.force:navigateToSObject');
+                    urlEvent.setParams({
+                        'recordId': data
+                    });
+                    urlEvent.fire();
+                }
+                break;
+            } 
+        }
    }
 })
