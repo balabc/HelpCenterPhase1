@@ -5,7 +5,7 @@
     <aura:attribute name="url" type="String" access="global"/>
 
     <div class="pre-footer">
-        <div class="pre-footer__wrap-img"></div>
+        <div style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/HomePage-pre-footer.png' + ');background-position-x: center;'}" class="pre-footer__wrap-img"></div>
         <div class="pre-footer__wrap-caption">
             <div class="pre-footer__caption">
                 <h2 class="h2 pre-footer__title">{!v.title}</h2>
