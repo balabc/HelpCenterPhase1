@@ -8,7 +8,7 @@
             facetFilter = [],
             strFilter = '',
             indexName = '';
-        
+
         switch (filter.type) {
             case 'kb': {
                 indexName = 'Knowledge_Community';
@@ -18,7 +18,7 @@
                 }
                 facetFilters.push(facetFilter);
                 queries.push({
-                    indexName: indexName, 
+                    indexName: indexName,
                     query: query,
                     params: {
                         attributesToRetrieve: "*",
@@ -27,7 +27,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'FeedItem_Community', 
+                    indexName: 'FeedItem_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -35,7 +35,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'Ideas_Community', 
+                    indexName: 'Ideas_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -48,7 +48,7 @@
                 indexName = 'FeedItem_Community';
                 if (filter.values.posted_in != 'All')
                     facetFilter.push('PostedIn:' + filter.values.posted_in);
-                
+
                 if (facetFilter.length > 0)
                     facetFilters.push(facetFilter);
                 facetFilter = [];
@@ -59,17 +59,17 @@
                 if (facetFilter.length > 0)
                     facetFilters.push(facetFilter);
                 facetFilter = [];
-                
-                
+
+
                 if (filter.values.is_answer) {
                     facetFilters.push(['IsAnswered:Answered']);
                 }
-                
+
                 if (filter.values.sorting_index != 'FeedItem_Community') {
                     indexName = filter.values.sorting_index;
                 }
                 queries.push({
-                    indexName: indexName, 
+                    indexName: indexName,
                     query: query,
                     params: {
                         attributesToRetrieve: '*',
@@ -78,7 +78,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'Knowledge_Community', 
+                    indexName: 'Knowledge_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -86,7 +86,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'Ideas_Community', 
+                    indexName: 'Ideas_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -95,12 +95,12 @@
                 });
                 filter.type = indexName;
                 break;
-            } 
-            case 'ideas': { 
+            }
+            case 'ideas': {
                 indexName = 'Ideas_Community';
                 if (filter.values.record_type != 'All')
                     facetFilter.push('RecordType:' + filter.values.record_type);
-                
+
                 if (facetFilter.length > 0)
                     facetFilters.push(facetFilter);
                 facetFilter = [];
@@ -112,17 +112,17 @@
                 if (facetFilter.length > 0)
                     facetFilters.push(facetFilter);
                 facetFilter = [];
-                
-                
+
+
                 if (filter.values.is_merged) {
                     facetFilters.push(['IsMerged:Merged']);
                 }
-                
+
                 if (filter.values.sorting_index != 'Ideas_Community') {
                     indexName = filter.values.sorting_index;
                 }
                 queries.push({
-                    indexName: indexName, 
+                    indexName: indexName,
                     query: query,
                     params: {
                         attributesToRetrieve: '*',
@@ -131,7 +131,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'Knowledge_Community', 
+                    indexName: 'Knowledge_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -139,7 +139,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'FeedItem_Community', 
+                    indexName: 'FeedItem_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -151,7 +151,7 @@
             }
             default: {
                 queries.push({
-                    indexName: 'Knowledge_Community', 
+                    indexName: 'Knowledge_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -159,7 +159,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'FeedItem_Community', 
+                    indexName: 'FeedItem_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -167,7 +167,7 @@
                     }
                 });
                 queries.push({
-                    indexName: 'Ideas_Community', 
+                    indexName: 'Ideas_Community',
                     query: query,
                     params: {
                         hitsPerPage: 3,
@@ -176,13 +176,13 @@
                 });
                 indexName = 'All';
                 break;
-             }
+            }
         }
         filter.type = indexName;
-        
+
         //index.search({ query: query }, function searchDone(err, content) {
-        client.search(queries, function searchDone(err, content) {    
-            
+        client.search(queries, function searchDone(err, content) {
+
             var objData = [],
                 tmpListData = [],
                 categories = content.results,
@@ -190,21 +190,21 @@
                 hasData = false,
                 name_index = '',
                 filterCounts = {};
-            
+
             for (var i = 0; i < categories.length; ++i) {
-                var category = categories[i], 
+                var category = categories[i],
                     hits = category.hits,
                     tmpListData = [],
                     item = {};
-                
+
                 filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
                 component.set('v.filterCounts', filterCounts);
-                
+
                 if ((hits.length > 0) && ((filter.type == category.index) || (filter.type == 'All'))) {
                     switch (category.index) {
                         case 'Knowledge_Community': {
                             name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
-                            for (var key in hits) { 
+                            for (var key in hits) {
                                 item = {
                                     left: '',
                                     right: [],
@@ -214,20 +214,20 @@
                                     item.left = '<p class="serp__item-left-text">' + item.source.Data_Category[0] + '</p>';
                                 item.right = [
                                     '<p class="serp__item-category truncated">' + item.source.type__c + '</p>',
-                                    '<p class="serp__item-title truncated">' + item.source.title + '</span>' + 
-                                    ((!!item.source.Section)?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + item.source.Section: '') + 
+                                    '<p class="serp__item-title truncated">' + item.source.title + '</span>' +
+                                    ((!!item.source.Section)?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + item.source.Section: '') +
                                     '</p>',
                                     '<p class="serp__item-description truncated">' + item.source._snippetResult.Section_Content.value + '</p>'
                                 ];
                                 tmpListData.push(item);
                             }
                             break;
-                        } 
+                        }
                         case 'FeedItem_Community':
                         case 'FeedItem_Community_Latest_Post':
                         case 'FeedItem_Community_Recent_Activity': {
                             name_index = $A.get('$Label.c.hAlgoliaSearchCommunity');
-                            for (var key in hits) { 
+                            for (var key in hits) {
                                 item = {
                                     left: '',
                                     right: [],
@@ -237,23 +237,23 @@
                                 item.right = [
                                     '<p class="serp__item-title truncated">' + item.source.Title + '</p>',
                                     '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
-                                    '<p class="serp__item-description truncated">' + 
+                                    '<p class="serp__item-description truncated">' +
                                     (item.source.IsAnswered? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
-                                    '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
-                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-like-sm-grey"></span>&nbsp;' + item.source.LikeCount + 
-                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
+                                    '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
+                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-like-sm-grey"></span>&nbsp;' + item.source.LikeCount +
+                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount +
                                     '</p>'
                                 ];
                                 tmpListData.push(item);
                             }
                             break;
-                        } 
+                        }
                         case 'Ideas_Community':
                         case 'Ideas_Community_Trending':
                         case 'Ideas_Community_Popular':
                         case 'Ideas_Community_Recent': {
                             name_index = $A.get('$Label.c.hAlgoliaSearchIdeas');
-                            for (var key in hits) { 
+                            for (var key in hits) {
                                 item = {
                                     left: '',
                                     right: [],
@@ -263,29 +263,29 @@
                                 item.right = [
                                     '<p class="serp__item-title truncated">' + item.source.Title + '</p>',
                                     '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
-                                    '<p class="serp__item-description truncated">' + 
+                                    '<p class="serp__item-description truncated">' +
                                     (item.source.Status? (item.source.Status + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
-                                    '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
-                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
-                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-star-sm-grey"></span>&nbsp;' + item.source.Votes + 
+                                    '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
+                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount +
+                                    '&nbsp;&nbsp;&nbsp;<span class="icon-svg-star-sm-grey"></span>&nbsp;' + item.source.Votes +
                                     '</p>'
                                 ];
                                 tmpListData.push(item);
                             }
                             break;
-                        }            
+                        }
                     }
                     objData.push({
                         name: name_index,
                         items: tmpListData
                     });
-                }           
+                }
             }
-            
+
             if (objData.length > 0) {
                 hasData = true;
             }
-            component.set('v.hasData', hasData); 
+            component.set('v.hasData', hasData);
             component.set('v.categories', objData);
         });
     }

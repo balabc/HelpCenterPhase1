@@ -2,39 +2,39 @@
     <aura:attribute name="brFilter" type="Map" />
     <aura:attribute name="categories" type="Map"/>
     <aura:attribute name="hasData" type="String" default="false"/>
-    <aura:attribute name="searchText" type="String"/> 
-    
-    <aura:attribute name="filterCounts" type="Object"/> 
-    
-    
+    <aura:attribute name="searchText" type="String"/>
+
+    <aura:attribute name="filterCounts" type="Object"/>
+
+
     <aura:registerEvent name="brChangeHeaderSearchBarEventHandler" type="c:brChangeHeaderSearchBarEvent"/>
     <aura:handler name="eventFromBrAlgoliaFilter" event="c:brAlgoliaFilterEvent" action="{!c.onChangeFilter}"/>
-    
+
     <ltng:require scripts='/resource/instantsearch/algoliasearch.min.js' afterScriptsLoaded="{!c.jsLoaded}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.hasData}" action="{!c.filterChangeState}"/>
     <aura:handler name="change" value="{!v.brFilter}" action="{!c.filterChange}"/>
     <aura:handler name="change" value="{!v.searchText}" action="{!c.searchChange}"/>
-     
+
     <div class="serp-header">
         <div class="serp__filter-trigger-icon" id="serp__filter-trigger" onclick="{!c.toggleMobileFilter}"></div>
         <div class="wrap-searchbox">
             <div class="searchbox">
                 <lightning:input type="text" class="searchbox__input-text" placeholder="{!$Label.c.fieldAlgoliaSearchSearch}" name="input-name" label="" value="{!v.searchText}" onchange="{!c.searchChange}"/>
-                
+
                 <input type="reset" class="searchbox__input-reset" value="{!$Label.c.fieldAlgoliaSearchClear}" onclick="{!c.clearSearch}"/>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="serp clr">
         <div class="serp__filter-section" data-active="{!v.hasData != 'off'}">
             <div class="serp__panel">
                 <div class="serp__filter-section-panel-inner">
                     <h3 class="h3 serp__title">{!$Label.c.hAlgoliaSearchRefine}</h3>
                     <c:brAlgoliaFilterJSCMP filterCounts="{!v.filterCounts}" aura:id="algolia_search_filter" />
-                </div>    
-            </div>    
-        </div>    
+                </div>
+            </div>
+        </div>
         <aura:if isTrue="{!v.hasData == true}">
             <div class="serp__results-section">
                 <div class="serp__panel">
@@ -46,7 +46,7 @@
                                     <div class="serp__item-left">
                                         <div class="serp__item-left-inner">
                                             <aura:unescapedHtml value="{!item.left}"/>
-                                        </div> 
+                                        </div>
                                     </div>
                                     <div class="serp__item-right">
                                         <div class="serp__item-right-inner">
@@ -70,11 +70,11 @@
                             <div class="serp__panel">
                                 <p class="serp__text-no-result">{!$Label.c.msgAlgoliaSearchNoResult}</p>
                             </div>
-                        </div>  
+                        </div>
                     </aura:set>
-                </aura:if>  
+                </aura:if>
             </aura:set>
-        </aura:if>  
+        </aura:if>
     </div>
-    
+
 </aura:component>

@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>brSearchModal</members>
+        <members>brAlgoliaFilterEvent</members>
         <members>brAlgoliaFilterJSCMP</members>
         <members>brAlgoliaSearchJSCMP</members>
         <members>brToggleSearchModalEvent</members>
