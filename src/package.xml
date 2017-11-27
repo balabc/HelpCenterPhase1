@@ -25,6 +25,7 @@
         <members>brTopTrendingCMP</members>
         <members>brLeaderboardComponent</members>
         <members>brLiveMetrics</members>
+        <members>brMobileNavMenu</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -56,6 +57,8 @@
         <members>brIdeaServiceSelector</members>
         <members>brTopTrendingCtrlTest</members>
         <members>brFeaturedArticlesCtrl</members>
+        <members>brMobileNavMenuCtrl</members>
+        <members>brMobileNavMenuCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
