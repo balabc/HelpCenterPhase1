@@ -1,16 +1,32 @@
-/*
-.THIS #contact-lvl-2{
-   display: none;
-}
-.THIS .header__contact {
-    right: -433px;
-    transition: all 0.3s ease;
-    z-index: 4;
-    display: block;
-}
-.THIS .header__contact--active {
-    right: 0;
-}
-*/
 
 
+.THIS .ponny.panel-media-small__icon{
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    background-color: transparent !important;
+}
+.THIS .label:active{
+    /*background-color: #f5f7ff;*/
+}
+.THIS .label:hover{
+    background-color: transparent !important;
+}
+.THIS .label{
+    text-align: left;
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+    font-size: 0.9375rem;
+}
+.THIS .askCommunityBtn{
+    padding:0;
+    background-color: transparent !important;
+    color: #34313f;
+    text-transform: none;
+    font-weight: normal;
+}
+.THIS .askCommunityBtn:active{
+    background-color: #f5f7ff;
+}
+.THIS .askCommunityBtn:hover{
+    background-color: #f5f7ff;
+}

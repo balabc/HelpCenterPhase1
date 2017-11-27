@@ -82,6 +82,7 @@
         <members>BigcommerceCommunity</members>
         <members>brJsSlider</members>
         <members>BigcommerceCommunityStyles</members>
+        <members>BigcommerceCommunityImages</members>
         <name>StaticResource</name>
     </types>
     <version>41.0</version>

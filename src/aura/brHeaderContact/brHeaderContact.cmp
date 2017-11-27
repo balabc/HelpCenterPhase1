@@ -1,4 +1,3 @@
-
 <aura:component description="brHeaderContact" controller="brHeaderContactCtrl">
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -25,7 +24,21 @@
                     <c:brStatusPagePanel aura:id="statusPanel" />
 
                     <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hGetHelp}</h4>
-                    {!v.askbutton}
+
+
+
+                    <div class="panel-media-small" onclick="{!c.openAskCommunity}">
+                        <div class="panel-media-small__wrap-icon">
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Community.svg'}" alt="" />
+                            </div>
+                        </div>
+                        <div class="panel-media-small__wrap-content">
+                                {!v.askbutton}
+                                <p class="panel-media-small__text header__contact-body-panel-text">Get answers from business owners and experts</p>
+                        </div>
+                    </div>
+                    <!--
                     <div class="panel-media-small" onclick="{!c.openAskCommunity}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="panel-media-small__icon">
@@ -37,10 +50,11 @@
                             <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hAsktheCommunityAbout}</p>
                         </div>
                     </div>
+                    -->
                     <div class="panel-media-small" onclick="{!c.openLiveChat}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Chat.svg'}" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
@@ -50,8 +64,8 @@
                     </div>
                     <div class="panel-media-small" onclick="{!c.openPhoneSupport}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Phone.svg'}" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
@@ -61,8 +75,8 @@
                     </div>
                     <div class="panel-media-small" onclick="{!c.openEmailSupport}">
                         <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Email.svg'}" alt="" />
                             </div>
                         </div>
                         <div class="panel-media-small__wrap-content">
