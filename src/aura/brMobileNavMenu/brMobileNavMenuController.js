@@ -1,14 +1,11 @@
 ({
 	doInit : function(component, event, helper) {
         component.set('v.currentMenu', {
-            title: '',
             titles: [],
             items: []
         });
         component.set('v.currentLvl', 1);
-        component.set('v.menuItems', {});
-        component.set('v.phoneList', []);
-        component.set('v.menuList', []); 
+        component.set('v.currentTitle', '');
         document.addEventListener('DOMContentLoaded', function(){
             var funcMenu = function() {  
                 var menu_icon = document.getElementsByClassName('header-mobile__menu-icon')[0],
@@ -74,8 +71,8 @@
             
             component.set('v.menuList', items);
             component.set('v.currentLvl', 1);
+            component.set('v.currentTitle', '');
             component.set('v.currentMenu', {
-                title: '',
                 titles: [],
                 items: [0, items]
             });
@@ -87,41 +84,40 @@
             title = li.getAttribute('data-title'),
             id = li.getAttribute('data-id'),
             items = component.get('v.menuList'), 
-            lvl = component.get('v.currentLvl'), 
-            sub_menu = [];
+            lvl = component.get('v.currentLvl');
         
         if (title) {
-        	lvl++;
+            lvl++;
+        	component.set('v.currentLvl', lvl);
         	menu.titles[lvl] = title;
-        	menu.title = title;
+            component.set('v.currentTitle', title);
             for (var i in items) {
                 if (items[i].id == id) {
-                    sub_menu = items[i].subMenu;
+                    items = items[i].subMenu;
                     break;
                 }
             }
-            menu.items[lvl] = sub_menu;
+            menu.items[lvl] = items;
         	component.set('v.currentMenu', menu);
-        	component.set('v.currentLvl', lvl);
-            component.set('v.menuList', sub_menu);  
+            component.set('v.menuList', items);  
         }
 	},
     prevLvlMenu : function(component, event, helper) {
 		var menu = component.get('v.currentMenu'),
-            items = [],
+            items = component.get('v.menuList'),
             lvl = component.get('v.currentLvl');
-        lvl--;
+        
+        lvl = lvl - 1;
+        component.set('v.currentLvl', lvl);
+        
         if (menu.titles.length > 0) {
-            menu.title = menu.titles[lvl];
+            component.set('v.currentTitle', menu.titles[lvl]);
             items = menu.items[lvl];
-            component.set('v.menuList', items);
-            console.log(items);
             menu.titles.pop();
             menu.items.pop();
         }
-        component.set('v.currentLvl', lvl);
+        component.set('v.menuList', items);
         component.set('v.currentMenu', menu);
-        console.log(menu);
 	},
     onClick : function(component, event, helper) {
         var link = event.target.closest('.header-mobile__menu-link'),

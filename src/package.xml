@@ -6,9 +6,14 @@
     </types>
     <types>
         <members>brMobileNavMenuCtrl</members>
+        <members>brMobileNavMenuCtrlTest</members>
         <members>brUserService</members>
         <members>brUserServiceSelector</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
     </types>
     <version>38.0</version>
 </Package>
