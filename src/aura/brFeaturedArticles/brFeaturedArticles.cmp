@@ -16,10 +16,10 @@
                 <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
                     <aura:iteration items="{!v.articlesList}" var="articleItem" indexVar="index">
                         <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
-                            <ul class="list-group list-group--media-md"><!-- and(equals(v.articlesCount % 3, 1), equals(index, v.articlesList.length-1)),-->
+                            <ul class="list-group list-group--media-md">
                                 <li class="{!or(
-                                        and(equals(v.articlesCount % 3, 0), and(greaterthanorequal(index, v.articlesList.length-3), lessthanorequal(index, v.articlesList.length-1))),
-                                        and(equals(v.articlesCount % 3, 2), and(greaterthanorequal(index, v.articlesList.length-2), lessthanorequal(index, v.articlesList.length-1))) )?'itemBorder list-group__item':'list-group__item'}">
+                                        and(equals(v.articlesCount % 3, 0), and(greaterthanorequal(index, v.articlesList.length-3), lessthanorequal(index, v.articlesList.length-2))),
+                                        and(equals(v.articlesCount % 3, 2), and(equals(index, v.articlesList.length-2))) )?'itemBorder list-group__item':'list-group__item'}">
                                     <a href="{!v.articleBaseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a>
                                 </li>
                             </ul>

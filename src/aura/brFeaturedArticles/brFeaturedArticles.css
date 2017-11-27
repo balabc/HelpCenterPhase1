@@ -14,6 +14,11 @@
 .THIS .list-group__item {
     padding: 0 0 17px 0;
 }
-.THIS .itemBorder {
-    border-bottom: none !important;
+@media only screen and (min-width: 992px) {
+    .THIS .itemBorder {
+        border-bottom: none !important;
+    }
+}
+.THIS .column-md-12.column-lg-4.column--pad.m-bottom-25.m-bottom-0--media-md:last-child li {
+    border-bottom: none;
 }
