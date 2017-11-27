@@ -1,8 +1,8 @@
-<aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
+<aura:component controller="brCommunityThemeCtrl" implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
     <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
 
-    <ltng:require styles="{!$Resource.BigcommerceCommunity + '/css/styles.css'}" />
+    <ltng:require styles="{!join(',', $Resource.BigcommerceCommunity + '/css/styles.css', $Resource.BigcommerceCommunityStyles)}" />
 
     <style>
         .modal-overlay{
