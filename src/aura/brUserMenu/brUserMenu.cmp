@@ -1,13 +1,14 @@
 <aura:component description="brUserMenu" controller="brUserMenuCtrl">
     <aura:attribute name="user" type="User"/>
+    <aura:attribute name="type" type="String"/>
     <aura:attribute name="menuItems" type="Object[]"/>
     <aura:attribute name="reputationPoints" type="Integer"/>
     <aura:attribute name="reputationLevel" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <div class="header__userpic" onclick="{!notequals(v.user.UserType, 'Guest')?c.toggleDropdownMenu:''}">
-        <aura:if isTrue="{!notequals(v.user.UserType, 'Guest')}">
+    <div class="header__userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
+        <aura:if isTrue="{!notequals(v.type, 'Guest')}">
             <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
             <aura:set attribute="else">
                 <img src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
@@ -18,7 +19,7 @@
     <div class="header__profile-dropdown">
         <div class="header__profile-dropdown-trigger nav-arrow">
             <div class="nav-arrow__handler">
-                <aura:if isTrue="{!notequals(v.user.UserType, 'Guest')}">
+                <aura:if isTrue="{!notequals(v.type, 'Guest')}">
                     <span class="nav-arrow__icon" onclick="{!c.toggleDropdownMenu}"></span>
                     <aura:set attribute="else">
                         <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login">{!$Label.c.lnkLogIn}</a></span>

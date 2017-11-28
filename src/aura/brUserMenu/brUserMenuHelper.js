@@ -1,5 +1,5 @@
 ({
-    getCurrentUser: function (cmp, event) {
+    showCurrentUser: function (cmp, event) {
         var action = cmp.get('c.getCurrentUser');
 
         action.setCallback(this, function (response) {
@@ -8,9 +8,27 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.user', user);
-                console.log('type: ' + user.UserType);
             } else {
                 console.log('callback error: getCurrentUser in brUserMenu.js');
+            }
+        });
+
+        $A.enqueueAction(action);
+    },
+
+    getTypeForCurrentUser: function (cmp, callback) {
+        var action = cmp.get('c.getUserType');
+
+        action.setCallback(this, function (response) {
+            var state = response.getState(),
+                type = response.getReturnValue();
+
+            if (state === 'SUCCESS') {
+                if (typeof callback === 'function') {
+                    callback(type);
+                }
+            } else {
+                console.log('callback error: getUserType in brUserMenu.js');
             }
         });
 

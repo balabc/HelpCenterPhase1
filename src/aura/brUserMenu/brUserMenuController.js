@@ -1,6 +1,13 @@
 ({
     doInit: function (cmp, event, helper) {
-        helper.getCurrentUser(cmp);
+        helper.getTypeForCurrentUser(cmp, function(type){
+
+            if (type == 'Guest') {
+                cmp.set('v.type', 'Guest');
+            } else {
+                helper.showCurrentUser(cmp);
+            }
+        });
     },
 
     toggleDropdownMenu: function (cmp, event, helper) {
