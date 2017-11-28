@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="356px" height="103px" viewBox="0 0 356 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 32</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5,-2.61585458e-15 L351,-2.61585458e-15 L351,-1.77635684e-15 C353.761424,-2.28360083e-15 356,2.23857625 356,5 L356,103 L0,103 L0,5 L0,5 C-3.38176876e-16,2.23857625 2.23857625,-6.59818337e-15 5,-7.10542736e-15 Z" id="path-1"></path>
+        <linearGradient x1="38.0055279%" y1="112.210648%" x2="38.0055279%" y2="6.18851273%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0.13" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="38.0055279%" y1="100%" x2="38.0055279%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" stop-opacity="0.13" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02-Help-Center-home-page" transform="translate(-462.000000, -1078.000000)">
+            <g id="Group-32" transform="translate(462.000000, 1078.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle-3-Copy-4" fill="#7993FB" transform="translate(178.000000, 51.500000) scale(-1, 1) translate(-178.000000, -51.500000) " xlink:href="#path-1"></use>
+                <path d="M293.544676,-13 L215.455324,-13 C204.157529,-13 195,-3.88522056 195,7.35983299 L195,56.7943965 C195,68.0394501 204.157529,77.1542295 215.455324,77.1542295 L265.703559,77.1542295 L265.703559,93 L281.619231,77.1542295 L293.544676,77.1542295 C304.842471,77.1542295 314,68.0394501 314,56.7943965 L314,7.35983299 C314,-3.88522056 304.842471,-13 293.544676,-13 Z" id="Stroke-3-Copy-3" fill="url(#linearGradient-3)" mask="url(#mask-2)"></path>
+                <path d="M366.544676,-47 L277.455324,-47 C266.157529,-47 257,-37.8852206 257,-26.640167 L257,22.7943965 C257,34.0394501 266.157529,43.1542295 277.455324,43.1542295 L301.703559,43.1542295 L301.703559,59 L317.619231,43.1542295 L366.544676,43.1542295 C377.842471,43.1542295 387,34.0394501 387,22.7943965 L387,-26.640167 C387,-37.8852206 377.842471,-47 366.544676,-47 Z" id="Stroke-3-Copy-3" fill="url(#linearGradient-4)" mask="url(#mask-2)" transform="translate(322.000000, 6.000000) scale(-1, 1) translate(-322.000000, -6.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -159,9 +159,6 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
 .panel-media__wrap-icon {
     width: 112px;
 }
-.panel-media__icon {
-   display: none;
-}
 .panel-media__icon img {
     width: 112px;
 }
