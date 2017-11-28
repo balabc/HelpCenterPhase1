@@ -14,7 +14,7 @@
         <div class="row-flex row--pad row-flex--single-row-equalizer">
             <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
                 <div class="panel-info">
-                    <div class="panel-info__head bg--info1">
+                    <div class="panel-info__head bg--info1" style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/Background-popular-groups.svg' + ');'}">
                         <h4 class="h4 panel-info__title truncated">{!$Label.c.br_Most_popular_groups}</h4>
                     </div>
                     <div class="panel-info__body p-bottom-0">
@@ -32,7 +32,7 @@
             
             <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
                 <div class="panel-info">
-                    <div class="panel-info__head bg--info2">
+                    <div class="panel-info__head bg--info2" style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/Background-questions-answered.svg' + ');'}">
                         <h4 class="h4 panel-info__title truncated">{!$Label.c.br_Recent_questions}</h4>
                     </div>
                     <div class="panel-info__body p-bottom-0">
@@ -48,7 +48,7 @@
             
             <div class="column-flex column-md-12 column-lg-4 column--pad m-bottom-25">
                 <div class="panel-info">
-                    <div class="panel-info__head bg--info3">
+                    <div class="panel-info__head bg--info3" style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/Background-news-updates.svg' + ');'}">
                         <h4 class="h4 panel-info__title truncated">{!$Label.c.br_Recent_news_and_updates}</h4>
                     </div>
                     <div class="panel-info__body p-bottom-0">
