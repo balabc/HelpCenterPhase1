@@ -30,3 +30,6 @@
 .THIS .askCommunityBtn:hover{
     background-color: #f5f7ff;
 }
+.THIS .askCommunityBtn:focus {
+    box-shadow: none;
+}
