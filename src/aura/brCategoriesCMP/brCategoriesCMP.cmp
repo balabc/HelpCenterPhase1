@@ -1,0 +1,63 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brCategoriesController">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="selectedArticleId" type="String"/>
+    <aura:attribute name="articleType" type="String" default="Knowledge__kav"/>
+    <aura:attribute name="dataCategoryName" type="String" default="All"/>
+	<aura:attribute name="items" type="List" /> 
+    
+	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
+    
+    <div class="menu-left"> 
+        <ul class="content-pages" id="menu-articles">
+        <aura:iteration items="{!v.items}" var="category">
+            <li class="theme has-sub" data-id="{!category.id}" data-active="{!category.active}">
+                <a class="main-theme" href="javascript:void(0);" onclick="{!c.clickCategory}">{!category.name}</a>
+                <ul> 
+                <aura:iteration items="{!category.categories}" var="sub_category">
+                    <li class="has-sub" data-id="{!sub_category.id}" data-active="{!sub_category.active}">
+                        <a class="main-theme" href="javascript:void(0);" onclick="{!c.clickCategory}">{!sub_category.name}</a>
+                        <aura:if isTrue="{!sub_category.articles.length > 0}">
+                            <ul>
+                                <aura:iteration items="{!sub_category.articles}" var="article">
+                                    <li data-id="{!article.id}" data-active="{!article.active}">
+                                        <a href="{!'#?article=' + article.id}" class="article" onclick="{!c.clickElement}">{!article.title}</a>
+                                        <aura:if isTrue="{!article.articleSections != undefined}">
+                                            <div class="anchors">
+                                            	<aura:unescapedHtml value="{!article.articleSections}"/>
+                                            </div>
+                                        </aura:if>
+                                    </li>
+                                </aura:iteration>
+                            </ul>
+                        </aura:if>
+                        <aura:if isTrue="{!sub_category.categories.length > 0}">
+                            <ul class="full">
+                                <aura:iteration items="{!sub_category.categories}" var="sub_sub_cat">
+                                    <li data-id="{!sub_sub_cat.id}" data-active="{!sub_sub_cat.active}">
+                                        <a href="javascript:void(0);" class="label" onclick="{!c.clickCategory}">{!sub_sub_cat.name}</a>
+                                        <aura:if isTrue="{!sub_sub_cat.articles.length > 0}">
+                                            <ul>
+                                                <aura:iteration items="{!sub_sub_cat.articles}" var="article1">
+                                                    <li data-id="{!article1.id}" data-active="{!article1.active}">
+                                                        <a href="{!'#?article=' + article1.id}" class="article" onclick="{!c.clickElement}">{!article1.title}</a>
+                                                        <aura:if isTrue="{!article1.articleSections != undefined}">
+                                                            <div class="anchors">
+                                                            	<aura:unescapedHtml value="{!article1.articleSections}"/>
+                                                            </div>
+                                                        </aura:if>
+                                                    </li>
+                                                </aura:iteration>
+                                            </ul>
+                                        </aura:if>
+                                    </li>
+                                </aura:iteration>
+                            </ul>
+                        </aura:if>
+                    </li>
+                </aura:iteration>
+                </ul>
+            </li>
+        </aura:iteration>
+        </ul>
+    </div>	
+</aura:component>
