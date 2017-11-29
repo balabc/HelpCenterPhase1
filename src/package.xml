@@ -29,6 +29,8 @@
         <members>brMainNavMenuAltItem</members>
         <members>brPrevActiveMenuItemEvent</members>
         <members>brCategoriesCMP</members>
+		<members>brMobileNavMenuItem</members>
+		<members>brMobileNavMenuItemEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -72,6 +74,9 @@
         <members>brCategoryModel</members>
         <members>brCategorySevice</members>
         <members>brCategorySeviceSelector</members>
+		<members>brNavigationMenuItemService</members>
+		<members>brNavigationMenuItemModel</members>
+		<members>brNavigationMenuItemServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>
