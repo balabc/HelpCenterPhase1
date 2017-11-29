@@ -59,6 +59,7 @@
         <members>brFeaturedArticlesCtrl</members>
         <members>brMobileNavMenuCtrl</members>
         <members>brMobileNavMenuCtrlTest</members>
+		<members>brAlgoliaSearchCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -70,6 +71,7 @@
         <members>Public__kav</members>
         <members>University__kav</members>
         <members>brPhoneSupportList__c</members>
+		<members>brAlgolia_Profile_Setting__c</members>
         <name>CustomObject</name>
     </types>
     <types>
