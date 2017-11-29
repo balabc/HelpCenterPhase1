@@ -52,7 +52,7 @@
     }, 
     jsLoaded: function(component, event, helper) { 
     	component.set("v.hasData", 'off'); 
-        var elems = document.getElementsByClassName("filter__section-title"),
+        /*var elems = document.getElementsByClassName("filter__section-title"),
             funcFilter = function() {  
             var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
                 
@@ -73,6 +73,23 @@
     	document.getElementById('serp__filter-trigger').addEventListener('click', funcFilter, false);
         for (var i = 0; i < elems.length; i++) {
             elems[i].addEventListener('click', funcFilter, false);
+        }*/
+    },
+    toggleMobileFilter: function(component, event, helper) { 
+        var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
+        
+        if (has_filter == 'true') {
+            var body_classes = document.body.classList,
+                class_is_mobile = 'is-mobile', 
+                class_mobile = 'mobile-search-filter-is-active';
+            
+            if (body_classes.contains(class_is_mobile)) {
+                if (body_classes.contains(class_mobile)) {
+                    body_classes.remove(class_mobile);
+                } else {
+                    body_classes.add(class_mobile);
+                }
+            }
         }
     }
 })

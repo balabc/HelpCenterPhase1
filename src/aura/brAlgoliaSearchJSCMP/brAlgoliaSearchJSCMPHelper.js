@@ -23,7 +23,6 @@
         $A.enqueueAction(action);
     },
     getSearchResult: function(component) {
-        /*"1c0e6fe333993632fcb545ca781bd6bd"*/
         var query = component.get("v.searchText"),
             filter = component.get("v.brFilter"),
             client = algoliasearch("QUTLQTIH9V", component.get("v.apiKey")),
