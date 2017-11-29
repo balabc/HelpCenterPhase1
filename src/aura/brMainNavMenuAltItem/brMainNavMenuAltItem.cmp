@@ -16,13 +16,13 @@
                     </div>
                 </div>
 
-                <div style="transition-delay: 0.5s !important;" class="{!v.prevActiveMenuItemId != v.menuItem.id?'header__wrap-dropdown-menu':'header__wrap-dropdown-menu header__wrap-dropdown-menu--active'}">
+                <div style="transition-delay: 0.5s;box-shadow: 0 5px 7px 0 rgba(35, 46, 105, 0.15)" class="{!v.prevActiveMenuItemId != v.menuItem.id?'header__wrap-dropdown-menu':'header__wrap-dropdown-menu header__wrap-dropdown-menu--active'}">
                     <div class="container">
                         <div class="header__dropdown-menu clr">
                             <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu">
                                 <aura:iteration items="{!v.menuItem.subMenu}" var="subItem">
                                     <li class="header__dropdown-menu-item">
-                                        <a style="transition-delay: 0.5s !important;" href="" data-menu-item-id="{!subItem.id}" class="header__dropdown-menu-link">{!subItem.label}</a>
+                                        <a style="transition-delay: 0.5s;" href="" data-menu-item-id="{!subItem.id}" class="header__dropdown-menu-link">{!subItem.label}</a>
                                     </li>
                                 </aura:iteration>
                             </ul>

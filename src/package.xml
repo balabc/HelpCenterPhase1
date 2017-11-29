@@ -28,6 +28,7 @@
         <members>brMobileNavMenu</members>
         <members>brMainNavMenuAltItem</members>
         <members>brPrevActiveMenuItemEvent</members>
+        <members>brCategoriesCMP</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -61,6 +62,16 @@
         <members>brFeaturedArticlesCtrl</members>
         <members>brMobileNavMenuCtrl</members>
         <members>brMobileNavMenuCtrlTest</members>
+        <members>brAlgoliaSearchCtrl</members>
+        <members>brArticleModel</members>
+        <members>brCategoriesCatalogModel</members>
+        <members>brCategoriesCatalogService</members>
+        <members>brCategoriesCatalogServiceSelector</members>
+        <members>brCategoriesController</members>
+        <members>brCategoriesTest</members>
+        <members>brCategoryModel</members>
+        <members>brCategorySevice</members>
+        <members>brCategorySeviceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -72,6 +83,7 @@
         <members>Public__kav</members>
         <members>University__kav</members>
         <members>brPhoneSupportList__c</members>
+        <members>brAlgolia_Profile_Setting__c</members>
         <name>CustomObject</name>
     </types>
     <types>
