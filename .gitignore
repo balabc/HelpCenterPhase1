@@ -3,6 +3,7 @@
 /Soql
 /Logs
 /AnonymousApex
+/src/staticresources/*
 LghtIdeas.sfproj
 LghtIdeas.sfsln
 LghtIdeas.v12.sfuo
