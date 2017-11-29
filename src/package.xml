@@ -28,6 +28,8 @@
         <members>brMobileNavMenu</members>
         <members>brMainNavMenuAltItem</members>
         <members>brPrevActiveMenuItemEvent</members>
+		<members>brMobileNavMenuItem</members>
+		<members>brMobileNavMenuItemEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -61,6 +63,9 @@
         <members>brFeaturedArticlesCtrl</members>
         <members>brMobileNavMenuCtrl</members>
         <members>brMobileNavMenuCtrlTest</members>
+		<members>brNavigationMenuItemService</members>
+		<members>brNavigationMenuItemModel</members>
+		<members>brNavigationMenuItemServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>

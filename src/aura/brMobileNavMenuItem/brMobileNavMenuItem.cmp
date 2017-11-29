@@ -1,0 +1,48 @@
+<aura:component >
+    <aura:attribute name="item" type="Object"/>
+    
+    <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
+    
+    <aura:renderIf isTrue="{!v.item.hasSubMenu}">
+        <li class="header-mobile__menu-item" onclick="{!c.onChangeLvl}" data-title="{!v.item.label}" data-id="{!v.item.id}" data-where="next">
+            <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                <aura:if isTrue="{!v.item.has_picture}">
+                    <aura:unescapedHtml value="{!v.item.picture}" />
+                </aura:if>
+                <span class="header-mobile__menu-text truncated">{!v.item.label}</span>
+            </a>
+            <div class="header-mobile__menu-tosub">
+                <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                    <div class="nav-arrow-hor-simple__handler">
+                        <span class="nav-arrow-hor-simple__icon"></span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <aura:set attribute="else">
+            <li class="header-mobile__menu-item">
+                <a href="{!((v.item.type == 4)? ($SfdcSite.pathPrefix + v.item.target): 'javascript:void(0);')}" 
+                   class="header-mobile__menu-link truncated" 
+                   data-type="{!v.item.type}" 
+                   data-target="{!v.item.target}" 
+                   data-menu-item-id="{!v.item.id}" 
+                   onclick="{!c.onClick}">
+                    <span class="header-mobile__menu-text truncated">{!v.item.label}<i class="{!v.item.icon}"></i></span>
+                </a>                          
+            </li>                   
+        </aura:set>
+    </aura:renderIf>
+    
+    <!--
+
+ 							<li class="header-mobile__menu-content">
+                                <aura:iteration items="{!v.phoneList}" var="phoneItem">
+                                    <br/>
+                                    <p class="m-bottom-0">{!phoneItem.Country__c}</p>
+                                    <a href="#">{!phoneItem.Phone__c}</a>
+                                    <br/>
+                                </aura:iteration>
+                            </li>
+
+	-->
+</aura:component>

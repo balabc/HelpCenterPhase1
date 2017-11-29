@@ -1,19 +1,20 @@
-<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="brMobileNavMenuCtrl">
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="brMobileNavMenuCtrl">
     <aura:attribute name="currentMenu" type="Object"/>
     <aura:attribute name="currentLvl" type="Integer"/>
     <aura:attribute name="currentTitle" type="String"/>
-    <aura:attribute name="menuItems" type="Object"/>
+    <aura:attribute name="menuItems" type="List" default="[]"/>
     <aura:attribute name="phoneList" type="List"/>
     <aura:attribute name="menuList" type="List"/>
     <aura:attribute name="user" type="Object" default="{0: false}"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.user}" action="{!c.changeUser}"/>
+    <aura:handler name="eventMobileNavMenuItem" event="c:brMobileNavMenuItemEvent" action="{!c.onChangeLvl}"/>
     
     <aura:if isTrue="{!(!!v.currentLvl)}">
-        <div id="mobile-nav-1" class="header-mobile__nav">
+        <div class="header-mobile__nav">
             <aura:if isTrue="{!(v.currentTitle)}">
-                <div class="header-mobile__menu-item-goback" onclick="{!c.prevLvlMenu}">
+                <div class="header-mobile__menu-item-goback" onclick="{!c.onChangeLvl}">
                     <div class="header-mobile__menu-goback">
                         <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
                             <div class="nav-arrow-hor-angular__handler">
@@ -25,47 +26,14 @@
                         <span class="header-mobile__menu-text truncated">{!v.currentTitle}</span>
                     </a>
                 </div>
-            </aura:if>   
+            </aura:if>    
             <div class="header-mobile__nav-inner">
                 <ul class="header-mobile__menu">
-                    <aura:if isTrue="{!(v.menuList.length)}">
+                    <aura:renderIf isTrue="{!(v.menuList.length)}">
                         <aura:iteration items="{!v.menuList}" var="item" >
-                            <aura:renderIf isTrue="{!(!!item.subMenu)}">
-                                <li class="header-mobile__menu-item" onclick="{!c.nextLvlMenu}" data-title="{!item.label}" data-id="{!item.id}">
-                                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
-                                        <aura:if isTrue="{!(item.has_picture)}">
-                                            <aura:unescapedHtml value="{!item.picture}" />
-                                        </aura:if>
-                                        <span class="header-mobile__menu-text truncated">{!item.label}</span>
-                                    </a>
-                                    <div class="header-mobile__menu-tosub">
-                                        <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
-                                            <div class="nav-arrow-hor-simple__handler">
-                                                <span class="nav-arrow-hor-simple__icon"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <aura:set attribute="else">
-                                    <li class="header-mobile__menu-item">
-                                        <a href="{!((item.type == 4)? ($SfdcSite.pathPrefix + item.source): 'javascript:void(0);')}" class="header-mobile__menu-link truncated" data-type="{!((item.type == undefined)? 1: item.type)}" data-source="{!item.source}" data-menu-item-id="{!item.id}" onclick="{!c.onClick}">
-                                            <span class="header-mobile__menu-text truncated">{!item.label}<i class="{!item.icon}"></i></span>
-                                        </a>                          
-                                    </li>                   
-                                </aura:set>
-                            </aura:renderIf>
+                            <c:brMobileNavMenuItem item="{!item}" />
                         </aura:iteration>
-                        <aura:set attribute="else">
-                            <li class="header-mobile__menu-content">
-                                <aura:iteration items="{!v.phoneList}" var="phoneItem">
-                                    <br/>
-                                    <p class="m-bottom-0">{!phoneItem.Country__c}</p>
-                                    <a href="#">{!phoneItem.Phone__c}</a>
-                                    <br/>
-                                </aura:iteration>
-                            </li>
-                        </aura:set>
-                    </aura:if>
+                    </aura:renderIf>
                 </ul>    
             </div>
         </div>
