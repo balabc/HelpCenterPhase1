@@ -1,0 +1,36 @@
+<aura:component description="brMainNavMenuAltItem">
+    <aura:attribute name="menuItem" type="Object" />
+    <aura:attribute name="prevActiveMenuItemId" type="String" />
+
+    <aura:registerEvent name="prevActiveMenuItem" type="c:brPrevActiveMenuItemEvent"/>
+
+    <aura:if isTrue="{!v.menuItem.subMenu}">
+        <li class="header__nav-item">
+            <div class="header__nav-item-cont">
+                <div class="header__nav-trigger">
+                    <span class="header__nav-label" onclick="{!c.showSubMenu}">{!v.menuItem.label}</span>
+                    <div class="{!v.prevActiveMenuItemId != v.menuItem.id?'header__nav-arrow nav-arrow':' header__nav-arrow nav-arrow nav-arrow--up'}" id="header__nav-arrow">
+                        <div class="nav-arrow__handler" onclick="{!c.showSubMenu}">
+                            <span class="nav-arrow__icon"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="transition-delay: 0.5s !important;" class="{!v.prevActiveMenuItemId != v.menuItem.id?'header__wrap-dropdown-menu':'header__wrap-dropdown-menu header__wrap-dropdown-menu--active'}">
+                    <div class="container">
+                        <div class="header__dropdown-menu clr">
+                            <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu">
+                                <aura:iteration items="{!v.menuItem.subMenu}" var="subItem">
+                                    <li class="header__dropdown-menu-item">
+                                        <a style="transition-delay: 0.5s !important;" href="" data-menu-item-id="{!subItem.id}" class="header__dropdown-menu-link">{!subItem.label}</a>
+                                    </li>
+                                </aura:iteration>
+                            </ul>
+                        </div>
+                    </div><!-- / end of .container -->
+                </div><!-- / end of .header__wrap-dropdown-menu -->
+
+            </div>
+        </li>
+    </aura:if>
+</aura:component>

@@ -26,6 +26,8 @@
         <members>brLeaderboardComponent</members>
         <members>brLiveMetrics</members>
         <members>brMobileNavMenu</members>
+        <members>brMainNavMenuAltItem</members>
+        <members>brPrevActiveMenuItemEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
