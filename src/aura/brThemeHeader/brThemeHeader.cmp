@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div><!-- end of .container -->
-
+        <div class="header__dropdown-menu-substrate"></div>
         <c:brHeaderContact aura:id="childHeaderContact" askbutton="{!v.askbutton}"/>
 
     </header>
