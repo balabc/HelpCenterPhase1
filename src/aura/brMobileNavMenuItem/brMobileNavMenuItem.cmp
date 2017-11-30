@@ -6,9 +6,9 @@
     <aura:renderIf isTrue="{!v.item.hasSubMenu}">
         <li class="header-mobile__menu-item" onclick="{!c.onChangeLvl}" data-title="{!v.item.label}" data-id="{!v.item.id}" data-where="next">
             <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
-                <aura:if isTrue="{!v.item.has_picture}">
+                <aura:renderIf isTrue="{!v.item.has_picture}">
                     <aura:unescapedHtml value="{!v.item.picture}" />
-                </aura:if>
+                </aura:renderIf>
                 <span class="header-mobile__menu-text truncated">{!v.item.label}</span>
             </a>
             <div class="header-mobile__menu-tosub">
@@ -32,17 +32,4 @@
             </li>                   
         </aura:set>
     </aura:renderIf>
-    
-    <!--
-
- 							<li class="header-mobile__menu-content">
-                                <aura:iteration items="{!v.phoneList}" var="phoneItem">
-                                    <br/>
-                                    <p class="m-bottom-0">{!phoneItem.Country__c}</p>
-                                    <a href="#">{!phoneItem.Phone__c}</a>
-                                    <br/>
-                                </aura:iteration>
-                            </li>
-
-	-->
 </aura:component>

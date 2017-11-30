@@ -4,10 +4,16 @@
             selectId = component.get('v.selectedArticleId'),
             articleType = component.get('v.articleType'),
             dataCategoryName = component.get('v.dataCategoryName');
+        
         if (!!selectId) { 
             console.log(selectId, articleType, dataCategoryName);
             action.setParams({ 
                 selectId : selectId,
+                articleType: articleType,
+                dataCategoryName: dataCategoryName
+            });
+        } else {
+            action.setParams({ 
                 articleType: articleType,
                 dataCategoryName: dataCategoryName
             });

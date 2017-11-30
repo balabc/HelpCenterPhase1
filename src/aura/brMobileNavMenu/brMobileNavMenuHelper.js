@@ -11,6 +11,34 @@
             
         ];
     },
+    getCurrentLvl: function (menu, id) {
+        var res = false;
+        if (!!id) {
+            for (var i in menu) {
+                if (menu.hasOwnProperty(i)) {
+                    if (menu[i].id === id) {
+                        res = {
+                            title: menu[i].label,
+                            items: (menu[i].hasOwnProperty('subMenu')? menu[i].subMenu: menu)
+                        };
+                    } else {
+                        if (menu[i].hasOwnProperty('subMenu')) {
+                            res = this.getCurrentLvl(menu[i].subMenu, id);
+                        }
+                    }	    
+                }
+                if (res !== false) {
+                    break;
+                }
+            }
+        } else {
+            return {
+                items: menu,
+                is_not_id: true
+            };
+        }
+        return res;
+    },
     fillPhoneList: function(component){
         try {
             var action = component.get("c.getPhoneList");
@@ -18,6 +46,8 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var data = response.getReturnValue();
+                    console.log(data);
+                    
                     component.set("v.phoneList", data);
                 } else if (state === "ERROR") {
                     var errors = response.getError();
@@ -31,7 +61,7 @@
                 }
             });
             $A.enqueueAction(action);
-
+            
         }catch(e){
             console.log('tryE:', e);
         }
