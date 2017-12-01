@@ -4,7 +4,13 @@
     <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
     
     <aura:renderIf isTrue="{!v.item.hasSubMenu}">
-        <li class="header-mobile__menu-item" onclick="{!c.onChangeLvl}" data-title="{!v.item.label}" data-id="{!v.item.id}" data-where="next">
+        <li class="header-mobile__menu-item" 
+            onclick="{!c.onChangeLvl}" 
+            data-title="{!v.item.label}" 
+            data-type="{!v.item.type}" 
+            data-target="{!v.item.target}" 
+            data-id="{!v.item.id}" 
+            data-where="next">
             <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
                 <aura:renderIf isTrue="{!v.item.has_picture}">
                     <aura:unescapedHtml value="{!v.item.picture}" />

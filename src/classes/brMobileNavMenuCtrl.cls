@@ -11,4 +11,9 @@ public with sharing class brMobileNavMenuCtrl {
     	return brUserService.getUserInfo();
     }
     
+    @AuraEnabled
+    public static List<brNavigationMenuItemModel> getNavigationMenu () {
+    	return brNavigationMenuItemService.getNavigationMenu();
+    }
+    
 }

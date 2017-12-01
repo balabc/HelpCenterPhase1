@@ -1,9 +1,9 @@
 ({
     getResponse: function(component) {
-        var action = component.get("c.getCatalog"),
+        var action = component.get("c.getCatalog"), 
             selectId = component.get('v.selectedArticleId'),
-            articleType = component.get('v.articleType'),
-            dataCategoryName = component.get('v.dataCategoryName');
+            articleType = component.get('v.data.objectName'),
+            dataCategoryName = component.get('v.data.dataCategory');
         
         if (!!selectId) { 
             console.log(selectId, articleType, dataCategoryName);
@@ -22,9 +22,8 @@
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (component.isValid() && state === "SUCCESS") {
-                var res = response.getReturnValue();
-                console.log('res',res);
-                component.set("v.items", res);
+                var data = response.getReturnValue();
+                component.set("v.items", data);
             }
         });
         $A.enqueueAction(action);

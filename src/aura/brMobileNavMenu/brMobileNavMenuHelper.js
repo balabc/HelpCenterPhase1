@@ -13,12 +13,20 @@
     },
     getCurrentLvl: function (menu, id) {
         var res = false;
-        if (!!id) {
+        if (!!id) { 
             for (var i in menu) {
                 if (menu.hasOwnProperty(i)) {
                     if (menu[i].id === id) {
                         res = {
-                            title: menu[i].label,
+                            obj: {
+                                id: menu[i].id,
+                                label: menu[i].label,
+                                type: menu[i].type,
+                                target: menu[i].target,
+                                dataCategory: menu[i].dataCategory,
+                                objectName: menu[i].objectName,
+                                isComponent: (!!menu[i].dataCategory || !!menu[i].objectName)
+                            },
                             items: (menu[i].hasOwnProperty('subMenu')? menu[i].subMenu: menu)
                         };
                     } else {
@@ -46,8 +54,6 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var data = response.getReturnValue();
-                    console.log(data);
-                    
                     component.set("v.phoneList", data);
                 } else if (state === "ERROR") {
                     var errors = response.getError();
@@ -81,7 +87,8 @@
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {  
-                component.set("v.menuItems", response.getReturnValue());
+                var data = response.getReturnValue();
+                component.set("v.menuItems", data);
             }
         });
         $A.enqueueAction(action);

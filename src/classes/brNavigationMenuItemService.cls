@@ -3,6 +3,7 @@ public with sharing class brNavigationMenuItemService {
 	public static List<brNavigationMenuItemModel> getNavigationMenu() {
 		List<brNavigationMenuItemModel> itemList = new List<brNavigationMenuItemModel>();
 		List<NavigationMenuItem> items = brNavigationMenuItemServiceSelector.getNavigationMenuItem();
+        List<brCommunity_Menu_Map__mdt> metaData = brNavigationMenuItemServiceSelector.getMetaDataMenu();
 		
 		for (NavigationMenuItem item : items) {
 			
@@ -26,6 +27,16 @@ public with sharing class brNavigationMenuItemService {
 						modelSub.target = item2.target;
 						modelSub.type = item2.type;		
 						modelSub.parentId = item.id;
+                        
+                        for (brCommunity_Menu_Map__mdt metaDataItem : metaData) {
+                            if (metaDataItem.Menu_Target__c == item2.target) {
+                                modelSub.objectName = metaDataItem.Object_Name__c;
+                                modelSub.dataCategory = metaDataItem.Data_Category_Group__c;
+                                modelSub.hasSubMenu = true;
+                                break; 
+                            }
+                        }
+                        
 						subMenuLevel1.add(modelSub);						
 					}
 					

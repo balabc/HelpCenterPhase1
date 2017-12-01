@@ -6,14 +6,20 @@ public with sharing class brNavigationMenuItemModel {
     @AuraEnabled    
     public String label {get;set;}   
     
-    @AuraEnabled    
+    @AuraEnabled     
     public String parentId {get;set;}   
     
     @AuraEnabled    
     public Integer position {get;set;}   
     
     @AuraEnabled    
-    public String target {get;set;}   
+    public String dataCategory {get;set;}   
+    
+    @AuraEnabled    
+    public String objectName {get;set;}   
+    
+    @AuraEnabled    
+    public String target {get;set;}  
     
     @AuraEnabled    
     public String type {get;set;}   

@@ -1,13 +1,14 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brCategoriesController">
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="brCategoriesController">
+    <aura:attribute name="data" type="Object"/>
     <aura:attribute name="recordId" type="String"/>
-    <aura:attribute name="selectedArticleId" type="String"/>
-    <aura:attribute name="articleType" type="String" default="Public__kav"/>
-    <aura:attribute name="dataCategoryName" type="String" default="Public"/>
-	<aura:attribute name="items" type="List" /> 
     
+    <aura:attribute name="selectedArticleId" type="String"/>
+	<aura:attribute name="items" type="List" /> 
+      
 	<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
     
     <div class="doc-nav__inner">
+        <div>recordId = {!v.recordId}</div>
         <ul class="doc-nav__list doc-nav__list-lvl-1" id="menu-articles">
         <aura:iteration items="{!v.items}" var="category">
             <li class="doc-nav__item doc-nav__item-lvl-1" data-id="{!category.id}" data-active="{!category.active}">
