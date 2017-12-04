@@ -1,0 +1,16 @@
+
+<apex:page id="brMenuListView" controller="brMenuListViewCtrl">
+
+    {!output}
+
+    <apex:pageBlock title="Menu">
+        <apex:pageBlockTable value="{!navItems}" var="i">
+            <apex:column value="{!i.Id}"/>
+            <apex:column value="{!i.Label}"/>
+            <apex:column value="{!i.Target}"/>
+            <apex:column headerValue="Community Name" value="{!i.NavigationLinkSet.Network.Name}"/>
+            <apex:column headerValue="Language" value="{!i.NavigationLinkSet.Language}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+
+</apex:page>

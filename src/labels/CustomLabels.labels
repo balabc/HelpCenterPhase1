@@ -1754,4 +1754,12 @@
         <shortDescription>test</shortDescription>
         <value>test</value>
     </labels>
+    <labels>
+        <fullName>hbrCommunityHome</fullName>
+        <categories>brCommunityMenu</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hbrCommunityHome</shortDescription>
+        <value>Help Center</value>
+    </labels>
 </CustomLabels>
