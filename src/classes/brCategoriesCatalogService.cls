@@ -1,4 +1,5 @@
 public with sharing class brCategoriesCatalogService {
+    
     public static List<brCategoriesCatalogModel> getCatalog(String selectId, String articleType, String dataCategoryName) {
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
         List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
@@ -113,4 +114,5 @@ public with sharing class brCategoriesCatalogService {
         }              
         return catCatalogList;
     } 
+    
 }

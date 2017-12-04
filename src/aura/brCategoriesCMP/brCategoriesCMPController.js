@@ -1,8 +1,10 @@
 ({
-	doInit : function(component, event, helper) {
+	doInit: function(component, event, helper) {
         var data = component.get("v.data");
         if (!!data) {
-            component.set('v.selectedArticleId', data.recordId);
+            if (data.hasOwnProperty('id')) {
+        		component.set('v.selectedArticleId', data.id);
+            }
         } else {
             data = {
                 dataCategory: 'Public', 
@@ -10,9 +12,19 @@
             };
         }
         	
+        component.set("v.items", []);
         component.set("v.data", data);
         helper.getResponse(component);
 	},
+    changeData: function(component, event, helper) {
+        var data = component.get("v.data");
+        if (!!data) {
+            if (data.hasOwnProperty('id')) {
+                component.set('v.selectedArticleId', data.id);
+                helper.getResponse(component);
+            }
+        }
+    },
     clickCategory: function(component, event, helper) {    
         var parent = event.target.parentElement,
         	active = parent.getAttribute('data-active'),

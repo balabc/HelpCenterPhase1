@@ -1,15 +1,2 @@
-.THIS > ul > li[data-active=true] > a {
-  color: #777;
-}
-.THIS > ul > li[data-active=true].has-sub > a::after {
-  transform: rotateX(180deg);
-  border-top-color: #777;
-}
-.THIS ul ul li[data-active=true].has-sub > a::after {
-  transform: rotateX(180deg);
-  border-top-color: #777;
-}
-.THIS li[data-active=true] > ul,
-.THIS li[data-active=true] > .anchors {
-    display: block;
+.THIS {
 }

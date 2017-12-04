@@ -1,5 +1,27 @@
 public with sharing class brNavigationMenuItemService {
 	
+    public static List<List<SObject>> getArticleByUrl(String url) {
+        List<String> describeList = new List<String>();        
+        Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
+        Set<String> keySet = gd.keySet();
+        for (String key : keySet) {
+            Schema.SObjectType objectType = gd.get(key);
+            if (key.endsWith('kav')) {
+                describeList.add(objectType.getDescribe().getName() + ' (Id, urlName, ArticleType WHERE (PublishStatus = \'Online\') AND (urlName = \'' + url + '\'))');
+            }
+        }
+        
+        String articleTypes = String.join(describeList, ', ');
+        List<List<SObject>> results = brNavigationMenuItemServiceSelector.getArticle(url, articleTypes);
+        
+        return results;
+    }
+    
+    public static List<brCommunity_Menu_Map__mdt> getMetaDataMenuByArticleType(String articleType) {
+        List<brCommunity_Menu_Map__mdt> results = brNavigationMenuItemServiceSelector.getMetaDataMenuByArticleType(articleType);
+        return results;
+    }
+    
 	public static List<brNavigationMenuItemModel> getNavigationMenu() {
 		List<brNavigationMenuItemModel> itemList = new List<brNavigationMenuItemModel>();
 		List<NavigationMenuItem> items = brNavigationMenuItemServiceSelector.getNavigationMenuItem();

@@ -11,12 +11,20 @@
             
         ];
     },
-    getCurrentLvl: function (menu, id) {
+    setItemsMenu: function(component, _menuItems) {
+        var menuItems = _menuItems;
+        menuItems.parents.push(0);
+        component.set('v.currentObj', menuItems.obj);
+        component.set('v.menuList', menuItems.items);
+        component.set('v.menuIds', menuItems.parents.reverse());
+    },
+    getCurrentLvl: function (menu, value, attr) {
+        attr = (attr === undefined)? 'id': attr;
         var res = false;
-        if (!!id) { 
+        if (!!value) { 
             for (var i in menu) {
                 if (menu.hasOwnProperty(i)) {
-                    if (menu[i].id === id) {
+                    if (menu[i][attr] === value) {
                         res = {
                             obj: {
                                 id: menu[i].id,
@@ -27,11 +35,15 @@
                                 objectName: menu[i].objectName,
                                 isComponent: (!!menu[i].dataCategory || !!menu[i].objectName)
                             },
-                            items: (menu[i].hasOwnProperty('subMenu')? menu[i].subMenu: menu)
+                            items: (menu[i].hasOwnProperty('subMenu')? menu[i].subMenu: menu),
+                            parents: [menu[i].id]
                         };
                     } else {
                         if (menu[i].hasOwnProperty('subMenu')) {
-                            res = this.getCurrentLvl(menu[i].subMenu, id);
+                            res = this.getCurrentLvl(menu[i].subMenu, value, attr);
+                            if (Array.isArray(res.parents)) {
+                            	res.parents.push(menu[i].id);
+                            }
                         }
                     }	    
                 }
@@ -42,7 +54,8 @@
         } else {
             return {
                 items: menu,
-                is_not_id: true
+                is_not_id: true,
+                parents: []
             };
         }
         return res;
@@ -78,6 +91,57 @@
             var state = response.getState();
             if (state === "SUCCESS") {      
                 component.set("v.user", response.getReturnValue());
+            }
+        });
+        $A.enqueueAction(action);
+    },
+    getArticleByUrl: function(component, url) {
+        console.log(url);
+        var action = component.get("c.getArticle"),
+            action_meta = component.get("c.getMetaDataMenuByArticleType");
+        action.setParams({ 
+            url: url
+        });
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS") {  
+                var data = response.getReturnValue(), 
+                    obj, i, j;
+                for (i in data) {
+                    if (data[i].length > 0) {
+                        for (j in data[i]) {
+                            obj = data[i][j];
+                            break;
+                        }
+                    }
+                }
+                if (!!obj) {
+                    this.getMetaDataMenuByArticleType(component, obj);
+                }
+            }
+        });
+        $A.enqueueAction(action);
+    },
+    getMetaDataMenuByArticleType: function(component, obj) {
+        var action = component.get("c.getMetaDataMenuByArticleType");
+        action.setParams({
+            articleType: obj.ArticleType
+        });
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS") {      
+                var data = response.getReturnValue();
+                if (data.length > 0) {
+                    data = data[0];
+                    var items = component.get('v.menuItems'),
+                        menuItems = this.getCurrentLvl(items, data.Menu_Target__c, 'target');
+                    if (!!menuItems.obj) {
+                        this.setItemsMenu(component, menuItems);
+                        menuItems.obj.id = obj.Id;
+                        component.set('v.currentObj', menuItems.obj);
+                        component.find('brCategoriesCMP').changeData();
+                    }
+                }
             }
         });
         $A.enqueueAction(action);

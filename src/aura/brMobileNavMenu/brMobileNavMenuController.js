@@ -1,6 +1,7 @@
 ({
     doInit: function(component, event, helper) {
         component.set('v.menuIds', [0]);
+        component.set('v.currentObj', undefined);
         
         helper.getNavigationMenu(component);
         helper.getUserInfo(component); 
@@ -8,7 +9,9 @@
     },
     changeUser: function(component, event, helper) {
         var items = component.get('v.menuItems'),
-            user = component.get('v.user');
+            user = component.get('v.user'),
+            locationPage = window.location.pathname.replace('/support/s', ''),
+            menuItems;
         
         
         if (items.length > 0) {
@@ -40,6 +43,18 @@
             }
             
             component.set('v.menuList', items);
+            
+            
+            if (locationPage.length > 1) {
+                var menuItems = helper.getCurrentLvl(items, locationPage, 'target');
+                if (!!menuItems.obj) {
+                    helper.setItemsMenu(component, menuItems);
+                } else {
+                    locationPage = locationPage.split('/');
+                    locationPage = locationPage.pop();
+                    helper.getArticleByUrl(component, locationPage);
+                }
+            }          
         }
     },
     onChangeLvl: function(component, event, helper) {
@@ -63,10 +78,13 @@
             }   
         }
         
+        
         menuItems = helper.getCurrentLvl(menuItems, currentId);
+        menuItems.parents.push(0);
         component.set('v.currentObj', menuItems.obj);
         component.set('v.menuList', menuItems.items);
-        component.set('v.menuIds', menuIds);
+        component.set('v.menuIds', menuItems.parents.reverse());
+        
         
         console.log(menuItems.obj);
     }

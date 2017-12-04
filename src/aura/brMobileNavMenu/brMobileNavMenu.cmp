@@ -10,7 +10,7 @@
     <aura:handler name="change" value="{!v.user}" action="{!c.changeUser}"/>
     <aura:handler name="eventMobileNavMenuItem" event="c:brMobileNavMenuItemEvent" action="{!c.onChangeLvl}"/>
     
-    <div class="header-mobile__nav">
+    <div class="header-mobile__nav" id="header-mobile__nav">
         <aura:renderIf isTrue="{!(!!v.currentObj)}">
             <div class="header-mobile__menu-item-goback" onclick="{!c.onChangeLvl}">
                 <div class="header-mobile__menu-goback">
@@ -26,8 +26,8 @@
             </div>
         </aura:renderIf>    
         <div class="header-mobile__nav-inner">
-            <aura:renderIf isTrue="{!(!!v.currentObj.isComponent)}">
-                <c:brCategoriesCMP data="{!v.currentObj}" />
+            <aura:renderIf isTrue="{!(v.currentObj.isComponent == true)}">
+                <c:brCategoriesCMP data="{!v.currentObj}" aura:id="brCategoriesCMP"/>
                 <aura:set attribute="else">
                     <ul class="header-mobile__menu">
                         <aura:renderIf isTrue="{!(v.menuList.length)}">
