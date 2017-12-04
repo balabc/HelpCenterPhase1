@@ -983,6 +983,13 @@
         <value>System Status</value>
     </labels>
     <labels>
+        <fullName>hVideos</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for videos page</shortDescription>
+        <value>Videos</value>
+    </labels>
+    <labels>
         <fullName>hWriteComment</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1467,6 +1474,30 @@
         <value>View more results for</value>
     </labels>
     <labels>
+        <fullName>lnkArticles</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Articles</shortDescription>
+        <value>Articles</value>
+    </labels>
+    <labels>
+        <fullName>lnkContact</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Contact</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>lnkDeveloperDocs</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Developer Docs</shortDescription>
+        <value>Developer Docs</value>
+    </labels>
+    <labels>
         <fullName>lnkLogIn</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1479,6 +1510,77 @@
         <protected>false</protected>
         <shortDescription>log out from user menu</shortDescription>
         <value>Log Out</value>
+    </labels>
+    <labels>
+        <fullName>lnkMyCases</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu My Cases</shortDescription>
+        <value>My Cases</value>
+    </labels>
+    <labels>
+        <fullName>lnkMyFeed</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu My Feed</shortDescription>
+        <value>My Feed</value>
+    </labels>
+    <labels>
+        <fullName>lnkMyFiles</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu My Files</shortDescription>
+        <value>My Files</value>
+    </labels>
+    <labels>
+        <fullName>lnkMyMessages</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu My Messages</shortDescription>
+        <value>My Messages</value>
+    </labels>
+    <labels>
+        <fullName>lnkPhoneSupport</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Phone Support</shortDescription>
+        <value>Phone Support</value>
+    </labels>
+    <labels>
+        <fullName>lnkProfile</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Profile</shortDescription>
+        <value>Profile</value>
+    </labels>
+    <labels>
+        <fullName>lnkSettings</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Settings</shortDescription>
+        <value>Settings</value>
+    </labels>
+    <labels>
+        <fullName>lnkVideos</fullName>
+        <categories>MobileNavMenu</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MobileNavMenu Videos</shortDescription>
+        <value>Videos</value>
+    </labels>
+    <labels>
+        <fullName>lnkWatchVideo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>link for watching video on videos page</shortDescription>
+        <value>Watch video</value>
     </labels>
     <labels>
         <fullName>minutes_ago</fullName>

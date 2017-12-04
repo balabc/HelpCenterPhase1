@@ -1,0 +1,12 @@
+<aura:component description="brVideosPagination">
+    <aura:attribute name="pageNumber" type="Integer" />
+    <aura:attribute name="currentPageNumber" type="Integer" />
+
+    <aura:registerEvent name="setVideosPage" type="c:brSetVideosPageEvent"/>
+
+    <li class="pagination__item">
+        <a class="pagination__link" onclick="{!c.getPageNumber}">
+            <ui:outputNumber class="{!v.currentPageNumber == v.pageNumber?'pagination__current':''}" aura:id="page" value="{!v.pageNumber}"/>
+        </a>
+    </li>
+</aura:component>

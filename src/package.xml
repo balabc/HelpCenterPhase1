@@ -32,6 +32,9 @@
         <members>brMobileNavMenuItem</members>
         <members>brMobileNavMenuItemEvent</members>
         <members>brMobileNavMenuItemStatic</members>
+        <members>brVideosList</members>
+        <members>brVideosPagination</members>
+        <members>brSetVideosPageEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -78,6 +81,7 @@
         <members>brNavigationMenuItemService</members>
         <members>brNavigationMenuItemModel</members>
         <members>brNavigationMenuItemServiceSelector</members>
+        <members>brVideosListCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
