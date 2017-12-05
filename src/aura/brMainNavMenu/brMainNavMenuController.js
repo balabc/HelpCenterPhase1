@@ -23,7 +23,7 @@
             cmp.getSuper().navigate(id);
         }
     },
-    showSubMenu: function (cmp, event, helper) {
+    toggleSubMenu: function (cmp, event, helper) {
         var themeHeader = document.getElementById("themeHeader"),
             dropdownWrap = cmp.find('dropdownWrap'),
             dropdown = cmp.find('dropdown'),

@@ -20,7 +20,7 @@
                 <aura:if isTrue="{!and(not(item.subMenu), not(equals(item.id, 0)))}">
                     <li class="header__nav-item">
                         <div class="header__nav-item-cont">
-                            <a href="" data-menu-item-id="{!item.id}" class="header__link header__nav-link">{!item.label}</a>
+                            <a onclick="{!c.closeSubMenu}" data-menu-item-id="{!item.id}" class="header__link header__nav-link">{!item.label}</a>
                         </div>
                     </li>
                 </aura:if>

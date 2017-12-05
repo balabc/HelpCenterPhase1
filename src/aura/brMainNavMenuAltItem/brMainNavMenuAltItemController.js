@@ -1,5 +1,5 @@
 ({
-    showSubMenu: function (cmp, event, helper) {
+    toggleSubMenu: function (cmp, event, helper) {
         var cmpEvent = cmp.getEvent("prevActiveMenuItem"),
             Id = '',
             prevActiveMenuId = cmp.get('v.prevActiveMenuItemId'),
@@ -26,5 +26,11 @@
         });
 
         cmpEvent.fire();
+    },
+    onClick: function(component, event) {
+        var id = event.target.dataset.menuItemId;
+        if (id) {
+            component.getSuper().navigate(id);
+        }
     }
 })

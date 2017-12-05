@@ -6,9 +6,9 @@
             <li class="header__nav-item">
                 <div class="header__nav-item-cont">
                     <div class="header__nav-trigger">
-                        <span class="header__link header__nav-link" onclick="{!c.showSubMenu}">Help center</span>
+                        <span class="header__link header__nav-link" onclick="{!c.toggleSubMenu}">Help center</span>
                         <div class="header__nav-arrow nav-arrow"  aura:id="arrow">
-                            <div class="nav-arrow__handler" onclick="{!c.showSubMenu}">
+                            <div class="nav-arrow__handler" onclick="{!c.toggleSubMenu}">
                                 <span class="nav-arrow__icon"></span>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                                         <aura:iteration items="{!v.menuItems}" var="item" >
                                             <aura:if isTrue="{!not(item.subMenu)}">
                                                 <li class="header__dropdown-menu-item">
-                                                    <a class="header__dropdown-menu-link" data-menu-item-id="{!item.id}" href="">{!item.label}</a>
+                                                    <a onclick="{!c.toggleSubMenu}" class="header__dropdown-menu-link" data-menu-item-id="{!item.id}" href="">{!item.label}</a>
                                                 </li>
                                             </aura:if>
                                         </aura:iteration>
@@ -38,7 +38,7 @@
                                             <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu" style="{!equals(index,v.menuItems.length-1)?'columns:3':'columns:2'}">
                                                 <aura:iteration items="{!i.subMenu}" var="subItem">
                                                     <li class="header__dropdown-menu-item">
-                                                        <a class="header__dropdown-menu-link" data-menu-item-id="{!subItem.id}" href="">{!subItem.label}</a>
+                                                        <a onclick="{!c.toggleSubMenu}" class="header__dropdown-menu-link" data-menu-item-id="{!subItem.id}" href="">{!subItem.label}</a>
                                                     </li>
                                                 </aura:iteration>
                                             </ul>

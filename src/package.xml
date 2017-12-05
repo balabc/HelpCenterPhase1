@@ -35,6 +35,7 @@
         <members>brVideosList</members>
         <members>brVideosPagination</members>
         <members>brSetVideosPageEvent</members>
+        <members>brBreadcrumbs</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -82,10 +83,12 @@
         <members>brNavigationMenuItemModel</members>
         <members>brNavigationMenuItemServiceSelector</members>
         <members>brVideosListCtrl</members>
+        <members>brBreadcrumbsCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>brCommunityMetadata.User_Menu_Items</members>
+        <members>brCommunity_Menu_Map.Groups</members>
         <name>CustomMetadata</name>
     </types>
     <types>
@@ -94,12 +97,16 @@
         <members>University__kav</members>
         <members>brPhoneSupportList__c</members>
         <members>brAlgolia_Profile_Setting__c</members>
+        <members>brCommunity_Category_Menu_Map__mdt</members>
+        <members>brCommunity_Menu_Map__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
         <members>Learning__kav-Learning Layout</members>
         <members>Public__kav-Public Layout</members>
         <members>University__kav-Public BCU Layout</members>
+        <members>brCommunity_Category_Menu_Map__mdt-Community Category Menu Map Layout</members>
+        <members>brCommunity_Menu_Map__mdt-Community Menu Map Layout</members>
         <name>Layout</name>
     </types>
     <types>

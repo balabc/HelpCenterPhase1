@@ -23,9 +23,15 @@
         }
     },
     setMenuItemId: function (component, event) {
-        console.log('cool');
         var Id = event.getParam("Id");
-        console.log('Id: ' + Id);
         component.set('v.prevActiveMenuItemId', Id);
+    },
+    closeSubMenu: function (component, event) {
+        var dropdown = document.getElementsByClassName("header__wrap-dropdown-menu--active"),
+            themeHeader = document.getElementById("themeHeader");
+        $A.util.removeClass(dropdown[0], "header__wrap-dropdown-menu--active");
+        setTimeout( function () {
+            $A.util.removeClass(themeHeader, "header--make-sticky");
+        }, 750);
     }
 })
