@@ -2776,7 +2776,7 @@ textarea::placeholder {
     height: 175px; }
 
 .header__dropdown-menu {
-  display: none;
+/*  display: none;*/
   visibility: hidden;
   padding: 20px 0 37px;
   transition: all 0.3s ease;
@@ -3158,7 +3158,7 @@ textarea::placeholder {
     opacity: 1; }
 
 .header--upd .header__dropdown-menu {
-  display: block;
+  /*display: block;*/
   visibility: visible;
   padding: 0;
   transition: none;
