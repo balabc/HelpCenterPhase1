@@ -36,6 +36,7 @@
         <members>brVideosPagination</members>
         <members>brSetVideosPageEvent</members>
         <members>brBreadcrumbs</members>
+        <members>brVideosListItem</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

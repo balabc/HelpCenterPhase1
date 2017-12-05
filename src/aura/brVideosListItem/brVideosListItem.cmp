@@ -1,0 +1,26 @@
+<aura:component description="brVideosListItem">
+    <aura:attribute name="videoArticleForCurrentPage" type="University__kav" />
+    <aura:attribute name="routeInput" type="Map"/>
+
+    <div class="column-lg-3 column-md-12 column--pad column--grid">
+        <div class="panel panel-preview">
+            <div class="panel-preview__head">
+                <div class="panel-preview__wrap-media">
+                    <div class="panel-preview__wrap-video">
+                        <iframe width="258" height="140" src="https://www.youtube.com/embed/O_6-2Ryh5WY" frameborder="0" ></iframe><!--allowfullscreen-->
+                    </div>
+                </div>
+            </div>
+            <div class="panel-preview__body">
+                <div class="panel-preview__wrap-title">
+                    <h4 class="h4 panel-preview__title" title="Inventory Management">{!v.videoArticleForCurrentPage.Short_Title__c}</h4>
+                </div>
+                <span class="panel-preview__meta truncated">{!v.videoArticleForCurrentPage.Video_Duration__c}</span>
+                <div class="panel-preview__wrap-text">
+                    <p>{!v.videoArticleForCurrentPage.Short_Description__c}</p>
+                </div>
+                <forceCommunity:routeLink title="{!$Label.c.lnkWatchVideo}" label="{!$Label.c.lnkWatchVideo}" routeInput="{!v.routeInput}" onClick="{!c.onClick}"/>
+            </div>
+        </div>
+    </div><!-- / end of column -->
+</aura:component>

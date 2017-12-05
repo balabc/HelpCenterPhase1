@@ -21,27 +21,7 @@
         <div class="p-top-12 p-bottom-70">
             <div class="row row--pad">
                 <aura:iteration items="{!v.videoArticlesForCurrentPage}" var="item">
-                    <div class="column-lg-3 column-md-12 column--pad column--grid">
-                    <div class="panel panel-preview">
-                        <div class="panel-preview__head">
-                            <div class="panel-preview__wrap-media">
-                                <div class="panel-preview__wrap-video">
-                                    <iframe width="258" height="140" src="https://www.youtube.com/embed/O_6-2Ryh5WY" frameborder="0" ></iframe><!--allowfullscreen-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel-preview__body">
-                            <div class="panel-preview__wrap-title">
-                                <h4 class="h4 panel-preview__title" title="Inventory Management">{!item.Short_Title__c}</h4>
-                            </div>
-                            <span class="panel-preview__meta truncated">{!item.Video_Duration__c}</span>
-                            <div class="panel-preview__wrap-text">
-                                <p>{!item.Short_Description__c}</p>
-                            </div>
-                            <a href="#" class="panel-preview__link truncated">{!$Label.c.lnkWatchVideo}</a>
-                        </div>
-                    </div>
-                </div><!-- / end of column -->
+                   <c:brVideosListItem videoArticleForCurrentPage="{!item}"/>
                 </aura:iteration>
             </div><!-- / end of .row -->
 
