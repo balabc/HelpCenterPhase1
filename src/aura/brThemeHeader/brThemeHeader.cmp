@@ -19,7 +19,7 @@
                 </aura:if>
             </div>
             <div class="header__right">
-                <a href="#" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">Contact</a>
+                <a href="javascript:void(0);" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">{!$Label.c.lnkContact}</a>
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
                     <c:brNotifications />
                     <c:brUserMenu />
