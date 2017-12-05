@@ -51,12 +51,21 @@ public with sharing class brBreadcrumbsCtrl {
         }
 
         NavigationMenuItem parentMenuItem = getMenuItemByTarget(target);
+        if (parentMenuItem == null) {
+            String menuId = getMenuIdByTarget(target);//from Category Metadata (2d menu meta)
+            tmpOutput += ' #target-' + target + ' ;menuId:' + menuId + '#';
+            if(menuId != null){
+                parentMenuItem = getMenuItemByID(menuId);
+            }
+        }
+
         if (parentMenuItem != null) {
             tmpOutput += ' <b>rootParent:</b>' + parentMenuItem.Parent.Label;
             tmpOutput += ' <b>parent:</b>' + parentMenuItem.Label;
 
             String url = '';//(parentMenuItem.Target != null)?(baseURL + parentMenuItem.Parent.Target):'';
-            url = baseURL + getTargetByMenuId(parentMenuItem.Parent.Id);//(parentMenuItem.Target != null && parentMenuItem.Target != 'null')?(baseURL + parentMenuItem.Target):'';
+            String rootTarget = getTargetByMenuId(parentMenuItem.Parent.Id);
+            url = (rootTarget != null && rootTarget != 'null')?(baseURL + rootTarget):'';
             tmpOutput += ' getTargetByMenuId: '+ url + '(' + parentMenuItem.Parent.Id + ')';
             bredcrumbs.add(new Map<String, String>{'label' => parentMenuItem.Parent.Label,'type' => 'root','url' => url,'active' => 'true', 'listViewId'=>'', 'itemtype'=>parentMenuItem.Parent.Type});
 
@@ -65,61 +74,22 @@ public with sharing class brBreadcrumbsCtrl {
 
             tmpOutput += ' <b>onSameLevel:</b>';
             List<NavigationMenuItem> sameLevelItems = getChildrenMenuItems(parentMenuItem.parentId);
+            tmpOutput += ' getChildrenMenuItems: (' + parentMenuItem.parentId + ')';
             for (NavigationMenuItem item : sameLevelItems) {
                 tmpOutput += item.Label + ' | ';
-                String selected = (parentMenuItem.Label == item.Label)?'true':'false';
-                String itemURL = (item.Type == 'InternalLink')?baseURL:'';
-                itemURL += (item.Target != null)?item.Target:'';
+                String selected = (parentMenuItem.Label == item.Label) ? 'true' : 'false';
+
+                String itemURL = (item.Type == 'InternalLink') ? baseURL : '';
+                itemURL += (item.Target != null && item.Target != 'null') ? item.Target : '';
+                if (item.Type == 'MenuLabel'){
+                    String tmpTarget = getTargetByMenuId(item.Id);
+                    itemURL = (tmpTarget != null && tmpTarget != 'null') ? (baseURL + tmpTarget) : '';
+                }
                 String listViewId = (item.Type == 'SalesforceObject')?getObjectListViewId(item.Target):'';
                 tmpOutput += ' listViewId:' + listViewId + '|';
                 bredcrumbs.add(new Map<String, String>{'label' => item.Label,'type' => 'subitem','url' => itemURL,'active' => selected, 'listViewId'=>listViewId, 'itemtype'=>item.Type});
             }
         }
-  /*
-        }else{
-            tmpOutput += 'ELSE';
-            tmpOutput += ' pathname:' + pathname;
-            String target = '';
-
-
-
-            if (pathname.contains('/s/') ) {
-                target = '/' + fullurl.substringAfter('/s/');//check if there any '/' present
-                tmpOutput += ' <b>detected-Target:</b>' + target;
-            }else{
-                if(pathname.countMatches('/') == 1 && pathname.left(1) == '/'){
-                    target = pathname;
-                    tmpOutput += ' <b>detected-Target(case2):</b>' + target;
-                }
-            }
-            target = target.replace('#', '');
-            target = target.replace('?', '');
-
-            NavigationMenuItem parentMenuItem = getMenuItemByTarget(target);
-            if (parentMenuItem != null) {
-                //parentMenuItem.Id
-                tmpOutput += ' <b>rootParent:</b>' + parentMenuItem.Parent.Label;
-                tmpOutput += ' <b>parent:</b>' + parentMenuItem.Label;
-                String url = (parentMenuItem.Target != null)?(baseURL + parentMenuItem.Parent.Target):'';
-                bredcrumbs.add(new Map<String, String>{'label' => parentMenuItem.Parent.Label,'type' => 'root','url' => url,'active' => 'true', 'listViewId'=>'', 'itemtype'=>parentMenuItem.Parent.Type});
-                url = (parentMenuItem.Target != null)?(baseURL + parentMenuItem.Target):'';
-                bredcrumbs.add(new Map<String, String>{'label' => parentMenuItem.Label,'type' => 'parent','url' => url,'active' => 'true', 'listViewId'=>'','itemtype'=>parentMenuItem.Type});
-
-
-                tmpOutput += ' <b>onSameLevel:</b>';
-                List<NavigationMenuItem> sameLevelItems = getChildrenMenuItems(parentMenuItem.parentId);
-                for (NavigationMenuItem item : sameLevelItems) {
-                    tmpOutput += item.Label + ' | ';
-                    String selected = (parentMenuItem.Label == item.Label)?'true':'false';
-                    //String isExternal = (item.Type == 'ExternalLink')?'true':'false';
-                    String itemURL = (item.Type == 'InternalLink')?baseURL:'';
-                    itemURL += (item.Target != null)?item.Target:'';
-                    bredcrumbs.add(new Map<String, String>{'label' => item.Label,'type' => 'subitem','url' => itemURL,'active' => selected, 'listViewId'=>'', 'itemtype'=>item.Type});
-                }
-            }
-
-        }
-*/
         //tmpOutput += ' NetworkID: ' + System.Network.getNetworkId();//current network ID
 
         bredcrumbs.add(new Map<String, String>{'label' => tmpOutput,'type' => 'debug','url' => '#','active' => 'false'});
@@ -135,6 +105,13 @@ public with sharing class brBreadcrumbsCtrl {
         }
     }
 
+    public static String getMenuIdByTarget(String target){
+        try{
+            return [SELECT Menu_Item_Id__c FROM brCommunity_Category_Menu_Map__mdt WHERE Target__c = :target].Menu_Item_Id__c;
+        }catch (Exception e){
+            return null;
+        }
+    }
     public static String getTargetByMenuId(String menuItemId){
         try{
             return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c;
@@ -150,15 +127,19 @@ public with sharing class brBreadcrumbsCtrl {
         }
     }
 
+    public static NavigationMenuItem getMenuItemByID(String menuID){
+        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE Id = :menuID];
+        return (items.size()>0)?items.get(0):null;
+    }
     public static NavigationMenuItem getMenuItemByTarget(String inputTarget){
-        System.debug('SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Target,Type FROM NavigationMenuItem WHERE Target = ' + inputTarget);
-        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target ,Type FROM NavigationMenuItem WHERE Target = :inputTarget];
+        //System.debug('SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Target,Type FROM NavigationMenuItem WHERE Target = ' + inputTarget);
+        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE Target = :inputTarget];
         return (items.size()>0)?items.get(0):null;
     }
 
     public static List<NavigationMenuItem> getChildrenMenuItems(String parentId){
-        System.debug('SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Target,Type FROM NavigationMenuItem WHERE ParentId = ' + parentId);
-        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE ParentId = :parentId AND Type != 'MenuLabel'];
+        //System.debug('SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Target,Type FROM NavigationMenuItem WHERE ParentId = ' + parentId);
+        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE ParentId = :parentId ];//AND Type != 'MenuLabel'
         return items;
     }
 
