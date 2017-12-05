@@ -11,10 +11,71 @@
             
         ];
     },
+    initMenu: function(component, items) {
+        var user = component.get('v.user'),
+            locationPage = window.location.pathname.replace('/support/s', ''),
+            menuItems;
+        
+        
+        if (items.length > 0) {
+            items.shift();
+            items.push({id: 'contact', label: $A.get('$Label.c.lnkContact'), hasSubMenu: true, subMenu: [
+                {id: 'articles', label: $A.get('$Label.c.lnkArticles')},
+                {id: 'learning_guides', label: 'Learning Guides'},
+                {id: 'videos', label: $A.get('$Label.c.lnkVideos')},
+                {id: 'developer_docs', label: $A.get('$Label.c.lnkDeveloperDocs'), icon: 'icon-svg-docs-sm'},
+                {id: 'phone_support', label: $A.get('$Label.c.lnkPhoneSupport'), hasSubMenu: true, subMenu: []}
+            ]});
+            items.push({
+                id: 'login', 
+                label: $A.get('$Label.c.lnkLogIn'),
+                type: 4, 
+                target: '/s/login/'
+            });	 
+            
+            if (user) {
+                items.pop();
+                items.push({
+                    id: 'user', 
+                    label: user.name, 
+                    has_picture: true,
+                    hasSubMenu: true,
+                    picture: '<span class="header-mobile__menu-shape"><img src="' + user.photoUrl + '" class="header-mobile__menu-userpic" alt=""></span>',
+                    subMenu: this.getSubMenuUser(component, user)
+                });		
+            }
+            
+            
+            
+            if (locationPage.length > 1) {
+                var menuItems = this.getCurrentLvl(items, locationPage, 'target');
+                if (!!menuItems.obj) {
+                    if (menuItems.items.length > 0) {
+                        menuItems.parents.pop();
+                    	this.setItemsMenu(component, menuItems);
+                    } else {
+              			component.set('v.menuList', items);
+                    }
+                } else {
+                    locationPage = locationPage.split('/');
+                    locationPage = locationPage.pop();
+                    this.getArticleByUrl(component, locationPage);
+                }
+            } else {
+              	component.set('v.menuList', items);
+            }  
+            component.set('v.menuItems', items);
+        }  
+    },
     setItemsMenu: function(component, _menuItems) {
         var menuItems = _menuItems;
         menuItems.parents.push(0);
         component.set('v.currentObj', menuItems.obj);
+        if (!!menuItems.obj) {
+            if (!!menuItems.obj.isComponent) {
+            	menuItems.items = [];
+            }
+        }
         component.set('v.menuList', menuItems.items);
         component.set('v.menuIds', menuItems.parents.reverse());
     },
@@ -85,16 +146,6 @@
             console.log('tryE:', e);
         }
     },
-    getUserInfo: function(component) {
-        var action = component.get("c.getUserInfo");
-        action.setCallback(this, function(response){
-            var state = response.getState();
-            if (state === "SUCCESS") {      
-                component.set("v.user", response.getReturnValue());
-            }
-        });
-        $A.enqueueAction(action);
-    },
     getArticleByUrl: function(component, url) {
         console.log(url);
         var action = component.get("c.getArticle"),
@@ -151,10 +202,21 @@
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {  
-                var data = response.getReturnValue();
-                component.set("v.menuItems", data);
+                var items = response.getReturnValue();
+                this.getUserInfo(component, items);
             }
         });
         $A.enqueueAction(action);
-    } 
+    },
+    getUserInfo: function(component, items) {
+        var action = component.get("c.getUserInfo");
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS") {      
+                component.set("v.user", response.getReturnValue());
+            }
+            this.initMenu(component, items);
+        });
+        $A.enqueueAction(action);
+    }
 })

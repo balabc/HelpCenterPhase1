@@ -1,13 +1,12 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="brMobileNavMenuCtrl">
     <aura:attribute name="menuIds" type="List"/>
-    <aura:attribute name="menuItems" type="List" default="[]"/>
+    <aura:attribute name="menuItems" type="List"/>
     <aura:attribute name="menuList" type="List"/>
     <aura:attribute name="currentObj" type="Object"/>
     <aura:attribute name="phoneList" type="List"/>
     <aura:attribute name="user" type="Object" default="{0: false}"/>
      
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:handler name="change" value="{!v.user}" action="{!c.changeUser}"/>
     <aura:handler name="eventMobileNavMenuItem" event="c:brMobileNavMenuItemEvent" action="{!c.onChangeLvl}"/>
     
     <div class="header-mobile__nav" id="header-mobile__nav">
@@ -32,9 +31,7 @@
                     <ul class="header-mobile__menu">
                         <aura:renderIf isTrue="{!(v.menuList.length)}">
                             <aura:iteration items="{!v.menuList}" var="item" >
-                                <aura:renderIf isTrue="{!(v.menuList.length)}">
-                                    <c:brMobileNavMenuItem item="{!item}" />
-                                </aura:renderIf>
+                                <c:brMobileNavMenuItem item="{!item}" />
                             </aura:iteration>
                             <aura:set attribute="else">
                                 <c:brMobileNavMenuItemStatic data="{!v.phoneList}" />

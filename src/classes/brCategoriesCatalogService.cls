@@ -115,4 +115,82 @@ public with sharing class brCategoriesCatalogService {
         return catCatalogList;
     } 
     
+    /*public static brCategoriesCatalogModel getCatalogList(String categoryName, String articleType, String dataCategoryName) {
+        List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
+        List<brArticleModel> articles = new List<brArticleModel>();
+        
+        List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
+        List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType); 
+        Map<String, List<brArticleModel>> articlesCats = new Map<String, List<brArticleModel>>();    
+        List<brCategoryModel.CategoryWrapper> allCats = brCategorySevice.getAllCategoriesList(dataCategoryName);
+        
+        List<brArticleModel> tmpCats;
+        String articleId;
+        String parentId;
+        String dataCategory;
+        brCategoriesCatalogModel ccm;
+        
+        for (brCategoryModel.CategoryWrapper cat : allCats) {
+            if (cat.parent == categoryName) {
+                ccm = new brCategoriesCatalogModel();
+                ccm.id = cat.id;
+                ccm.name = cat.text;
+                ccm.parent = cat.parent;
+                catCatalogList.add(ccm);
+            }
+        }
+        
+        for (sObject k : articlesList) {
+            brArticleModel am = new brArticleModel();
+            
+            am.id = String.valueOf(k.get('KnowledgeArticleId'));
+            am.active = false;
+            
+            if (k.get('Nav_Title__c') != null) {
+                am.title = String.valueOf(k.get('Nav_Title__c')); 
+            } else {
+                am.title = String.valueOf(k.get('Title'));
+            }
+            
+            if (k.get('Article_Sections__c') != null) {
+                if(String.valueOf(k.get('Article_Sections__c')).length() > 0) {
+                    List<String> anchors = String.valueOf(k.get('Article_Sections__c')).split(';');
+                    String result = '<ul>';
+                    for(Integer li = 0; li < anchors.size(); li++) {
+                        result = result + '<li>' + '<a class=\'anchor\' href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
+                    }                               
+                    result = result + '</ul>';
+                    am.articleSections = result;                
+                }               
+            }   
+            
+            articleId = String.valueOf(k.get('Id'));
+            for (sObject obj: catsList) {
+                parentId = String.valueOf(obj.get('ParentId'));
+                dataCategory = String.valueOf(obj.get('DataCategoryName'));
+                if (parentId == articleId) {
+                    if (articlesCats.containsKey(dataCategory)) {
+                    	tmpCats = articlesCats.get(dataCategory);
+                    } else {
+                        tmpCats = new List<brArticleModel>();
+                    }
+                    tmpCats.add(am);
+                    articlesCats.put(dataCategory, tmpCats);
+                }
+            }
+            
+            articles.add(am);
+        }     
+        
+        brCategoriesCatalogModel res = new brCategoriesCatalogModel();
+        
+        res.categories = catCatalogList;
+        
+        if (articlesCats.containsKey(categoryName)) {
+            res.articles = articlesCats.get(categoryName);            
+        }
+        
+        return res;
+    } */
+    
 }

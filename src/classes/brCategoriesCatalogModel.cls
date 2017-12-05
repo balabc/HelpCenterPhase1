@@ -5,6 +5,9 @@ public with sharing class brCategoriesCatalogModel {
     @AuraEnabled    
     public String name {get;set;}
     
+    /*@AuraEnabled    
+    public String parent {get;set;}*/
+    
     @AuraEnabled
     public Boolean active {get;set;}
     
