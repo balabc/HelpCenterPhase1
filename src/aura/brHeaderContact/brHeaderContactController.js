@@ -17,20 +17,10 @@
         }
     },
     doInit : function(component, event, helper) {
-        //console.log('HeaderContact init');
         helper.fillPhoneList(component);
-        var askButtonCMP = component.get('v.askbutton');
-        //try{
-            //console.log('--->',askButtonCMP.getLocalId());
-            //console.log('--->',askButtonCMP);
-            //setTimeout(function(){
-            //    var testElements = document.getElementsByClassName("forceCommunityAskCommunity");
-            //    console.log("forceCommunityAskCommunity.length: " + testElements.length);
-            //}, 3000);
-            //console.log('--->>>',testElements, '###',testElements.children[0]);
-        //}catch(e){
-        //    console.log('Ooops', e.getMessage());
-        //}
+        //var askButtonCMP = component.get('v.askbutton');
+        //askButtonCMP.textContent = 'dddd';
+        //component.set('v.askbutton', askButtonCMP);
     },
     openEmailSupport : function(component){
         console.log('openEmailSupport');

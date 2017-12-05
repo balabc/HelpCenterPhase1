@@ -8,11 +8,7 @@
 
     <aura:method name="showMe" description="Show Header Contact" />
     <aura:method name="hideMe" description="Hide Header Contact" />
-    <style>
-        #contact-lvl-2{
-            min-height: 100%;
-        }
-    </style>
+
     <div class="header__contact popover">
         <div class="header__contact-head popover__head">
             <p class="popover__head-title truncated">Contact</p>
@@ -25,8 +21,6 @@
 
                     <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hGetHelp}</h4>
 
-
-
                     <div class="panel-media-small" onclick="{!c.openAskCommunity}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="ponny panel-media-small__icon">
@@ -38,19 +32,6 @@
                                 <p class="panel-media-small__text header__contact-body-panel-text">Get answers from business owners and experts</p>
                         </div>
                     </div>
-                    <!--
-                    <div class="panel-media-small" onclick="{!c.openAskCommunity}">
-                        <div class="panel-media-small__wrap-icon">
-                            <div class="panel-media-small__icon">
-                                <img src="http://via.placeholder.com/46x46" alt="" />
-                            </div>
-                        </div>
-                        <div class="panel-media-small__wrap-content">
-                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hAsktheCommunity}</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hAsktheCommunityAbout}</p>
-                        </div>
-                    </div>
-                    -->
                     <div class="panel-media-small" onclick="{!c.openLiveChat}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="ponny panel-media-small__icon">
@@ -59,7 +40,7 @@
                         </div>
                         <div class="panel-media-small__wrap-content">
                             <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hLiveChat}</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="#">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="javascript:void(0);">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
                         </div>
                     </div>
                     <div class="panel-media-small" onclick="{!c.openPhoneSupport}">
@@ -81,7 +62,7 @@
                         </div>
                         <div class="panel-media-small__wrap-content">
                             <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hEmailSupport}</h5>
-                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="#">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="javascript:void(0);">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
                         </div>
                     </div>
 
@@ -97,25 +78,17 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="h4 header__contact-body-container-link popover__body-container-link truncated">
+                        <a href="javascript:void(0);" class="h4 header__contact-body-container-link popover__body-container-link truncated">
                             <span class="h4 header__contact-body-container-text popover__body-container-text truncated">{!$Label.c.hKnowledgeBase}</span>
                         </a>
                     </div>
                     <div class="header__contact-body-container-content popover__body-container-content">
                         <aura:iteration items="{!v.phoneList}" var="phoneItem">
                             <br/>
-                            <p class="m-bottom-0">{!phoneItem.Country__c}</p>
-                            <a href="#">{!phoneItem.Phone__c}</a>
+                            <p class="m-bottom-0">{!phoneItem.Country__c}</p> <!-- color-primary -->
+                            <a href="javascript:void(0);">{!phoneItem.Phone__c}</a>
                             <br/>
                         </aura:iteration>
-<!--
-                        <p class="m-bottom-0">USA &amp; Canada</p>
-                        <p class="m-vertical-0 color-primary">1-888-699-8911</p>
-
-                        <p class="m-bottom-0">USA &amp; Canada</p>
-                        <a href="#">1-888-699-8911</a>
-                        <br/>
--->
                     </div>
                 </div><!-- / end of .header__contact-body-container popover__body-container -->
             </div><!-- / end of .header__contact-body-inner .popover__body-inner -->
