@@ -33,3 +33,10 @@
 .THIS .askCommunityBtn:focus {
     box-shadow: none;
 }
+
+.THIS #contact-lvl-2{
+   left: -450px;
+}
+.THIS #contact-lvl-2.contact-lvl-2--active{
+   left: 0;
+}
