@@ -1,11 +1,15 @@
 ({
 	changeMobileMenuLvl: function(component, data) {
-		var changeFilter = component.getEvent("eventMobileNavMenuItem");
+		var itemAction = component.getEvent('eventMobileNavMenuItem');
         
-        changeFilter.setParams({
+        itemAction.setParams({
             data: data
         });
-        changeFilter.fire();
+        itemAction.fire();
+	},
+    changeMobileMenuToggle: function() {
+        var toggleMenu = $A.get('e.c:brMobileNavMenuToggleEvent');
+        toggleMenu.fire();
 	},
     changeLocation: function(component, link) {
         var type = link.getAttribute('data-type'),

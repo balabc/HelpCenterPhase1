@@ -30,19 +30,24 @@
                 id: 'login', 
                 label: $A.get('$Label.c.lnkLogIn'),
                 type: 4, 
+                has_picture: true,
+                picture: '<span class="header-mobile__menu-shape"><img alt="Avatar" src="/support/resource/1512485120000/BigcommerceCommunity/images/group-4.png" srcset="/support/resource/1512485120000/BigcommerceCommunity/images/group-4-2x.png 2x"></span>',
                 target: '/s/login/'
             });	 
             
+            
             if (user) {
-                items.pop();
-                items.push({
-                    id: 'user', 
-                    label: user.name, 
-                    has_picture: true,
-                    hasSubMenu: true,
-                    picture: '<span class="header-mobile__menu-shape"><img src="' + user.photoUrl + '" class="header-mobile__menu-userpic" alt=""></span>',
-                    subMenu: this.getSubMenuUser(component, user)
-                });		
+                if (user.id !== '0050O000007BckbQAC') {
+                    items.pop();
+                    items.push({
+                        id: 'user', 
+                        label: user.name, 
+                        has_picture: true,
+                        hasSubMenu: true,
+                        picture: '<span class="header-mobile__menu-shape"><img src="' + user.photoUrl + '" srcset="' + user.photoUrl + ' 2x" class="header-mobile__menu-userpic" alt=""></span>',
+                        subMenu: this.getSubMenuUser(component, user)
+                    });	
+                }
             }
             
             

@@ -2,6 +2,8 @@
     onClick : function(component, event, helper) {
         var li = event.target.closest('.header-mobile__menu-link');
         helper.changeLocation(component, li); 
+        if (!!li.getAttribute('data-toggle-menu'))
+        	helper.changeMobileMenuToggle();
     },
     onChangeLvl: function(component, event, helper) {
         var li = event.target.closest('.header-mobile__menu-item'),

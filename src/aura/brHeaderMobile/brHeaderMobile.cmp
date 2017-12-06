@@ -1,5 +1,7 @@
 <aura:component description="brHeaderMobile">
 	<aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:handler event="c:brMobileNavMenuToggleEvent" action="{!c.toggleMobileMenuExternal}"/>
+    
     <div class="header-mobile header-mobile--make-sticky">
         <div class="header-mobile__container clr">
             <div class="header-mobile__left">
@@ -10,7 +12,7 @@
                 <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
                     <c:brNotifications />
                 </aura:if>
-                <span class="header-mobile__menu-icon header-mobile__menu-button" onclick="{!c.toggleMobileMenu}"></span>
+                <span class="header-mobile__menu-icon header-mobile__menu-button" onclick="{!c.toggleMobileMenu}" aura:id="header-mobile__menu-button"></span>
             </div><!-- / end of .header-mobile__right -->
         </div><!-- / end of .container -->
     </div><!-- enf of / .header-mobile -->

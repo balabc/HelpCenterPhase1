@@ -37,6 +37,7 @@
         <members>brSetVideosPageEvent</members>
         <members>brBreadcrumbs</members>
         <members>brVideosListItem</members>
+        <members>brMobileNavMenuToggleEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

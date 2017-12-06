@@ -4,27 +4,11 @@
         toggleSearchModal.fire();
 	},
     toggleMobileMenu: function(component, event, helper) {
-        var menu_icon = event.target.closest('.header-mobile__menu-icon'),
-            isActive = menu_icon.getAttribute('data-active'),
-            body_classes = document.body.classList,
-            class_is_mobile = 'is-mobile', 
-            class_mobile = 'mobile-menu-is-active';
-        if (isActive == 'true') {
-            if (body_classes.contains(class_mobile)) {
-                body_classes.remove(class_mobile);
-            }
-        } else {
-            var body_classes = document.body.classList,
-                class_is_mobile = 'is-mobile', 
-                class_mobile = 'mobile-menu-is-active';
-            
-            if (body_classes.contains(class_is_mobile)) {
-                if (body_classes.contains(class_mobile)) {
-                    body_classes.remove(class_mobile);
-                } else {
-                    body_classes.add(class_mobile);
-                }
-            }
-        }
+        var menu_btn = event.target.closest('.header-mobile__menu-button');
+        helper.toggleMobileMenu(menu_btn);
+    },
+    toggleMobileMenuExternal: function(component, event, helper) {
+        var menu_btn = document.getElementsByClassName('header-mobile__menu-button')[0];
+        helper.toggleMobileMenu(menu_btn);
     }
 })

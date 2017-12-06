@@ -1,6 +1,7 @@
 <aura:component >
     <aura:attribute name="item" type="Object"/>
     
+    <aura:registerEvent name="eventMobileNavMenuToggle" type="c:brMobileNavMenuToggleEvent"/>
     <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
     
     <aura:renderIf isTrue="{!v.item.hasSubMenu}">
@@ -32,7 +33,11 @@
                    data-type="{!v.item.type}" 
                    data-target="{!v.item.target}" 
                    data-menu-item-id="{!v.item.id}" 
+                   data-toggle-menu="true"
                    onclick="{!c.onClick}">
+                    <aura:renderIf isTrue="{!v.item.has_picture}">
+                        <aura:unescapedHtml value="{!v.item.picture}" />
+                    </aura:renderIf>
                     <span class="header-mobile__menu-text truncated">{!v.item.label}<i class="{!v.item.icon}"></i></span>
                 </a>                          
             </li>                   
