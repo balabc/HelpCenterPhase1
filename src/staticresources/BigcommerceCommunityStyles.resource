@@ -9,6 +9,9 @@
     background: #ffffff;
     box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1);
 }
+.uiPanel--notificationsPanel > .container > .panel-content {
+    margin-bottom: 0;
+}
 .container > .panel-header > .uiButton {
     display: none;
 }
