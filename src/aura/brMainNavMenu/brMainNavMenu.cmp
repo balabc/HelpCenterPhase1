@@ -1,4 +1,4 @@
-<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes" description="brMainNavMenu">
+<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes" description="brMainNavMenu" controller="brMainNavMenuCtrl">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <div class="header__wrap-nav clr">
@@ -33,7 +33,7 @@
                                     <aura:if isTrue="{!i.subMenu}">
                                         <div class="{!'header__dropdown-menu-section header__dropdown-menu-section--' + index}" style="{!equals(index,v.menuItems.length-1)?'width: 31%;':'width: 28%;'}">
                                             <p class="header__dropdown-menu-title">
-                                                <span class="header__dropdown-menu-title-link">{!i.label}</span>
+                                                <span class="header__dropdown-menu-title-link" data-label="{!i.label}" onclick="{!c.onCategoryClick}">{!i.label}</span>
                                             </p>
                                             <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu" style="{!equals(index,v.menuItems.length-1)?'columns:3':'columns:2'}">
                                                 <aura:iteration items="{!i.subMenu}" var="subItem">
