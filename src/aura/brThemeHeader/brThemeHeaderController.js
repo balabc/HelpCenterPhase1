@@ -1,6 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-        document.addEventListener('DOMContentLoaded', function(){
+        /*document.addEventListener('DOMContentLoaded', function(){
             var funcResizeMobile = function() {  
                 var body_classes = document.body.classList,
                         class_is_mobile = 'is-mobile';
@@ -14,7 +14,7 @@
             }; 
             funcResizeMobile();
             window.addEventListener('resize', funcResizeMobile);
-        });
+        });*/
 	},
 	toggleSearchModal : function(component, event, helper) {
 		var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");

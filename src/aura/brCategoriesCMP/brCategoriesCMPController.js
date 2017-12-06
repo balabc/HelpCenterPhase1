@@ -69,5 +69,8 @@
           "recordId": parent.getAttribute('data-id')
         });
         navEvt.fire();
+        
+        var toggleMenu = $A.get('e.c:brMobileNavMenuToggleEvent');
+        toggleMenu.fire();
     }
 })

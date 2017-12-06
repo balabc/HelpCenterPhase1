@@ -39,6 +39,7 @@
         <members>brVideosListItem</members>
         <members>brGuidesList</members>
         <members>brGuidesListItem</members>
+        <members>brMobileNavMenuToggleEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
