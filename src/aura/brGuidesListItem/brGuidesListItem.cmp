@@ -1,0 +1,27 @@
+<aura:component description="brGuidesListItem">
+    <aura:attribute name="guideArticle" type="brGuideItem__mdt" />
+    <aura:attribute name="routeInput" type="Map"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="column-lg-3 column-md-12 column--pad column--grid">
+        <div class="panel panel-preview">
+            <div class="panel-preview__head">
+                <div class="panel-preview__wrap-media">
+                    <img src="{!v.guideArticle.Image_Url__c}" title="{!v.guideArticle.Title__c}"
+                         srcset="{!if(notequals(v.guideArticle.Image_Url_2x__c,null), v.guideArticle.Image_Url_2x__c + ' 2x')}" alt="{!v.guideArticle.Image_Alt__c}" />
+                </div>
+            </div>
+            <div class="panel-preview__body">
+                <div class="panel-preview__wrap-title">
+                    <h4 class="h4 panel-preview__title" title="{!v.guideArticle.Title__c}">{!v.guideArticle.Title__c}</h4>
+                </div>
+                <span class="panel-preview__meta truncated">{!v.guideArticle.Number_of_Chapters__c} {!' ' + $Label.c.lblChapters}</span>
+                <div class="panel-preview__wrap-text">
+                    <p>{!v.guideArticle.Short_Description__c}</p>
+                </div>
+                <forceCommunity:routeLink class="read-guide" title="{!$Label.c.lnkReadGuide}" label="{!$Label.c.lnkReadGuide}" routeInput="{!v.routeInput}" onClick="{!c.onClick}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

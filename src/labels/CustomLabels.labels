@@ -898,6 +898,13 @@
         <value>Get Help</value>
     </labels>
     <labels>
+        <fullName>hGuides</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header on guides page</shortDescription>
+        <value>Guides</value>
+    </labels>
+    <labels>
         <fullName>hIdeas</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1018,6 +1025,13 @@
         <protected>false</protected>
         <shortDescription>is_required</shortDescription>
         <value>is required</value>
+    </labels>
+    <labels>
+        <fullName>lblChapters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show label chapter on guides page</shortDescription>
+        <value>Chapters</value>
     </labels>
     <labels>
         <fullName>lbl_all_events</fullName>
@@ -1558,6 +1572,13 @@
         <protected>true</protected>
         <shortDescription>MobileNavMenu Profile</shortDescription>
         <value>Profile</value>
+    </labels>
+    <labels>
+        <fullName>lnkReadGuide</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>link for reading guide</shortDescription>
+        <value>Read guide</value>
     </labels>
     <labels>
         <fullName>lnkSettings</fullName>

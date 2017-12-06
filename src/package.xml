@@ -37,6 +37,8 @@
         <members>brSetVideosPageEvent</members>
         <members>brBreadcrumbs</members>
         <members>brVideosListItem</members>
+        <members>brGuidesList</members>
+        <members>brGuidesListItem</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -80,11 +82,14 @@
         <members>brCategoryModel</members>
         <members>brCategorySevice</members>
         <members>brCategorySeviceSelector</members>
+        <members>brGuidesListCtrl</members>
         <members>brNavigationMenuItemService</members>
         <members>brNavigationMenuItemModel</members>
         <members>brNavigationMenuItemServiceSelector</members>
         <members>brVideosListCtrl</members>
         <members>brBreadcrumbsCtrl</members>
+        <members>brGuidesListCtrlTest</members>
+        <members>brVideosListCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -100,6 +105,7 @@
         <members>brAlgolia_Profile_Setting__c</members>
         <members>brCommunity_Category_Menu_Map__mdt</members>
         <members>brCommunity_Menu_Map__mdt</members>
+        <members>brGuideItem__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
