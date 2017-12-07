@@ -1,7 +1,12 @@
 public with sharing class brCategoriesCatalogServiceSelector {
     
     public static List<sObject> getArticles(String articleType) {   
-    	List<sObject> articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Article_Sections__c, id FROM '+articleType+' WHERE PublishStatus = \'Online\'');		    						 	      
+        List<sObject> articles;
+        if (articleType != 'Public__kav') {
+    		articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, id FROM '+articleType+' WHERE PublishStatus = \'Online\'');	
+        } else {
+            articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Article_Sections__c, id FROM '+articleType+' WHERE PublishStatus = \'Online\'');	
+        }
         return articles;            
     } 
     

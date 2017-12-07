@@ -27,7 +27,8 @@ public with sharing class brCategoriesCatalogService {
             } else {
                 am.active = false;
             }
-            if(k.get('Article_Sections__c') != null) {
+            
+            if(brCategoriesCatalogService.hasSObjectField('Article_Sections__c', k)) {
                 if(String.valueOf(k.get('Article_Sections__c')).length() > 0) {
                     List<String> anchors = String.valueOf(k.get('Article_Sections__c')).split(';');
                     String result = '<ul>';
@@ -114,6 +115,10 @@ public with sharing class brCategoriesCatalogService {
         }              
         return catCatalogList;
     } 
+    
+    public static boolean hasSObjectField(String fieldName, SObject so){
+      return so.getSobjectType().getDescribe().fields.getMap().keySet().contains(fieldName);
+    }
     
     /*public static brCategoriesCatalogModel getCatalogList(String categoryName, String articleType, String dataCategoryName) {
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();

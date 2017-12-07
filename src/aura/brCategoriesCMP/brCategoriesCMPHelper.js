@@ -43,7 +43,10 @@
             var state = response.getState();
             if (component.isValid() && state === "SUCCESS") {
                 var data = response.getReturnValue();
+                console.log(data);
                 component.set("v.items", data);
+            } else {
+                console.log(response);
             }
         });
         $A.enqueueAction(action);
