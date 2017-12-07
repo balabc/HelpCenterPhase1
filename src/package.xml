@@ -41,6 +41,7 @@
         <members>brGuidesListItem</members>
         <members>brMobileNavMenuToggleEvent</members>
         <members>brArticleFeedback</members>
+        <members>brArticleContent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -95,6 +96,7 @@
         <members>brMainNavMenuCtrl</members>
         <members>brArticleFeedbackCtrl</members>
         <members>brArticleFeedbackCtrlTest</members>
+        <members>brMainNavMenuCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>

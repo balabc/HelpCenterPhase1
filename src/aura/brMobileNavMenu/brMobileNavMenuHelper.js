@@ -79,6 +79,7 @@
         if (!!menuItems.obj) {
             if (!!menuItems.obj.isComponent) {
             	menuItems.items = [];
+        		component.find('brCategoriesCMP').changeData();
             }
         }
         component.set('v.menuList', menuItems.items);

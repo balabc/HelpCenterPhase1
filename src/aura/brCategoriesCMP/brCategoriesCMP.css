@@ -1,2 +1,32 @@
 .THIS {
 }
+
+.THIS .static-active {
+    
+}
+
+.THIS .doc-nav__item-lvl-2.static-active .doc-nav__link-lvl-2:after {
+    top: 25px;
+    right: 30px;
+    border-top-color: #adb2bd;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); 
+}
+.THIS .doc-nav__item-lvl-2.static-active:hover .doc-nav__link-lvl-2:after {
+    top: 25px;
+    right: 30px;
+    border-top-color: #adb2bd;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); 
+}
+.THIS .doc-nav__item-lvl-2:hover .doc-nav__link-lvl-2:after {
+    border-top-color: #adb2bd; 
+}
+ 
+.THIS .doc-nav__item-lvl-1.custom-active.static-active .doc-nav__list-lvl-2, 
+.THIS .doc-nav__item-lvl-2.custom-active.static-active .doc-nav__list-view {
+  height: auto;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  z-index: 0; 
+}

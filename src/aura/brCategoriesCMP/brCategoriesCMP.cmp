@@ -14,6 +14,22 @@
                 <aura:iteration items="{!v.items}" var="category">
                     <li class="{!'doc-nav__item doc-nav__item-lvl-1' + ((category.active)? ' active': '')}" data-id="{!category.id}" data-active="{!category.active}">
                         <a class="doc-nav__link doc-nav__link-lvl-1" href="javascript:void(0);" onclick="{!c.clickCategory}">{!category.name}</a>
+                        <aura:renderIf isTrue="{!category.articles.length > 0}">
+                            <ul class="doc-nav__list doc-nav__list-lvl-2">
+                                <li class="doc-nav__item doc-nav__item-lvl-2 custom-active static-active">
+                                    <ul class="doc-nav__list doc-nav__list-view">
+                                        <aura:iteration items="{!category.articles}" var="article">
+                                            <li class="{!'doc-nav__item doc-nav__item-view' + ((article.active)? ' active': '')}" data-id="{!article.id}" data-active="{!article.active}">
+                                                <a href="{!'#?article=' + article.id}" class="doc-nav__link doc-nav__link-view" onclick="{!c.clickElement}">{!article.title}</a>
+                                                <aura:renderIf isTrue="{!article.articleSections != undefined}">
+                                                    <aura:unescapedHtml value="{!article.articleSections}"/>
+                                                </aura:renderIf>
+                                            </li>
+                                        </aura:iteration>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </aura:renderIf>
                         <aura:renderIf isTrue="{!category.categories.length > 0}">
                             <ul class="doc-nav__list doc-nav__list-lvl-2"> 
                                 <aura:iteration items="{!category.categories}" var="sub_category">
