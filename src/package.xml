@@ -40,6 +40,7 @@
         <members>brGuidesList</members>
         <members>brGuidesListItem</members>
         <members>brMobileNavMenuToggleEvent</members>
+        <members>brArticleFeedback</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -91,6 +92,9 @@
         <members>brBreadcrumbsCtrl</members>
         <members>brGuidesListCtrlTest</members>
         <members>brVideosListCtrlTest</members>
+        <members>brMainNavMenuCtrl</members>
+        <members>brArticleFeedbackCtrl</members>
+        <members>brArticleFeedbackCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -102,6 +106,7 @@
         <members>Learning__kav</members>
         <members>Public__kav</members>
         <members>University__kav</members>
+        <members>brArticleFeedback__c</members>
         <members>brPhoneSupportList__c</members>
         <members>brAlgolia_Profile_Setting__c</members>
         <members>brCommunity_Category_Menu_Map__mdt</members>

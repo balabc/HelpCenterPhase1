@@ -393,6 +393,13 @@
         <value>Save</value>
     </labels>
     <labels>
+        <fullName>btnSubmit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>buttom for saving reason on feedback</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
         <fullName>by</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -890,6 +897,13 @@
         <value>Featured articles</value>
     </labels>
     <labels>
+        <fullName>hFeedbackTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show title on feedback modal</shortDescription>
+        <value>Your Feedback is Appreciated</value>
+    </labels>
+    <labels>
         <fullName>hGetHelp</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -1012,6 +1026,14 @@
         <value>Your</value>
     </labels>
     <labels>
+        <fullName>hbrCommunityHome</fullName>
+        <categories>brCommunityMenu</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hbrCommunityHome</shortDescription>
+        <value>Help Center</value>
+    </labels>
+    <labels>
         <fullName>ideasGlobalSearchListTitle</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1032,6 +1054,20 @@
         <protected>false</protected>
         <shortDescription>show label chapter on guides page</shortDescription>
         <value>Chapters</value>
+    </labels>
+    <labels>
+        <fullName>lblFeedbackQuestion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show feedback question</shortDescription>
+        <value>Was this article helpful?</value>
+    </labels>
+    <labels>
+        <fullName>lblFeedbackReason</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>show label feedback reasons</shortDescription>
+        <value>Why wasn&apos;t this article helpful to you?</value>
     </labels>
     <labels>
         <fullName>lbl_all_events</fullName>
@@ -1597,6 +1633,20 @@
         <value>Videos</value>
     </labels>
     <labels>
+        <fullName>lnkVoteNo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>label for vote</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>lnkVoteYes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>label for vote</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
         <fullName>lnkWatchVideo</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1774,13 +1824,5 @@
         <protected>false</protected>
         <shortDescription>test</shortDescription>
         <value>test</value>
-    </labels>
-    <labels>
-        <fullName>hbrCommunityHome</fullName>
-        <categories>brCommunityMenu</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hbrCommunityHome</shortDescription>
-        <value>Help Center</value>
     </labels>
 </CustomLabels>

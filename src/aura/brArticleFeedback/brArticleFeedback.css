@@ -1,0 +1,72 @@
+.THIS .modal-content{
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 15px !important;
+    line-height: 1.42857143 !important;
+    color: #34313f;
+}
+.THIS .modal-close-btn {
+    color: #4c4b58
+}
+.THIS .modal-header{
+    padding: 30px;
+    min-height: 16.42857143px;
+    text-align: left;
+    border-bottom: none;
+}
+.THIS .modal-body {
+    padding: 24px;
+}
+.THIS .modal-body p{
+    margin: 0 0 11px;
+}
+.THIS .modal-body select{
+    width: 50%;
+    height: 48px !important;
+}
+.THIS .modal-body select > option{
+    font-weight: normal;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+.THIS .slds-modal__footer {
+    padding: 12px;
+    text-align: right;
+    border-top: 1px solid #e1e6eb;
+}
+.THIS .cancel {
+    color: #4b71fc;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0 28px;
+    text-transform: uppercase;
+}
+.THIS .cancel:hover, .THIS .cancel:focus{
+    text-decoration: underline;
+    background-color: transparent;
+}
+.THIS .submit {
+    cursor: pointer;
+    color: #fff;
+    background-color: #4b71fc;
+    border-color: #4b71fc;
+    white-space: nowrap;
+    padding: 8px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+.THIS .submit:hover, .THIS .submit:focus {
+    background-color: #3e5ed6;
+    border-color: #3e5ed6;
+}
+@media (min-width: 768px) {
+    .THIS .modal-content {
+        width: 600px;
+    }
+}
+
+
+
