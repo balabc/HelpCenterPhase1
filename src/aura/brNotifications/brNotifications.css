@@ -23,14 +23,14 @@
 }
 .THIS .unsNotificationsCounter .headerButtonBody:before {
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 10%;
     content: "";
     width: 10px;
     height: 8px;
-    background-position: -109px -115px;
+    background-position: -143px -177px;
     background-image: url("../resource/1510743638000/BigcommerceCommunity/images/sprites/sprite.svg");
-    background-size: 596px 487px;
+    background-size: 630px 549px;
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
 }
@@ -52,6 +52,3 @@
     padding: 0;
     display: block;
 }
-
-
-
