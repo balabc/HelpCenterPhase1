@@ -38,7 +38,7 @@ public with sharing class brArticleFeedbackCtrl {
 
         if (!Test.isRunningTest()) {
             String articleNumber = [SELECT ArticleNumber FROM KnowledgeArticle WHERE Id = :articleId LIMIT 1].ArticleNumber;
-            insert new brArticleFeedback__c(Reason__c = reason, Article_Number__c = Decimal.valueOf(articleNumber));
+            insert new brArticleFeedback__c(Reason__c = reason, Article_Number__c = articleNumber);
         }
     }
 }

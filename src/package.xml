@@ -120,6 +120,7 @@
         <members>Learning__kav-Learning Layout</members>
         <members>Public__kav-Public Layout</members>
         <members>University__kav-Public BCU Layout</members>
+        <members>brArticleFeedback__c-brArticleFeedback Layout</members>
         <members>brCommunity_Category_Menu_Map__mdt-Community Category Menu Map Layout</members>
         <members>brCommunity_Menu_Map__mdt-Community Menu Map Layout</members>
         <name>Layout</name>
