@@ -49,6 +49,9 @@
         <name>CustomLabels</name>
     </types>
     <types>
+        <members>brArticleContentController</members>
+        <members>brArticleContentService</members>
+        <members>brArticleContentServiceSelector</members>
         <members>brCommonQuestionsCtrl</members>
         <members>brCommonQuestionsCtrlTest</members>
         <members>brHeaderContactCtrl</members>
@@ -98,6 +101,9 @@
         <members>brArticleFeedbackCtrl</members>
         <members>brArticleFeedbackCtrlTest</members>
         <members>brMainNavMenuCtrl</members>
+        <members>brArticleContentController</members>
+        <members>brArticleContentService</members>
+        <members>brArticleContentServiceSelector</members>
         <name>ApexClass</name>
     </types>
     <types>

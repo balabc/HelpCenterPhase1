@@ -4,6 +4,9 @@ public with sharing class brCategoriesCatalogService {
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
         List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
         List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType);   
+        
+        Boolean isNumeric = (articleType == 'Learning__kav');
+        
         List<brArticleModel> articles = new List<brArticleModel>();
         for(sObject k : articlesList) {
             brArticleModel am = new brArticleModel();
@@ -28,17 +31,17 @@ public with sharing class brCategoriesCatalogService {
                 am.active = false;
             }
             
-            if(brCategoriesCatalogService.hasSObjectField('Article_Sections__c', k)) {
-                if(String.valueOf(k.get('Article_Sections__c')).length() > 0) {
-                    List<String> anchors = String.valueOf(k.get('Article_Sections__c')).split(';');
-                    String result = '<ul>';
+            try {
+                if(String.valueOf(k.get('Section_Anchors__c')).length() > 0) {
+                    List<String> anchors = String.valueOf(k.get('Section_Anchors__c')).split(';');
+                    String result = '<ul class="doc-nav__list doc-nav__list-view-sub">';
                     for(Integer li = 0; li < anchors.size(); li++) {
-                        result = result + '<li>' + '<a class=\'anchor\' href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
+                        result = result + '<li class="doc-nav__item doc-nav__item-view-sub">' + '<a class="doc-nav__link doc-nav__link-view-sub" href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
                     }                               
                     result = result + '</ul>';
                     am.articleSections = result;                
-                }               
-            }            
+                }         
+            } catch (Exception e) {}
             am.id = String.valueOf(k.get('KnowledgeArticleId'));
             Set<String> cats = new Set<String>();
             for(Integer i = 0; i < catsList.size(); i++) {
@@ -54,6 +57,7 @@ public with sharing class brCategoriesCatalogService {
         for(String key : categoryHierarchy.keySet()) {
             brCategoriesCatalogModel ccm = new brCategoriesCatalogModel();
             ccm.id = key;
+            ccm.isNumeric = isNumeric;
             ccm.name = catNameMap.get(key);
             
             List<brCategoriesCatalogModel> categories = new List<brCategoriesCatalogModel>();

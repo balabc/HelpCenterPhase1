@@ -12,6 +12,9 @@ public with sharing class brCategoriesCatalogModel {
     public Boolean active {get;set;}
     
     @AuraEnabled 
+    public Boolean isNumeric {get;set;}
+    
+    @AuraEnabled 
     public List<brArticleModel> articles {get;set;}
     
     @AuraEnabled

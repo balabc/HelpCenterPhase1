@@ -5,16 +5,14 @@
             if (data.hasOwnProperty('id')) {
         		component.set('v.selectedArticleId', data.id);
             }
-        } else {
-            data = {
-                dataCategory: 'Public', 
-                objectName: 'Public__kav'
-            };
         }
         	
         component.set("v.items", []);
         component.set("v.data", data);
-        helper.getResponse(component);
+        
+        if (!!data) {
+        	helper.getResponse(component);
+        }
 	},
     changeData: function(component, event, helper) {
         var data = component.get("v.data");

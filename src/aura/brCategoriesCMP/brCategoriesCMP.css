@@ -30,3 +30,15 @@
   opacity: 1;
   z-index: 0; 
 }
+
+.THIS .doc-nav__item-lvl-1 .doc-nav__list-lvl-2 .doc-nav__link-lvl-2.hide-nav-arrow:after {
+    content: none;
+}
+
+.THIS .doc-nav__item-lvl-1 .doc-nav__list-lvl-2 .doc-nav__link-lvl-2.doc-nav__link-lvl-2--numeric:before {
+    top: 35%;
+}
+
+.THIS .doc-nav__item-lvl-1 .doc-nav__list-lvl-2 .doc-nav__link-lvl-2.doc-nav__link-lvl-2--numeric.hide-nav-arrow {
+    padding: 15px 25px 14px 35px;
+}

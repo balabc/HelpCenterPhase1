@@ -5,41 +5,47 @@
     <aura:attribute name="currentObj" type="Object"/>
     <aura:attribute name="phoneList" type="List"/>
     <aura:attribute name="user" type="Object" default="{0: false}"/>
-     
+    
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="eventMobileNavMenuItem" event="c:brMobileNavMenuItemEvent" action="{!c.onChangeLvl}"/>
     
-    <div class="header-mobile__nav" id="header-mobile__nav">
-        <aura:renderIf isTrue="{!(!!v.currentObj)}">
-            <div class="header-mobile__menu-item-goback" onclick="{!c.onChangeLvl}">
-                <div class="header-mobile__menu-goback">
-                    <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
-                        <div class="nav-arrow-hor-angular__handler">
-                            <span class="nav-arrow-hor-angular__icon"></span>
+    <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+        
+        <div class="header-mobile__nav" id="header-mobile__nav">
+            <aura:renderIf isTrue="{!(!!v.currentObj)}">
+                <div class="header-mobile__menu-item-goback" onclick="{!c.onChangeLvl}">
+                    <div class="header-mobile__menu-goback">
+                        <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
+                            <div class="nav-arrow-hor-angular__handler">
+                                <span class="nav-arrow-hor-angular__icon"></span>
+                            </div>
                         </div>
                     </div>
+                    <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                        <span class="header-mobile__menu-text truncated">{!v.currentObj.label}</span>
+                    </a>
                 </div>
-                <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
-                    <span class="header-mobile__menu-text truncated">{!v.currentObj.label}</span>
-                </a>
+            </aura:renderIf>    
+            <div class="header-mobile__nav-inner">
+                <aura:renderIf isTrue="{!(v.currentObj.isComponent == true)}">
+                    <c:brCategoriesCMP data="{!v.currentObj}" aura:id="brCategoriesCMP"/>
+                    <aura:set attribute="else">
+                        <ul class="header-mobile__menu">
+                            <aura:renderIf isTrue="{!(v.menuList.length)}">
+                                <aura:iteration items="{!v.menuList}" var="item" >
+                                    <c:brMobileNavMenuItem item="{!item}" />
+                                </aura:iteration>
+                                <aura:set attribute="else">
+                                    <aura:renderIf isTrue="{!(!!v.currentObj)}">
+                                        <c:brMobileNavMenuItemStatic data="{!v.phoneList}" />
+                                    </aura:renderIf>
+                                </aura:set>
+                            </aura:renderIf>
+                        </ul> 
+                    </aura:set>
+                </aura:renderIf>
             </div>
-        </aura:renderIf>    
-        <div class="header-mobile__nav-inner">
-            <aura:renderIf isTrue="{!(v.currentObj.isComponent == true)}">
-                <c:brCategoriesCMP data="{!v.currentObj}" aura:id="brCategoriesCMP"/>
-                <aura:set attribute="else">
-                    <ul class="header-mobile__menu">
-                        <aura:renderIf isTrue="{!(v.menuList.length)}">
-                            <aura:iteration items="{!v.menuList}" var="item" >
-                                <c:brMobileNavMenuItem item="{!item}" />
-                            </aura:iteration>
-                            <aura:set attribute="else">
-                                <c:brMobileNavMenuItemStatic data="{!v.phoneList}" />
-                            </aura:set>
-                        </aura:renderIf>
-                    </ul> 
-                </aura:set>
-            </aura:renderIf>
         </div>
-    </div>
+        
+    </aura:if>
 </aura:component>

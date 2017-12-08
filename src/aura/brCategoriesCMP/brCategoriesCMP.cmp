@@ -3,7 +3,7 @@
     <aura:attribute name="selectedArticleId" type="String"/>
     <aura:attribute name="items" type="List" /> 
     
-	<aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
     
     <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/> 
@@ -16,18 +16,14 @@
                         <a class="doc-nav__link doc-nav__link-lvl-1" href="javascript:void(0);" onclick="{!c.clickCategory}">{!category.name}</a>
                         <aura:renderIf isTrue="{!category.articles.length > 0}">
                             <ul class="doc-nav__list doc-nav__list-lvl-2">
-                                <li class="doc-nav__item doc-nav__item-lvl-2 custom-active static-active">
-                                    <ul class="doc-nav__list doc-nav__list-view">
-                                        <aura:iteration items="{!category.articles}" var="article">
-                                            <li class="{!'doc-nav__item doc-nav__item-view' + ((article.active)? ' active': '')}" data-id="{!article.id}" data-active="{!article.active}">
-                                                <a href="{!'#?article=' + article.id}" class="doc-nav__link doc-nav__link-view" onclick="{!c.clickElement}">{!article.title}</a>
-                                                <aura:renderIf isTrue="{!article.articleSections != undefined}">
-                                                    <aura:unescapedHtml value="{!article.articleSections}"/>
-                                                </aura:renderIf>
-                                            </li>
-                                        </aura:iteration>
-                                    </ul>
-                                </li>
+                                <aura:iteration items="{!category.articles}" var="article">
+                                    <li class="{!'doc-nav__link doc-nav__item-lvl-2' + ((article.active)? ' active': '')}" data-id="{!article.id}" data-active="{!article.active}">
+                                        <a href="javascript:void(0);" class="{!'doc-nav__link doc-nav__link-lvl-2 doc-nav__link-lvl-2--no-sub hide-nav-arrow' + ((category.isNumeric)? ' doc-nav__link-lvl-2--numeric': '')}" onclick="{!c.clickElement}">{!article.title}</a>
+                                        <aura:renderIf isTrue="{!article.articleSections != undefined}">
+                                            <aura:unescapedHtml value="{!article.articleSections}"/>
+                                        </aura:renderIf>
+                                    </li>
+                                </aura:iteration>
                             </ul>
                         </aura:renderIf>
                         <aura:renderIf isTrue="{!category.categories.length > 0}">
@@ -39,7 +35,7 @@
                                             <ul class="doc-nav__list doc-nav__list-view">
                                                 <aura:iteration items="{!sub_category.articles}" var="article">
                                                     <li class="{!'doc-nav__item doc-nav__item-view' + ((article.active)? ' active': '')}" data-id="{!article.id}" data-active="{!article.active}">
-                                                        <a href="{!'#?article=' + article.id}" class="doc-nav__link doc-nav__link-view" onclick="{!c.clickElement}">{!article.title}</a>
+                                                        <a href="javascript:void(0);" class="doc-nav__link doc-nav__link-view" onclick="{!c.clickElement}">{!article.title}</a>
                                                         <aura:renderIf isTrue="{!article.articleSections != undefined}">
                                                             <aura:unescapedHtml value="{!article.articleSections}"/>
                                                         </aura:renderIf>
@@ -56,7 +52,7 @@
                                                             <ul class="doc-nav__list doc-nav__list-view-label">
                                                                 <aura:iteration items="{!sub_sub_cat.articles}" var="article1">
                                                                     <li class="{!'doc-nav__item doc-nav__item-view-label' + ((article1.active)? ' active': '')}" data-id="{!article1.id}" data-active="{!article1.active}">
-                                                                        <a href="{!'#?article=' + article1.id}" class="doc-nav__link doc-nav__link-view-label" onclick="{!c.clickElement}">{!article1.title}</a>
+                                                                        <a href="javascript:void(0);" class="doc-nav__link doc-nav__link-view-label" onclick="{!c.clickElement}">{!article1.title}</a>
                                                                         <aura:renderIf isTrue="{!article1.articleSections != undefined}">
                                                                             <div class="anchors">
                                                                                 <aura:unescapedHtml value="{!article1.articleSections}"/>
@@ -78,5 +74,5 @@
                 </aura:iteration>
             </ul>
         </aura:renderIf>   
-    </div>	
+    </div>	       
 </aura:component>
