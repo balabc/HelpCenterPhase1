@@ -1,4 +1,13 @@
+/**
+ * This class is controller for brVideosList aura component
+ */
 public with sharing class brVideosListCtrl {
+    /**
+     * Returns list knowledge articles for videos page
+     *
+     * @return knowledge articles ordered by Sort_Order__c field ascending.
+     * If Sort_Order__c field is empty then the object will be added to the end of the list.
+     */
 
     @AuraEnabled
     public static List<University__kav> getVideoArticles() {

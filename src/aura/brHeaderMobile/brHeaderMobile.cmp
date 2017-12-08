@@ -1,8 +1,10 @@
 <aura:component description="brHeaderMobile">
 	<aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+
     <aura:handler event="c:brMobileNavMenuToggleEvent" action="{!c.toggleMobileMenuExternal}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
-    <div class="header-mobile header-mobile--make-sticky">
+    <div class="header-mobile" aura:id="header-mobile">
         <div class="header-mobile__container clr">
             <div class="header-mobile__left">
                 <a href="/" class="header-mobile__logo-icon header-mobile__logo"></a>
