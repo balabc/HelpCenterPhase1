@@ -2,12 +2,12 @@
     getArticles: function(component) {
         try {
             var action = component.get("c.getArticles");
+            action.setParams({"countArticles": component.get('v.articlesCount')});
             action.setCallback(this, function (response) {
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var articlesList = response.getReturnValue();
                     component.set("v.articlesList", articlesList);
-                    component.set("v.articlesCount", articlesList.length);
                 } else if (state === "ERROR") {
                     var errors = response.getError();
                     if (errors) {

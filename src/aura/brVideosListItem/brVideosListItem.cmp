@@ -9,7 +9,7 @@
             <div class="panel-preview__head">
                 <div class="panel-preview__wrap-media">
                     <div class="panel-preview__wrap-video">
-                        <iframe width="258" height="140" src="https://www.youtube.com/embed/O_6-2Ryh5WY" frameborder="0" ></iframe><!--allowfullscreen-->
+                        <img src="{!v.videoArticleForCurrentPage.Thumbnail_Image_URL__c}"/>
                     </div>
                 </div>
             </div>

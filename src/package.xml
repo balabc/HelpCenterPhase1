@@ -73,6 +73,7 @@
         <members>brIdeaServiceSelector</members>
         <members>brTopTrendingCtrlTest</members>
         <members>brFeaturedArticlesCtrl</members>
+        <members>brFeaturedArticlesCtrlTest</members>
         <members>brMobileNavMenuCtrl</members>
         <members>brMobileNavMenuCtrlTest</members>
         <members>brAlgoliaSearchCtrl</members>

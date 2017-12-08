@@ -1,6 +1,6 @@
 <aura:component description="brFeaturedArticles" controller="brFeaturedArticlesCtrl" implements="forceCommunity:availableForAllPageTypes" access="global">
     <aura:attribute name="articlesList" type="Object[]"/>
-    <aura:attribute name="articlesCount" type="Integer" default="0"/>
+    <aura:attribute name="articlesCount" type="Integer"/>
     <aura:attribute name="articleBaseURL" type="String" />
 
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
