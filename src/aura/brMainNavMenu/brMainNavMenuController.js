@@ -1,21 +1,33 @@
 ({
     doInit: function (cmp, event) {
-        window.onscroll = function () {
-            var cnHeader = 'header',
-                cnHeaderSticky = 'header--make-sticky',
-                cnSubstrate = 'header__dropdown-menu-substrate',
-                cnSubstrateActive = 'header__dropdown-menu-substrate--active',
-                dropdown = cmp.find('dropdown'),
-                isOpenSubmenu = dropdown.getElement().classList.contains('header__dropdown-menu--active');
+        if ($A.get("$Browser.formFactor") != 'PHONE') {
+            window.onscroll = function () {
+                var cnHeader = 'header',
+                    cnHeaderSticky = 'header--make-sticky',
+                    cnSubstrate = 'header__dropdown-menu-substrate',
+                    cnSubstrateActive = 'header__dropdown-menu-substrate--active',
+                    dropdown = cmp.find('dropdown'),
+                    isOpenSubmenu = false;
 
-            if ( window.scrollY > 0 || isOpenSubmenu) {
-                document.getElementsByClassName( cnHeader )[0].classList.add( cnHeaderSticky );
-            } else {
-                if ( !document.getElementsByClassName( cnSubstrate )[0].classList.contains( cnSubstrateActive ) ) {
-                    document.getElementsByClassName( cnHeader )[0].classList.remove( cnHeaderSticky );
+                if (dropdown.getElement() != null) {
+                    isOpenSubmenu = dropdown.getElement().classList.contains('header__dropdown-menu--active');
                 }
-            }
-        };
+
+                var header = document.getElementsByClassName(cnHeader)[0],
+                    substrate = document.getElementsByClassName(cnSubstrate)[0];
+
+                if ((window.scrollY > 0 || isOpenSubmenu)
+                    && header != undefined) {
+                    header.classList.add(cnHeaderSticky);
+                } else {
+                        if (substrate != undefined && header != undefined) {
+                            if (!substrate.classList.contains(cnSubstrateActive)){
+                                header.classList.remove(cnHeaderSticky);
+                            }
+                        }
+                }
+            };
+        }
     },
     onCategoryClick : function(component, event) {
         try {
