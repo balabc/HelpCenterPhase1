@@ -17,7 +17,7 @@
     <c:brSearchModal />
 
     <div class="body-inner main-content">
-        <div class="wrapper-for-sticky-footer-structure">
+        <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
             <c:brThemeHeader isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" />
 
             <c:brHeaderMobile />

@@ -1,0 +1,7 @@
+.THIS .header__dropdown-menu.slds-show {
+    display: block;
+}
+
+.THIS .header__dropdown-menu.slds-hide {
+    display: none;
+}
