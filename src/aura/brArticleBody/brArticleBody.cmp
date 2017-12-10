@@ -1,0 +1,95 @@
+<aura:component description="brArticleBody">
+    <aura:attribute name="article" type="brArticleModel"/>
+
+    <aura:if isTrue="{!v.article.articleType == 'Public__kav'}">
+        <div class="panel-content__head-supreme">
+            <h1 class="panel-content__title-supreme">{!v.article.item.Title}</h1>
+        </div>
+
+        <aura:unescapedHtml value="{!v.article.item.Article__c}"/>
+
+        <div class="panel-content">
+            <div class="panel-content__body">
+                <div class="panel-content__body-content text-center">
+                    <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
+                    <a href="#" class="button button--sm button--primary">Ask a question</a>
+                </div>
+            </div>
+        </div><!-- / end of .panel-content -->
+    </aura:if>
+
+    <aura:if isTrue="{!v.article.articleType == 'Learning__kav'}">
+        <div class="panel-content__head-supreme">
+            <h1 class="panel-content__title-supreme">{!v.article.item.Guide_Title__c}</h1>
+        </div>
+
+        <div class="panel-content panel-content--extended" data-aura-rendered-by="25:338;a">
+            <div class="panel-content__body">
+                <span class="panel-content__chapter-label">{!'Chapter ' + v.article.item.Sort_Oder_in_Category__c + ':'}</span>
+                <h1 class="h1 panel-content__title-h1">{!v.article.item.Title}</h1>
+                <aura:unescapedHtml value="{!v.article.item.Article__c}"/>
+            </div>
+        </div>
+
+        <div class="chapters-nav">
+            <a href="{!v.article.item.Back_Button_URL__c ? v.article.item.Back_Button_URL__c : '#'}"
+               class="{!v.article.item.Back_Button_URL__c ? 'button button--primary button--lg button--icon' : 'button button--primary button--lg button--icon disabled'}">
+                <span class="icon-svg-arrow-angular-lg-left-white"></span>
+            </a>
+
+            <aura:if isTrue="{!v.article.item.Next_Button_URL__c}">
+                <a href="{!v.article.item.Next_Button_URL__c}" class="button button--primary button--lg">{!v.article.item.Next_Button_Text__c}</a>
+                <aura:set attribute="else">
+                    <a href="#" class="button button--primary button--lg button--icon disabled"><span class="icon-svg-arrow-angular-lg-left-white right"></span></a>
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.article.articleType == 'University__kav'}">
+        <div class="panel-content__head-supreme">
+            <h1 class="panel-content__title-supreme">{!v.article.item.Title}</h1>
+        </div>
+
+        <div class="panel-content panel-content--extended">
+            <div class="panel-content__body">
+                <div class="panel-content__body-content">
+                    <div class="wrap-large-video">
+                        <div class="large-video">
+                            <iframe width="777" height="421" src="{!'https://www.youtube.com/embed/' + v.article.item.Video_URL__c}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <div class="row row--pad nav-next-prev">
+                        <aura:if isTrue="{!v.article.item.Prev_Video_URL__c}">
+                            <div class="column-lg-6 column--pad">
+                                <p>
+                                    <strong>Previous Video:</strong>
+                                    <br/>
+                                    <a href="{!v.article.item.Prev_Video_URL__c}">{!v.article.item.Prev_Video_Link_Text__c}</a>
+                                </p>
+                            </div>
+                        </aura:if>
+                        <aura:if isTrue="{!v.article.item.Next_Video_URL__c}">
+                            <div class="column-lg-6 column--pad text-right">
+                                <p>
+                                    <strong>Next Video:</strong>
+                                    <br/>
+                                    <a href="{!v.article.item.Next_Video_URL__c}">{!v.article.item.Next_Video_Link_Text__c}</a>
+                                </p>
+                            </div>
+                        </aura:if>
+                    </div>
+                    <h3 class="h3 panel-content__title">Video Summary</h3>
+
+                    <aura:unescapedHtml value="{!v.article.item.Description__c}"/>
+                    <h3 class="h3 panel-content__title">Additional Resources</h3>
+                    <aura:unescapedHtml value="{!v.article.item.Additional_Resources__c}"/>
+                </div><!-- / end of .panel-content__body-content -->
+            </div><!-- / end of .panel-content__body -->
+        </div>
+
+    </aura:if>
+
+    <c:brArticleFeedback articleId="{!v.article.item.KnowledgeArticleId}"/>
+
+</aura:component>
