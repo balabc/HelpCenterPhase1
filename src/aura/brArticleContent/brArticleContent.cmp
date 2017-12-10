@@ -1,97 +1,20 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" description="brArticleContent" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" description="brArticleContent" access="global" controller="brArticleContentController">
     <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="articleType" type="String" />
+    <aura:attribute name="dataCategory" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <div class="article clr">
-        <div class="article__nav">
-            <nav class="doc-nav">
-                <div>{!v.recordId}</div>
-                <c:brCategoriesCMP />
-            </nav><!-- / end of .doc-nav -->
-        </div><!-- / end of .article__nav -->
+        <aura:if isTrue="{!$Browser.formFactor != 'PHONE'}">
+            <div class="article__nav">
+                <nav class="doc-nav">
+                    <c:brCategoriesCMP aura:id="brCategoriesCMP"/>
+                </nav><!-- / end of .doc-nav -->
+            </div><!-- / end of .article__nav -->
+        </aura:if>
         <div class="article__content">
-            <div class="panel-content">
-                <div class="panel-content__head-supreme">
-                    <h1 class="panel-content__title-supreme">Payments Setup</h1>
-                </div>
-                <div class="panel-content__body">
-                    <div class="highlighted panel-content__highlighted panel-content__highlighted-anchors">
-                        <span class="panel-content__highlighted-title">What We’ll Cover</span>
-                        <ul class="panel-content__highlighted-list">
-                            <li class="panel-content__highlighted-anchors-item">
-                                <a href="#" class="panel-content__highlighted-anchors-link">Intro</a>
-                            </li>
-                            <li class="panel-content__highlighted-anchors-item">
-                                <a href="#" class="panel-content__highlighted-anchors-link">Adding Currency</a>
-                            </li>
-                            <li class="panel-content__highlighted-anchors-item">
-                                <a href="#" class="panel-content__highlighted-anchors-link">Changing the Currency on the Storefront</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-content__wrap-title">
-                        <h2 class="h3 panel-content__title">Intro</h2>
-                    </div>
-                    <div class="panel-content__body-content">
-                        <p>With BigCommerce you can display prices in multiple currencies to help cater to a wide range of potential customers. When you first create your BigCommerce store, the default currency is set based on the location entered during the signup process.This default currency can be changed at any time to fit your business needs.</p>
-                        <div class="highlighted panel-content__highlighted">
-                            <p>Which currency gets processed at checkout?  The currency that payments are actually processed in will always be the default currency. If checkout is set to Optimized One-Page Checkout, the shopper will see their chosen display currency as well as which currency they will actually be charged. Other checkouts and all invoice emails will display the prices in the store's default currency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- / end of .panel-content -->
-
-            <div class="panel-content">
-                <div class="panel-content__body">
-                    <div class="panel-content__wrap-title">
-                        <h2 class="h3 panel-content__title">Adding a Currency</h2>
-                    </div>
-                    <div class="panel-content__body-content">
-                        <p>Use the following steps to add a new display currency to your store. You can also use these steps as a guide to edit</p>
-                        <div class="breadcrumbs">
-                            <div class="breadcrumbs__item">
-                                <a href="#" class="link link--xsm breadcrumbs__link">Help Center</a>
-                            </div>
-                            <div class="breadcrumbs__item">
-                                <a href="#" class="link link--xsm breadcrumbs__link">Knowledge Base</a>
-                            </div>
-                        </div>
-                        <p>To add a new currency to your store's list of supported currencies, click the</p>
-                        <img src="images/pics/pic-01.png" alt=""/>
-                    </div>
-                </div>
-            </div><!-- / end of .panel-content -->
-
-            <div class="panel-content">
-                <div class="panel-content__body">
-                    <div class="panel-content__wrap-title">
-                        <h2 class="h3 panel-content__title">Changing the Currency on the Storefront</h2>
-                    </div>
-                    <div class="panel-content__body-content">
-                        <p>If you have multiple currencies enabled, a currency converter will display on your store that will allow your customers to choose among the currencies you have set up. If a visitor's IP address matches a selected country, they will see the appropriate currency automatically.</p>
-                        <img src="images/pics/pic-02.png" alt=""/>
-                    </div>
-                </div>
-            </div><!-- / end of .panel-content -->
-
-            <div class="panel-content">
-                <div class="panel-content__body">
-                    <div class="panel-content__body-content text-center">
-                        <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
-                        <a href="#" class="button button--sm button--primary">Ask a question</a>
-                    </div>
-                </div>
-            </div><!-- / end of .panel-content -->
-            <div class="article__voting">
-                <div class="article__voting-inner">
-                    <span class="article__voting-text">Was this article helpful?</span>
-                    <div class="article__voting-wrap-buttons">
-                        <div class="article__voting-buttons">
-                            <a href="#" class="button button--sm button--hollow-primary">Yes</a>
-                            <a href="#" class="button button--sm button--hollow-primary">No</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <c:brArticleBody articleType="{!v.articleType}" recordId="{!v.recordId}"/>
         </div><!-- / end of .article__content -->
     </div><!-- / end of .article -->
 </aura:component>
