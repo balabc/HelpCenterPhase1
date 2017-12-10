@@ -17,6 +17,7 @@
 			menuIds = component.get('v.menuIds'),     
 			currentId = undefined;
         
+        
         switch (data.where) {
             case 'next': {
                 if (data.id) {
@@ -26,6 +27,7 @@
                 break;
             }
             default: {
+        		component.find('brCategoriesCMP').nullData();
                 currentId = menuIds.pop();
                 currentId = menuIds[menuIds.length - 1];
                 break;

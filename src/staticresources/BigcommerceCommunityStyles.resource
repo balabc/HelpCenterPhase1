@@ -182,3 +182,7 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
         padding: 0 29px 0 30px !important;
     }
 }
+
+.is-mobile .doc-nav__item-lvl-1 .doc-nav__list-lvl-2 .doc-nav__link-lvl-2.doc-nav__link-lvl-2--numeric.hide-nav-arrow {
+    padding: 15px 25px 14px 35px;
+}

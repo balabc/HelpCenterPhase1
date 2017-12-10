@@ -1,15 +1,17 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" controller="brCategoriesController">
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="selectedArticleId" type="String"/>
-    <aura:attribute name="items" type="List" /> 
+    <aura:attribute name="items" type="List"/> 
     
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
     
-    <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/> 
+    <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/>
+    <aura:method name="nullData" action="{!c.nullData}" access="PUBLIC"/>
     
-    <div class="doc-nav__inner">
-        <aura:renderIf isTrue="{!v.items.length > 0}">
+    
+    <aura:if isTrue="{!v.items.length > 0}">
+        <div class="doc-nav__inner">
             <ul class="doc-nav__list doc-nav__list-lvl-1" id="menu-articles">
                 <aura:iteration items="{!v.items}" var="category">
                     <li class="{!'doc-nav__item doc-nav__item-lvl-1' + ((category.active)? ' active': '')}" data-id="{!category.id}" data-active="{!category.active}">
@@ -73,6 +75,6 @@
                     </li>
                 </aura:iteration>
             </ul>
-        </aura:renderIf>   
-    </div>	       
+        </div>
+    </aura:if>   
 </aura:component>

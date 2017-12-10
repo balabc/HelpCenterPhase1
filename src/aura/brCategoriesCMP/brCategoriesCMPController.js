@@ -1,16 +1,15 @@
 ({
 	doInit: function(component, event, helper) {
+        component.set("v.items", []);
+        component.set("v.data", {});
+        
         var data = component.get("v.data");
         if (!!data) {
             if (data.hasOwnProperty('id')) {
         		component.set('v.selectedArticleId', data.id);
             }
-        }
-        	
-        component.set("v.items", []);
-        component.set("v.data", data);
         
-        if (!!data) {
+        	component.set("v.data", data);
         	helper.getResponse(component);
         }
 	},
@@ -22,6 +21,9 @@
                 helper.getResponse(component);
             }
         }
+    },
+    nullData: function(component, event, helper) {
+        component.set("v.items", []);
     },
     clickCategory: function(component, event, helper) {    
         var parent = event.target.parentElement,
