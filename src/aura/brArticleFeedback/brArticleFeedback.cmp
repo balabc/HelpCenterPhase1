@@ -1,5 +1,5 @@
 <aura:component description="brArticleFeedback" controller="brArticleFeedbackCtrl" implements="forceCommunity:availableForAllPageTypes">
-    <aura:attribute name="articleId" type="String" default="kA00O000000c4z6SAA" />
+    <aura:attribute name="articleId" type="String" />
     <aura:attribute name="isModalOpen" type="Boolean" default="false" />
     <aura:attribute name="reasons" type="String[]"/>
     <aura:attribute name="userType" type="String"/>
