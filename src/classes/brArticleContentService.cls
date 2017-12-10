@@ -10,5 +10,14 @@ public with sharing class brArticleContentService {
         
         return result;
     }
-    
+
+    public static brArticleModel getArticleContent(String articleId) {
+        brArticleModel article = new brArticleModel();
+        article.item = brArticleContentServiceSelector.getArticleById(articleId);
+        article.id = articleId;
+        article.articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
+
+        return article;
+    }
+
 }

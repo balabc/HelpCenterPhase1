@@ -1,7 +1,9 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" description="brArticleContent" access="global" controller="brArticleContentController">
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" description="brArticleContent"
+                access="global" controller="brArticleContentController">
     <aura:attribute name="recordId" type="String" />
     <aura:attribute name="articleType" type="String" />
     <aura:attribute name="dataCategory" type="String" />
+    <aura:attribute name="article" type="brArticleModel"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
@@ -14,7 +16,7 @@
             </div><!-- / end of .article__nav -->
         </aura:if>
         <div class="article__content">
-            <c:brArticleBody articleType="{!v.articleType}" recordId="{!v.recordId}"/>
+            <c:brArticleBody article="{!v.article}"/>
         </div><!-- / end of .article__content -->
     </div><!-- / end of .article -->
 </aura:component>
