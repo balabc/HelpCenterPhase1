@@ -2,10 +2,16 @@ public with sharing class brArticleModel {
     
     @AuraEnabled    
     public String id {get;set;}
-    
+
+    @AuraEnabled
+    public sObject item {get;set;}
+
     @AuraEnabled    
-    public String articleSections {get;set;}    
-    
+    public String articleType {get;set;}
+
+    @AuraEnabled
+    public String articleSections {get;set;}
+
     @AuraEnabled
     public Boolean active {get;set;}    
     
