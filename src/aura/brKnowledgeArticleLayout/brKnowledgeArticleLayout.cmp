@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:layout" controller="brKnowledgeArticleLayoutCtrl" description="Custom Content Layout" access="global">
+    <aura:attribute name="breadcrumbs" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="articleContent1" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="articleContent2" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="articleType" type="String" />
+    <aura:attribute name="isContentVisible" type="Boolean" default="false"/>
+    <aura:attribute name="isKnowledgeBaseArticle" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!v.isContentVisible}">
+        <div class="container article-container">
+            {!v.breadcrumbs}
+            <aura:if isTrue="{!v.isKnowledgeBaseArticle}">
+                {!v.articleContent1}
+                <aura:set attribute="else">
+                    {!v.articleContent2}
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
+</aura:component>
