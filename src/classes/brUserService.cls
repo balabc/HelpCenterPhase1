@@ -89,7 +89,6 @@ public with sharing class brUserService {
 	    		userMembersPhotoUrl = brUserServiceSelector.getUserMemberPhotoUrl(memberIds);				
 			} 		  		
     	}
-
     	for (NetworkMember userMember : userMembers) {    		
     		brLeaderboardModel lbm = new brLeaderboardModel();
     		lbm.name = userMember.Member.Name;
@@ -108,9 +107,9 @@ public with sharing class brUserService {
     				break;
     			}
     		}
-    		
+
     		for (Integer i = 0; i < userReputationList.size(); i++) {
-    			if(userMember.ReputationPoints > userReputationList[i].minScore && userMember.ReputationPoints < userReputationList[i].maxScore) {
+    			if(userMember.ReputationPoints >= userReputationList[i].minScore && userMember.ReputationPoints < userReputationList[i].maxScore) {
     				lbm.reputationLevel =  userReputationLevels[i].Label;
     			}
     		}

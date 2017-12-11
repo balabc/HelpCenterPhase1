@@ -25,4 +25,21 @@ public with sharing class brArticleContentServiceSelector {
     	return (sObject) Database.query(q);
     }
 
+    public static String getDataCategoryNameByArticleId(String articleId, String articleType) {
+        String q = 'SELECT DataCategoryName FROM ' + articleType.replace('__kav','') + '__DataCategorySelection WHERE (ParentId = \'' + articleId + '\') AND (Parent.PublishStatus = \'Online\') LIMIT 1';
+        SObject result = Database.query(q);
+        return String.valueOf(result.get('DataCategoryName'));
+    }
+
+    public static List<sObject> getArticleListInDataCategory(String articleType) {
+        String q = 'SELECT ParentId, DataCategoryName FROM ' + articleType.replace('__kav','') + '__DataCategorySelection WHERE Parent.PublishStatus = \'Online\'';
+        return Database.query(q);
+    }
+
+    public static List<sObject> getArticleListByDataCategory(String articleType, List<String> ids) {
+        String q = 'SELECT KnowledgeArticleId, Title, Nav_Title__c, Id, Sort_Oder_in_Category__c FROM ' + articleType + ' WHERE (PublishStatus = \'Online\') AND (Id IN :ids) ORDER BY Sort_Oder_in_Category__c ASC';
+        return Database.query(q);
+
+    }
+
 }

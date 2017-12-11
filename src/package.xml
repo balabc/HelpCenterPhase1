@@ -44,6 +44,7 @@
         <members>brArticleContent</members>
         <members>brArticleBody</members>
         <members>brKnowledgeArticleLayout</members>
+		<members>brArticleBodyGuideBottomNav</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

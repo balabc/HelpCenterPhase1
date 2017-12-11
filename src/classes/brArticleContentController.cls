@@ -9,4 +9,10 @@ public with sharing class brArticleContentController {
     public static brArticleModel getArticleContent(String articleId) {
         return brArticleContentService.getArticleContent(articleId);
     }
+
+    @AuraEnabled
+    public static List<SObject> getListArticleInCurrentCategory(String articleId) {
+        return brArticleContentService.getListArticleInCurrentCategory(articleId);
+    }
+
 }

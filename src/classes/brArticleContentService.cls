@@ -20,4 +20,24 @@ public with sharing class brArticleContentService {
         return article;
     }
 
+    public static List<SObject> getListArticleInCurrentCategory(String articleId) {
+        String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
+
+        String dataCategory = brArticleContentServiceSelector.getDataCategoryNameByArticleId(articleId, articleType);
+        List<SObject> items = brArticleContentServiceSelector.getArticleListInDataCategory(articleType);
+        List<String> ids = new List<String>();
+
+        for (SObject item : items) {
+            if (dataCategory == String.valueOf(item.get('DataCategoryName'))) {
+                if (!String.isEmpty(String.valueOf(item.get('ParentId')))) {
+                    ids.add(String.valueOf(item.get('ParentId')));
+                }
+            }
+        }
+
+        List<SObject> result = brArticleContentServiceSelector.getArticleListByDataCategory(articleType, ids);
+
+        return result;
+    }
+
 }

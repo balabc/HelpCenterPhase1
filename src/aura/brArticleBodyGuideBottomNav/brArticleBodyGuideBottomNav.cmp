@@ -1,0 +1,30 @@
+<aura:component description="brArticleBodyGuideBottomNav" controller="brArticleContentController">
+    <aura:attribute name="article" type="brArticleModel"/>
+    <aura:attribute name="listArticles" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="chapters-nav">
+        <a href="{!v.article.item.Back_Button_URL__c ? v.article.item.Back_Button_URL__c : '#'}"
+           class="{!v.article.item.Back_Button_URL__c ? 'button button--primary button--lg button--icon' : 'button button--primary button--lg button--icon disabled'}">
+            <span class="icon-svg-arrow-angular-lg-left-white"></span>
+        </a>
+
+        <aura:if isTrue="{!v.article.item.Next_Button_URL__c}">
+            <a href="{!v.article.item.Next_Button_URL__c}" class="button button--primary button--lg">{!v.article.item.Next_Button_Text__c}</a>
+            <aura:set attribute="else">
+                <a href="#" class="button button--primary button--lg button--icon disabled"><span class="icon-svg-arrow-angular-lg-left-white right"></span></a>
+            </aura:set>
+        </aura:if>
+    </div>
+    <div class="related-posts">
+        <h4 class="related-posts__title">All Chapters</h4>
+        <ul class="related-posts__list">
+            <li class="related-posts__item"><a href="#" class="related-posts__link">Getting Started with Inventory Management</a></li>
+            <li class="related-posts__item"><a href="#" class="related-posts__link">Common Inventory Management Costs</a></li>
+            <li class="related-posts__item"><a href="#" class="related-posts__link related-posts__link--disable">Developing an Inventory Management Strategy</a></li>
+            <li class="related-posts__item"><a href="#" class="related-posts__link">BigCommerce Inventory Functionality</a></li>
+            <li class="related-posts__item"><a href="#" class="related-posts__link">Avoiding Inventory Mistakes</a></li>
+        </ul>
+    </div>
+</aura:component>
