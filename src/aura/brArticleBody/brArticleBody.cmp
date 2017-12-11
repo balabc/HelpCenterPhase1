@@ -31,19 +31,7 @@
             </div>
         </div>
 
-        <div class="chapters-nav">
-            <a href="{!v.article.item.Back_Button_URL__c ? v.article.item.Back_Button_URL__c : '#'}"
-               class="{!v.article.item.Back_Button_URL__c ? 'button button--primary button--lg button--icon' : 'button button--primary button--lg button--icon disabled'}">
-                <span class="icon-svg-arrow-angular-lg-left-white"></span>
-            </a>
-
-            <aura:if isTrue="{!v.article.item.Next_Button_URL__c}">
-                <a href="{!v.article.item.Next_Button_URL__c}" class="button button--primary button--lg">{!v.article.item.Next_Button_Text__c}</a>
-                <aura:set attribute="else">
-                    <a href="#" class="button button--primary button--lg button--icon disabled"><span class="icon-svg-arrow-angular-lg-left-white right"></span></a>
-                </aura:set>
-            </aura:if>
-        </div>
+        <c:brArticleBodyGuideBottomNav article="{!v.article}"/>
     </aura:if>
 
     <aura:if isTrue="{!v.article.articleType == 'University__kav'}">
