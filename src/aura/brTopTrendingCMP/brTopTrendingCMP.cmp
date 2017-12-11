@@ -20,7 +20,9 @@
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
                             <aura:iteration items="{!v.listPopular}" var="item">
-                                <li class="list-group__item" data-id="{!item.id}" onclick="{!c.navigateToArticle}">{!item.name}</li>
+                                <li class="list-group__item" data-id="{!item.id}" onclick="{!c.navigateToArticle}">
+                                    <a>{!item.name}</a>
+                                </li>
                             </aura:iteration>
                         </ul>
                     </div>
@@ -36,9 +38,13 @@
                         <h4 class="h4 panel-info__title truncated">{!$Label.c.br_Recent_questions}</h4>
                     </div>
                     <div class="panel-info__body p-bottom-0">
-                        <aura:iteration items="{!v.listQuestions}" var="question">
-                            <li class="list-group__item" data-id="{!question.id}" onclick="{!c.navigateToArticle}">{!question.name}</li>
-                        </aura:iteration>
+                        <ul class="list-group">
+                            <aura:iteration items="{!v.listQuestions}" var="question">
+                                <li class="list-group__item" data-id="{!question.id}" onclick="{!c.navigateToArticle}">
+                                    <a>{!question.name}</a>
+                                </li>
+                            </aura:iteration>
+                        </ul>
                     </div>
                     <div class="panel-info__footer">
                         <a href="javascript:void(0);" class="link">{!$Label.c.br_View_more}</a>
@@ -54,7 +60,9 @@
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
                             <aura:iteration items="{!v.listNews}" var="news">
-                                <li class="list-group__item" data-id="{!news.item.Id}" onclick="{!c.navigateToArticle}">{!news.item.Name}</li>
+                                <li class="list-group__item" data-id="{!news.item.Id}" onclick="{!c.navigateToArticle}">
+                                    <a>{!news.item.Name}</a>
+                                </li>
                             </aura:iteration>
                         </ul>
                     </div>

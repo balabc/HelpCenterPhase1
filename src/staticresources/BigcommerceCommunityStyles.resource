@@ -1,3 +1,15 @@
+a,
+a.link,
+.link,
+a.link--sm,
+.link--sm,
+a.link--xsm,
+.link--xsm {
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    text-decoration: none !important;
+    color: #4b71fc;
+    transition: all 0.3s ease;
+}
 .uiPanel--notificationsPanel.open.active {
     top: 65px !important;
     z-index: 36 !important;
