@@ -1,7 +1,11 @@
 ({
     doInit: function (cmp,event, helper) {
         helper.getTypeForCurrentUser(cmp);
-        helper.hasVotingCurrentUser(cmp);
+    },
+    hasVotingCurrentUser: function(cmp, event, helper) {
+        if (event.getParam("value") != null) {
+            helper.hasVotingCurrentUser(cmp);
+        }
     },
     openModal: function (cmp,event, helper) {
         cmp.set('v.isModalOpen', true);

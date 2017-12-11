@@ -42,6 +42,8 @@
         <members>brMobileNavMenuToggleEvent</members>
         <members>brArticleFeedback</members>
         <members>brArticleContent</members>
+        <members>brArticleBody</members>
+        <members>brKnowledgeArticleLayout</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -104,6 +106,7 @@
         <members>brArticleContentController</members>
         <members>brArticleContentService</members>
         <members>brArticleContentServiceSelector</members>
+        <members>brKnowledgeArticleLayoutCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>

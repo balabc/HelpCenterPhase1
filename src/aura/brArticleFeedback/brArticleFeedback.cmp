@@ -6,29 +6,32 @@
     <aura:attribute name="feedbackMessage" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.articleId}" action="{!c.hasVotingCurrentUser}"/>
 
-    <div class="article__voting">
-        <aura:if isTrue="{!equals(v.feedbackMessage,null)}">
-            <div class="article__voting-inner">
-                <span class="article__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
-                <div class="article__voting-wrap-buttons">
-                    <div class="article__voting-buttons">
-                        <aura:if isTrue="{!equals(v.userType,'Guest')}">
-                            <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteYes}</a>
-                            <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteNo}</a>
-                            <aura:set attribute="else">
-                                <a class="button button--sm button--hollow-primary" onclick="{!c.addVoteUp}">{!$Label.c.lnkVoteYes}</a>
-                                <a class="button button--sm button--hollow-primary" onclick="{!c.openModal}">{!$Label.c.lnkVoteNo}</a>
-                            </aura:set>
-                        </aura:if>
+    <aura:if isTrue="{!notequals(v.articleId, null)}">
+        <div class="article__voting">
+            <aura:if isTrue="{!equals(v.feedbackMessage,null)}">
+                <div class="article__voting-inner">
+                    <span class="article__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
+                    <div class="article__voting-wrap-buttons">
+                        <div class="article__voting-buttons">
+                            <aura:if isTrue="{!equals(v.userType,'Guest')}">
+                                <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteYes}</a>
+                                <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteNo}</a>
+                                <aura:set attribute="else">
+                                    <a class="button button--sm button--hollow-primary" onclick="{!c.addVoteUp}">{!$Label.c.lnkVoteYes}</a>
+                                    <a class="button button--sm button--hollow-primary" onclick="{!c.openModal}">{!$Label.c.lnkVoteNo}</a>
+                                </aura:set>
+                            </aura:if>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <aura:set attribute="else">
-                <p>{!v.feedbackMessage}</p>
-            </aura:set>
-        </aura:if>
-    </div>
+                <aura:set attribute="else">
+                    <p>{!v.feedbackMessage}</p>
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
     <aura:if isTrue="{!v.isModalOpen}">
         <div role="dialog" tabindex="-1" aura:id="modalbox" aria-labelledby="header43" class="{!v.isModalOpen ? 'slds-modal slds-fade-in-open' : 'slds-modal'}">
             <div class="slds-modal__container modal-content">
