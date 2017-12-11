@@ -36,7 +36,7 @@ public with sharing class brCategoriesCatalogService {
                     List<String> anchors = String.valueOf(k.get('Section_Anchors__c')).split(';');
                     String result = '<ul class="doc-nav__list doc-nav__list-view-sub">';
                     for(Integer li = 0; li < anchors.size(); li++) {
-                        result = result + '<li class="doc-nav__item doc-nav__item-view-sub">' + '<a class="doc-nav__link doc-nav__link-view-sub" href=\'#'+anchors[li].split(':')[0]+'\'>'+ anchors[li].split(':')[1] +'</a>' + '</li>'; 
+                        result = result + '<li class="doc-nav__item doc-nav__item-view-sub">' + '<a class="doc-nav__link doc-nav__link-view-sub" href=\'#'+anchors[li].split(':')[1]+'\'>'+ anchors[li].split(':')[0] +'</a>' + '</li>';
                     }                               
                     result = result + '</ul>';
                     am.articleSections = result;                
