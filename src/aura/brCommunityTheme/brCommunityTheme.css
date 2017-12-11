@@ -9,13 +9,6 @@
 .THIS .wrap-modal {
     display: none;
 }
-.THIS ul{
-    display: block;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-}
 .THIS .header__nav {
     margin: 16px 0;
 }
