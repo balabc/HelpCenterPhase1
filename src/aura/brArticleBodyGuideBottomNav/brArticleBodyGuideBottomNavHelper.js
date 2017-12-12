@@ -1,5 +1,5 @@
 ({
-    getData : function(component, outVar, method, params) {
+    getData: function(component, outVar, method, params) {
         var action = component.get(method);
         if (params !== false)
             action.setParams(params);
