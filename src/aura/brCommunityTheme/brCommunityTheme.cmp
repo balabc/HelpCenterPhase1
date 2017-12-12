@@ -2,7 +2,7 @@
     <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
 
-    <ltng:require styles="{!join(',', '/resource/BigcommerceCommunity/css/styles.css', '/resource/BigcommerceCommunityStyles')}" /><!-- TODO add Resource value provider-->
+    <ltng:require styles="{!join(',', $Resource.BigcommerceCommunity + '/css/styles.css', $Resource.BigcommerceCommunityStyles)}" /><!-- TODO add Resource value provider-->
 
     <c:brMobileNavMenu />
     <c:brSearchModal />

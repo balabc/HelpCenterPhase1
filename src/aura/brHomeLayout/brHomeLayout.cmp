@@ -69,6 +69,6 @@
         </div><!-- / end of .lift-content__inner -->
     </div><!-- / end of .lift-content -->
 
-    <div>{!v.content}</div>
+    <div style="background-color: #fff">{!v.content}</div>
 
 </aura:component>

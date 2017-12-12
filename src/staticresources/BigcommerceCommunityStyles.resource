@@ -221,3 +221,16 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+ul {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    list-style-type: inherit;
+}
+
+ol {
+   list-style-type: decimal;
+}
