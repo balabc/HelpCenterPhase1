@@ -10,6 +10,11 @@ a.link--xsm,
     color: #4b71fc;
     transition: all 0.3s ease;
 }
+input.header__searchbox-input-text::placeholder {
+    font-size: 0.9375rem;
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    color: #ffffff;
+}
 .uiPanel--notificationsPanel.open.active {
     top: 65px !important;
     z-index: 36 !important;
