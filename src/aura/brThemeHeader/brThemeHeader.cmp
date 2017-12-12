@@ -19,22 +19,23 @@
                 </aura:if>
             </div>
             <div class="header__right">
-                <a href="javascript:void(0);" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">{!$Label.c.lnkContact}</a>
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
+                    <a href="javascript:void(0);" class="header__link header__contact__show-trigger" onclick="{!c.toggleHeaderContact}">{!$Label.c.lnkContact}</a>
                     <c:brNotifications />
                     <c:brUserMenu />
                 </aura:if>
             </div>
             <div class="header__center">
                 <div class="header__searchbox">
-                    <input type="text" class="header__searchbox-input-text" value="{!v.search}" placeholder="Search" onclick="{!c.toggleSearchModal}"/>
+                    <input type="text" class="header__searchbox-input-text" value="{!v.search}" placeholder="{!$Label.c.fieldAlgoliaSearchSearch}" onclick="{!c.toggleSearchModal}"/>
                     <input type="submit" class="header__searchbox-input-button" placeholder="" onclick="{!c.toggleSearchModal}"/>
                 </div>
             </div>
         </div><!-- end of .container -->
         <div class="header__dropdown-menu-substrate"></div>
-        <c:brHeaderContact aura:id="childHeaderContact" askbutton="{!v.askbutton}"/>
-
+        <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
+            <c:brHeaderContact aura:id="childHeaderContact" askbutton="{!v.askbutton}"/>
+        </aura:if>
     </header>
     <div class="header-pad"></div>
 </aura:component>

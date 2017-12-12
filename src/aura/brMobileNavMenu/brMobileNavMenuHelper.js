@@ -20,6 +20,7 @@
         if (items.length > 0) {
             items.shift();
             items.push({id: 'contact', label: $A.get('$Label.c.lnkContact'), hasSubMenu: true, subMenu: [
+                {id: 'ask', label: 'Ask'},
                 {id: 'articles', label: $A.get('$Label.c.lnkArticles')},
                 {id: 'learning_guides', label: 'Learning Guides'},
                 {id: 'videos', label: $A.get('$Label.c.lnkVideos')},

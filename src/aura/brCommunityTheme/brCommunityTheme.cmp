@@ -4,7 +4,7 @@
 
     <ltng:require styles="{!join(',', $Resource.BigcommerceCommunity + '/css/styles.css', $Resource.BigcommerceCommunityStyles)}" /><!-- TODO add Resource value provider-->
 
-    <c:brMobileNavMenu />
+    <c:brMobileNavMenu  askbutton="{!v.askbutton}"/>
     <c:brSearchModal />
 
     <div class="body-inner main-content">
