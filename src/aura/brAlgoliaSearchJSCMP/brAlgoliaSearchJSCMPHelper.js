@@ -237,7 +237,7 @@
                                         '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
                                         '<p class="serp__item-description truncated">' + 
                                         (item.source.IsAnswered? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
-                                        '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
+                                        (item.source.IsAnswered?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
                                         '&nbsp;&nbsp;&nbsp;<span class="icon-svg-like-sm-grey"></span>&nbsp;' + item.source.LikeCount + 
                                         '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
                                         '</p>'
@@ -263,7 +263,7 @@
                                         '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
                                         '<p class="serp__item-description truncated">' + 
                                         (item.source.Status? (item.source.Status + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
-                                        '&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' + 
+                                        (item.source.Status?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
                                         '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
                                         '&nbsp;&nbsp;&nbsp;<span class="icon-svg-star-sm-grey"></span>&nbsp;' + item.source.Votes + 
                                         '</p>'

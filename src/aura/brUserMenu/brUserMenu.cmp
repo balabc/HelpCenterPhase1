@@ -8,7 +8,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <div class="header__userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
-        <aura:if isTrue="{!notequals(v.type, 'Guest')}">
+        <aura:if isTrue="{!and(notequals(v.type, 'Guest'), notequals(v.user, null))}">
             <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
             <aura:set attribute="else">
                 <img src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
