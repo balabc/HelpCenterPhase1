@@ -51,7 +51,9 @@
         <members>CustomLabels</members>
         <name>CustomLabels</name>
     </types>
-    <types>
+    <types>		
+		<members>brAlgoliaSearchTest</members>
+		<members>brArticleContentTest</members>
         <members>brArticleContentController</members>
         <members>brArticleContentService</members>
         <members>brArticleContentServiceSelector</members>

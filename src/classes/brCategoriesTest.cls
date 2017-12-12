@@ -1,26 +1,52 @@
 @isTest
 private class brCategoriesTest {
+
     static testMethod void tMethod() {
-        Public__kav a = new Public__kav(
-            Title = 'test apex',
-            UrlName = 'testapex'
-        );       
-        insert a;
-        Public__kav a2 = new Public__kav(
-            Title = 'test apex2',
-            UrlName = 'testapex2',
-            Nav_Title__c = 'new Title',
-            Article_Sections__c = 'Into:Into;Adding_Currency:Adding Currency;Cha_Currency:Changint the Currency'
-        );       
-        insert a2;          
-        a = [SELECT id, KnowledgeArticleId FROM Public__kav WHERE Id = :a.Id];
-        a2 = [SELECT id, KnowledgeArticleId FROM Public__kav WHERE Id = :a2.Id];
-        KbManagement.PublishingService.publishArticle(a.KnowledgeArticleId, true);
-        KbManagement.PublishingService.publishArticle(a2.KnowledgeArticleId, true);
+
+        Learning__kav article = new Learning__kav(Title = 'Test', Nav_Title__c = 'Test', UrlName = 't321est');
+        insert article;
+
+        for (Learning__kav uKav : [SELECT KnowledgeArticleId FROM Learning__kav WHERE Id = :article.Id]) {
+            KbManagement.PublishingService.publishArticle(uKav.KnowledgeArticleId, true);
+        }
+
+        Learning__kav article1 = new Learning__kav(Title = 'Test1', Nav_Title__c = 'Test', UrlName = 'te213st1');
+        insert article1;
+
+        for (Learning__kav uKav : [SELECT KnowledgeArticleId FROM Learning__kav WHERE Id = :article1.Id]) {
+            KbManagement.PublishingService.publishArticle(uKav.KnowledgeArticleId, true);
+        }
+
+        Learning__DataCategorySelection tempCat = new Learning__DataCategorySelection();
+        tempCat.DataCategoryGroupName = 'Guides';
+        tempCat.DataCategoryName = 'Inventory_management';
+        tempCat.ParentId = article.id;
+
+        insert tempCat;
+
+        Public__kav article2 = new Public__kav(Title = 'Test1', Nav_Title__c = 'Test', UrlName = 'tes231123312t1', Section_Anchors__c = 'asdsafds:sdfsdf;dsafasfd:sdfsdf;');
+        insert article2;
+
+        for (Public__kav uKav : [SELECT KnowledgeArticleId FROM Public__kav WHERE Id = :article2.Id]) {
+            KbManagement.PublishingService.publishArticle(uKav.KnowledgeArticleId, true);
+        }
+
+        Public__DataCategorySelection tempCat1 = new Public__DataCategorySelection();
+        tempCat1.DataCategoryGroupName = 'Public';
+        tempCat1.DataCategoryName = 'Configure_Your_Store';
+        tempCat1.ParentId = article2.id;
+
+        insert tempCat1;
+
         Test.startTest();
-        Map<String,String> mapcat = brCategorySevice.getAllCategoriesMap('All');
-        brCategoriesController.getCatalog(a.id, 'Public__kav', 'All');
-        brCategoriesController.getCatalog(a2.id, 'Public__kav', 'All');
+        /*System.debug('222222222' + article2);
+        System.debug('3333333333' + 'SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + c + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
+        List<sObject> articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + article2.ArticleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
+        System.debug('1111111test' + articles);*/
+
+        brCategoriesController.getCatalog(article.id, 'Learning__kav', tempCat.DataCategoryGroupName);
+        brCategoriesController.getCatalog(article2.id, 'Public__kav', tempCat1.DataCategoryGroupName);
         Test.stopTest();
-    }      
+    }
+
 }

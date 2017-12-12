@@ -118,10 +118,6 @@ public with sharing class brCategoriesCatalogService {
             }
         }              
         return catCatalogList;
-    } 
-    
-    public static boolean hasSObjectField(String fieldName, SObject so){
-      return so.getSobjectType().getDescribe().fields.getMap().keySet().contains(fieldName);
     }
     
     /*public static brCategoriesCatalogModel getCatalogList(String categoryName, String articleType, String dataCategoryName) {
