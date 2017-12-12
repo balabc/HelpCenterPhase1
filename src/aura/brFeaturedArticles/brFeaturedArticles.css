@@ -1,3 +1,6 @@
+.THIS .column-md-12.column-lg-4.column--pad.m-bottom-25.m-bottom-0--media-md {
+    margin-bottom: 17px;
+}
 .THIS .list-group__item:last-child  {
     border-bottom: 1px solid #e4e7ed;
 }
@@ -17,6 +20,17 @@
 @media only screen and (min-width: 992px) {
     .THIS .itemBorder {
         border-bottom: none !important;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .THIS .column-md-12.column-lg-4.column--pad.m-bottom-25.m-bottom-0--media-md {
+        margin-bottom: 0;
+    }
+    .THIS .list-group {
+        padding: 0 30px;
+    }
+    .THIS .list-group__item {
+        padding: 17px 0px;
     }
 }
 .THIS .column-md-12.column-lg-4.column--pad.m-bottom-25.m-bottom-0--media-md:last-child li {

@@ -18,3 +18,8 @@
 .THIS .column-md-12.column-lg-4.column--pad.m-bottom-25.m-bottom-0--media-md:last-child li {
     border-bottom: none;
 }
+@media only screen and (max-width: 992px) {
+    .THIS .panel-info__body {
+        padding: 20px;
+    }
+}

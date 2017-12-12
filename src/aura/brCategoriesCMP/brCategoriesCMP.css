@@ -35,9 +35,6 @@
     content: none;
 }
 
-.THIS .doc-nav__item-lvl-1 .doc-nav__list-lvl-2 .doc-nav__link-lvl-2.doc-nav__link-lvl-2--numeric:before {
-    top: 35%;
-}
 
 
 /*need transfer to parent component "class mobile"
