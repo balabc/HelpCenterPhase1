@@ -1,0 +1,160 @@
+<aura:component controller="brLghtIdeasController">
+    <aura:attribute name="commonVars" type="Object" description="Used to share common variables for child components" />
+    <aura:attribute name="showDetails" type="Boolean" default="false" />
+    <aura:attribute name="isCreated" type="Boolean" default="false" />
+    <aura:attribute name="item" type="Idea" required="true" />
+    <aura:attribute name="mergedIdeas" type="Idea[]" />
+    <aura:attribute name="shortBody" type="String" default="" />
+    <aura:attribute name="Categories" type="String" default="" />
+    <aura:attribute name="voteStatus" type="String" default="" />
+    <aura:attribute name="voteTotal" type="String" default="{!v.item.VoteTotal}" />
+    <aura:attribute name="activeTab" type="String" default="tabIdeaComments" />
+    <aura:attribute name="activeTabClass" type="String" default="slds-tabs--default__item slds-text-heading--label slds-active" />
+    <aura:attribute name="inactiveTabClass" type="String" default="slds-tabs--default__item slds-text-heading--label" />
+    <aura:attribute name="hiddenTabClass" type="String" default="slds-tabs--default__content slds-hide" />
+    <aura:attribute name="visibleTabClass" type="String" default="slds-tabs--default__content slds-show" />
+
+    <aura:registerEvent name="openIdeaEvent" type="c:brLghtIdeasOpenIdea" />
+    <aura:registerEvent name="ideasErrorEvent" type="c:brLghtIdeasError" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="updateCommentsNumber" event="c:brUpdateEvent" action="{!c.updateCommentsNumberHandler}" />
+
+    <div class="{!'idea-item' + (v.isCreated ? ' new' : '') + (v.showDetails ? ' opened' : '')}">
+        <div class="slds-grid slds-wrap slds-grid_vertical-stretch">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-8 slds-p-around_medium info">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col image">
+                        <a href="{!'profile/' + v.item.CreatedById}">
+                            <img src="{!v.item.CreatorSmallPhotoUrl}" alt="User photo" />
+                        </a>
+                    </div>
+                    <div class="slds-col vote">
+                        <div class="vote-points">
+                            <ui:outputText value="{!v.voteTotal}" />&nbsp;{!$Label.c.points}
+                        </div>
+                        <aura:if isTrue="{!empty(v.item.ParentIdeaId)}">
+                            <div class="vote-buttons">
+                                <aura:if isTrue="{!v.voteStatus == 'undefined'}">
+                                    <a href="javascript:void(0)" class="up" onclick="{!c.pushVote}" data-value="Up">
+                                        <span class="vote-thumbup-ico" data-value="Up"></span>
+                                    </a>
+                                    <a href="javascript:void(0)" class="down" onclick="{!c.pushVote}" data-value="Down">
+                                        <span class="vote-thumbdown-ico" data-value="Down"></span>
+                                    </a>
+                                </aura:if>
+                                <aura:if isTrue="{!v.voteStatus == 'Up'}">
+                                    <div class="up selected"><span class="vote-thumbup-ico active"></span></div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.voteStatus == 'Down'}">
+                                    <div class="down selected"><span class="vote-thumbdown-ico active"></span></div>
+                                </aura:if>
+                            </div>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_7-of-8 slds-p-around_small details">
+                <aura:if isTrue="{!v.showDetails}">
+                    <a href="#list" class="slds-button slds-button_neutral slds-button_small close-btn"
+                       onclick="{!c.toggleIdea}">{!$Label.c.Close}</a>
+                </aura:if>
+                <p class="slds-text-body_small">
+                    <aura:if isTrue="{!v.commonVars.enableProfileLink}">
+                        <a href="{!'profile/' + v.item.CreatedById}"><c:brUserDisplayName userId="{!v.item.CreatedById}" /></a>
+                    </aura:if>
+                    <aura:if isTrue="{!not(v.commonVars.enableProfileLink)}">
+                        <c:brUserDisplayName userId="{!v.item.CreatedById}" />
+                    </aura:if>
+                </p>
+                <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">
+                    <aura:if isTrue="{!not(v.showDetails)}">
+                        <a href="{!'#' + v.item.Id}" onclick="{!c.toggleIdea}"><ui:outputText value="{!v.item.Title}" /></a>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showDetails}">
+                        <a href="#list" onclick="{!c.toggleIdea}"><ui:outputText value="{!v.item.Title}" /></a>
+                    </aura:if>
+                    <aura:if isTrue="{!not(empty(v.item.ParentIdeaId))}"> ({!$Label.c.Merged})</aura:if>
+                </h2>
+
+                <div class="slds-clearfix">
+                    <aura:if isTrue="{!not(empty(v.item.Status))}">
+                        <div class="slds-m-bottom_xx-small slds-float_left slds-m-right_small status">
+                            <span class="slds-badge slds-theme_shade">{!v.item.Status}</span>
+                        </div>
+                    </aura:if>
+
+                    <aura:if isTrue="{!not(empty(v.Categories))}">
+                        <div class="slds-float_left slds-m-left_small category">
+                            <span>{!v.Categories}</span>
+                        </div>
+                    </aura:if>
+                </div>
+
+                <aura:if isTrue="{!not(v.showDetails)}">
+                    <div class="slds-m-vertical_small short-body">
+                        <aura:unescapedHtml value="{!v.shortBody}" />
+                    </div>
+                </aura:if>
+
+                <aura:if isTrue="{!v.showDetails}">
+                    <div class="slds-m-vertical_small body">
+                        <aura:unescapedHtml value="{!v.item.Body}" />
+                    </div>
+                    
+                    <div class="slds-tabs_default" aura:id="ideaTabs">
+                        <ul class="slds-tabs_default__nav tabs" role="tablist">
+                            <li class="{!v.activeTab == 'tabIdeaComments' ? v.activeTabClass : v.inactiveTabClass}" 
+                                title="Comments" role="presentation">
+                                <a class="slds-tabs--default__link" href="javascript:void(0)" role="tab" tabindex="0" 
+                                   aria-selected="{!v.activeTab == 'tabIdeaComments' ? 'true' : 'false'}" 
+                                   aria-controls="tabIdeaComments" id="tabIdeaComments" onclick="{!c.openTab}">{!$Label.c.CommentsTabLabel}</a>
+                            </li>
+                            <li class="{!v.activeTab == 'tabIdeaVotes' ? v.activeTabClass : v.inactiveTabClass}" 
+                                title="Votes" role="presentation">
+                                <a class="slds-tabs--default__link slds-m-right--large" href="javascript:void(0)" role="tab" tabindex="-1"
+                                   aria-selected="{!v.activeTab == 'tabIdeaVotes' ? 'true' : 'false'}" 
+                                   aria-controls="tabIdeaVotes" id="tabIdeaVotes" onclick="{!c.openTab}">{!$Label.c.VotesTabLabel}</a>
+                                <span class="slds-badge slds-p-horizontal--small count"><c:brLghtIdeasVotesCount ideaId="{!v.item.Id}" /></span>
+                            </li>
+                            <aura:if isTrue="{!v.mergedIdeas.length > 0}">
+                                <li class="{!v.activeTab == 'tabIdeaMerged' ? v.activeTabClass : v.inactiveTabClass}" 
+                                    title="Merged" role="presentation">
+                                    <a class="slds-tabs--default__link" href="javascript:void(0)" role="tab" tabindex="-2"
+                                       aria-selected="{!v.activeTab == 'tabIdeaMerged' ? 'true' : 'false'}" 
+                                       aria-controls="tabIdeaMerged" id="tabIdeaMerged" onclick="{!c.openTab}">{!$Label.c.MergedTabLabel}</a>
+                                </li>
+                            </aura:if>
+                        </ul>
+                        <div class="{!v.activeTab == 'tabIdeaComments' ? v.visibleTabClass : v.hiddenTabClass}" 
+                             role="tabpanel" aria-labelledby="tabIdeaComments">
+                            <c:brLghtIdeasCommentsList ideaId="{!v.item.Id}" commonVars="{!v.commonVars}"
+                                                          allowPostComment="{!empty(v.item.ParentIdeaId)}" />
+                        </div>
+                        <div class="{!v.activeTab == 'tabIdeaVotes' ? v.visibleTabClass : v.hiddenTabClass}" 
+                             role="tabpanel" aria-labelledby="tabIdeaVotes">
+                            <c:brLghtIdeasVotesList ideaId="{!v.item.Id}" />
+                        </div>
+                        <div class="{!v.activeTab == 'tabIdeaMerged' ? v.visibleTabClass : v.hiddenTabClass}" 
+                             role="tabpanel" aria-labelledby="tabIdeaMerged">
+                            <ul class="merged-ideas-list">
+                                <aura:iteration items="{!v.mergedIdeas}" var="mi">
+                                    <li class="slds-m-bottom--small">
+                                        <h3><a href="{#'#' + mi.Id}" target="_blank">{#mi.Title}</a></h3>
+                                        <span class="slds-text-body--small"><ui:outputDateTime value="{#mi.CreatedDate}"
+                                                                                               format="MMMM d, y" /></span>
+                                    </li>
+                                </aura:iteration>
+                            </ul>
+                        </div>
+                    </div>
+                </aura:if>
+                <div class="slds-text-body--small bottom-info">
+                    <span><ui:outputDateTime value="{!v.item.CreatedDate}" format="MMMM d, y" /></span>
+                    <span class="delim"> &bull; </span>
+                    <span>{!v.item.NumComments}&nbsp;{!$Label.c.Comments}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

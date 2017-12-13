@@ -1,0 +1,258 @@
+<aura:component controller="brLghtIdeasController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="commonVars" type="Object" description="Used to share common variables for child components" />
+    <aura:attribute name="orderBy" type="String" default="Popular" access="global" />
+    <aura:attribute name="orderByLabel" type="String" description="Label for selected item from orderBy options" />
+    <aura:attribute name="userInfo" type="Object" description="Represents information about current user" />
+    <aura:attribute name="systemMessage" type="Object" />
+    <aura:attribute name="currentPage" type="Integer" default="1" description="Current list page" />
+    <aura:attribute name="pagesTotal" type="Integer" default="1" description="Calculated amount list pages for current query" />
+    <aura:attribute name="searchQuery" type="String" description="Search phrase" />
+    <aura:attribute name="filters" type="Object" description="All filters options and status" />
+    <aura:attribute name="listItems" type="Idea[]" description="Loaded ideas objects" />
+    <aura:attribute name="itemsCount" type="Integer" default="0" description="Total amount of ideas according to selected filters" />
+    <aura:attribute name="listLoading" type="Boolean" default="false" description="Using to define loading status" />
+    <aura:attribute name="debugStartTime" type="Integer" description="Stores timestamp of start execution" />
+
+    <aura:attribute name="communityName" type="String" access="global" />
+    <aura:attribute name="title" type="String" default="Ideas by AdvancedCommunities" access="global" />
+    <aura:attribute name="categoriesSource" type="String" default="Ideas categories" access="global" description="Using to switch between native ideas categories and custom settings values" />
+    <aura:attribute name="loginPage" type="String" default="login" access="global" description="Community Login Page URL" />
+    <aura:attribute name="itemsPerPage" type="Integer" default="5" access="global" description="List ideas amount per page" />
+    <aura:attribute name="configDisplayIdeasCount" type="Boolean" default="false" access="global" />
+    <aura:attribute name="configFiltersCollapse" type="Boolean" default="false" access="global" />
+    <aura:attribute name="configLayoutName" type="String" default="Default" access="global" />
+    <aura:attribute name="configEnableProfileLink" type="Boolean" default="true" access="global" description="Using to disable link to profile for users names" />
+    <aura:attribute name="configSearchByTitleOnly" type="Boolean" default="false" access="global" description="Using with searchQuery attribute to enable simplest search condition only by Title field" />
+
+    <aura:registerEvent name="ideasErrorEvent" type="c:brLghtIdeasError" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="openIdeaEvent" event="c:brLghtIdeasOpenIdea" action="{!c.handleOpenIdea}" />
+    <aura:handler name="ideasErrorEvent" event="c:brLghtIdeasError" action="{!c.handleErrorEvent}" />
+    <aura:handler name="ideaCreateSuccess" event="c:brLghtIdeaCreated" action="{!c.handleIdeaCreated}" />
+
+    <ltng:require styles="{!$Resource.LghtIdeas + '/css/style.css'}" />
+
+    <div class="{!'slds lght-ideas layout-' + v.configLayoutName}">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size--1-of-1 slds-order--2 slds-large-order--1">
+                <div class="slds-grid slds-p-around--x-small slds-m-bottom--small header">
+                    <div class="slds-col title">
+                        <h1 class="slds-text-heading--small">
+                            {!v.title} <span class="count" style="{!v.configDisplayIdeasCount ? '' : 'display:none;'}">{!v.itemsCount}&nbsp;{!$Label.c.IdeasCountLabel}{!v.itemsCount > 1 ? 's' : ''}</span>
+                        </h1>
+                    </div>
+                    <div class="slds-col slds-p-right--xx-small search-input">
+                        <ui:inputText aura:id="searchInput" value="{!v.searchQuery}" class="slds-input" change="{!c.searchIdeas}" />
+                        <a href="javascript:void(0)" onclick="{!c.searchIdeas}" class="btn"><img src="{!$Resource.LghtIdeas + '/images/search-btn.png'}" alt="Search" /></a>
+                    </div>
+                    <div class="slds-col--bump-left slds-m-right--xx-small">
+                        <ui:menu class="slds-dropdown-trigger slds-m-left-small">
+                            <ui:menuTriggerLink class="slds-button slds-button--neutral" aura:id="sortByListTrigger">
+                                {!v.orderByLabel}
+                                <img src="{!$Resource.LghtIdeas + '/images/dropdown-arrow.png'}" class="slds-button__icon--right" alt="" />
+                            </ui:menuTriggerLink>
+                            <ui:menuList >
+                                <ui:actionMenuItem label="{!$Label.c.TrendingSorting}" click="{!c.orderByTrending}"
+                                                   class="slds-p-horizontal--small slds-m-bottom--xx-small" />
+                                <ui:actionMenuItem label="{!$Label.c.PopularSorting}" click="{!c.orderByPopular}"
+                                                   class="slds-p-horizontal--small slds-m-bottom--xx-small" />
+                                <ui:actionMenuItem label="{!$Label.c.RecentSorting}" click="{!c.orderByRecent}"
+                                                   class="slds-p-horizontal--small slds-m-bottom--xx-small" />
+                            </ui:menuList>
+                        </ui:menu>
+                    </div>
+                    <div class="slds-col--bump-left post-idea-button">
+                        <aura:if isTrue="{!and(not(empty(v.userInfo.Type)), notequals(v.userInfo.Type,'Guest'))}">
+                            <ui:button label="{!$Label.c.OpenPostIdea}" class="slds-button slds-button--brand"
+                                       press="{!c.openCreateDialog}" />
+                        </aura:if>
+                        <aura:if isTrue="{!equals(v.userInfo.Type, 'Guest')}">
+                            <a href="{!v.loginPage}" class="slds-button slds-button--brand">{!$Label.c.OpenPostIdea}</a>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size--1-of-5 slds-order--2 slds-p-right--small slds-p-bottom--small filters-block">
+                <div class="slds-m-bottom--medium filter-selector">
+                    <div class="{!v.filters.showBy.opened ? 'opened' : ''}">
+                        <h3 class="slds-m-bottom--xx-small title">
+                            {!$Label.c.ShowTitle}
+                            <span class="arrow" onclick="{!c.toggleFilter}" data-target="showBy"></span>
+                        </h3>
+                        <ul class="list">
+                            <li onclick="{!c.selectFilter}" data-name="showBy" data-value=""
+                                class="{!empty(v.filters.showBy.selected) ? 'active' : ''}">{!$Label.c.All}</li>
+                            <li onclick="{!c.selectFilter}" data-name="showBy" data-value="createdByMe"
+                                class="{!v.filters.showBy.selected == 'createdByMe' ? 'active' : ''}">{!$Label.c.MyIdeas}</li>
+                            <li onclick="{!c.selectFilter}" data-name="showBy" data-value="commentedByMe"
+                                class="{!v.filters.showBy.selected == 'commentedByMe' ? 'active' : ''}">{!$Label.c.CommentedByMe}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slds-m-bottom--medium filter-selector">
+                    <div class="{!v.filters.category.opened ? 'opened' : ''}">
+                        <h3 class="slds-m-bottom--xx-small title">
+                            {!$Label.c.CategoryTitle}
+                            <span class="arrow" onclick="{!c.toggleFilter}" data-target="category"></span>
+                        </h3>
+                        <ul class="list">
+                            <li onclick="{!c.selectFilter}" data-name="category" data-value=""
+                                class="{!empty(v.filters.category.selected) ? 'active' : ''}">{!$Label.c.All}</li>
+                            <aura:iteration items="{!v.filters.category.options}" var="cat">
+                                <li onclick="{!c.selectFilter}" data-name="category" data-value="{#cat.value}"
+                                    class="{!cat.value == v.filters.category.selected ? 'active' : ''}">{#cat.label}</li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slds-m-bottom--medium filter-selector">
+                    <div class="{!v.filters.status.opened ? 'opened' : ''}">
+                        <h3 class="slds-m-bottom--xx-small title">
+                            {!$Label.c.StatusTitle}
+                            <span class="arrow" onclick="{!c.toggleFilter}" data-target="status"></span>
+                        </h3>
+                        <ul class="list">
+                            <li onclick="{!c.selectFilter}" data-name="status" data-value=""
+                                class="{!empty(v.filters.status.selected) ? 'active' : ''}">{!$Label.c.All}</li>
+                            <aura:iteration items="{!v.filters.status.options}" var="s">
+                                <li onclick="{!c.selectFilter}" data-name="status" data-value="{#s.value}"
+                                    class="{!s.value == v.filters.status.selected ? 'active' : ''}">{#s.label}</li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size--1-of-1 slds-order--1 slds-p-bottom--small mobile-filters-block">
+                <div class="slds-m-bottom--medium filter-selector">
+                    <div class="{!v.filters.showBy.mOpened ? 'opened' : ''}">
+                        <h3 class="slds-m-bottom--xx-small title" onclick="{!c.toggleFilterMobile}" data-target="showBy">
+                            {!$Label.c.ShowTitle}
+                            <span class="val">
+                                {!empty(v.filters.showBy.selected) ? $Label.c.All :
+                                        v.filters.showBy.selected == 'createdByMe' ? $Label.c.MyIdeas :
+                                        v.filters.showBy.selected == 'commentedByMe' ? $Label.c.CommentedByMe : 'na'}
+                            </span>
+                        </h3>
+                        <ul class="list">
+                            <li onclick="{!c.selectFilter}" data-name="showBy" data-value=""
+                                class="{!empty(v.filters.showBy.selected) ? 'active' : ''}">{!$Label.c.All}</li>
+                            <li onclick="{!c.selectFilter}" data-name="showBy" data-value="createdByMe"
+                                class="{!v.filters.showBy.selected == 'createdByMe' ? 'active' : ''}">{!$Label.c.MyIdeas}</li>
+                            <li onclick="{!c.selectFilter}" data-name="showBy" data-value="commentedByMe"
+                                class="{!v.filters.showBy.selected == 'commentedByMe' ? 'active' : ''}">{!$Label.c.CommentedByMe}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slds-m-bottom--medium filter-selector">
+                    <div class="{!v.filters.category.mOpened ? 'opened' : ''}">
+                        <h3 class="slds-m-bottom--xx-small title" onclick="{!c.toggleFilterMobile}" data-target="category">
+                        {!$Label.c.CategoryTitle}
+                            <span class="val">
+                                {!empty(v.filters.category.selected) ? $Label.c.All : v.filters.category.selected}
+                            </span>
+                        </h3>
+                        <ul class="list">
+                            <li onclick="{!c.selectFilter}" data-name="category" data-value=""
+                                class="{!empty(v.filters.category.selected) ? 'active' : ''}">{!$Label.c.All}</li>
+                            <aura:iteration items="{!v.filters.category.options}" var="cat">
+                                <li onclick="{!c.selectFilter}" data-name="category" data-value="{#cat.value}"
+                                    class="{!cat.value == v.filters.category.selected ? 'active' : ''}">{#cat.label}</li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slds-m-bottom--medium filter-selector">
+                    <div class="{!v.filters.status.mOpened ? 'opened' : ''}">
+                        <h3 class="slds-m-bottom--xx-small title" onclick="{!c.toggleFilterMobile}" data-target="status">
+                        {!$Label.c.StatusTitle}
+                            <span class="val">
+                                {!empty(v.filters.status.selected) ? $Label.c.All : v.filters.status.selected}
+                            </span>
+                        </h3>
+                        <ul class="list">
+                            <li onclick="{!c.selectFilter}" data-name="status" data-value=""
+                                class="{!empty(v.filters.status.selected) ? 'active' : ''}">{!$Label.c.All}</li>
+                            <aura:iteration items="{!v.filters.status.options}" var="s">
+                                <li onclick="{!c.selectFilter}" data-name="status" data-value="{#s.value}"
+                                    class="{!s.value == v.filters.status.selected ? 'active' : ''}">{#s.label}</li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size--1-of-1 slds-large-size--4-of-5 slds-order--3">
+                <aura:if isTrue="{!not(empty(v.systemMessage.body))}">
+                    <div class="slds-notify_container slds-m-bottom--small">
+                        <div class="slds-notify slds-notify--alert slds-theme--alert-texture">
+                            <h2>{!v.systemMessage.body}</h2>
+                        </div>
+                    </div>
+                </aura:if>
+                <div class="ideas-list">
+                    <aura:if isTrue="{!v.configLayoutName == $Label.c.defaultLayoutName}">
+                        <aura:iteration items="{!v.listItems}" var="i">
+                            <c:brLghtIdeasItem aura:id="listItem" item="{#i}" commonVars="{!v.commonVars}"></c:brLghtIdeasItem>
+                        </aura:iteration>
+                    </aura:if>
+                    <aura:if isTrue="{!v.configLayoutName == $Label.c.mulsLayoutName}">
+                        <aura:iteration items="{!v.listItems}" var="i">
+                            <c:brLghtIdeasItemCustom aura:id="listItem" item="{#i}" commonVars="{!v.commonVars}"></c:brLghtIdeasItemCustom>
+                            <div class="slds-m-top--small"></div>
+                        </aura:iteration>
+                    </aura:if>
+                </div>
+                <aura:if isTrue="{!v.listLoading}">
+                    <div class="slds-grid slds-grid--align-center slds-p-vertical--large">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!or(v.listItems.length > 0, v.listLoading)}">
+                    <div class="slds-grid slds-grid--align-center slds-m-vertical--medium">
+                        <div class="slds-col--padded">
+                            <aura:if isTrue="{!greaterthan(v.currentPage, 1)}">
+                                <a href="javascript:void(0)" class="slds-button slds-button--brand" onclick="{!c.openPreviousPage}">
+                                    {!$Label.c.PreviousPagination}
+                                </a>
+                                <aura:set attribute="else">
+                                    <div class="slds-button slds-button--neutral">
+                                        {!$Label.c.PreviousPagination}
+                                    </div>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                        <div class="slds-col--padded slds-p-top--x-small">
+                            <span class="slds-text-body--regular pages">{!v.currentPage}&nbsp;{!$Label.c.of}&nbsp;{!v.pagesTotal}</span>
+                        </div>
+                        <div class="slds-col--padded">
+                            <aura:if isTrue="{!and(greaterthan(v.pagesTotal, 1), lessthan(v.currentPage, v.pagesTotal))}">
+                                <a href="javascript:void(0)" class="slds-button slds-button--brand" onclick="{!c.openNextPage}">
+                                    {!$Label.c.NextPagination}
+                                </a>
+                                <aura:set attribute="else">
+                                    <div class="slds-button slds-button--neutral">
+                                        {!$Label.c.NextPagination}
+                                    </div>
+                                </aura:set>
+                            </aura:if>
+                        </div>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!and(v.listItems.length == 0, !v.listLoading)}">
+                    <p class="slds-text-body--large slds-text-align--center slds-m-vertical--medium">
+                        {!$Label.c.NoItemsMsg}
+                    </p>
+                </aura:if>
+            </div>
+        </div>
+        <c:brLghtIdeaCreateForm aura:id="ideaCreateForm" />
+    </div>
+
+    <div style="display: none;">
+        <a href="{!v.loginPage}" aura:id="hiddenLoginBtn"></a>
+    </div>
+
+</aura:component>
