@@ -1,0 +1,59 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes"
+                controller="brCommunitySpotlightCtrl"
+                description="brCommunitySpotlight">
+    <aura:attribute name="user" type="Object"/>
+
+    <aura:attribute name="currentId" type="String"/>
+    <aura:attribute name="currentTitle" type="String" default="Community Spotlight"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="row row--pad p-bottom-100 p-bottom-60--media-md">
+        <div class="column-lg-6 column-md-12 column--pad m-bottom-40">
+            <h2 class="h2 m-bottom-50r text-center">{!v.currentTitle}</h2>
+
+            <aura:renderIf isTrue="{!(!!v.user)}">
+                <div class="panel-person-ext">
+                    <div class="panel-person-ext__head">
+                        <div class="panel-person-ext__head-content">
+                            <h3 class="panel-person-ext__title truncated">{!v.user.name}</h3>
+                        </div>
+                    </div>
+                    <div class="panel-person-ext__body">
+                        <div class="panel-person-ext__body-left">
+                            <div class="panel-person-ext__wrap-icon">
+                                <img src="{!v.user.mPhotoUrl}" alt="{!v.user.name}"/>
+                            </div>
+                            <span class="panel-person-ext__status truncated">{!v.user.authority}</span>
+                            <span class="panel-person-ext__meta truncated">{!v.user.score} points</span>
+                        </div>
+                        <div class="panel-person-ext__body-right">
+                            <div class="panel-person-ext__wrap-stat">
+                                <div class="panel-person-ext__stat">
+                                    <div class="panel-person-ext__stat-col">
+                                        <span class="panel-person-ext__stat-title truncated">Posts</span>
+                                        <span class="panel-person-ext__stat-text truncated">{!v.user.posts}</span>
+                                    </div>
+                                    <div class="panel-person-ext__stat-col">
+                                        <span class="panel-person-ext__stat-title truncated">Comments</span>
+                                        <span class="panel-person-ext__stat-text truncated">{!v.user.comments}</span>
+                                    </div>
+                                    <div class="panel-person-ext__stat-col">
+                                        <span class="panel-person-ext__stat-title truncated">Likes</span>
+                                        <span class="panel-person-ext__stat-text truncated">{!v.user.likes}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void(0);"
+                               class="button button--hollow-primary button--sm"
+                               onclick="{!c.onClickViewProfile}"
+                               data-id="{!v.user.id}">
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aura:renderIf>
+        </div>
+    </div>
+</aura:component>

@@ -11,7 +11,7 @@
 	},
     navigateToArticle : function (component, event, helper) {
         console.log(event);
-        var target = event.target,
+        var target = event.target.closest('li'),
             id = target.getAttribute('data-id'),
             navEvt = $A.get("e.force:navigateToSObject");
         navEvt.setParams({

@@ -64,6 +64,7 @@
         <members>defaultTokens</members>
         <members>brOneColumnLayout</members>
         <members>brFeaturedArticles</members>
+		<members>brCommunitySpotlight</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -71,6 +72,11 @@
         <name>CustomLabels</name>
     </types>
     <types>
+		<members>brCommunitySpotlightCtrl</members>
+		<members>brCommunitySpotlightCtrlTest</members>
+		<members>brCommunitySpotlightModel</members>
+		<members>brCommunitySpotlightService</members>
+		<members>brCommunitySpotlightServiceSelector</members>
         <members>brAlgoliaSearchTest</members>
         <members>brArticleContentTest</members>
         <members>brArticleContentController</members>
