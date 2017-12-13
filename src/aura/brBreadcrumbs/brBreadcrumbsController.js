@@ -1,5 +1,9 @@
 ({
     doInit : function(component, event, helper) {
+
+        if($A.get("$Browser.formFactor") === 'PHONE')
+            return;
+
         helper.processStaff(component, event);
     },
     toggleCrumbs : function(component, event, helper) {

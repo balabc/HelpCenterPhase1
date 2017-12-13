@@ -12,46 +12,46 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-    <!-- [RecordID:{!v.recordId}] -->
-
-    <div class="breadcrumbs">
-        <aura:if isTrue="{!v.isReady}">
-            <div class="breadcrumbs__item" >
-                <a href="javascript:void(0);" class="link link--xsm breadcrumbs__link"  data-value="{!v.breadCrumbHome.url}" data-listviewid="{!v.breadCrumbHome.listViewId}" data-type="{!v.breadCrumbHome.itemtype}" onclick="{!c.onClick}">{!v.breadCrumbHome.label}</a>
-            </div>
-            <aura:if isTrue="{!v.breadCrumbRoot.url != ''}">
-                <div class="breadcrumbs__item">
-                    <a href="javascript:void(0);" class="link link--xsm breadcrumbs__link"  data-value="{!v.breadCrumbRoot.url}" data-listviewid="{!v.breadCrumbRoot.listViewId}" data-type="{!v.breadCrumbRoot.itemtype}" onclick="{!c.onClick}">{!v.breadCrumbRoot.label}</a>
+    <aura:if isTrue="{!$Browser.formFactor != 'PHONE'}">
+        <div class="breadcrumbs">
+            <aura:if isTrue="{!v.isReady}">
+                <div class="breadcrumbs__item" >
+                    <a href="javascript:void(0);" class="link link--xsm breadcrumbs__link"  data-value="{!v.breadCrumbHome.url}" data-listviewid="{!v.breadCrumbHome.listViewId}" data-type="{!v.breadCrumbHome.itemtype}" onclick="{!c.onClick}">{!v.breadCrumbHome.label}</a>
                 </div>
-            </aura:if>
-            <div class="breadcrumbs__item">
-                <div class="breadcrumbs__wrap-dropdown">
-                    <div class="breadcrumbs__dropdown-trigger" onclick="{!c.toggleCrumbs}">
-                        <span class="breadcrumbs__dropdown-trigger-text">{!v.breadCrumbParent.label}</span>
+                <aura:if isTrue="{!v.breadCrumbRoot.url != ''}">
+                    <div class="breadcrumbs__item">
+                        <a href="javascript:void(0);" class="link link--xsm breadcrumbs__link"  data-value="{!v.breadCrumbRoot.url}" data-listviewid="{!v.breadCrumbRoot.listViewId}" data-type="{!v.breadCrumbRoot.itemtype}" onclick="{!c.onClick}">{!v.breadCrumbRoot.label}</a>
                     </div>
-                    <div class="breadcrumbs__dropdown-position">
-                        <div class="dropdown breadcrumbs__dropdown"> <!-- breadcrumbs__dropdown- -active -->
-                            <div class="dropdown__body breadcrumbs__dropdown-body">
-                                <ul class="breadcrumbs__dropdown-list">
+                </aura:if>
+                <div class="breadcrumbs__item">
+                    <div class="breadcrumbs__wrap-dropdown">
+                        <div class="breadcrumbs__dropdown-trigger" onclick="{!c.toggleCrumbs}">
+                            <span class="breadcrumbs__dropdown-trigger-text">{!v.breadCrumbParent.label}</span>
+                        </div>
+                        <div class="breadcrumbs__dropdown-position">
+                            <div class="dropdown breadcrumbs__dropdown"> <!-- breadcrumbs__dropdown- -active -->
+                                <div class="dropdown__body breadcrumbs__dropdown-body">
+                                    <ul class="breadcrumbs__dropdown-list">
 
-                                    <aura:iteration items="{!v.breadCrumbSubItems}" var="breadcrumb">
-                                        <li class="{!breadcrumb.active? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
-                                            <a href="javascript:void(0);" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" class="breadcrumbs__dropdown-link truncated" onclick="{!c.onClick}">
+                                        <aura:iteration items="{!v.breadCrumbSubItems}" var="breadcrumb">
+                                            <li class="{!breadcrumb.active? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
+                                                <a href="javascript:void(0);" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" class="breadcrumbs__dropdown-link truncated" onclick="{!c.onClick}">
                                                 {!breadcrumb.label}
-                                                <aura:if isTrue="{!breadcrumb.itemtype == 'ExternalLink'}">
-                                                    &nbsp;<span class="icon-svg-docs-sm"></span>
-                                                </aura:if>
-                                            </a>
-                                        </li>
-                                    </aura:iteration>
+                                                    <aura:if isTrue="{!breadcrumb.itemtype == 'ExternalLink'}">
+                                                        &nbsp;<span class="icon-svg-docs-sm"></span>
+                                                    </aura:if>
+                                                </a>
+                                            </li>
+                                        </aura:iteration>
 
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </aura:if>
-    </div>
+            </aura:if>
+        </div>
+    </aura:if>
 
 </aura:component>
