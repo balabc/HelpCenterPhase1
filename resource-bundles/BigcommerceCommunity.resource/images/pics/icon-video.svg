@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="55px" viewBox="0 0 95 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-video</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="0%" x2="-34.1911765%" y2="134.855143%" id="linearGradient-1">
+            <stop stop-color="#78C1FF" offset="0%"></stop>
+            <stop stop-color="#7A4FF6" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Knowledge-Base-Landing-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-117.000000, -681.000000)">
+        <g id="Featured-Cards" transform="translate(77.000000, 341.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="Videos-Feature-Card" transform="translate(0.000000, 282.000000)">
+                <path d="M131.143162,58.8119658 L108.814103,74.8482906 L108.814103,63.4807692 C108.814103,60.4358974 106.378205,58 103.333333,58 L45.4807692,58 C42.4358974,58 40,60.4358974 40,63.4807692 L40,106.717949 C40,109.762821 42.4358974,112.198718 45.4807692,112.198718 L103.536325,112.198718 C106.581197,112.198718 109.017094,109.762821 109.017094,106.717949 L109.017094,95.5534188 L131.143162,111.386752 C132.564103,112.807692 135,111.792735 135,109.762821 L135,60.4358974 C135,58.4059829 132.564103,57.3910256 131.143162,58.8119658 Z" id="icon-video"></path>
+            </g>
+        </g>
+    </g>
+</svg>

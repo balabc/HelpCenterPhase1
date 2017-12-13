@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="139px" height="85px" viewBox="0 0 139 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-spotlight</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5,0 L543,0 C545.761424,-5.07265313e-16 548,2.23857625 548,5 L548,85 L0,85 L0,5 C-3.38176876e-16,2.23857625 2.23857625,5.07265313e-16 5,0 Z" id="path-1"></path>
+        <linearGradient x1="50%" y1="17.7838308%" x2="50%" y2="139.271573%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0.19" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Community-LP---Non-Authenticated" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-487.000000, -1619.000000)">
+        <g id="Community-Spotlight" transform="translate(78.000000, 1533.000000)">
+            <g id="icon-spotlight" transform="translate(0.000000, 86.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Rectangle-Copy-15"></g>
+                <polygon id="Triangle-3" fill="url(#linearGradient-3)" opacity="0.509171196" mask="url(#mask-2)" transform="translate(492.128511, 53.170983) rotate(143.000000) translate(-492.128511, -53.170983) " points="492.128511 -40.2535307 526.289919 146.595496 457.967102 146.595496"></polygon>
+                <polygon id="Triangle-3" fill="url(#linearGradient-3)" opacity="0.415704257" mask="url(#mask-2)" transform="translate(513.838592, 45.216871) rotate(-145.000000) translate(-513.838592, -45.216871) " points="513.838592 -48.2076429 548 138.641384 479.677183 138.641384"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
