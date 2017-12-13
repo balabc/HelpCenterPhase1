@@ -9,6 +9,15 @@
             <layoutItems>
                 <field>Article__c</field>
             </layoutItems>
+            <layoutItems>
+                <field>Section_Anchors__c</field>
+            </layoutItems>
+            <layoutItems>
+                <field>Sort_Oder_in_Category__c</field>
+            </layoutItems>
+            <layoutItems>
+                <field>Guide_Title__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

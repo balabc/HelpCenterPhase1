@@ -145,6 +145,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sort_Oder_in_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Sort Oder in Category</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sort_Order__c</fullName>
         <description>Controls the placement of this video in the order of videos on the BCU landing page</description>
         <externalId>false</externalId>
@@ -203,6 +213,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>University</label>
-    <pluralLabel>University</pluralLabel>
+    <label>Video</label>
+    <pluralLabel>Videos</pluralLabel>
 </CustomObject>

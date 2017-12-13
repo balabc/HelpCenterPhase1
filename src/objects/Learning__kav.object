@@ -67,6 +67,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Guide_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Guide Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Nav_Title__c</fullName>
         <description>This field should contain the title used in the left navigation to be set as active</description>
         <externalId>false</externalId>
@@ -100,6 +110,26 @@
         <trackHistory>false</trackHistory>
         <type>Url</type>
     </fields>
-    <label>Learning</label>
-    <pluralLabel>Learning</pluralLabel>
+    <fields>
+        <fullName>Section_Anchors__c</fullName>
+        <externalId>false</externalId>
+        <label>Section Anchors</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sort_Oder_in_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Sort Oder in Category</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Learning Guide</label>
+    <pluralLabel>Learning Guides</pluralLabel>
 </CustomObject>

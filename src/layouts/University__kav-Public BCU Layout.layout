@@ -27,6 +27,9 @@
             <layoutItems>
                 <field>Additional_Resources__c</field>
             </layoutItems>
+            <layoutItems>
+                <field>Sort_Oder_in_Category__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

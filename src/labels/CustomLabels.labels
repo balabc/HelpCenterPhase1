@@ -379,6 +379,13 @@
         <value>Next</value>
     </labels>
     <labels>
+        <fullName>btnNextChapter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NEXT CHAPTER:</shortDescription>
+        <value>NEXT CHAPTER:</value>
+    </labels>
+    <labels>
         <fullName>btnPrev</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -835,6 +842,13 @@
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Type</shortDescription>
         <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>hAllChapters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All Chapters</shortDescription>
+        <value>All Chapters</value>
     </labels>
     <labels>
         <fullName>hArticles</fullName>

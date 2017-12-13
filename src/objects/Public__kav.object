@@ -22,6 +22,56 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <fieldSets>
+        <fullName>Search_Index</fullName>
+        <description>Search Index</description>
+        <displayedFields>
+            <field>ArticleNumber</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ArticleType</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsVisibleInApp</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsVisibleInPkb</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsVisibleInCsp</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsVisibleInPrm</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Article__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Search Index</label>
+    </fieldSets>
     <fields>
         <fullName>Article_Sections__c</fullName>
         <externalId>false</externalId>
@@ -350,6 +400,15 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Section_Anchors__c</fullName>
+        <externalId>false</externalId>
+        <label>Section Anchors</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Solves_For__c</fullName>
         <description>If product guide article what would the title be in the form of a question.</description>
         <externalId>false</externalId>
@@ -359,6 +418,17 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sort_Oder_in_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Sort Oder in Category</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -435,6 +505,6 @@ Algolia Search Discovery - Knowledge &amp; Community</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Public</label>
-    <pluralLabel>Public</pluralLabel>
+    <label>User Doc</label>
+    <pluralLabel>User Docs</pluralLabel>
 </CustomObject>
