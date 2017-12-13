@@ -45,6 +45,24 @@
         <members>brArticleBody</members>
         <members>brKnowledgeArticleLayout</members>
 		<members>brArticleBodyGuideBottomNav</members>
+        <members>brLghtIdeaCreateForm</members>
+        <members>brLghtIdeaCreated</members>
+        <members>brLghtIdeas</members>
+        <members>brLghtIdeasCommentsList</members>
+        <members>brLghtIdeasCommentsListItem</members>
+        <members>brLghtIdeasError</members>
+        <members>brLghtIdeasGlobalSearchResult</members>
+        <members>brLghtIdeasGlobalSearchResultItem</members>
+        <members>brLghtIdeasItem</members>
+        <members>brLghtIdeasItemCustom</members>
+        <members>brLghtIdeasOpenIdea</members>
+        <members>brLghtIdeasVotesCount</members>
+        <members>brLghtIdeasVotesList</members>
+        <members>brLghtSVG</members>
+        <members>brUpdateEvent</members>
+        <members>brUserCategoriesEdit</members>
+        <members>brUserDisplayName</members>
+        <members>defaultTokens</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -110,7 +128,46 @@
         <members>brArticleContentService</members>
         <members>brArticleContentServiceSelector</members>
         <members>brKnowledgeArticleLayoutCtrl</members>
+        <members>brCategoriesAssigneeCtrl</members>
+        <members>brCategoriesAssigneeCtrlTest</members>
+        <members>brCommunityCtrl</members>
+        <members>brCommunityCtrlTest</members>
+        <members>brCommunityHelper</members>
+        <members>brEmailNotification</members>
+        <members>brEmailNotificationTest</members>
+        <members>brIdeaCommentTriggerHandler</members>
+        <members>brIdeaCommentTriggerHandlerTest</members>
+        <members>brIdeaDataSelector</members>
+        <members>brIdeaDataSelectorTest</members>
+        <members>brIdeaSecurityException</members>
+        <members>brIdeaTriggerHandler</members>
+        <members>brIdeaTriggerHandlerTest</members>
+        <members>brIdeasSetupException</members>
+        <members>brLghtIdeasController</members>
+        <members>brLghtIdeasControllerTest</members>
+        <members>brLghtIdeasEventHandler</members>
+        <members>brLghtIdeasHelper</members>
+        <members>brLghtIdeasHelperTest</members>
+        <members>brLghtIdeasInstallHandler</members>
+        <members>brLghtIdeasInstallHandlerTest</members>
+        <members>brLghtIdeasSettingsCtrl</members>
+        <members>brLghtIdeasSettingsCtrlTest</members>
+        <members>brUserCategoriesAssignmentController</members>
+        <members>brUserCategoriesAssignmentControllerTest</members>
+        <members>brUtils</members>
+        <members>brUtilsTest</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>brCategoriesAssignee</members>
+        <members>brCustomLabelsDummy</members>
+        <members>brLghtIdeasSettings</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>brIdeaCommentTrigger</members>
+        <members>brIdeaTrigger</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>brCommunityMetadata.User_Menu_Items</members>
@@ -127,7 +184,33 @@
         <members>brCommunity_Category_Menu_Map__mdt</members>
         <members>brCommunity_Menu_Map__mdt</members>
         <members>brGuideItem__mdt</members>
+        <members>brIdeaSubscription__c</members>
+        <members>brIdeasCategoriesAssignment__c</members>
+        <members>brLghtIdeasCategories__c</members>
+        <members>brLghtIdeasSettings__c</members>
+        <members>brTestEmail__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>brCategories_Assignee</members>
+        <members>brIdeasCategoriesAssignment__c</members>
+        <members>brIdeas_Settings</members>
+        <members>brUser_Ideas_Categories</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>AC_Ideas</members>
+        <members>AC_Ideas/brChangeStatusNotificationToCategoryAssignee</members>
+        <members>AC_Ideas/brChangeStatusNotificationToSubscriber</members>
+        <members>AC_Ideas/brNewCommentNotificationToCategoryAssignee</members>
+        <members>AC_Ideas/brNewCommentNotificationToIdeaOwner</members>
+        <members>AC_Ideas/brNewCommentNotificationToSubscriber</members>
+        <members>AC_Ideas/brNewIdeaNotificationToCategoryAssignee</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>brUser_Ideas_Categories</members>
+        <name>FlexiPage</name>
     </types>
     <types>
         <members>Learning__kav-Learning Layout</members>
@@ -143,6 +226,7 @@
         <members>brJsSlider</members>
         <members>BigcommerceCommunityStyles</members>
         <members>BigcommerceCommunityImages</members>
+        <members>LghtIdeas</members>
         <name>StaticResource</name>
     </types>
     <version>41.0</version>
