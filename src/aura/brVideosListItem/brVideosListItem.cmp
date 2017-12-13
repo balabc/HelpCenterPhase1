@@ -9,7 +9,7 @@
             <div class="panel-preview__head">
                 <div class="panel-preview__wrap-media">
                     <div class="panel-preview__wrap-video">
-                        <img src="{!v.videoArticleForCurrentPage.Thumbnail_Image_URL__c}"/>
+                       <img src="{!v.videoArticleForCurrentPage.Thumbnail_Image_URL__c}" style="width: 100%"/>
                     </div>
                 </div>
             </div>

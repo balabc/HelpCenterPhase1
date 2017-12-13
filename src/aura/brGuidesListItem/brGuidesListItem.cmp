@@ -8,7 +8,7 @@
         <div class="panel panel-preview">
             <div class="panel-preview__head">
                 <div class="panel-preview__wrap-media">
-                    <img src="{!v.guideArticle.Image_Url__c}" title="{!v.guideArticle.Title__c}"
+                    <img src="{!v.guideArticle.Image_Url__c}" title="{!v.guideArticle.Title__c}" style="width: 100%"
                          srcset="{!if(notequals(v.guideArticle.Image_Url_2x__c,null), v.guideArticle.Image_Url_2x__c + ' 2x')}" alt="{!v.guideArticle.Image_Alt__c}" />
                 </div>
             </div>

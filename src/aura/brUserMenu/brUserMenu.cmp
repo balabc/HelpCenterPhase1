@@ -17,7 +17,7 @@
         </aura:if>
     </div>
     <div class="header__profile-dropdown">
-        <div class="header__profile-dropdown-trigger nav-arrow">
+        <div class="header__profile-dropdown-trigger nav-arrow" aura:id="arrow">
             <aura:if isTrue="{!notequals(v.type, null)}">
                 <div class="nav-arrow__handler">
                     <aura:if isTrue="{!notequals(v.type, 'Guest')}">

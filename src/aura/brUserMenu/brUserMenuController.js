@@ -12,8 +12,10 @@
     },
 
     toggleDropdownMenu: function (cmp, event, helper) {
-        var toggleDropdown = cmp.find("dropdownMenu");
+        var toggleDropdown = cmp.find("dropdownMenu"),
+            arrow = cmp.find('arrow');
         $A.util.toggleClass(toggleDropdown, "toggle");
+        $A.util.toggleClass(arrow, "nav-arrow--up");
 
         if (!$A.util.hasClass(toggleDropdown, "toggle")) {
             helper.setUserMenuItems(cmp);
