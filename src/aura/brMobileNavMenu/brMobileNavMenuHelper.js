@@ -21,10 +21,12 @@
             items.shift();
             items.push({id: 'contact', label: $A.get('$Label.c.lnkContact'), hasSubMenu: true, subMenu: [
                 {id: 'ask', label: 'Ask'},
-                {id: 'articles', label: $A.get('$Label.c.lnkArticles')},
-                {id: 'learning_guides', label: 'Learning Guides'},
-                {id: 'videos', label: $A.get('$Label.c.lnkVideos')},
-                {id: 'developer_docs', label: $A.get('$Label.c.lnkDeveloperDocs'), icon: 'icon-svg-docs-sm'},
+                {id: 'email_support', label: $A.get('$Label.c.hEmailSupport'),type: 'ExternalLink', target: 'https://support.bigcommerce.com/SubmitCase'},
+                {id: 'live_chat', label: $A.get('$Label.c.hLiveChat'),type: 'ExternalLink', target: 'https://support.bigcommerce.com/apex/SupportLiveAgentPreChatPage'},
+                //{id: 'articles', label: $A.get('$Label.c.lnkArticles')},
+                //{id: 'learning_guides', label: 'Learning Guides'},
+                //{id: 'videos', label: $A.get('$Label.c.lnkVideos')},
+                //{id: 'developer_docs', label: $A.get('$Label.c.lnkDeveloperDocs'), icon: 'icon-svg-docs-sm'},
                 {id: 'phone_support', label: $A.get('$Label.c.lnkPhoneSupport'), hasSubMenu: true, subMenu: []}
             ]});
             items.push({
