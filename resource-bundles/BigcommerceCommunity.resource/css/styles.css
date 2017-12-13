@@ -5404,3 +5404,7 @@ textarea::placeholder {
 
 .is-mobile .p-bottom-60--media-md {
   padding-bottom: 60px; }
+
+.onePanelManager .uiPanel.open.active {
+    z-index: 10 !important;
+}
