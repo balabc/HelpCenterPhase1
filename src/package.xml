@@ -64,6 +64,7 @@
         <members>defaultTokens</members>
         <members>brOneColumnLayout</members>
         <members>brFeaturedArticles</members>
+        <members>brThemeFooter</members>
 		<members>brCommunitySpotlight</members>
         <name>AuraDefinitionBundle</name>
     </types>
@@ -163,6 +164,9 @@
         <members>brUserCategoriesAssignmentControllerTest</members>
         <members>brUtils</members>
         <members>brUtilsTest</members>
+        <members>brBlogArticleWrapper</members>
+        <members>brBreadcrumbsCtrlTest</members>
+        <members>brMenuListViewCtrl</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -203,6 +207,18 @@
         <members>brLghtIdeasCategories__c</members>
         <members>brLghtIdeasSettings__c</members>
         <members>brTestEmail__c</members>
+        <members>brBlog_Category__c</members>
+        <members>brBlog_Settings__c</members>
+        <members>brBlog_Tag_Assignment__c</members>
+        <members>brBlog_Tag__c</members>
+        <members>brBlog_article__c</members>
+        <members>brCategory_assignment__c</members>
+        <members>brCommunityMetadata__mdt</members>
+        <members>brCommunitySettings__c</members>
+        <members>BR_Event__c</members>
+        <members>BR_Events_Zone__c</members>
+        <members>BR_Participation__c</members>
+        <members>BrEvents_Settings__c</members>
         <name>CustomObject</name>
     </types>
     <types>
