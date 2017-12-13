@@ -14,7 +14,6 @@
         <members>brHeaderMobile</members>
         <members>brCommonQuestions</members>
         <members>brCommunityTheme</members>
-        <members>brNavigationMenu</members>
         <members>brNotifications</members>
         <members>brStatusPagePanel</members>
         <members>brHomeLayout</members>
@@ -44,7 +43,7 @@
         <members>brArticleContent</members>
         <members>brArticleBody</members>
         <members>brKnowledgeArticleLayout</members>
-		<members>brArticleBodyGuideBottomNav</members>
+        <members>brArticleBodyGuideBottomNav</members>
         <members>brLghtIdeaCreateForm</members>
         <members>brLghtIdeaCreated</members>
         <members>brLghtIdeas</members>
@@ -63,15 +62,17 @@
         <members>brUserCategoriesEdit</members>
         <members>brUserDisplayName</members>
         <members>defaultTokens</members>
+        <members>brOneColumnLayout</members>
+        <members>brFeaturedArticles</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
         <members>CustomLabels</members>
         <name>CustomLabels</name>
     </types>
-    <types>		
-		<members>brAlgoliaSearchTest</members>
-		<members>brArticleContentTest</members>
+    <types>
+        <members>brAlgoliaSearchTest</members>
+        <members>brArticleContentTest</members>
         <members>brArticleContentController</members>
         <members>brArticleContentService</members>
         <members>brArticleContentServiceSelector</members>
@@ -162,6 +163,7 @@
         <members>brCategoriesAssignee</members>
         <members>brCustomLabelsDummy</members>
         <members>brLghtIdeasSettings</members>
+        <members>brMenuListView</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -172,6 +174,12 @@
     <types>
         <members>brCommunityMetadata.User_Menu_Items</members>
         <members>brCommunity_Menu_Map.Groups</members>
+        <members>brCommunity_Menu_Map.Events</members>
+        <members>brCommunity_Menu_Map.Ideas</members>
+        <members>brCommunity_Menu_Map.Learning_Guides</members>
+        <members>brCommunity_Menu_Map.Town_Halls</members>
+        <members>brCommunity_Menu_Map.User_Docs</members>
+        <members>brCommunity_Menu_Map.Videos</members>
         <name>CustomMetadata</name>
     </types>
     <types>
@@ -196,6 +204,7 @@
         <members>brIdeasCategoriesAssignment__c</members>
         <members>brIdeas_Settings</members>
         <members>brUser_Ideas_Categories</members>
+        <members>brArticleFeedback__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -210,6 +219,13 @@
     </types>
     <types>
         <members>brUser_Ideas_Categories</members>
+        <members>Support_Article_Detail</members>
+        <members>Support_Community</members>
+        <members>Support_Ideas</members>
+        <members>Support_Knowledge_Base</members>
+        <members>Support_Learning_Guides</members>
+        <members>Support_QA</members>
+        <members>Support_Videos</members>
         <name>FlexiPage</name>
     </types>
     <types>
@@ -219,6 +235,8 @@
         <members>brArticleFeedback__c-brArticleFeedback Layout</members>
         <members>brCommunity_Category_Menu_Map__mdt-Community Category Menu Map Layout</members>
         <members>brCommunity_Menu_Map__mdt-Community Menu Map Layout</members>
+        <members>brCommunityMetadata__mdt-Community Settings Layout</members>
+        <members>brGuideItem__mdt-brGuideItem Layout</members>
         <name>Layout</name>
     </types>
     <types>
