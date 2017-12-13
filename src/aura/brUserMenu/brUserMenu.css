@@ -9,8 +9,7 @@
     height: 45px;
 }
 .THIS .header__profile-dropdown-list {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    margin: 16px 0;
 }
 .THIS .header__profile-dropdown-list-link {
     font-family: 'source_sans_prosemibold', Arial, sans-serif;
