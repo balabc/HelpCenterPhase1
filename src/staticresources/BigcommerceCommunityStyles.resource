@@ -173,6 +173,9 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="true"] {
 body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
     display: none;
 }
+.is-mobile .serp__filter-section {
+    z-index: -1 !important;
+}
 .panel-media {
     padding: 43px 43px 43px 33px;
 }
@@ -197,6 +200,9 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
     .videoDescription {
         width: 100% !important;
         padding: 0 29px 0 30px !important;
+    }
+    .is-mobile .serp__filter-section {
+        z-index: -1 !important;
     }
 }
 

@@ -6,6 +6,7 @@
                 cmp.set('v.type', 'Guest');
             } else {
                 helper.showCurrentUser(cmp);
+                cmp.set('v.type', 'Standard');
             }
         });
     },

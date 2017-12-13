@@ -18,14 +18,16 @@
     </div>
     <div class="header__profile-dropdown">
         <div class="header__profile-dropdown-trigger nav-arrow">
-            <div class="nav-arrow__handler">
-                <aura:if isTrue="{!notequals(v.type, 'Guest')}">
-                    <span class="nav-arrow__icon" onclick="{!c.toggleDropdownMenu}"></span>
-                    <aura:set attribute="else">
-                        <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login">{!$Label.c.lnkLogIn}</a></span>
-                    </aura:set>
-                </aura:if>
-            </div>
+            <aura:if isTrue="{!notequals(v.type, null)}">
+                <div class="nav-arrow__handler">
+                    <aura:if isTrue="{!notequals(v.type, 'Guest')}">
+                        <span class="nav-arrow__icon" onclick="{!c.toggleDropdownMenu}"></span>
+                        <aura:set attribute="else">
+                            <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login header__link">{!$Label.c.lnkLogIn}</a></span>
+                        </aura:set>
+                    </aura:if>
+                </div>
+            </aura:if>
         </div>
         <div aura:id="dropdownMenu" class="header__profile-dropdown-wrap-list toggle">
             <div class="dropdown">
