@@ -44,13 +44,13 @@
                         <div class="serp__section">
                             <h3 class="h3 serp__title"><aura:unescapedHtml value="{!category.name}"/></h3>
                             <aura:iteration items="{!category.items}" var="item">
-                                <div class="serp__item">
+                                <div class="serp__item" data-id="{!item.source.objectID}">
                                     <div class="serp__item-left">
                                         <div class="serp__item-left-inner">
                                             <aura:unescapedHtml value="{!item.left}"/>
                                         </div> 
                                     </div>
-                                    <div class="serp__item-right">
+                                    <div class="serp__item-right" onclick="{!c.onClickObject}">
                                         <div class="serp__item-right-inner">
                                             <aura:iteration items="{!item.right}" var="line">
                                                 <aura:unescapedHtml value="{!line}"/>
