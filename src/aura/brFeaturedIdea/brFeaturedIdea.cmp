@@ -1,0 +1,59 @@
+
+<aura:component description="brFeaturedIdea" implements="forceCommunity:availableForAllPageTypes" access="global" controller="brFeaturedIdeaCtrl">
+
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="ideaId" type="String"/>
+    <aura:attribute name="userId" type="String"/>
+    <aura:attribute name="ideaText" type="String"/>
+    <aura:attribute name="ideaTitle" type="String"/>
+    <aura:attribute name="ideaPoints" type="String"/>
+    <!-- <aura:attribute name="user" type="Object"/> -->
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="column-lg-6 column-md-12 column--pad m-bottom-40">
+        <h2 class="h2 m-bottom-50r text-center">{!v.title}</h2>
+
+        <aura:if isTrue="{!empty(v.userId)}">
+
+                <div class="panel-cont">
+                    <div class="panel-cont__body">
+                        <div class="panel-cont__body-inner">
+                            <div class="panel-cont__wrap-img">
+                                <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas.png'}" srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas-2x.png'}" alt=""/>
+                            </div>
+                            <div class="panel-cont__wrap-text">
+                                <p>{!$Label.c.hGuestText}</p>
+                            </div>
+                            <a href="javascript:void(0);" class="button button--primary button--sm"  onclick="{!c.logInClick}">{!$Label.c.hGuestButtonText}</a>
+                        </div>
+                    </div>
+                </div><!-- / end of .panel-cont-point -->
+
+            <aura:set attribute="else">
+
+                <div class="panel-cont-point">
+                    <div class="panel-cont-point__head">
+                        <div class="panel-cont-point__head-content">
+                            <h3 class="panel-cont-point__title truncated">{!v.ideaTitle}</h3>
+                        </div>
+                    </div>
+                    <div class="panel-cont-point__body">
+                        <div class="panel-cont-point__body-inner">
+                            <div class="panel-cont-point__wrap-text">
+                                <p>{!v.ideaText}</p>
+                            </div>
+                            <div class="panel-cont-point__stat">
+                                <span class="panel-cont-point__stat-title">{!v.ideaPoints}</span>
+                                <span class="panel-cont-point__stat-text">{!$Label.c.points}</span>
+                            </div>
+                            <a href="javascript:void(0);" class="button button--hollow-primary button--sm" onclick="{!c.viewIdeaClick}">{!$Label.c.hViewIdea}</a>
+                        </div>
+                    </div>
+                </div>
+
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>

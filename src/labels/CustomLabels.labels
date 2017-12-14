@@ -1839,4 +1839,29 @@
         <shortDescription>test</shortDescription>
         <value>test</value>
     </labels>
+    <labels>
+        <fullName>hViewIdea</fullName>
+        <categories>FeaturedIdea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hViewIdea</shortDescription>
+        <value>View Idea</value>
+    </labels>
+    <labels>
+        <fullName>hGuestButtonText</fullName>
+        <categories>FeaturedIdea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hGuestButtonText</shortDescription>
+        <value>Log In to View Ideas</value>
+    </labels>
+    <labels>
+        <fullName>hGuestText</fullName>
+        <categories>FeaturedIdea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hGuestText</shortDescription>
+        <value>When I am out and about and I recieve and order on my mobile phone, it would be great to see a “open as PDF” button when I go into the order so I can easily downlaod the order as a PDF. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, ratione!</value>
+    </labels>
+
 </CustomLabels>
