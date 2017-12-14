@@ -66,6 +66,7 @@
         <members>brFeaturedArticles</members>
         <members>brThemeFooter</members>
 		<members>brCommunitySpotlight</members>
+		<members>brAlgoliaSearchResultRow</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

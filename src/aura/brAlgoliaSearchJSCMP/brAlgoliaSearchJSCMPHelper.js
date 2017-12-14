@@ -178,44 +178,71 @@
         
         //index.search({ query: query }, function searchDone(err, content) {
         client.search(queries, function searchDone(err, content) {    
-            
+
             var objData = [],
                 tmpListData = [],
                 categories = content.results,
                 k = 0,
                 hasData = false,
                 name_index = '',
+                link_index = '',
                 filterCounts = {},
             	availableIndexes = component.get("v.availableIndexes");
-            
+
             for (var i = 0; i < categories.length; ++i) {
                 var category = categories[i], 
                     hits = category.hits,
                     tmpListData = [],
                     item = {};
-                
+
                 filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
-                component.set('v.filterCounts', filterCounts);
-                
-                if ((hits.length > 0) && ((filter.type == category.index) || (filter.type == 'All'))) {
+
+                if ((hits.length > 0) && ((filter.type == category.index) || (filter.type == 'All'))) { 
                     if (availableIndexes.indexOf(category.index) > -1) {
                         switch (category.index) {
                             case 'Knowledge_Community': {
+                                filterCounts['Knowledge_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
-                                for (var key in hits) { 
+                                link_index = '/support/s/knowledge';
+                                for (var key in hits) {
                                     item = {
                                         left: '',
                                         right: [],
                                         source: hits[key]
                                     };
+
+                                    var title = item.source.title,
+                                        section = item.source.Section,
+                                        section_content = item.source._snippetResult.Section_Content.value,
+                                        hlr = item.source._highlightResult;
+
+                                    if (!!hlr) {
+
+                                        for (var ih in hlr) {
+                                            if (hlr.hasOwnProperty(ih)) {
+                                                hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                            }
+                                        }
+
+                                        if (hlr.hasOwnProperty('title')) {
+                                            title = hlr.title.value;
+                                        }
+                                        if (hlr.hasOwnProperty('Section')) {
+                                            section = hlr.Section.value;
+                                        }
+                                        if (hlr.hasOwnProperty('Section_Content')) {
+                                            section_content = hlr.Section_Content.value;
+                                        }
+                                    }
+
                                     if (!!item.source.Data_Category)
                                         item.left = '<p class="serp__item-left-text">' + item.source.Data_Category[0] + '</p>';
                                     item.right = [
                                         '<p class="serp__item-category truncated">' + item.source.type__c + '</p>',
-                                        '<p class="serp__item-title truncated">' + item.source.title + '</span>' + 
-                                        ((!!item.source.Section)?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + item.source.Section: '') + 
+                                        '<p class="serp__item-title truncated">' + title + '</span>' +
+                                        ((!!item.source.Section)?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + section: '') +
                                         '</p>',
-                                        '<p class="serp__item-description truncated">' + item.source._snippetResult.Section_Content.value + '</p>'
+                                        '<p class="serp__item-description truncated">' + section_content + '</p>'
                                     ];
                                     tmpListData.push(item);
                                 }
@@ -224,17 +251,41 @@
                             case 'FeedItem_Community':
                             case 'FeedItem_Community_Latest_Post':
                             case 'FeedItem_Community_Recent_Activity': {
+                                filterCounts['FeedItem_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchCommunity');
-                                for (var key in hits) { 
+                                link_index = '/support/s/community';
+                                for (var key in hits) {
                                     item = {
                                         left: '',
                                         right: [],
                                         source: hits[key]
                                     };
+
+                                    var title = item.source.Title,
+                                        body = item.source._snippetResult.Body.value,
+                                        hlr = item.source._highlightResult;
+
+                                    if (!!hlr) {
+
+                                        for (var ih in hlr) {
+                                            if (hlr.hasOwnProperty(ih)) {
+                                                hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                            }
+                                        }
+
+                                        if (hlr.hasOwnProperty('Title')) {
+                                            title = hlr.Title.value;
+                                        }
+                                        if (hlr.hasOwnProperty('Body')) {
+                                            body = hlr.Body.value;
+                                        }
+
+                                    }
+
                                     item.left = '<p class="serp__item-left-text">' + item.source.PostedTo + '</p>';
                                     item.right = [
-                                        '<p class="serp__item-title truncated">' + item.source.Title + '</p>',
-                                        '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
+                                        '<p class="serp__item-title truncated">' + title + '</p>',
+                                        '<p class="serp__item-description truncated">' + body + '</p>',
                                         '<p class="serp__item-description truncated">' + 
                                         (item.source.IsAnswered? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
                                         (item.source.IsAnswered?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
@@ -250,17 +301,40 @@
                             case 'Ideas_Community_Trending':
                             case 'Ideas_Community_Popular':
                             case 'Ideas_Community_Recent': {
+                                filterCounts['Ideas_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchIdeas');
-                                for (var key in hits) { 
+                                link_index = '/support/s/ideas';
+                                for (var key in hits) {
                                     item = {
                                         left: '',
                                         right: [],
                                         source: hits[key]
                                     };
+
+                                    var title = item.source.Title,
+                                        body = item.source._snippetResult.Body.value,
+                                        hlr = item.source._highlightResult;
+
+                                    if (!!hlr) {
+
+                                        for (var ih in hlr) {
+                                            if (hlr.hasOwnProperty(ih)) {
+                                                hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                            }
+                                        }
+
+                                        if (hlr.hasOwnProperty('Title')) {
+                                            title = hlr.Title.value;
+                                        }
+                                        if (hlr.hasOwnProperty('Body')) {
+                                            body = hlr.Body.value;
+                                        }
+                                    }
+
                                     item.left = '<p class="serp__item-left-text">' + item.source.Categories + '</p>';
                                     item.right = [
-                                        '<p class="serp__item-title truncated">' + item.source.Title + '</p>',
-                                        '<p class="serp__item-description truncated">' + item.source._snippetResult.Body.value + '</p>',
+                                        '<p class="serp__item-title truncated">' + title + '</p>',
+                                        '<p class="serp__item-description truncated">' + body + '</p>',
                                         '<p class="serp__item-description truncated">' + 
                                         (item.source.Status? (item.source.Status + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
                                         (item.source.Status?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
@@ -276,11 +350,14 @@
                     }
                     objData.push({
                         name: name_index,
-                        items: tmpListData
+                        items: tmpListData,
+                        link: link_index
                     });
                     component.set('v.availableIndexes', availableIndexes); 
                     
-                }           
+                }
+
+                component.set('v.filterCounts', filterCounts);
             }
             
             if (objData.length > 0) {
@@ -301,42 +378,6 @@
                         attributesToRetrieve: '*'
                     }
                 });
-            }
-        }
-    },
-    changeLocation: function(component, type, data) {
-        var urlEvent;
-
-        switch (type) {
-            case 'ExternalLink': {
-                if (data) {
-                    urlEvent = $A.get('e.force:navigateToURL');
-                    urlEvent.setParams({
-                        'url': data
-                    });
-                    urlEvent.fire();
-                }
-                break;
-            }
-            case 'InternalLink': {
-                if (data) {
-                    urlEvent = $A.get('e.force:navigateToURL');
-                    urlEvent.setParams({
-                        'url': data
-                    });
-                    urlEvent.fire();
-                }
-                break;
-            }
-            case 'SalesforceObject': {
-                if (data) {
-                    urlEvent = $A.get('e.force:navigateToSObject');
-                    urlEvent.setParams({
-                        'recordId': data
-                    });
-                    urlEvent.fire();
-                }
-                break;
             }
         }
     }

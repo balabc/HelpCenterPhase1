@@ -7,12 +7,6 @@
         component.set("v.categories", null);
         component.set("v.hasData", 'off');
     },
-    onClickObject: function(component, event, helper) {
-        console.log(event);
-
-        /*var id = component.getElement().closest('.serp__item').dataset.id;
-        helper.changeLocation(component, 'SalesforceObject', id);*/
-    },
     searchChange: function(component, event, helper) {
         var query = component.get("v.searchText"),
             changeSearch = $A.get("e.c:brChangeHeaderSearchBarEvent");
@@ -25,6 +19,10 @@
         }
         changeSearch.setParams({"search": query});
         changeSearch.fire();
+    },
+    onClickViewMore: function(component, event, helper) {
+        var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
+        toggleSearchModal.fire();
     },
     filterChange: function(component, event, helper) { 
         var query = component.get("v.searchText");

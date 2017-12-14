@@ -8,7 +8,9 @@
             <div class="modal__close-button icon-svg-close-lg-grey" onclick="{!c.toggleSearchModal}"></div>
             <div class="modal__inner">
                 <div class="container relative">
-                    <c:brAlgoliaSearchJSCMP />
+                    <aura:renderIf isTrue="{!v.stateSearchModal}">
+                        <c:brAlgoliaSearchJSCMP />
+                    </aura:renderIf>
                 </div>
             </div>
         </div>
