@@ -29,7 +29,7 @@
             };
         }
     },
-    onCategoryClick : function(component, event) {
+    onCategoryClick : function(component, event, helper) {
         try {
             //var sss = component.get('v.menuItems');
             //console.log('menuItems',sss);
@@ -42,6 +42,7 @@
             //    });
             //    urlEvent.fire();
             //}else{
+            helper.toggleSubMenu(component);
                 var action = component.get("c.getURLByMenuLabel");
                 var itemLabel = event.target.dataset.label;
                 if (itemLabel) {
@@ -86,37 +87,6 @@
         }
     },
     toggleSubMenu: function (cmp, event, helper) {
-        var themeHeader = document.getElementById("themeHeader"),
-            dropdownWrap = cmp.find('dropdownWrap'),
-            dropdown = cmp.find('dropdown'),
-            arrow = cmp.find('arrow');
-
-        $A.util.toggleClass(arrow, "nav-arrow--up");
-
-        if (window.scrollY == 0) {
-            if (arrow.getElement().className == 'header__nav-arrow nav-arrow') {
-                $A.util.toggleClass(themeHeader, "header--make-sticky");
-        } else {
-                setTimeout( function () {
-                    $A.util.toggleClass(themeHeader, "header--make-sticky");
-                }, 600);
-            }
-        }
-
-        if (arrow.getElement().className == 'header__nav-arrow nav-arrow') {
-            $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
-            window.setTimeout(
-                $A.getCallback(function () {
-                    $A.util.toggleClass(dropdown, "header__dropdown-menu--active");
-                }), 400
-            );
-        } else {
-            $A.util.toggleClass(dropdown, "header__dropdown-menu--active");
-            window.setTimeout(
-                $A.getCallback(function () {
-                    $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
-                }), 300
-            );
-        }
+        helper.toggleSubMenu(cmp);
     }
 })
