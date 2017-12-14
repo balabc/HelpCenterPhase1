@@ -1698,6 +1698,9 @@ textarea::placeholder {
 .panel-title {
   padding: 62px 0 70px;
   background: url("../images/bg-pre-footer.png") center bottom no-repeat; }
+  .panel-title--grad-only {
+    background: #804af5;
+    background: linear-gradient(90deg, #536afb, #804af5); }
   .panel-title__text {
     margin: 0;
     text-align: center;
@@ -5404,7 +5407,3 @@ textarea::placeholder {
 
 .is-mobile .p-bottom-60--media-md {
   padding-bottom: 60px; }
-
-.onePanelManager .uiPanel.open.active {
-    z-index: 10 !important;
-}
