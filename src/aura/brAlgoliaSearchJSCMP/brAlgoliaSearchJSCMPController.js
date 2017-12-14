@@ -2,7 +2,7 @@
     doInit: function(component, event, helper) {
         helper.getApiKey(component);
     },
-    clearSearch: function(component, event, helper) { 
+    clearSearch: function(component, event, helper) {
         component.set("v.searchText", '');
         component.set("v.categories", null);
         component.set("v.hasData", 'off');
