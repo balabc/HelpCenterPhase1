@@ -23,13 +23,19 @@
 				cmp.set('v.filters.idea_theme', urlVars.idea_theme);
 			}
 
-			helper.retrieveItems(cmp, function(){
+			/*helper.retrieveItems(cmp, function(){
 					helper.retrievePagesTotal(cmp);
-				});
+				});*/
+		}
+
+		var selectedIdeasFilter = '';
+
+		if (urlVars['myideas'] !== undefined) {
+            selectedIdeasFilter = 'createdByMe';
 		}
 
 		cmp.set('v.filters', {
-			showBy: {opened: isOpenedByDefault, mOpened: false, options: '', selected: ''},
+			showBy: {opened: isOpenedByDefault, mOpened: false, options: '', selected: selectedIdeasFilter},
 			category: {opened: isOpenedByDefault, mOpened: false, options: '', selected: ''},
 			status: {opened: isOpenedByDefault, mOpened: false, options: '', selected: ''},
 			search: ''
@@ -37,6 +43,9 @@
 
 		helper.initFilterData(cmp);
 		helper.updateOrderByLabel(cmp);
+        helper.retrieveItems(cmp, function(){
+            helper.retrievePagesTotal(cmp);
+        });
 	},
 
 	openCreateDialog: function(cmp) {

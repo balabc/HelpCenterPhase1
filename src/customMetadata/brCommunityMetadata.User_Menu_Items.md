@@ -6,7 +6,8 @@
         <field>Value__c</field>
         <value xsi:type="xsd:string">[
 {&quot;title&quot;: &quot;Profile&quot;, &quot;url&quot;: &quot;profile&quot;, &quot;new_window&quot;: true},
-{&quot;title&quot;: &quot;My Messages&quot;, &quot;url&quot;: &quot;messages/Home&quot;, &quot;new_window&quot;: true},
+{&quot;title&quot;: &quot;Messages&quot;, &quot;url&quot;: &quot;messages/Home&quot;, &quot;new_window&quot;: true},
+{&quot;title&quot;: &quot;My Ideas&quot;, &quot;url&quot;: &quot;ideas#myideas&quot;, &quot;new_window&quot;: false},
 {&quot;title&quot;: &quot;My Feed&quot;, &quot;url&quot;: &quot;feed&quot;, &quot;new_window&quot;: false},
 {&quot;title&quot;: &quot;My Cases&quot;, &quot;url&quot;: &quot;case&quot;, &quot;new_window&quot;: false},
 {&quot;title&quot;: &quot;My Files&quot;, &quot;url&quot;: &quot;/MyFeed&quot;, &quot;new_window&quot;: false},

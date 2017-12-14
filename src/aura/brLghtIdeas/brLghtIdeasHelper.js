@@ -197,6 +197,10 @@
             for (var i = 0; i < hashArr.length; i+=1) {
                 keyVal = hashArr[i].split("=");
 
+                if (keyVal.length === 1) {
+                	varsObj[keyVal[0]] = keyVal[0];
+				}
+
 				if (keyVal.length === 2) {
 					varsObj[keyVal[0]] = keyVal[1];
 				} else if (i === 0 && keyVal.length === 1 && keyVal[0].length >= 16) {
