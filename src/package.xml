@@ -65,6 +65,10 @@
         <members>brOneColumnLayout</members>
         <members>brFeaturedArticles</members>
         <members>brThemeFooter</members>
+        <members>brCommunitySpotlight</members>
+        <members>brLandingLayout</members>
+        <members>brLandingHeader</members>
+        <members>brCommunityLandingLayout</members>
 		<members>brCommunitySpotlight</members>
 		<members>brAlgoliaSearchResultRow</members>
         <name>AuraDefinitionBundle</name>

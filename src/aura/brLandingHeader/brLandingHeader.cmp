@@ -1,0 +1,9 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" description="brLandingHeader">
+    <aura:attribute name="title" type="String" access="global"/>
+
+    <div class="panel-title">
+        <div class="container">
+            <h1 class="h1 panel-title__text">{!v.title}</h1>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:layout" access="global" description="brCommunityLandingLayout">
+    <aura:attribute name="landingHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="content2" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="content3" type="Aura.Component[]" required="false"/>
+
+        {!v.landingHeader}
+
+    <div class="container">
+        <c:brBreadcrumbs/>
+            {!v.content}
+        <div class="row row--pad p-bottom-100 p-bottom-60--media-md">
+            {!v.content2}
+        </div>
+            {!v.content3}
+    </div>
+
+        {!v.landingFooter}
+</aura:component>
