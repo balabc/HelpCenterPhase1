@@ -1,5 +1,5 @@
 <design:component >
-    <design:attribute name="currentId" label="Id"/>
+    <design:attribute name="curId" label="Id"/>
 
     <design:attribute name="currentTitle" label="Title"/>
 </design:component>

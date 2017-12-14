@@ -1,7 +1,7 @@
 ({
     getUserInfo: function(component) {
         var action = component.get('c.getUserInfo'),
-            currentId = component.get('v.currentId');
+            currentId = component.get('v.curId');
 
         if (!!currentId) {
             action.setParams({

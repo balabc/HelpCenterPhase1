@@ -10,38 +10,30 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler name="setVideosPage" event="c:brSetVideosPageEvent" action="{!c.setVideosPage}"/>
 
-    <div class="panel-title">
-                <div class="container">
-                    <h1 class="h1 panel-title__text">{!$Label.c.hVideos}</h1>
-                </div>
-            </div>
-    <div class="container">
-        <c:brBreadcrumbs/>
+    <div class="p-top-12 p-bottom-70">
+        <div class="row row--pad">
+            <aura:iteration items="{!v.videoArticlesForCurrentPage}" var="item">
+                <c:brVideosListItem videoArticleForCurrentPage="{!item}"/>
+            </aura:iteration>
+        </div><!-- / end of .row -->
 
-        <div class="p-top-12 p-bottom-70">
-            <div class="row row--pad">
-                <aura:iteration items="{!v.videoArticlesForCurrentPage}" var="item">
-                   <c:brVideosListItem videoArticleForCurrentPage="{!item}"/>
-                </aura:iteration>
-            </div><!-- / end of .row -->
-
-            <div class="wrap-pagination">
-                <ul class="pagination">
-                    <li class="pagination__item">
-                        <a class="pagination__link" onclick="{!c.showPrevVideos}">
+        <div class="wrap-pagination">
+            <ul class="pagination">
+                <li class="pagination__item">
+                    <a class="pagination__link" onclick="{!c.showPrevVideos}">
                             {!v.isPrevious?'Prev':''}
-                        </a>
-                    </li>
-                        <aura:iteration items="{!v.pageNumbers}" var="pageNumber">
-                            <c:brVideosPagination pageNumber="{!pageNumber}" currentPageNumber="{!v.currentPageNumber}" />
-                        </aura:iteration>
-                    <li class="pagination__item">
-                        <a class="pagination__link" onclick="{!c.showNextVideos}">
+                    </a>
+                </li>
+                <aura:iteration items="{!v.pageNumbers}" var="pageNumber">
+                    <c:brVideosPagination pageNumber="{!pageNumber}" currentPageNumber="{!v.currentPageNumber}" />
+                </aura:iteration>
+                <li class="pagination__item">
+                    <a class="pagination__link" onclick="{!c.showNextVideos}">
                             {!v.isNext?'Next':''}
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </div><!-- / end of .container -->
+    </div>
+
 </aura:component>
