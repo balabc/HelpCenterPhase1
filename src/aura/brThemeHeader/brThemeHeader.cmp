@@ -10,7 +10,7 @@
     <header class="{!if(not(v.isAltMainNav), 'header', 'header header--upd')}" id="themeHeader">
         <div class="header__container container clr">
             <div class="header__left">
-                <a href="/" class="header__logo-icon header__logo"></a>
+                <a onclick="{!c.showHomePage}" class="header__logo-icon header__logo"></a>
                 <aura:if isTrue="{!not(v.isAltMainNav)}">
                     <c:brMainNavMenu />
                     <aura:set attribute="else">

@@ -9,7 +9,7 @@
             <div class="area-video__left">
                 <h2 class="h2">{!v.title}</h2>
                 <p class="type--sm videoDescription">{!v.videoDescription}</p>
-                <a href="#">{!$Label.c.btnMoreVideos}</a>
+                <a onclick="{!c.openVideosPage}">{!$Label.c.btnMoreVideos}</a>
             </div>
             <div class="area-video__right">
                 <div class="panel-video">

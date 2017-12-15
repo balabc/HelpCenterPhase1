@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="row row--pad">
                     <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media">
+                        <div class="panel-media" id="toparticles" onclick="{!c.openPage}">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
                                     <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles.png'}"
@@ -23,7 +23,7 @@
                         </div>
                     </div><!-- / end of .column -->
                     <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media">
+                        <div class="panel-media" id="qa" onclick="{!c.openPage}">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
                                     <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Community.png'}"
@@ -37,7 +37,7 @@
                         </div>
                     </div><!-- / end of .column -->
                     <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media">
+                        <div class="panel-media" id="blog" onclick="{!c.openPage}">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
                                     <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates.png'}"
@@ -51,7 +51,7 @@
                         </div>
                     </div><!-- / end of .column -->
                     <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media">
+                        <div class="panel-media" id="ideas" onclick="{!c.openPage}">
                             <div class="panel-media__wrap-icon">
                                 <div class="panel-media__icon">
                                     <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas.png'}"
