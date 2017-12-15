@@ -109,9 +109,15 @@ public with sharing class brUserService {
     		}
 
     		for (Integer i = 0; i < userReputationList.size(); i++) {
-    			if(userMember.ReputationPoints >= userReputationList[i].minScore && userMember.ReputationPoints < userReputationList[i].maxScore) {
-    				lbm.reputationLevel =  userReputationLevels[i].Label;
-    			}
+				if(userReputationList[i].maxScore != null) {
+					if(userMember.ReputationPoints >= userReputationList[i].minScore && userMember.ReputationPoints < userReputationList[i].maxScore) {
+						lbm.reputationLevel =  userReputationLevels[i].Label;
+					}
+				} else {
+					if(userMember.ReputationPoints >= userReputationList[i].minScore ) {
+						lbm.reputationLevel =  userReputationLevels[i].Label;
+					}
+				}
     		}
     		leaderboardModels.add(lbm); 		
     	}
