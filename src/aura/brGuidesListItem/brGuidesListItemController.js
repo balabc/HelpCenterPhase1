@@ -5,8 +5,10 @@
 
     onClick : function(cmp) {
         var navEvt = $A.get("e.force:navigateToURL");
+        var url = cmp.get('v.guideArticle').First_Chapter_Url__c;
+        url = '/article/' + url;
         navEvt.setParams({
-            "url": cmp.get('v.guideArticle').First_Chapter_Url__c
+            "url": url
         });
         navEvt.fire();
     }
