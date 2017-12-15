@@ -16,6 +16,12 @@ public with sharing class brNavigationMenuItemServiceSelector {
         itemList = [SELECT MasterLabel, Data_Category_Group__c, Menu_Target__c, Object_Name__c FROM brCommunity_Menu_Map__mdt];
         return itemList;
     }
+
+    public static List<brCommunity_Category_Menu_Map__mdt> getMetaDataCategoryMenu() {
+        List<brCommunity_Category_Menu_Map__mdt> itemList = new List<brCommunity_Category_Menu_Map__mdt>();
+        itemList = [SELECT 	Menu_Item_Id__c, Target__c FROM brCommunity_Category_Menu_Map__mdt];
+        return itemList;
+    }
     
     public static List<brCommunity_Menu_Map__mdt> getMetaDataMenuByArticleType(String articleType) {
         List<brCommunity_Menu_Map__mdt> itemList = new List<brCommunity_Menu_Map__mdt>();
