@@ -1,4 +1,3 @@
-
 public with sharing class brBreadcrumbsCtrl {
 
     @AuraEnabled
@@ -17,7 +16,7 @@ public with sharing class brBreadcrumbsCtrl {
 
         if (String.isBlank(recordId) && fullurl.contains('#') ) {
             recordId = fullurl.substringAfter('#');
-            tmpOutput += ' <b>detected-ID:</b>' + recordId;
+            tmpOutput += ' detected-ID:' + recordId;
         }
 
         String target = '';
@@ -25,8 +24,7 @@ public with sharing class brBreadcrumbsCtrl {
         if (String.isNotBlank(recordId)) {
             Id objectId = Id.valueOf(recordId);
             varObjectType = String.valueOf(objectId.getsObjectType());
-            tmpOutput += ' <b>obj:</b>' + varObjectType;
-
+            tmpOutput += ' obj:' + varObjectType;
 
             if (varObjectType == 'ListView') {
                 if (pathname.contains('CollaborationGroup')) {//TODO:need detect other objects (separate / and try all variants?)
@@ -35,20 +33,23 @@ public with sharing class brBreadcrumbsCtrl {
             } else {
                 target = getTargetByObjectName(varObjectType);
             }
+        }else if (pathname.contains('CollaborationGroup')) {
+            target = 'CollaborationGroup';
         }else{
             tmpOutput += ' pathname:' + pathname;
             if (pathname.contains('/s/') ) {
                 target = '/' + fullurl.substringAfter('/s/');//check if there any '/' present
-                tmpOutput += ' <b>detected-Target:</b>' + target;
+                tmpOutput += ' detected-Target:' + target;
             }else{
                 if(pathname.countMatches('/') == 1 && pathname.left(1) == '/'){
                     target = pathname;
-                    tmpOutput += ' <b>detected-Target(case2):</b>' + target;
+                    tmpOutput += ' detected-Target(case2):' + target;
                 }
             }
             target = target.replace('#', '');//TODO: is it worth to use regular exp in this case?
             target = target.replace('?', '');
         }
+        tmpOutput += ' target:' + target;
 
         NavigationMenuItem parentMenuItem = getMenuItemByTarget(target);
         if (parentMenuItem == null) {
@@ -60,8 +61,8 @@ public with sharing class brBreadcrumbsCtrl {
         }
 
         if (parentMenuItem != null) {
-            tmpOutput += ' <b>rootParent:</b>' + parentMenuItem.Parent.Label;
-            tmpOutput += ' <b>parent:</b>' + parentMenuItem.Label;
+            tmpOutput += ' rootParent:' + parentMenuItem.Parent.Label;
+            tmpOutput += ' parent:' + parentMenuItem.Label;
 
             String url = '';//(parentMenuItem.Target != null)?(baseURL + parentMenuItem.Parent.Target):'';
             String rootTarget = getTargetByMenuId(parentMenuItem.Parent.Id);
@@ -72,7 +73,7 @@ public with sharing class brBreadcrumbsCtrl {
             url = '';
             bredcrumbs.add(new Map<String, String>{'label' => parentMenuItem.Label,'type' => 'parent','url' => url,'active' => 'true', 'listViewId'=>'', 'itemtype'=>parentMenuItem.Type});
 
-            tmpOutput += ' <b>onSameLevel:</b>';
+            tmpOutput += ' onSameLevel:';
             List<NavigationMenuItem> sameLevelItems = getChildrenMenuItems(parentMenuItem.parentId);
             tmpOutput += ' getChildrenMenuItems: (' + parentMenuItem.parentId + ')';
             for (NavigationMenuItem item : sameLevelItems) {
