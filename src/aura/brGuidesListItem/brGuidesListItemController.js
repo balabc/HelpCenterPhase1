@@ -4,9 +4,9 @@
     },
 
     onClick : function(cmp) {
-        var navEvt = $A.get("e.force:navigateToSObject");
+        var navEvt = $A.get("e.force:navigateToURL");
         navEvt.setParams({
-            "recordId": cmp.get('v.guideArticle').First_Chapter_Url__c
+            "url": cmp.get('v.guideArticle').First_Chapter_Url__c
         });
         navEvt.fire();
     }
