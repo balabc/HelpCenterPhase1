@@ -275,6 +275,7 @@
         <members>BigcommerceCommunityStyles</members>
         <members>BigcommerceCommunityImages</members>
         <members>LghtIdeas</members>
+		<members>instantsearch</members>
         <name>StaticResource</name>
     </types>
     <version>41.0</version>
