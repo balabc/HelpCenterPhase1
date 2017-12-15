@@ -47,7 +47,7 @@
                     <div class="filter__item">
                         <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchUserDocs}" aura:id="kb_article_type_user_docs" name="kb_article_type_user_docs" value="User Docs" checked="{!v.brFilter.kb.article_type.user_docs}" />
                         <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchVideos}" aura:id="kb_article_type_videos" name="kb_article_type_videos" value="Videos" checked="{!v.brFilter.kb.article_type.videos}" />
-                        <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchGuides}" aura:id="kb_article_type_guides" name="kb_article_type_guides" value="Guides" checked="{!v.brFilter.kb.article_type.guides}" /> 
+                        <lightning:input type="checkbox" label="{!$Label.c.fieldAlgoliaSearchGuides}" aura:id="kb_article_type_guides" name="kb_article_type_guides" value="Guides" checked="{!v.brFilter.kb.article_type.guides}" />
                     </div>
                 </div>
             </li>

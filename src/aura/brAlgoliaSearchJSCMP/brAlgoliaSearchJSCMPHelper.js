@@ -38,8 +38,14 @@
                 indexName = 'Knowledge_Community';
                 if (availableIndexes.indexOf(indexName) > -1) {
                     for (var key in filter.values.article_type) {
-                        if (filter.values.article_type[key])
-                            facetFilter.push("type__c:" + key);
+                        if (filter.values.article_type[key]) {
+                            var article_types = {
+                                user_docs: 'User Documentation',
+                                videos: 'Videos',
+                                guides: 'Guide'
+                            };
+                            facetFilter.push("type__c:" + article_types[key]);
+                        }
                     }
                     facetFilters.push(facetFilter);
                     queries.push({
