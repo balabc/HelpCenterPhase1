@@ -27,20 +27,16 @@ private class brFeaturedIdeaCtrlTest {
     }
 
     static testMethod void testGetIdeaData() {
-        /*
+
         Idea ideaObjBlank = new Idea();
 
-        Community CommunityObj = new Community();
-        CommunityObj.Name = 'TestPublic';
-        insert CommunityObj;//TODO:how?
-
-        Community community = [SELECT Id FROM Community WHERE Name = 'TestPublic' LIMIT 1];
+        Community community = [SELECT Id FROM Community LIMIT 1];// WHERE Name = 'TestPublic'
         String cId = community.Id;
 
         Idea ideaObjOne = new Idea();
         ideaObjOne.Title = 'Test Tittle';
         ideaObjOne.Body = '<p>Kinda some smart sentence</p>';
-        ideaObjOne.CommunityId = cId;
+        ideaObjOne.CommunityId = cId;//Community = Idea Zone
         insert ideaObjOne;
 
         Test.startTest();
@@ -50,7 +46,7 @@ private class brFeaturedIdeaCtrlTest {
         System.assertNotEquals(ideaObjBlank, ideaObj);
         System.assertEquals('Test Tittle', ideaObj.Title);
         System.assertEquals('<p>Kinda some smart sentence</p>', ideaObj.Body);
-        */
+
     }
     static testMethod void testGetIdeaData_Negative() {
 
