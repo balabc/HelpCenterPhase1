@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
-        <componentInstances>
-            <componentName>brBreadcrumbs</componentName>
-        </componentInstances>
         <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
@@ -61,9 +58,42 @@
         <name>footer</name>
         <type>Region</type>
     </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Ideas</value>
+            </componentInstanceProperties>
+            <componentName>brLandingHeader</componentName>
+        </componentInstances>
+        <name>landingHeader</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+                <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>textButton</name>
+                <value>Show</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Lorem ipsum dolor sit amet consectetur</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>url</name>
+            </componentInstanceProperties>
+            <componentName>brPreFooter</componentName>
+        </componentInstances>
+        <name>landingFooter</name>
+        <type>Region</type>
+    </flexiPageRegions>
     <masterLabel>Ideas</masterLabel>
     <template>
-        <name>siteforce:sldsOneColLayout</name>
+        <name>brLandingLayout</name>
     </template>
     <type>CommAppPage</type>
 </FlexiPage>

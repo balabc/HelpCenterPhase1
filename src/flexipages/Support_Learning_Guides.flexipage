@@ -15,9 +15,20 @@
         <name>footer</name>
         <type>Region</type>
     </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Guides</value>
+            </componentInstanceProperties>
+            <componentName>brLandingHeader</componentName>
+        </componentInstances>
+        <name>landingHeader</name>
+        <type>Region</type>
+    </flexiPageRegions>
     <masterLabel>Learning Guides</masterLabel>
     <template>
-        <name>brOneColumnLayout</name>
+        <name>brLandingLayout</name>
     </template>
     <type>CommAppPage</type>
 </FlexiPage>

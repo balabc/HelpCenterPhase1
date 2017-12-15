@@ -70,8 +70,8 @@
         <members>brLandingLayout</members>
         <members>brLandingHeader</members>
         <members>brCommunityLandingLayout</members>
-		<members>brCommunitySpotlight</members>
-		<members>brAlgoliaSearchResultRow</members>
+        <members>brCommunitySpotlight</members>
+        <members>brAlgoliaSearchResultRow</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -79,11 +79,11 @@
         <name>CustomLabels</name>
     </types>
     <types>
-		<members>brCommunitySpotlightCtrl</members>
-		<members>brCommunitySpotlightCtrlTest</members>
-		<members>brCommunitySpotlightModel</members>
-		<members>brCommunitySpotlightService</members>
-		<members>brCommunitySpotlightServiceSelector</members>
+        <members>brCommunitySpotlightCtrl</members>
+        <members>brCommunitySpotlightCtrlTest</members>
+        <members>brCommunitySpotlightModel</members>
+        <members>brCommunitySpotlightService</members>
+        <members>brCommunitySpotlightServiceSelector</members>
         <members>brAlgoliaSearchTest</members>
         <members>brArticleContentTest</members>
         <members>brArticleContentController</members>
@@ -100,7 +100,7 @@
         <members>brChatterGroupServiceSelector</members>
         <members>brTopTrendingCtrl</members>
         <members>brFeaturedIdeaCtrl</members>
-        <members>brFeaturedIdeaCtrlTest</members>		
+        <members>brFeaturedIdeaCtrlTest</members>
         <members>brFeedItemModel</members>
         <members>brFeedItemService</members>
         <members>brFeedItemServiceSelector</members>
@@ -256,6 +256,7 @@
         <members>Support_Learning_Guides</members>
         <members>Support_QA</members>
         <members>Support_Videos</members>
+        <members>Support_Blog</members>
         <name>FlexiPage</name>
     </types>
     <types>

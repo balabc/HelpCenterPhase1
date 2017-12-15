@@ -2,21 +2,47 @@
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
         <componentInstances>
-            <componentName>brBreadcrumbs</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>richTextValue</name>
-                <value>&lt;h1 style=&quot;text-align: center;&quot;&gt;QA LIST&lt;/h1&gt;</value>
-            </componentInstanceProperties>
-            <componentName>forceCommunity:richTextInline</componentName>
+            <componentName>forceCommunity:topicCatalog</componentName>
         </componentInstances>
         <name>content</name>
         <type>Region</type>
     </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Q&amp;A</value>
+            </componentInstanceProperties>
+            <componentName>brLandingHeader</componentName>
+        </componentInstances>
+        <name>landingHeader</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+                <value>Impsum dolor lorem Impsum dolor lorem Impsum dolor lorem Impsum dolor lorem Impsum dolor lorem Impsum dolor lorem</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>textButton</name>
+                <value>Go</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Lorem impsum</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>url</name>
+            </componentInstanceProperties>
+            <componentName>brPreFooter</componentName>
+        </componentInstances>
+        <name>landingFooter</name>
+        <type>Region</type>
+    </flexiPageRegions>
     <masterLabel>QA</masterLabel>
     <template>
-        <name>brOneColumnLayout</name>
+        <name>brLandingLayout</name>
     </template>
     <type>CommAppPage</type>
 </FlexiPage>
