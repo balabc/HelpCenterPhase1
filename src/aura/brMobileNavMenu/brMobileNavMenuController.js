@@ -35,6 +35,6 @@
         }
         
         menuItems = helper.getCurrentLvl(menuItems, currentId);
-        helper.setItemsMenu(component, menuItems);
+        helper.setItemsMenu(component, menuItems, true);
     }
 })

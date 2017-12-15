@@ -18,7 +18,6 @@
         
         
         if (items.length > 0) {
-            items.shift();
             items.push({id: 'contact', label: $A.get('$Label.c.lnkContact'), hasSubMenu: true, subMenu: [
                 {id: 'ask', label: 'Ask'},
                 {id: 'email_support', label: $A.get('$Label.c.hEmailSupport'),type: 'ExternalLink', target: 'https://support.bigcommerce.com/SubmitCase'},
@@ -57,17 +56,18 @@
             
             if (locationPage.length > 1) {
                 var menuItems = this.getCurrentLvl(items, locationPage, 'target');
+                //console.log(items, menuItems);
                 if (!!menuItems.obj) {
                     if (menuItems.items.length > 0) {
                         menuItems.parents.pop();
-                    	this.setItemsMenu(component, menuItems);
+                    	this.setItemsMenu(component, menuItems, true);
                     } else {
               			component.set('v.menuList', items);
                     }
                 } else {
                     locationPage = locationPage.split('/');
                     locationPage = locationPage.pop();
-                    this.getArticleByUrl(component, locationPage);
+                    this.getArticleByUrl(component, locationPage, items);
                 }
             } else {
               	component.set('v.menuList', items);
@@ -75,14 +75,17 @@
             component.set('v.menuItems', items);
         }  
     },
-    setItemsMenu: function(component, _menuItems) {
+    setItemsMenu: function(component, _menuItems, update) {
+        update = (update !== 'undefined' ? update : false);
         var menuItems = _menuItems;
         menuItems.parents.push(0);
         component.set('v.currentObj', menuItems.obj);
         if (!!menuItems.obj) {
             if (!!menuItems.obj.isComponent) {
             	menuItems.items = [];
-        		component.find('brCategoriesCMP').changeData();
+            	if (update) {
+                    component.find('brCategoriesCMP').changeData();
+                }
             }
         }
         component.set('v.menuList', menuItems.items);
@@ -131,32 +134,18 @@
         return res;
     },
     fillPhoneList: function(component){
-        try {
-            var action = component.get("c.getPhoneList");
-            action.setCallback(this, function(response){
-                var state = response.getState();
-                if (state === "SUCCESS") {
-                    var data = response.getReturnValue();
-                    component.set("v.phoneList", data);
-                } else if (state === "ERROR") {
-                    var errors = response.getError();
-                    if (errors) {
-                        if (errors[0] && errors[0].message) {
-                            console.log("Error message: " + errors[0].message);
-                        }
-                    } else {
-                        console.log("Unknown error");
-                    }
-                }
-            });
-            $A.enqueueAction(action);
-            
-        }catch(e){
-            console.log('tryE:', e);
-        }
+        var action = component.get("c.getPhoneList");
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var data = response.getReturnValue();
+                component.set("v.phoneList", data);
+            }
+        });
+        $A.enqueueAction(action);
     },
-    getArticleByUrl: function(component, url) {
-        console.log(url);
+    getArticleByUrl: function(component, url, items) {
+        //console.log(url);
         var action = component.get("c.getArticle"),
             action_meta = component.get("c.getMetaDataMenuByArticleType");
         action.setParams({ 
@@ -175,14 +164,15 @@
                         }
                     }
                 }
+
                 if (!!obj) {
-                    this.getMetaDataMenuByArticleType(component, obj);
+                    this.getMetaDataMenuByArticleType(component, obj, items);
                 }
             }
         });
         $A.enqueueAction(action);
     },
-    getMetaDataMenuByArticleType: function(component, obj) {
+    getMetaDataMenuByArticleType: function(component, obj, items) {
         var action = component.get("c.getMetaDataMenuByArticleType");
         action.setParams({
             articleType: obj.ArticleType
@@ -193,10 +183,9 @@
                 var data = response.getReturnValue();
                 if (data.length > 0) {
                     data = data[0];
-                    var items = component.get('v.menuItems'),
-                        menuItems = this.getCurrentLvl(items, data.Menu_Target__c, 'target');
+                    var menuItems = this.getCurrentLvl(items, data.Menu_Target__c, 'target');
                     if (!!menuItems.obj) {
-                        this.setItemsMenu(component, menuItems);
+                        this.setItemsMenu(component, menuItems, false);
                         menuItems.obj.id = obj.Id;
                         component.set('v.currentObj', menuItems.obj);
                         component.find('brCategoriesCMP').changeData();
@@ -212,6 +201,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {  
                 var items = response.getReturnValue();
+                //console.log(items);
                 this.getUserInfo(component, items);
             }
         });

@@ -8,9 +8,10 @@
         <li class="header-mobile__menu-item" 
             onclick="{!c.onChangeLvl}" 
             data-title="{!v.item.label}" 
-            data-type="{!v.item.type}" 
-            data-target="{!v.item.target}" 
-            data-id="{!v.item.id}" 
+            data-type=""
+            data-removed-type="{!v.item.type}"
+            data-target="{!v.item.target}"
+            data-id="{!v.item.id}"
             data-where="next">
             <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
                 <aura:renderIf isTrue="{!v.item.has_picture}">

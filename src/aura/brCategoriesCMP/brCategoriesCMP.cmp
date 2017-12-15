@@ -8,8 +8,8 @@
     
     <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/>
     <aura:method name="nullData" action="{!c.nullData}" access="PUBLIC"/>
-    
-    
+
+
     <aura:if isTrue="{!v.items.length > 0}">
         <div class="doc-nav__inner">
             <ul class="doc-nav__list doc-nav__list-lvl-1" id="menu-articles">
@@ -29,7 +29,7 @@
                             </ul>
                         </aura:renderIf>
                         <aura:renderIf isTrue="{!category.categories.length > 0}">
-                            <ul class="doc-nav__list doc-nav__list-lvl-2"> 
+                            <ul class="doc-nav__list doc-nav__list-lvl-2">
                                 <aura:iteration items="{!category.categories}" var="sub_category">
                                     <li class="{!'doc-nav__item doc-nav__item-lvl-2' + ((sub_category.active)? ' active': '')}" data-id="{!sub_category.id}" data-active="{!sub_category.active}">
                                         <a class="doc-nav__link doc-nav__link-lvl-2" href="javascript:void(0);" onclick="{!c.clickCategory}">{!sub_category.name}</a>
@@ -71,10 +71,10 @@
                                     </li>
                                 </aura:iteration>
                             </ul>
-                        </aura:renderIf>   
+                        </aura:renderIf>
                     </li>
                 </aura:iteration>
             </ul>
         </div>
-    </aura:if>   
+    </aura:if>
 </aura:component>
