@@ -896,6 +896,13 @@
         <value>Community QA</value>
     </labels>
     <labels>
+        <fullName>hDevDocs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for developer docs</shortDescription>
+        <value>Developer Docs</value>
+    </labels>
+    <labels>
         <fullName>hEmailSupport</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -924,6 +931,22 @@
         <protected>false</protected>
         <shortDescription>hGetHelp</shortDescription>
         <value>Get Help</value>
+    </labels>
+    <labels>
+        <fullName>hGuestButtonText</fullName>
+        <categories>FeaturedIdea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hGuestButtonText</shortDescription>
+        <value>Log In to View Ideas</value>
+    </labels>
+    <labels>
+        <fullName>hGuestText</fullName>
+        <categories>FeaturedIdea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hGuestText</shortDescription>
+        <value>When I am out and about and I recieve and order on my mobile phone, it would be great to see a “open as PDF” button when I go into the order so I can easily downlaod the order as a PDF. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, ratione!</value>
     </labels>
     <labels>
         <fullName>hGuides</fullName>
@@ -1018,11 +1041,26 @@
         <value>System Status</value>
     </labels>
     <labels>
+        <fullName>hUserDocs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for user docs</shortDescription>
+        <value>User Docs</value>
+    </labels>
+    <labels>
         <fullName>hVideos</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>header for videos page</shortDescription>
         <value>Videos</value>
+    </labels>
+    <labels>
+        <fullName>hViewIdea</fullName>
+        <categories>FeaturedIdea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hViewIdea</shortDescription>
+        <value>View Idea</value>
     </labels>
     <labels>
         <fullName>hWriteComment</fullName>
@@ -1712,11 +1750,25 @@
         <value>Ask questions, find answers and make connections in our community of business owners and experts.</value>
     </labels>
     <labels>
+        <fullName>msgDevDocs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for developer docs</shortDescription>
+        <value>Post, vote and comment on ideas for product enhancements, new features, or improving support.</value>
+    </labels>
+    <labels>
         <fullName>msgError</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Error message</shortDescription>
         <value>Error! Please contact your Admininstator.</value>
+    </labels>
+    <labels>
+        <fullName>msgGuides</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for guides</shortDescription>
+        <value>Connect with your fellow merchants and partners, receive advice, and grow -- together.</value>
     </labels>
     <labels>
         <fullName>msgIdeas</fullName>
@@ -1745,6 +1797,20 @@
         <protected>false</protected>
         <shortDescription>show points on user menu</shortDescription>
         <value>pts</value>
+    </labels>
+    <labels>
+        <fullName>msgUserDocs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for user docs</shortDescription>
+        <value>Ask questions, find answers and make connections in our community of business owners and experts.</value>
+    </labels>
+    <labels>
+        <fullName>msgVideos</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for videos</shortDescription>
+        <value>Stay informed with company updates, product release information and other announcements.</value>
     </labels>
     <labels>
         <fullName>msg_attendees_limit_exceded</fullName>
@@ -1839,29 +1905,4 @@
         <shortDescription>test</shortDescription>
         <value>test</value>
     </labels>
-    <labels>
-        <fullName>hViewIdea</fullName>
-        <categories>FeaturedIdea</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hViewIdea</shortDescription>
-        <value>View Idea</value>
-    </labels>
-    <labels>
-        <fullName>hGuestButtonText</fullName>
-        <categories>FeaturedIdea</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hGuestButtonText</shortDescription>
-        <value>Log In to View Ideas</value>
-    </labels>
-    <labels>
-        <fullName>hGuestText</fullName>
-        <categories>FeaturedIdea</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hGuestText</shortDescription>
-        <value>When I am out and about and I recieve and order on my mobile phone, it would be great to see a “open as PDF” button when I go into the order so I can easily downlaod the order as a PDF. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, ratione!</value>
-    </labels>
-
 </CustomLabels>

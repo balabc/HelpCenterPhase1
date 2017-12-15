@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                             <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">{!$Label.c.hArticles}</h4>
+                                <h4 class="h4 panel-media__title">{!$Label.c.hUserDocs}</h4>
                                 <p class="panel-media__text type--sm">{!$Label.c.msgArticles}</p>
                             </div>
                         </div>

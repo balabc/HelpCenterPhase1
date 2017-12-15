@@ -4,18 +4,23 @@
     BigCommerce control panel, and learn all the important areas of your dashboard." access="global" />
     <aura:attribute name="videoUrl" type="String" access="global"/>
 
-    <div class="area-video">
-        <div class="container clr relative z-2">
-            <div class="area-video__left">
-                <h2 class="h2">{!v.title}</h2>
-                <p class="type--sm videoDescription">{!v.videoDescription}</p>
-                <a onclick="{!c.openVideosPage}">{!$Label.c.btnMoreVideos}</a>
-            </div>
-            <div class="area-video__right">
-                <div class="panel-video">
-                    <iframe width="650" height="366" src="{!v.videoUrl}" frameborder="0"/>
+    <div class="wrap-bg-white-skew-area">
+        <div class="bg-white-skew"></div>
+        <div class="container">
+            <div class="area-video">
+                <div class="container clr relative z-2">
+                    <div class="area-video__left">
+                        <h2 class="h2">{!v.title}</h2>
+                        <p class="type--sm videoDescription">{!v.videoDescription}</p>
+                        <a onclick="{!c.openVideosPage}">{!$Label.c.btnMoreVideos}</a>
+                    </div>
+                    <div class="area-video__right">
+                        <div class="panel-video">
+                            <iframe width="650" height="366" src="{!v.videoUrl}" frameborder="0"/>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div><!-- / end of .area-video -->
         </div>
-    </div><!-- / end of .area-video -->
+    </div>
 </aura:component>

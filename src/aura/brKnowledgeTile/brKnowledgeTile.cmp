@@ -1,0 +1,59 @@
+<aura:component description="brKnowledgeTile" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="title" type="String" access="global"/>
+    <h2 class="h2 m-top-0 p-top-10 text-center">{!v.title}</h2>
+
+    <div class="row row--pad p-top-12 p-bottom-70">
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="toparticles" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-user-docs.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hUserDocs}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgUserDocs}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="guides" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-map.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hGuides}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgGuides}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="videos" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-video.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hVideos}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgVideos}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="devDocs" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-developer-doc.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hDevDocs + ' '}<span class="icon-svg-docs-sm"></span></h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgDevDocs}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+    </div><!-- / end of .row -->
+</aura:component>

@@ -72,6 +72,7 @@
         <members>brCommunityLandingLayout</members>
         <members>brCommunitySpotlight</members>
         <members>brAlgoliaSearchResultRow</members>
+        <members>brKnowledgeTile</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -275,7 +276,7 @@
         <members>BigcommerceCommunityStyles</members>
         <members>BigcommerceCommunityImages</members>
         <members>LghtIdeas</members>
-		<members>instantsearch</members>
+        <members>instantsearch</members>
         <name>StaticResource</name>
     </types>
     <version>41.0</version>
