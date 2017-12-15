@@ -245,3 +245,10 @@ ul {
 ol {
    list-style-type: decimal;
 }
+
+.onePanelManager .uiPanel.open.active {
+    z-index: 10 !important;
+}
+.popupTargetContainer.uiPopupTarget.uiMenuList.uiMenuList--default.uiMenuList--left.visible{
+    display:block  !important;
+}
