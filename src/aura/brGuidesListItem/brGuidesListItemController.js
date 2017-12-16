@@ -1,14 +1,15 @@
 ({
-    doInit : function(cmp) {
-        cmp.set('v.routeInput', {recordId: cmp.get('v.guideArticle').First_Chapter_Url__c});
+    doInit : function(component) {
+        component.set('v.routeInput', {recordId: $A.get('$SfdcSite').pathPrefix + '/s/article/' + component.get('v.guideArticle').First_Chapter_Url__c});
+        console.log($A.get('$SfdcSite'));
     },
 
-    onClick : function(cmp) {
-        var navEvt = $A.get("e.force:navigateToURL");
-        var url = cmp.get('v.guideArticle').First_Chapter_Url__c;
-        url = '/article/' + url;
+    onClick : function(component, event) {
+        var navEvt = $A.get("e.force:navigateToURL"),
+            targetUrl = event.target.dataset.url;
+        //url = component.get('v.guideArticle').First_Chapter_Url__c;
         navEvt.setParams({
-            "url": url
+            "url": targetUrl
         });
         navEvt.fire();
     }

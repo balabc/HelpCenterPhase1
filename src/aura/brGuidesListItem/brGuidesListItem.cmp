@@ -20,7 +20,14 @@
                 <div class="panel-preview__wrap-text">
                     <p>{!v.guideArticle.Short_Description__c}</p>
                 </div>
-                <forceCommunity:routeLink class="read-guide" title="{!$Label.c.lnkReadGuide}" label="{!$Label.c.lnkReadGuide}" routeInput="{!v.routeInput}" onClick="{!c.onClick}"/>
+                <!--<forceCommunity:routeLink class="read-guide" title="{!$Label.c.lnkReadGuide}" label="{!$Label.c.lnkReadGuide}" routeInput="{!v.routeInput}" onClick="{!c.onClick}"/>-->
+     			<a class="read-guide" 
+                   href="{!v.routeInput.recordId}" 
+                   data-url="{!v.routeInput.recordId}" 
+                   title="{!$Label.c.lnkReadGuide}" 
+                   onClick="{!c.onClick}">
+                    {!$Label.c.lnkReadGuide}
+                </a>     
             </div>
         </div>
     </div>
