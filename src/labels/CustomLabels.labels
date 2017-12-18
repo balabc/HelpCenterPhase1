@@ -858,6 +858,13 @@
         <value>Articles</value>
     </labels>
     <labels>
+        <fullName>hAskMe</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for ask</shortDescription>
+        <value>Ask Me Anything</value>
+    </labels>
+    <labels>
         <fullName>hAsktheCommunity</fullName>
         <categories>HeaderContact</categories>
         <language>en_US</language>
@@ -893,7 +900,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>header for community QA</shortDescription>
-        <value>Community QA</value>
+        <value>Community Q&amp;A</value>
     </labels>
     <labels>
         <fullName>hDevDocs</fullName>
@@ -909,6 +916,13 @@
         <protected>false</protected>
         <shortDescription>hEmailSupport</shortDescription>
         <value>Email Support</value>
+    </labels>
+    <labels>
+        <fullName>hEvents</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for events</shortDescription>
+        <value>Events</value>
     </labels>
     <labels>
         <fullName>hFeaturedArticles</fullName>
@@ -931,6 +945,13 @@
         <protected>false</protected>
         <shortDescription>hGetHelp</shortDescription>
         <value>Get Help</value>
+    </labels>
+    <labels>
+        <fullName>hGroups</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>header for groups</shortDescription>
+        <value>Groups</value>
     </labels>
     <labels>
         <fullName>hGuestButtonText</fullName>
@@ -998,7 +1019,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>header for news and updates</shortDescription>
-        <value>News and updates</value>
+        <value>News &amp; updates</value>
     </labels>
     <labels>
         <fullName>hPhoneSupport</fullName>
@@ -1729,6 +1750,13 @@
         <value>Learn how to build, launch and grow your business with our in-depth articles and learning guides.</value>
     </labels>
     <labels>
+        <fullName>msgAskMe</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for ask me</shortDescription>
+        <value>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora natus aspernatur sit, sed mollitia illum?</value>
+    </labels>
+    <labels>
         <fullName>msgAuthorizationRequired</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1764,6 +1792,20 @@
         <value>Error! Please contact your Admininstator.</value>
     </labels>
     <labels>
+        <fullName>msgEvents</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for events</shortDescription>
+        <value>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora natus aspernatur sit, sed mollitia illum?</value>
+    </labels>
+    <labels>
+        <fullName>msgGroups</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for groups</shortDescription>
+        <value>Connect with your fellow merchants and partners, receive advice, and grow -- together.</value>
+    </labels>
+    <labels>
         <fullName>msgGuides</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1776,6 +1818,13 @@
         <protected>false</protected>
         <shortDescription>description for ideas</shortDescription>
         <value>Post, vote and comment on ideas for product enhancements, new features, or improving support.</value>
+    </labels>
+    <labels>
+        <fullName>msgNewUpdates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>message for new updates</shortDescription>
+        <value>Stay informed with company updates, product release information and other announcements.</value>
     </labels>
     <labels>
         <fullName>msgNewsAndUpdates</fullName>

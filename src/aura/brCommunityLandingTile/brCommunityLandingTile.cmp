@@ -1,0 +1,87 @@
+<aura:component description="brCommunityLandingTile" controller="brCommunityLandingTileCtrl" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="title" type="String" access="global"/>
+
+    <h2 class="h2 m-top-0 p-top-10 text-center">{!v.title}</h2>
+
+    <div class="row row--pad p-top-12 p-bottom-70">
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="qa" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-community-q-a.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hCommunityQA}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgCommunityQA}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="groups" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-groups.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hGroups}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgGroups}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="blog" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-news-updates.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hNewsAndUpdates}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="ideas" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-ideas.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hIdeas}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}.</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="events" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-events.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hEvents}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgEvents}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+            <div class="panel-media" id="community" onclick="{!c.openPage}">
+                <div class="panel-media__wrap-icon">
+                    <div class="panel-media__icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-ama.svg'}" alt="" />
+                    </div>
+                </div>
+                <div class="panel-media__wrap-content">
+                    <h4 class="h4 panel-media__title">{!$Label.c.hAskMe}</h4>
+                    <p class="panel-media__text type--sm">{!$Label.c.msgAskMe}</p>
+                </div>
+            </div>
+        </div><!-- / end of .column -->
+    </div><!-- / end of .row -->
+
+</aura:component>
