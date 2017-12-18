@@ -9,9 +9,6 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler name="change" value="{!v.userLeaderboard}" action="{!c.userLeaderboardChange}"/>
-    
-    <div class="area-bg area-bg-second">
-        <div class="skew-lg--top bg-x3lightgrey z-1"></div>
         
         <div class="container relative z-2">
             <h2 class="h2 m-top-0 m-bottom-50r text-center">{!v.configTitleLeaderboard}</h2>
@@ -27,5 +24,4 @@
                 </div><!-- / end of .carousel__track -->
             </div><!-- / end of .carousel -->
         </div><!-- / end of .container -->
-    </div><!-- / end pf .area-bg -->
 </aura:component>

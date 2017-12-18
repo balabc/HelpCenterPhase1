@@ -6,32 +6,27 @@
 
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
 
-    <div class="area-bg">
-        <div class="skew-lg--top bg-x3lightgrey z-1"></div>
-        <div class="skew-lg--bottom bg-x3lightgrey z-1"></div>
+    <div class="container relative z-2">
+        <h2 class="h2 m-top-0 m-bottom-40r text-center">{!v.title}</h2>
 
-        <div class="container relative z-2">
-            <h2 class="h2 m-top-0 m-bottom-40r text-center">{!v.title}</h2>
+        <div class="row row--pad">
+            <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
+                <aura:iteration items="{!v.articlesList}" var="articleItem" indexVar="index">
+                    <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
+                        <ul class="list-group list-group--media-md">
+                            <li class="{!or(
+                                    and(equals(v.articlesCount % 3, 0), and(greaterthanorequal(index, v.articlesList.length-3), lessthanorequal(index, v.articlesList.length-2))),
+                                    and(equals(v.articlesCount % 3, 2), and(equals(index, v.articlesList.length-2))) )?'itemBorder list-group__item':'list-group__item'}">
+                                <a href="{!v.articleBaseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </aura:iteration>
+                <aura:set attribute="else">
+                    <p>{!$Label.c.msgNoItems}</p>
+                </aura:set>
+            </aura:if>
+        </div>
 
-            <div class="row row--pad">
-                <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
-                    <aura:iteration items="{!v.articlesList}" var="articleItem" indexVar="index">
-                        <div class="column-md-12 column-lg-4 column--pad m-bottom-25 m-bottom-0--media-md">
-                            <ul class="list-group list-group--media-md">
-                                <li class="{!or(
-                                        and(equals(v.articlesCount % 3, 0), and(greaterthanorequal(index, v.articlesList.length-3), lessthanorequal(index, v.articlesList.length-2))),
-                                        and(equals(v.articlesCount % 3, 2), and(equals(index, v.articlesList.length-2))) )?'itemBorder list-group__item':'list-group__item'}">
-                                    <a href="{!v.articleBaseURL + 'article/'+articleItem.UrlName}">{!articleItem.Title}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </aura:iteration>
-                    <aura:set attribute="else">
-                        <p>{!$Label.c.msgNoItems}</p>
-                    </aura:set>
-                </aura:if>
-            </div>
-
-        </div><!-- / end of .container -->
-    </div><!-- / end pf .area-bg -->
+    </div><!-- / end of .container -->
 </aura:component>
