@@ -1,0 +1,6 @@
+<aura:component implements="forceCommunity:layout" access="global" description="brKnowledgeLandingLayout">
+    <aura:attribute name="landingHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+
+
+</aura:component>
