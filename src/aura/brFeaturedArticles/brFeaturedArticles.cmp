@@ -1,4 +1,5 @@
 <aura:component description="brFeaturedArticles" controller="brFeaturedArticlesCtrl" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="title" type="String" default="Featured articles" access="global"/>
     <aura:attribute name="articlesCount" type="Integer" default="8" access="global"/>
     <aura:attribute name="articlesList" type="Object[]"/>
     <aura:attribute name="articleBaseURL" type="String" />
@@ -10,7 +11,7 @@
         <div class="skew-lg--bottom bg-x3lightgrey z-1"></div>
 
         <div class="container relative z-2">
-            <h2 class="h2 m-top-0 m-bottom-40r text-center">{!$Label.c.hFeaturedArticles}</h2>
+            <h2 class="h2 m-top-0 m-bottom-40r text-center">{!v.title}</h2>
 
             <div class="row row--pad">
                 <aura:if isTrue="{!greaterthan(v.articlesCount,0)}">
