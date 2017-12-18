@@ -37,4 +37,5 @@
 }
 .THIS #contact-lvl-2.contact-lvl-2--active{
    left: 0;
+   min-height:110%;
 }

@@ -86,7 +86,7 @@
                         <aura:iteration items="{!v.phoneList}" var="phoneItem">
                             <br/>
                             <p class="m-bottom-0">{!phoneItem.Country__c}</p> <!-- color-primary -->
-                            <a href="javascript:void(0);">{!phoneItem.Phone__c}</a>
+                            <a href="{!'tel:' + phoneItem.Phone__c}" >{!phoneItem.Phone__c}</a>
                             <br/>
                         </aura:iteration>
                     </div>
