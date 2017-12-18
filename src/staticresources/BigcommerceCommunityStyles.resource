@@ -259,3 +259,8 @@ ol {
     top: -70px;
     visibility: hidden;
 }
+
+.cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
+    background-position: -150px -187px !important;
+    background-size: 874px 729px !important;
+}
