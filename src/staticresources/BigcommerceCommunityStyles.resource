@@ -252,3 +252,10 @@ ol {
 .popupTargetContainer.uiPopupTarget.uiMenuList.uiMenuList--default.uiMenuList--left.visible{
     display:block  !important;
 }
+
+.article__content .article-anchor {
+    display: block;
+    position: relative;
+    top: -70px;
+    visibility: hidden;
+}
