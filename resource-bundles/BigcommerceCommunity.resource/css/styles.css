@@ -5407,3 +5407,21 @@ textarea::placeholder {
 
 .is-mobile .p-bottom-60--media-md {
   padding-bottom: 60px; }
+
+
+
+/*Custom Styles*/
+
+.cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  content: "";
+  width: 10px;
+  height: 8px;
+  background-position: -143px -177px;
+  background-image: url("../images/sprites/sprite.svg");
+  background-size: 630px 549px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
