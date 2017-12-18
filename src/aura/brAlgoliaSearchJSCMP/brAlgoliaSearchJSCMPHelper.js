@@ -202,7 +202,7 @@
                     item = {};
 
                 filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
-
+                console.log(hits);
                 if ((hits.length > 0) && ((filter.type == category.index) || (filter.type == 'All'))) { 
                     if (availableIndexes.indexOf(category.index) > -1) {
                         switch (category.index) {
@@ -245,7 +245,9 @@
                                         item.left = '<p class="serp__item-left-text">' + item.source.Data_Category[0] + '</p>';
                                     item.right = [
                                         '<p class="serp__item-category truncated">' + item.source.type__c + '</p>',
-                                        '<p class="serp__item-title truncated">' + title + '</span>' +
+                                        '<p class="serp__item-title truncated">' +
+                                        ((!!item.source.chapter__c)? item.source.chapter__c + ' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ': '') +
+                                        title +
                                         ((!!item.source.Section)?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + section: '') +
                                         '</p>',
                                         '<p class="serp__item-description truncated">' + section_content + '</p>'
