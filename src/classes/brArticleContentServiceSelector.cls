@@ -1,5 +1,15 @@
 public with sharing class brArticleContentServiceSelector {
 
+    /**
+     * Returns data category for those article type and article id
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     article type
+     * @param       articleId     article id
+     * @return      data category
+     * @see         String
+     */
     public static String getDataCategoryByArticleTypeAndId(String articleType, String articleId) { 
     	articleType = articleType.replace('__kav','');
     	List<sObject> cats = Database.query('SELECT id, ParentId, DataCategoryGroupName, DataCategoryName FROM ' + articleType + '__DataCategorySelection WHERE ParentId = \'' + articleId + '\'');
