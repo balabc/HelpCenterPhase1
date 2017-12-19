@@ -1,53 +1,93 @@
-public with sharing class brUserServiceSelector {	
-	
+public with sharing class brUserServiceSelector {
+
+    /**
+     * Returns list user members
+     *
+     * {@inheritDoc}
+     *
+     * @param       communityId     Id
+     * @param       limitSql        Integer
+     * @return      user members
+     * @see         List<NetworkMember>
+     */
     public static List<NetworkMember> getUserMembers(Id communityId, Integer limitSql) {
-    	
-    	List<NetworkMember> userMembers = [SELECT MemberId, Member.Name , ReputationPoints 
-    								 FROM NetworkMember 
-    								 WHERE 
-    								 	NetworkId = :communityId   								 	
-    								 ORDER BY ReputationPoints DESC 
-    								 limit :limitSql];
-    	return userMembers;
-    	
+
+        List<NetworkMember> userMembers = [
+                SELECT MemberId, Member.Name, ReputationPoints
+                FROM NetworkMember
+                WHERE NetworkId = :communityId
+                ORDER BY ReputationPoints DESC
+                limit :limitSql
+        ];
+        return userMembers;
+
     }
-    
-    public static List<NetworkMember> getLogUserMember(Id communityId) {    
-    		
-    	List<NetworkMember> userMembers = [SELECT MemberId, Member.Name , ReputationPoints 
-    								 FROM NetworkMember 
-    								 WHERE 
-    								 	NetworkId = :communityId AND
-    								 	MemberId = :UserInfo.getUserId()
-    								 limit 1];
-    								 
-    	if (userMembers != null) { 		
-    		return userMembers;   		
-    	} else {
-    		return null;
-    	}				
-    				     	
-    }    
-    
+
+    /**
+     * Returns current logged user
+     *
+     * {@inheritDoc}
+     *
+     * @param       communityId     Id
+     * @return      user or null
+     * @see         List<NetworkMember>
+     */
+    public static List<NetworkMember> getLogUserMember(Id communityId) {
+
+        List<NetworkMember> userMembers = [
+                SELECT MemberId, Member.Name, ReputationPoints
+                FROM NetworkMember
+                WHERE NetworkId = :communityId AND MemberId = :UserInfo.getUserId()
+                limit 1
+        ];
+
+        if (userMembers != null) {
+            return userMembers;
+        } else {
+            return null;
+        }
+
+    }
+
+    /**
+     * Returns list users with them photos if they exist in members ids
+     *
+     * {@inheritDoc}
+     *
+     * @param       memberIds     Set<Id>
+     * @return      users
+     * @see         List<User>
+     */
     public static List<User> getUserMemberPhotoUrl(Set<Id> memberIds) {
-    	
-    	List<User> userMembers = [SELECT Id, FullPhotoUrl, SmallPhotoUrl, MediumPhotoUrl, Name
-    								 FROM User 
-    								 WHERE 
-    								 	Id IN :memberIds];
-    	return userMembers;
-    	
-    }   
-    
+
+        List<User> userMembers = [
+                SELECT Id, FullPhotoUrl, SmallPhotoUrl, MediumPhotoUrl, Name
+                FROM User
+                WHERE Id IN :memberIds
+        ];
+        return userMembers;
+
+    }
+
+    /**
+     * Returns list reputation levels in community
+     *
+     * {@inheritDoc}
+     *
+     * @param       communityId     Id
+     * @return      reputation levels
+     * @see         List<ReputationLevel>
+     */
     public static List<ReputationLevel> getUserReputationLevels(Id communityId) {
-    	
-    	List<ReputationLevel> reputationLevels = [SELECT id, Label,LevelNumber,Threshold, ParentId 
-    									  FROM ReputationLevel 
-    									  WHERE 
-    									  	ParentId = :communityId
-    									  ORDER BY Threshold ASC];
-    	return reputationLevels;
-    	
-    }     
-    
+
+        List<ReputationLevel> reputationLevels = [
+                SELECT id, Label,LevelNumber,Threshold, ParentId
+                FROM ReputationLevel
+                WHERE ParentId = :communityId
+                ORDER BY Threshold ASC
+        ];
+        return reputationLevels;
+
+    }
+
 }

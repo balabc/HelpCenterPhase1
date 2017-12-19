@@ -1,18 +1,27 @@
 public with sharing class brCategorySeviceSelector {
-  
+
+    /**
+     * Returns categories for category group
+     *
+     * {@inheritDoc}
+     *
+     * @param       categoryGroup     String
+     * @return      category list
+     * @see         List<brCategoryModel.CategoryWrapper>
+     */
     public static List<brCategoryModel.CategoryWrapper> getCategories(String categoryGroup) {
         List<brCategoryModel.CategoryWrapper> categoryList = new List<brCategoryModel.CategoryWrapper>();   
         List<String> objType = new List<String>();
         objType.add('KnowledgeArticleVersion');
         List<DescribeDataCategoryGroupResult> describeCategoryResult = Schema.describeDataCategoryGroups(objType);
-        list<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
+        List<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
         for(Schema.DescribeDataCategoryGroupResult s : describeCategoryResult) {
             Schema.DataCategoryGroupSObjectTypePair thisPair = new Schema.DataCategoryGroupSObjectTypePair();
             thisPair.sObject = 'KnowledgeArticleVersion';
             thisPair.dataCategoryGroupName = s.getName();
             pairs.add(thisPair);            
-        }       
-        list<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
+        }
+        List<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
         for(Schema.DescribeDataCategoryGroupStructureResult r : results) { 
         	if(r.name == categoryGroup) {
 	            for( Schema.DataCategory topcat: r.getTopCategories()) {
@@ -30,21 +39,34 @@ public with sharing class brCategorySeviceSelector {
         	}
         }
         return categoryList;
-    }  
+    }
 
+    /**
+     * Returns first level categories for category group
+     *
+     * {@inheritDoc}
+     *
+     * @param       categoryGroup     String
+     * @return      category list
+     * @see         List<brCategoryModel.CategoryWrapper>
+     */
     public static List<brCategoryModel.CategoryWrapper> getFirstCategories(String categoryGroup) {
         List<brCategoryModel.CategoryWrapper> categoryList = new List<brCategoryModel.CategoryWrapper>();   
         List<String> objType = new List<String>();
         objType.add('KnowledgeArticleVersion');
         List<DescribeDataCategoryGroupResult> describeCategoryResult = Schema.describeDataCategoryGroups(objType);
-        list<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
-        for(Schema.DescribeDataCategoryGroupResult s : describeCategoryResult) {
+        List<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
+        /*for(Schema.DescribeDataCategoryGroupResult s : describeCategoryResult) {
             Schema.DataCategoryGroupSObjectTypePair thisPair = new Schema.DataCategoryGroupSObjectTypePair();
             thisPair.sObject = 'KnowledgeArticleVersion';
             thisPair.dataCategoryGroupName = s.getName();
             pairs.add(thisPair);            
-        }       
-        list<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
+        }*/
+        Schema.DataCategoryGroupSObjectTypePair thisPair = new Schema.DataCategoryGroupSObjectTypePair();
+        thisPair.sObject = 'KnowledgeArticleVersion';
+        thisPair.dataCategoryGroupName = categoryGroup;
+        pairs.add(thisPair);
+        List<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
         for(Schema.DescribeDataCategoryGroupStructureResult r : results) {
         	if(r.name == categoryGroup) {
 	            for( Schema.DataCategory topcat: r.getTopCategories()) {            	
@@ -56,21 +78,31 @@ public with sharing class brCategorySeviceSelector {
             }
         }
         return categoryList;
-    }     
-     
+    }
+
+    /**
+     * Returns subcategories for category
+     *
+     * {@inheritDoc}
+     *
+     * @param       category     String
+     * @return      category list
+     * @see         List<brCategoryModel.CategoryWrapper>
+     */
     public static List<brCategoryModel.CategoryWrapper> getSubCategories(String category){
         List<brCategoryModel.CategoryWrapper> categoryList = new List<brCategoryModel.CategoryWrapper>();   
         List<String> objType = new List<String>();
         objType.add('KnowledgeArticleVersion');
         List<DescribeDataCategoryGroupResult> describeCategoryResult = Schema.describeDataCategoryGroups(objType);
-        list<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
+        List<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
         for(Schema.DescribeDataCategoryGroupResult s : describeCategoryResult) {
             Schema.DataCategoryGroupSObjectTypePair thisPair = new Schema.DataCategoryGroupSObjectTypePair();
             thisPair.sObject = 'KnowledgeArticleVersion';
             thisPair.dataCategoryGroupName = s.getName();
             pairs.add(thisPair);            
-        }       
-        list<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
+        }
+        
+        List<Schema.DescribeDataCategoryGroupStructureResult> results = Schema.describeDataCategoryGroupStructures(pairs,false);
         for(Schema.DescribeDataCategoryGroupStructureResult r : results) { 
             for( Schema.DataCategory topcat: r.getTopCategories()) {
                 for(Schema.DataCategory ch1 :topcat.childCategories) {
@@ -89,5 +121,6 @@ public with sharing class brCategorySeviceSelector {
             }
         }
         return categoryList;
-    }       
+    }
+
 }

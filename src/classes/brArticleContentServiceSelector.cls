@@ -5,9 +5,9 @@ public with sharing class brArticleContentServiceSelector {
      *
      * {@inheritDoc}
      *
-     * @param       articleType     article type
-     * @param       articleId     article id
-     * @return      data category
+     * @param       articleType     String
+     * @param       articleId       String
+     * @return      data category name
      * @see         String
      */
     public static String getDataCategoryByArticleTypeAndId(String articleType, String articleId) { 
@@ -16,6 +16,15 @@ public with sharing class brArticleContentServiceSelector {
     	return String.valueOf(cats[0].get('DataCategoryGroupName'));
     }
 
+    /**
+     * Returns article by id
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleId     String
+     * @return      article
+     * @see         sObject
+     */
     public static sObject getArticleById(String articleId) {
 		String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
         String queryFields = '';
@@ -35,17 +44,46 @@ public with sharing class brArticleContentServiceSelector {
     	return (sObject) Database.query(q);
     }
 
+    /**
+     * Returns data category name by article id
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     String
+     * @param       articleId       String
+     * @return      data category name
+     * @see         String
+     */
     public static String getDataCategoryNameByArticleId(String articleId, String articleType) {
         String q = 'SELECT DataCategoryName FROM ' + articleType.replace('__kav','') + '__DataCategorySelection WHERE (ParentId = \'' + articleId + '\') AND (Parent.PublishStatus = \'Online\') LIMIT 1';
         SObject result = Database.query(q);
         return String.valueOf(result.get('DataCategoryName'));
     }
 
+    /**
+     * Returns article list in category with this article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     String
+     * @return      article list
+     * @see         String
+     */
     public static List<sObject> getArticleListInDataCategory(String articleType) {
         String q = 'SELECT ParentId, DataCategoryName FROM ' + articleType.replace('__kav','') + '__DataCategorySelection WHERE Parent.PublishStatus = \'Online\'';
         return Database.query(q);
     }
 
+    /**
+     * Returns article list by article type and id must contain in list ids
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     String
+     * @param       ids             List<String>
+     * @return      article list
+     * @see         List<sObject>
+     */
     public static List<sObject> getArticleListByDataCategory(String articleType, List<String> ids) {
         String q = 'SELECT KnowledgeArticleId, Title, Nav_Title__c, Id, Sort_Oder_in_Category__c FROM ' + articleType + ' WHERE (PublishStatus = \'Online\') AND (Id IN :ids) ORDER BY Sort_Oder_in_Category__c ASC';
         return Database.query(q);
