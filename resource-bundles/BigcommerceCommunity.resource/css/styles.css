@@ -4928,7 +4928,7 @@ textarea::placeholder {
   overflow-y: auto;
   width: 100%;
   max-width: 258px;
-  max-height: 600px; }
+  max-height: calc(100vh - 150px); }
   .doc-nav__inner {
     overflow: hidden;
     width: 100%;
