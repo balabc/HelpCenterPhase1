@@ -15,13 +15,15 @@
                 component.set("v.articleType", data.articleType);
                 component.set("v.dataCategory", data.dataCategory);
                 
-                var brCategoriesCMP = component.find('brCategoriesCMP')
-                brCategoriesCMP.set('v.data', {
-                    id: articleId,
-                    objectName: data.articleType,
-                    dataCategory: data.dataCategory
-                });
-                brCategoriesCMP.changeData();
+                var brCategoriesCMP = component.find('brCategoriesCMP');
+                if (!!brCategoriesCMP) {
+                    brCategoriesCMP.set('v.data', {
+                        id: articleId,
+                        objectName: data.articleType,
+                        dataCategory: data.dataCategory
+                    });
+                    brCategoriesCMP.changeData();
+                }
             }
         });
         $A.enqueueAction(action);
