@@ -7,7 +7,7 @@
     <div class="header-mobile" aura:id="header-mobile">
         <div class="header-mobile__container clr">
             <div class="header-mobile__left">
-                <a href="/" class="header-mobile__logo-icon header-mobile__logo"></a>
+                <a onclick="{!c.showHomePage}" class="header-mobile__logo-icon header-mobile__logo"></a>
             </div><!-- / end of .header-mobile__left -->
             <div class="header-mobile__right">
                 <span class="header-mobile__search-icon header-mobile__search-button" onclick="{!c.toggleSearch}"></span>

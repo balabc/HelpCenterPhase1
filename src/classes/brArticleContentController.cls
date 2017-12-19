@@ -42,4 +42,18 @@ public with sharing class brArticleContentController {
         return brArticleContentService.getListArticleInCurrentCategory(articleId);
     }
 
+    /**
+     * Returns articles count for category by article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType   String
+     * @return      articles count for category
+     * @see         Map<String, Integer>
+     */
+    @AuraEnabled
+    public static Map<String, Integer> getCountForEachCategory(String articleType) {
+        return brArticleContentService.getCountForEachCategory(articleType);
+    }
+
 }

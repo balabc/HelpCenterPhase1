@@ -1,6 +1,7 @@
 <aura:component description="brGuidesListItem">
     <aura:attribute name="guideArticle" type="brGuideItem__mdt" />
     <aura:attribute name="routeInput" type="Map"/>
+    <aura:attribute name="categoriesCount" type="Map"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 

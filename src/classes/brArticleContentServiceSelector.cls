@@ -90,4 +90,33 @@ public with sharing class brArticleContentServiceSelector {
 
     }
 
+    /**
+     * Returns article list by article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     String
+     * @return      article list
+     * @see         List<sObject>
+     */
+    public static List<sObject> getAllArticleByArticleType(String articleType) {
+        String q = 'SELECT Id, DataCategoryName FROM ' + articleType + ' WHERE (PublishStatus = \'Online\')';
+        return Database.query(q);
+
+    }
+
+    /**
+     * Returns guides
+     *
+     * {@inheritDoc}
+     *
+     * @return      list guides
+     * @see         List<sObject>
+     */
+    public static List<sObject> getAllArticleForGuide() {
+        String q = 'SELECT Id FROM brGuideItem__mdt';
+        return Database.query(q);
+
+    }
+
 }

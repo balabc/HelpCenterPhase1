@@ -1,4 +1,5 @@
 public with sharing class brGuidesListCtrl {
+
     @AuraEnabled
     public static List<brGuideItem__mdt> getGuideArticles() {
         if (Test.isRunningTest()) {
@@ -13,4 +14,10 @@ public with sharing class brGuidesListCtrl {
                 First_Chapter_Url__c, Image_Alt__c, Image_Url_2x__c
                 FROM brGuideItem__mdt ORDER BY Sort__c ASC NULLS LAST];
     }
+
+    @AuraEnabled
+    public static Map<String, Integer> getCountForEachCategory() {
+        return brArticleContentService.getCountForEachCategory('Learning__DataCategorySelection');
+    }
+
 }
