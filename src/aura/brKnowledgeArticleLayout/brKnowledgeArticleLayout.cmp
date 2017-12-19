@@ -2,6 +2,9 @@
     <aura:attribute name="breadcrumbs" type="Aura.Component[]" required="false"/>
     <aura:attribute name="articleContent1" type="Aura.Component[]" required="false"/>
     <aura:attribute name="articleContent2" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="askButton" type="Aura.Component[]" required="false"/>
+
     <aura:attribute name="articleType" type="String" />
     <aura:attribute name="isContentVisible" type="Boolean" default="false"/>
     <aura:attribute name="isKnowledgeBaseArticle" type="Boolean" default="false"/>
@@ -13,10 +16,19 @@
             {!v.breadcrumbs}
             <aura:if isTrue="{!v.isKnowledgeBaseArticle}">
                 {!v.articleContent1}
+                <div class="panel-content">
+                    <div class="panel-content__body">
+                        <div class="panel-content__body-content text-center">
+                            <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
+                            <a href="#" class="button button--sm button--primary">Ask a question</a>
+                        </div>
+                    </div>
+                </div><!-- / end of .panel-content -->
                 <aura:set attribute="else">
                     {!v.articleContent2}
                 </aura:set>
             </aura:if>
         </div>
     </aura:if>
+    {!v.landingFooter}
 </aura:component>
