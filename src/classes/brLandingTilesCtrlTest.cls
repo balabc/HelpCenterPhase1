@@ -1,5 +1,5 @@
 @IsTest
-private class brCommunityLandingTileCtrlTest {
+private class brLandingTilesCtrlTest {
     @IsTest
     static void testGetListViews() {
         CollaborationGroup newGroup = new CollaborationGroup(Name='Active Groups');
@@ -8,7 +8,7 @@ private class brCommunityLandingTileCtrlTest {
 
         Test.startTest();
 
-        ListView view = brCommunityLandingTileCtrl.getListViews();
+        ListView view = brLandingTilesCtrl.getListViews();
 
         Test.stopTest();
 

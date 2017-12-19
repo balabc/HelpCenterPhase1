@@ -1,79 +1,17 @@
 <aura:component implements="forceCommunity:layout" access="global" description="Community homepage content layout">
-    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
     <aura:attribute name="gettingStartedVideo" type="Aura.Component[]" required="false"/>
     <aura:attribute name="featuredArticles" type="Aura.Component[]" required="false"/>
-    <aura:attribute name="communityContributors" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="leaderboard" type="Aura.Component[]" required="false"/>
     <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingTiles" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="topTrending" type="Aura.Component[]" required="false"/>
 
 	<c:brLiveMetrics />
 
-    <div class="lift-content">
-        <div class="skew--top bg--white"></div>
-        <div class="lift-content__inner">
-            <div class="container">
-                <div class="row row--pad">
-                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media" id="toparticles" onclick="{!c.openPage}">
-                            <div class="panel-media__wrap-icon">
-                                <div class="panel-media__icon">
-                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles.png'}"
-                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles-2x.png 2x'}" alt="" />
-                                </div>
-                            </div>
-                            <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">{!$Label.c.hUserDocs}</h4>
-                                <p class="panel-media__text type--sm">{!$Label.c.msgArticles}</p>
-                            </div>
-                        </div>
-                    </div><!-- / end of .column -->
-                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media" id="qa" onclick="{!c.openPage}">
-                            <div class="panel-media__wrap-icon">
-                                <div class="panel-media__icon">
-                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Community.png'}"
-                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Community-2x.png 2x'}" alt="" />
-                                </div>
-                            </div>
-                            <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">{!$Label.c.hCommunityQA}</h4>
-                                <p class="panel-media__text type--sm">{!$Label.c.msgCommunityQA}</p>
-                            </div>
-                        </div>
-                    </div><!-- / end of .column -->
-                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media" id="blog" onclick="{!c.openPage}">
-                            <div class="panel-media__wrap-icon">
-                                <div class="panel-media__icon">
-                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates.png'}"
-                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates-2x.png 2x'}" alt="" />
-                                </div>
-                            </div>
-                            <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">{!$Label.c.hNewsAndUpdates}</h4>
-                                <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
-                            </div>
-                        </div>
-                    </div><!-- / end of .column -->
-                    <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                        <div class="panel-media" id="ideas" onclick="{!c.openPage}">
-                            <div class="panel-media__wrap-icon">
-                                <div class="panel-media__icon">
-                                    <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas.png'}"
-                                         srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas-2x.png 2x'}" alt="" />
-                                </div>
-                            </div>
-                            <div class="panel-media__wrap-content">
-                                <h4 class="h4 panel-media__title">{!$Label.c.hIdeas}</h4>
-                                <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}</p>
-                            </div>
-                        </div>
-                    </div><!-- / end of .column -->
-                </div><!-- / end of .row -->
-            </div><!-- / end of .container -->
-        </div><!-- / end of .lift-content__inner -->
-    </div><!-- / end of .lift-content -->
-
-    <div style="background-color: #fff">{!v.content}</div>
+    <div style="background-color: #fff">
+        {!v.landingTiles}
+        {!v.topTrending}
+    </div>
     <div class="area-bg">
         <div class="skew-lg--top bg-x3lightgrey z-1"></div>
         <div class="skew-lg--bottom bg-x3lightgrey z-1"></div>
@@ -84,7 +22,7 @@
     </div>
     <div class="area-bg area-bg-second">
         <div class="skew-lg--top bg-x3lightgrey z-1"></div>
-        {!v.communityContributors}
+        {!v.leaderboard}
     </div>
         {!v.landingFooter}
 </aura:component>

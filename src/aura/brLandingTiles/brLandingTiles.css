@@ -1,10 +1,12 @@
 .THIS.h2 {
     -webkit-margin-after: 0.83em;
 }
-.THIS .panel-media{
-    cursor: pointer;
+.THIS .p-media{
     padding: 43px;
 }
-.THIS .panel-media__wrap-content {
+.THIS .wrap-content {
     padding-left: 142px
+}
+.THIS .panel-media {
+    cursor: pointer;
 }
