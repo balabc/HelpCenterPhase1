@@ -1,5 +1,5 @@
 ({
-    doInit: function (component, event) {
+    doInit: function (component, event, helper) {
         if ($A.get("$Browser.formFactor") != 'PHONE') {
             window.onscroll = function () {
                 var cnHeader = 'header',
@@ -22,6 +22,7 @@
                 }
             };
         }
+        helper.getNavigationMenuItemExternalLabels(component);
     },
     onClick : function(component, event) {
         var id = event.target.dataset.menuItemId;

@@ -1,5 +1,5 @@
 ({
-    doInit: function (cmp, event) {
+    doInit: function (cmp, event, helper) {
         if ($A.get("$Browser.formFactor") != 'PHONE') {
             window.onscroll = function () {
                 var cnHeader = 'header',
@@ -28,6 +28,7 @@
                 }
             };
         }
+        helper.getNavigationMenuItemExternalLabels(cmp);
     },
     onCategoryClick : function(component, event, helper) {
         try {

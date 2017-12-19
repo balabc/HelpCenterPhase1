@@ -1,6 +1,7 @@
 <aura:component description="brMainNavMenuAltItem">
     <aura:attribute name="menuItem" type="Object" />
     <aura:attribute name="prevActiveMenuItemId" type="String" />
+    <aura:attribute name="labels" type="String[]"/>
 
     <aura:registerEvent name="prevActiveMenuItem" type="c:brPrevActiveMenuItemEvent"/>
 
@@ -22,7 +23,13 @@
                             <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu">
                                 <aura:iteration items="{!v.menuItem.subMenu}" var="subItem">
                                     <li class="header__dropdown-menu-item" aura:id="dropdownLink">
-                                        <a onclick="{!c.toggleSubMenu}" style="transition-delay: 0.5s;" data-menu-item-id="{!subItem.id}" class="header__dropdown-menu-link">{!subItem.label}</a>
+                                        <a onclick="{!c.toggleSubMenu}" style="transition-delay: 0.5s;" data-menu-item-id="{!subItem.id}" class="header__dropdown-menu-link">{!subItem.label + ' '}
+                                            <aura:iteration items="{!v.labels}" var="label">
+                                                <aura:if isTrue="{!equals(label, subItem.label)}">
+                                                    <span data-menu-item-id="{!subItem.id}" class="icon-svg-docs-sm"></span>
+                                                </aura:if>
+                                            </aura:iteration>
+                                        </a>
                                     </li>
                                 </aura:iteration>
                             </ul>

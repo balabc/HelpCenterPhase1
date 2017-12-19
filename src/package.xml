@@ -179,6 +179,11 @@
         <members>brMenuListViewCtrl</members>
         <members>brLandingTilesCtrl</members>
         <members>brLandingTilesCtrlTest</members>
+        <members>brMainNavMenuService</members>
+        <members>brMainNavMenuAltCtrl</members>
+        <members>brMainNavMenuServiceTest</members>
+        <members>brMainNavMenuAltCtrlTest</members>
+        <members>brMainNavMenuCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>

@@ -1,5 +1,6 @@
-<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes" description="brMainNavMenuAlt">
+<aura:component extends="forceCommunity:navigationMenuBase" controller="brMainNavMenuAltCtrl" implements="forceCommunity:availableForAllPageTypes" description="brMainNavMenuAlt">
     <aura:attribute name="prevActiveMenuItemId" type="String" />
+    <aura:attribute name="labels" type="String[]"/>
 
     <aura:handler name="prevActiveMenuItem" event="c:brPrevActiveMenuItemEvent" action="{!c.setMenuItemId}"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -13,7 +14,7 @@
             </li>
 
             <aura:iteration items="{!v.menuItems}" var="i" indexVar="index">
-                <c:brMainNavMenuAltItem menuItem="{!i}" prevActiveMenuItemId="{!v.prevActiveMenuItemId}"/>
+                <c:brMainNavMenuAltItem menuItem="{!i}" prevActiveMenuItemId="{!v.prevActiveMenuItemId}" labels="{!v.labels}"/>
             </aura:iteration>
 
             <aura:iteration items="{!v.menuItems}" var="item" >

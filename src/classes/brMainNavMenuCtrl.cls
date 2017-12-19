@@ -34,12 +34,16 @@ public with sharing class brMainNavMenuCtrl {
         }
     }
 
-    public static String getTargetByMenuId(String menuItemId){
-        try{
+    public static String getTargetByMenuId(String menuItemId) {
+        try {
             return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c;
-        }catch (Exception e){
+        } catch (Exception e) {
             return '';
         }
     }
 
+    @AuraEnabled
+    public static List<String> getLabels() {
+        return brMainNavMenuService.getLabels();
+    }
 }
