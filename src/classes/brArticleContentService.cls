@@ -11,6 +11,29 @@ public with sharing class brArticleContentService {
         return result;
     }
 
+    public static Map<String, Integer> getCountForEachCategory(String articleType) {
+        Map<String, Integer> result = new Map<String, Integer>();
+
+        List<sObject> guides = brArticleContentServiceSelector.getAllArticleForGuide();
+        List<sObject> listArticles = brArticleContentServiceSelector.getAllArticleByArticleType(articleType);
+        String dcn = '';
+
+
+        /*TODO: rebuild this*/
+        /*if (guides.size() > 0) {
+            for (sObject art : guides) {
+                dcn = String.valueOf(art.get('DataCategoryName'));
+                if (result.containsKey(dcn)) {
+                    result.put(dcn, (result.get(dcn) + 1));
+                } else {
+                    result.put(dcn, 1);
+                }
+            }
+        }*/
+
+        return result;
+    }
+
     public static brArticleModel getArticleContent(String articleId) {
         brArticleModel article = new brArticleModel();
         article.item = brArticleContentServiceSelector.getArticleById(articleId);

@@ -1,18 +1,7 @@
 ({
-    doInit: function (cmp, event, helper) {
-        var action = cmp.get('c.getGuideArticles');
+    doInit: function (component, event, helper) {
 
-        action.setCallback(this, function (response) {
-            var state = response.getState(),
-                guideArticles = response.getReturnValue();
 
-            if (state === 'SUCCESS') {
-                cmp.set('v.guideArticles', guideArticles);
-            } else {
-                console.log('callback error: doInit in brGuidesListController.js');
-            }
-        });
-
-        $A.enqueueAction(action);
-    },
+        helper.getGuideArticles(component);
+    }
 })
