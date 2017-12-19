@@ -5,11 +5,16 @@ public with sharing class brNavigationMenuItemServiceSelector {
         return articles;            
     } 
     
-    public static List<NavigationMenuItem> getNavigationMenuItem() {
+    public static List<NavigationMenuItem> getNavigationMenuItem(String NavigationLinkSetId) {
         List<NavigationMenuItem> itemList = new List<NavigationMenuItem>();
-        itemList = [SELECT id, Label, NavigationLinkSetId, Position, SystemModstamp, Target, TargetPrefs, Type, ParentId FROM NavigationMenuItem ORDER BY Position];
+        itemList = [SELECT id, Label, NavigationLinkSetId, Position, SystemModstamp, Target, TargetPrefs, Type, ParentId FROM NavigationMenuItem WHERE NavigationLinkSetId = :NavigationLinkSetId ORDER BY Position];
         return itemList;
-    } 
+    }
+
+    public static String getCurrentNavigationMenu(Id communityId) {
+        List<NavigationLinkSet> itemList = [SELECT id, NetworkId FROM NavigationLinkSet WHERE NetworkId = :communityId];
+        return String.valueOf(itemList[0].id);
+    }
     
     public static List<brCommunity_Menu_Map__mdt> getMetaDataMenu() {
         List<brCommunity_Menu_Map__mdt> itemList = new List<brCommunity_Menu_Map__mdt>();

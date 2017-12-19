@@ -23,8 +23,11 @@ public with sharing class brNavigationMenuItemService {
     }
 
     public static List<brNavigationMenuItemModel> getNavigationMenu() {
+        Id communityId = Network.getNetworkId();
+        String currentMenuId = brNavigationMenuItemServiceSelector.getCurrentNavigationMenu(communityId);
+
         List<brNavigationMenuItemModel> itemList = new List<brNavigationMenuItemModel>();
-        List<NavigationMenuItem> items = brNavigationMenuItemServiceSelector.getNavigationMenuItem();
+        List<NavigationMenuItem> items = brNavigationMenuItemServiceSelector.getNavigationMenuItem(currentMenuId);
         List<brCommunity_Menu_Map__mdt> metaData = brNavigationMenuItemServiceSelector.getMetaDataMenu();
         List<brCommunity_Category_Menu_Map__mdt> metaDataCategory = brNavigationMenuItemServiceSelector.getMetaDataCategoryMenu();
 
