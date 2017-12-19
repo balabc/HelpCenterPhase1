@@ -74,6 +74,7 @@
         <members>brAlgoliaSearchResultRow</members>
         <members>brKnowledgeLandingLayout</members>
         <members>brLandingTiles</members>
+        <members>brKnowledgeArticleConfigLayout</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
