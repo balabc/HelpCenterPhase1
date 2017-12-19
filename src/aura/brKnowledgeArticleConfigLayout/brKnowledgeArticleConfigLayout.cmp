@@ -1,0 +1,12 @@
+<aura:component implements="forceCommunity:layout" description="Custom Content Layout" access="global">
+    <aura:attribute name="articleContent1" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="articleContent2" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="askButton" type="Aura.Component[]" required="false"/>
+
+
+        {!v.articleContent1}
+        {!v.articleContent2}
+        {!v.askButton}
+        {!v.landingFooter}
+</aura:component>
