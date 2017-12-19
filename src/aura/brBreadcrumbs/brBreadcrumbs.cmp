@@ -32,9 +32,8 @@
                             <div class="dropdown breadcrumbs__dropdown"> <!-- breadcrumbs__dropdown- -active -->
                                 <div class="dropdown__body breadcrumbs__dropdown-body">
                                     <ul class="breadcrumbs__dropdown-list">
-
                                         <aura:iteration items="{!v.breadCrumbSubItems}" var="breadcrumb">
-                                            <li class="{!breadcrumb.active? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
+                                            <li class="{!(breadcrumb.active == 'true')? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
                                                 <a href="javascript:void(0);" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" class="breadcrumbs__dropdown-link truncated" onclick="{!c.onClick}">
                                                 {!breadcrumb.label}
                                                     <aura:if isTrue="{!breadcrumb.itemtype == 'ExternalLink'}">
@@ -43,7 +42,6 @@
                                                 </a>
                                             </li>
                                         </aura:iteration>
-
                                     </ul>
                                 </div>
                             </div>

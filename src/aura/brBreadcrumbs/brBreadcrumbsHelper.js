@@ -1,8 +1,7 @@
-
 ({
     processStaff: function(component, event) {
         try {
-            var action = component.get("c.doStaff"),
+            var action = component.get("c.getBreadCrumbsData"),
             recordId = component.get("v.recordId");
             action.setParams({
             	fullurl : window.location.href,
@@ -12,29 +11,12 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var output = response.getReturnValue();
+                    console.log('crumbsDEBUG:', output.debug);
+                    component.set("v.breadCrumbHome", output.homeCrumb);
+                    component.set("v.breadCrumbRoot", output.rootCrumb);
+                    component.set("v.breadCrumbParent", output.parentCrumb);
+                    component.set("v.breadCrumbSubItems", output.subItems);
                     component.set("v.isReady", true);
-                    var subitems = [];
-                    output.forEach(function(item, index, array) {
-                        if(item.type == 'home'){
-                            component.set("v.breadCrumbHome", item);
-                        }
-                        if(item.type == 'debug'){
-                            console.log('debug',item.label);
-                        }
-                        if(item.type == 'root'){
-                            component.set("v.breadCrumbRoot", item);
-                        }
-                        if(item.type == 'parent'){
-                            component.set("v.breadCrumbParent", item);
-                        }
-                        if(item.type == 'subitem'){
-                            item.active = (item.active == 'true')?true:false;
-                            subitems.push(item);
-                        }
-                    });
-                    if(subitems.length > 0){
-                        component.set("v.breadCrumbSubItems", subitems);
-                    }
                 }else if (state === "ERROR") {
                     var errors = response.getError();
                     console.log("Errors: ", errors);
