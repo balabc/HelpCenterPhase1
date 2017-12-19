@@ -1,8 +1,9 @@
 <aura:component implements="forceCommunity:layout" access="global" description="brCommunityLandingLayout">
     <aura:attribute name="landingHeader" type="Aura.Component[]" required="false"/>
     <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
-    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
-    <aura:attribute name="content2" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="leaderboard" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingTiles" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="spotlightAndIdea" type="Aura.Component[]" required="false"/>
     <aura:attribute name="gettingStartedVideo" type="Aura.Component[]" required="false"/>
     <aura:attribute name="topTrending" type="Aura.Component[]" required="false"/>
 
@@ -11,10 +12,11 @@
     <div class="container">
         <c:brBreadcrumbs/>
         <div class="p-bottom-65">
-            {!v.content}
+        {!v.landingTiles}
+        {!v.leaderboard}
         </div>
         <div class="row row--pad p-bottom-100 p-bottom-60--media-md">
-            {!v.content2}
+            {!v.spotlightAndIdea}
         </div>
     </div>
     <div class="wrap-bg-white-skew-area">

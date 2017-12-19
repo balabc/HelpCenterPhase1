@@ -1,7 +1,7 @@
 <aura:component implements="forceCommunity:layout" access="global" description="brKnowledgeLandingLayout">
     <aura:attribute name="landingHeader" type="Aura.Component[]" required="false"/>
     <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
-    <aura:attribute name="content" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingTiles" type="Aura.Component[]" required="false"/>
     <aura:attribute name="gettingStartedVideo" type="Aura.Component[]" required="false"/>
     <aura:attribute name="featuredArticles" type="Aura.Component[]" required="false"/>
 
@@ -9,7 +9,7 @@
 
     <div class="container">
         <c:brBreadcrumbs/>
-            {!v.content}
+            {!v.landingTiles}
     </div>
     <div class="wrap-bg-white-skew-area">
         <div class="bg-white-skew"></div>

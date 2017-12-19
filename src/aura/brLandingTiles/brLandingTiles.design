@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="pageName" label="Page name" datasource="Home,Knowledge,Community" default="Home" />
+    <design:attribute name="title" label="Title" description="title for tiles" />
+    <design:attribute name="userDocsUrl" label="User Docs URL" description="label for user docs" />
+</design:component>

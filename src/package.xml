@@ -72,9 +72,8 @@
         <members>brCommunityLandingLayout</members>
         <members>brCommunitySpotlight</members>
         <members>brAlgoliaSearchResultRow</members>
-        <members>brKnowledgeTile</members>
-        <members>brCommunityLandingTile</members>
         <members>brKnowledgeLandingLayout</members>
+        <members>brLandingTiles</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -178,8 +177,8 @@
         <members>brBlogArticleWrapper</members>
         <members>brBreadcrumbsCtrlTest</members>
         <members>brMenuListViewCtrl</members>
-        <members>brCommunityLandingTileCtrl</members>
-        <members>brCommunityLandingTileCtrlTest</members>
+        <members>brLandingTilesCtrl</members>
+        <members>brLandingTilesCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
