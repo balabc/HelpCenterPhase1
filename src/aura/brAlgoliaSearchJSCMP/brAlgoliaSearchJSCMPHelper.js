@@ -193,7 +193,10 @@
                 name_index = '',
                 link_index = '',
                 filterCounts = {},
+                objSfdcSite = $A.get('$SfdcSite'),
             	availableIndexes = component.get("v.availableIndexes");
+
+            objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
 
             for (var i = 0; i < categories.length; ++i) {
                 var category = categories[i], 
@@ -209,7 +212,7 @@
                             case 'Knowledge_Community': {
                                 filterCounts['Knowledge_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
-                                link_index = '/support/s/knowledge';
+                                link_index = objSfdcSite + '/s/knowledge';
                                 for (var key in hits) {
                                     item = {
                                         left: '',
@@ -261,7 +264,7 @@
                             case 'FeedItem_Community_Recent_Activity': {
                                 filterCounts['FeedItem_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchCommunity');
-                                link_index = '/support/s/community';
+                                link_index = objSfdcSite + '/s/community';
                                 for (var key in hits) {
                                     item = {
                                         left: '',
@@ -311,7 +314,7 @@
                             case 'Ideas_Community_Recent': {
                                 filterCounts['Ideas_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchIdeas');
-                                link_index = '/support/s/ideas';
+                                link_index = objSfdcSite + '/s/ideas';
                                 for (var key in hits) {
                                     item = {
                                         left: '',

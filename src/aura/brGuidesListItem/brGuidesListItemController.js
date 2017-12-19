@@ -1,6 +1,8 @@
 ({
     doInit : function(component) {
-        component.set('v.routeInput', {recordId: $A.get('$SfdcSite').pathPrefix + '/s/article/' + component.get('v.guideArticle').First_Chapter_Url__c});
+        var objSfdcSite = $A.get('$SfdcSite'),
+            objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
+        component.set('v.routeInput', {recordId: objSfdcSite + '/s/article/' + component.get('v.guideArticle').First_Chapter_Url__c});
         console.log($A.get('$SfdcSite'));
     },
 

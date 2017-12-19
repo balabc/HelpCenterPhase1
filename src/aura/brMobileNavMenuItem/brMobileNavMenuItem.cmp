@@ -29,7 +29,7 @@
         </li>
         <aura:set attribute="else">
             <li class="header-mobile__menu-item">
-                <a href="{!((v.item.type == 4)? ($SfdcSite.pathPrefix + v.item.target): 'javascript:void(0);')}" 
+                <a href="{!((v.item.type == 4)? (((!!$SfdcSite)? $SfdcSite.pathPrefix: '') + v.item.target): 'javascript:void(0);')}"
                    class="header-mobile__menu-link truncated" 
                    data-type="{!v.item.type}" 
                    data-target="{!v.item.target}" 

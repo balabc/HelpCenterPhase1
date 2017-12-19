@@ -13,7 +13,9 @@
     },
     initMenu: function(component, items) {
         var user = component.get('v.user'),
-            locationPage = window.location.pathname.replace('/support/s', ''),
+            objSfdcSite = $A.get('$SfdcSite'),
+            objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: ''),
+            locationPage = window.location.pathname.replace(objSfdcSite + '/s', ''),
             menuItems;
         
         
