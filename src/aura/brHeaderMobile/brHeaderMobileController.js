@@ -12,6 +12,15 @@
             };
         }
     },
+    showHomePage: function(component, event, helper) {
+        var urlEvent = $A.get("e.force:navigateToURL");
+
+        urlEvent.setParams({
+            "url": '/'
+        });
+
+        urlEvent.fire();
+    },
     toggleSearch: function(component, event, helper) {
         var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
         toggleSearchModal.fire();
