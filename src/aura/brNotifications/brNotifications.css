@@ -15,38 +15,31 @@
 }
 
 .THIS .unsNotificationsCounter .headerButtonBody > .countDot {
-    width: 17px;
-    height: 14px;
-    border-radius: 7px;
-    background-color: #fe4f81;
-    left: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0;
 }
 .THIS .countDot > .counterLabel {
-    font-family: SourceSansPro;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 1.5;
+    width: unset;
+    height: unset;
+    display: inline-block;
+    position: absolute;
+    top: -8px;
+    right: -14px;
+    min-width: 16px;
+    padding: 0 3px;
+    border-radius: 50%;
+    background: #ff4f7f;
+    font-family: 'source_sans_probold', Arial, sans-serif;
+    font-size: 0.625rem;
+    line-height: 0.9375rem;
     letter-spacing: -0.5px;
     text-align: center;
     color: #ffffff;
-    padding: 0;
-    display: block;
 }
-/*@media only screen and (max-width: 992px) {
-    .THIS .unsNotificationsCounter .headerButtonBody {
-        width: 15px;
-        height: 22px;
-        border-left: 2px solid #ffffff;
-    }*/
-    /*.THIS .unsNotificationsCounter .headerButtonBody:before {
-        width: 100%;
-        position: absolute;
-        border-top: 5px solid #ffffff;
-        border-bottom: 5px solid #ffffff;
-        border-right: 3px solid transparent;
-        content: "";
-    }*/
-   /* .THIS >.slds-button {
-        top: 48%;
+@media only screen and (max-width: 992px) {
+    .THIS .countDot > .counterLabel {
+        top: -18px;
     }
-}*/
+}
