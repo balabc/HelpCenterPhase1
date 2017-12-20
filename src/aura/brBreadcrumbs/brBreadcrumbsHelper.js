@@ -45,7 +45,6 @@
         }
     },
     closeCrumbs: function(component) {
-        console.log('closeCrumbs');
         try{
             var crumbPics = document.getElementsByClassName('breadcrumbs__dropdown');
             for(var i=0;crumbPics.length>i;i++){
