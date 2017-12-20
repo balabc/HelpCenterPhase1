@@ -7,27 +7,31 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <div class="header__userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
-        <aura:if isTrue="{!and(notequals(v.type, 'Guest'), notequals(v.user, null))}">
-            <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
-            <aura:set attribute="else">
-                <img src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
-                     srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
-            </aura:set>
-        </aura:if>
+    <div class="wrap-userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
+        <div class="header__userpic">
+            <aura:if isTrue="{!and(notequals(v.type, 'Guest'), notequals(v.user, null))}">
+                <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
+                <aura:set attribute="else">
+                    <img src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
+                         srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
+                </aura:set>
+            </aura:if>
+        </div>
     </div>
     <div class="header__profile-dropdown">
-        <div class="header__profile-dropdown-trigger nav-arrow" aura:id="arrow">
-            <aura:if isTrue="{!notequals(v.type, null)}">
-                <div class="nav-arrow__handler">
-                    <aura:if isTrue="{!notequals(v.type, 'Guest')}">
-                        <span class="nav-arrow__icon" onclick="{!c.toggleDropdownMenu}"></span>
-                        <aura:set attribute="else">
-                            <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login header__link">{!$Label.c.lnkLogIn}</a></span>
-                        </aura:set>
-                    </aura:if>
-                </div>
-            </aura:if>
+        <div class="wrap-arrow" onclick="{!c.toggleDropdownMenu}">
+            <div class="header__profile-dropdown-trigger nav-arrow" aura:id="arrow">
+                    <aura:if isTrue="{!notequals(v.type, null)}">
+                    <div class="nav-arrow__handler">
+                        <aura:if isTrue="{!notequals(v.type, 'Guest')}">
+                            <span class="nav-arrow__icon"></span>
+                            <aura:set attribute="else">
+                                <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login header__link">{!$Label.c.lnkLogIn}</a></span>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                </aura:if>
+            </div>
         </div>
         <div aura:id="dropdownMenu" class="header__profile-dropdown-wrap-list toggle">
             <div class="dropdown">

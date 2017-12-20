@@ -1,8 +1,13 @@
+.THIS.wrap-userpic {
+    padding: 10px 0;
+    cursor: pointer;
+}
+.THIS .header__userpic {
+    margin-right: 0;
+    margin-left: 0;
+}
 .THIS .toggle {
     display: none !important;
-}
-.THIS img {
-    cursor: pointer;
 }
 .THIS .header__profile-dropdown-userpic img {
     width: 45px;
@@ -15,6 +20,11 @@
     font-family: 'source_sans_prosemibold', Arial, sans-serif;
     text-decoration: none;
     transition: all 0.3s ease;
+}
+.THIS .wrap-arrow {
+    padding: 0 8px;
+    min-height: 70px;
+    cursor: pointer;
 }
 .THIS .login {
     text-transform: uppercase;

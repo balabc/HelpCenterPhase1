@@ -3,7 +3,7 @@
     position: relative;
     width: 20px;
     min-height: 70px;
-    margin-left: 20px;
+    margin: 0 20px;
     text-align: left;
 }
 .THIS > .slds-button {
