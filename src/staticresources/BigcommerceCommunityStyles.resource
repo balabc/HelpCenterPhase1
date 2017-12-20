@@ -296,3 +296,7 @@ ol {
 .is-mobile .doc-nav__item-lvl-1:hover .doc-nav__link-lvl-1:after {
     border-top-color: #adb2bd;
 }
+
+body .DESKTOP.uiContainerManager {
+    display:none
+}
