@@ -8,6 +8,7 @@
 
             if (state === 'SUCCESS') {
                 component.set('v.categoriesCount', categoriesCount);
+                //console.log(categoriesCount);
                 this.getGuideArticles(component);
             }
         });
@@ -22,6 +23,7 @@
                 guideArticles = response.getReturnValue();
 
             if (state === 'SUCCESS') {
+                //console.log(guideArticles);
                 component.set('v.guideArticles', guideArticles);
             } else {
                 console.log('callback error: doInit in brGuidesListController.js');

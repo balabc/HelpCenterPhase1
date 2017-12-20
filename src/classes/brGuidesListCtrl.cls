@@ -17,7 +17,7 @@ public with sharing class brGuidesListCtrl {
 
     @AuraEnabled
     public static Map<String, Integer> getCountForEachCategory() {
-        return brArticleContentService.getCountForEachCategory('Learning__DataCategorySelection');
+        return brArticleContentService.getCountForEachCategory('Learning__kav');
     }
 
 }

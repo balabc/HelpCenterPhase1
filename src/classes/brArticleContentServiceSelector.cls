@@ -114,8 +114,27 @@ public with sharing class brArticleContentServiceSelector {
      * @see         List<sObject>
      */
     public static List<sObject> getAllArticleForGuide() {
-        String q = 'SELECT Id FROM brGuideItem__mdt';
+        String q = 'SELECT Id, First_Chapter_Url__c FROM brGuideItem__mdt';
         return Database.query(q);
+
+    }
+
+    /**
+     * Returns article id by url name
+     *
+     * {@inheritDoc}
+     *
+     * @return      article id
+     * @see         String
+     */
+    public static String getArticleByUrl(String url, String articleType) {
+        String q = 'SELECT Id, UrlName  FROM ' + articleType + ' WHERE UrlName = \'' + url + '\' LIMIT 1';
+        List<sObject> result = Database.query(q);
+        if (result.size() > 0) {
+            return String.valueOf(result[0].get('Id'));
+        } else {
+            return null;
+        }
 
     }
 

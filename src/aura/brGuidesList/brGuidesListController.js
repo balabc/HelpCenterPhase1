@@ -1,7 +1,5 @@
 ({
     doInit: function (component, event, helper) {
-
-
-        helper.getGuideArticles(component);
+        helper.getCountForEachCategory(component);
     }
 })

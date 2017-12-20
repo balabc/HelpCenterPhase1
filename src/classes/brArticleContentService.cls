@@ -15,21 +15,35 @@ public with sharing class brArticleContentService {
         Map<String, Integer> result = new Map<String, Integer>();
 
         List<sObject> guides = brArticleContentServiceSelector.getAllArticleForGuide();
-        List<sObject> listArticles = brArticleContentServiceSelector.getAllArticleByArticleType(articleType);
-        String dcn = '';
+        List<sObject> articles = null;
+        String fcu = null;
+        String id = null;
+        String idGuide = null;
+        Integer count = 0;
 
+        if (guides.size() > 0) {
+            for (sObject guide : guides) {
+                count = 0;
+                id = String.valueOf(guide.get('Id'));
+                fcu = String.valueOf(guide.get('First_Chapter_Url__c'));
 
-        /*TODO: rebuild this*/
-        /*if (guides.size() > 0) {
-            for (sObject art : guides) {
-                dcn = String.valueOf(art.get('DataCategoryName'));
-                if (result.containsKey(dcn)) {
-                    result.put(dcn, (result.get(dcn) + 1));
-                } else {
-                    result.put(dcn, 1);
+                idGuide = brArticleContentServiceSelector.getArticleByUrl(fcu, articleType);
+
+                if (idGuide != null) {
+                    articles = brArticleContentService.getListArticleInCurrentCategory(idGuide);
+                    if (articles != null) {
+                        count = articles.size();
+                    }
                 }
+
+                if (result.containsKey(id)) {
+                    result.put(id, count);
+                } else {
+                    result.put(id, count);
+                }
+
             }
-        }*/
+        }
 
         return result;
     }
