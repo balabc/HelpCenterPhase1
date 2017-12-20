@@ -138,4 +138,25 @@ public with sharing class brArticleContentServiceSelector {
 
     }
 
+    /**
+     * Returns Knowledge Article Id by url name
+     *
+     * {@inheritDoc}
+     *
+     * @return      Knowledge Article Id
+     * @see         String
+     */
+    public static String getArticleByUrlKnowledgeArticleId(String url, String articleType) {
+        String q = 'SELECT Id, UrlName, KnowledgeArticleId  FROM ' + articleType + ' WHERE UrlName = \'' + url + '\' LIMIT 1';
+        List<sObject> result = Database.query(q);
+        if (result.size() > 0) {
+            return String.valueOf(result[0].get('Id'));
+        } else {
+            return null;
+        }
+
+    }
+
+
+
 }

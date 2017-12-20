@@ -7,7 +7,7 @@ public with sharing class brCategoriesController {
         if (idArticle == null) {
             idArticle = selectId;
         }
-
+        
         return brCategoriesCatalogService.getCatalog(idArticle, articleType, dataCategoryName);
     }
     
