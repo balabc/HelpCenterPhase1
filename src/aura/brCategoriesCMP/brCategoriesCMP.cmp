@@ -4,8 +4,8 @@
     <aura:attribute name="items" type="List"/> 
     
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
-    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>  
-    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
     <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/>
     <aura:method name="nullData" action="{!c.nullData}" access="PUBLIC"/>
 

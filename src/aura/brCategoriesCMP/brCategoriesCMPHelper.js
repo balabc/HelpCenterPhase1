@@ -23,17 +23,26 @@
         var action = component.get("c.getCatalog"), 
             selectId = component.get('v.selectedArticleId'),
             articleType = component.get('v.data.objectName'),
+            url = component.get('v.data.target'),
             dataCategoryName = component.get('v.data.dataCategory');
-        
+
+        if (!!url) {
+            url = url.split('/');
+            url = url[url.length - 1];
+            console.log(url);
+        }
+
         if (!!selectId) { 
             console.log(selectId, articleType, dataCategoryName);
-            action.setParams({ 
+            action.setParams({
+                url: url,
                 selectId : selectId,
                 articleType: articleType,
                 dataCategoryName: dataCategoryName
             });
         } else {
-            action.setParams({ 
+            action.setParams({
+                url: url,
                 articleType: articleType,
                 dataCategoryName: dataCategoryName
             });
