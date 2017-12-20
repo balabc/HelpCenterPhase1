@@ -264,11 +264,6 @@ ol {
     visibility: hidden;
 }
 
-.cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
-    background-position: -150px -187px !important;
-    background-size: 874px 729px !important;
-}
-
 .is-mobile .doc-nav__item-lvl-1.doc-nav__item-lvl-1--active:hover .doc-nav__link-lvl-1:after, .is-mobile .doc-nav__item-lvl-1.active:hover .doc-nav__link-lvl-1:after {
     border-top-color: #adb2bd ;
     -webkit-transform: rotate(0);

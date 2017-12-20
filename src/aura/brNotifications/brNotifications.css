@@ -13,14 +13,7 @@
 .THIS .unsNotificationsCounter .headerButtonBody svg{
   display: none;
 }
-.THIS .unsNotificationsCounter .headerButtonBody {
-    width: 14px;
-    height: 18px;
-    border-left: 2px solid #d0d6e0;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    -webkit-transform: translate(0, -50%);
-}
+
 .THIS .unsNotificationsCounter .headerButtonBody > .countDot {
     width: 17px;
     height: 14px;
@@ -39,21 +32,21 @@
     padding: 0;
     display: block;
 }
-@media only screen and (max-width: 992px) {
+/*@media only screen and (max-width: 992px) {
     .THIS .unsNotificationsCounter .headerButtonBody {
         width: 15px;
         height: 22px;
         border-left: 2px solid #ffffff;
-    }
-    .THIS .unsNotificationsCounter .headerButtonBody:before {
+    }*/
+    /*.THIS .unsNotificationsCounter .headerButtonBody:before {
         width: 100%;
         position: absolute;
         border-top: 5px solid #ffffff;
         border-bottom: 5px solid #ffffff;
         border-right: 3px solid transparent;
         content: "";
-    }
-    .THIS >.slds-button {
+    }*/
+   /* .THIS >.slds-button {
         top: 48%;
     }
-}
+}*/

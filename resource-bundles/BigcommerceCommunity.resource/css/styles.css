@@ -5412,16 +5412,45 @@ textarea::placeholder {
 
 /*Custom Styles*/
 
-.cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
+.header .cBrNotifications .unsNotificationsCounter .headerButtonBody {
+  width: 14px;
+  height: 18px;
+  border-left: 2px solid #d0d6e0;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.header .cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
   position: absolute;
   top: 30%;
   left: 10%;
   content: "";
   width: 10px;
   height: 8px;
-  background-position: -143px -177px;
+  background-position: -150px -187px;
   background-image: url("../images/sprites/sprite.svg");
-  background-size: 630px 549px;
+  background-size: 874px 729px;
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
+}
+
+.header-mobile .cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  content: "";
+  width: 15px;
+  height: 22px;
+  background-position: -175px -217px;
+  background-image: url(../images/sprites/sprite.svg);
+  background-size: 874px 729px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.header-mobile--make-sticky .cBrNotifications .unsNotificationsCounter .headerButtonBody:before {
+  width: 15px;
+  height: 22px;
+  background-position: -160px -195px;
+  background-image: url(../images/sprites/sprite.svg);
+  background-size: 874px 729px;
 }
