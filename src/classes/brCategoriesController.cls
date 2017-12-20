@@ -8,7 +8,6 @@ public with sharing class brCategoriesController {
             idArticle = selectId;
         }
 
-        System.debug('11111111111111111111' + idArticle + '|' + articleType + '|' + dataCategoryName);
         return brCategoriesCatalogService.getCatalog(idArticle, articleType, dataCategoryName);
     }
     

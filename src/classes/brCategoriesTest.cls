@@ -43,9 +43,10 @@ private class brCategoriesTest {
         System.debug('3333333333' + 'SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + c + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
         List<sObject> articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + article2.ArticleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
         System.debug('1111111test' + articles);*/
-
-        brCategoriesController.getCatalog(article.id, 'Learning__kav', tempCat.DataCategoryGroupName);
-        brCategoriesController.getCatalog(article2.id, 'Public__kav', tempCat1.DataCategoryGroupName);
+        List<Public__kav> pubList = [SELECT KnowledgeArticleId, UrlName FROM Public__kav WHERE Id = :article2.Id];
+        List<Learning__kav> gdList = [SELECT KnowledgeArticleId, UrlName FROM Learning__kav WHERE Id = :article1.Id];
+        brCategoriesController.getCatalog(article.id, 'Learning__kav', tempCat.DataCategoryGroupName, gdList[0].UrlName);
+        brCategoriesController.getCatalog(article2.id, 'Public__kav', tempCat1.DataCategoryGroupName, pubList[0].UrlName);
         Test.stopTest();
     }
 
