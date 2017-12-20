@@ -299,3 +299,43 @@ ol {
 body .DESKTOP.uiContainerManager {
     display:none
 }
+
+.cBrAlgoliaSearchJSCMP .searchbox__input-text input {
+    color: #4c4b58;
+}
+.serp__item-left-text {
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+    font-size: 1.0rem;
+}
+.serp__item-title {
+    font-size: 1rem;
+    letter-spacing: .1px;
+}
+.serp__item-description {
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    color: #5d5b66;
+}
+.slds-form-element__label {
+    font-family: "Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+    color: #6d6e7a;
+}
+.slds-checkbox .slds-checkbox_faux, .slds-checkbox .slds-checkbox--faux {
+    border-color: #d7d6d9;
+}
+.slds-radio .slds-radio_faux, .slds-radio .slds-radio--faux {
+    border-color: #d7d6d9;
+}
+.filter__sub-title {
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    font-size: 0.85rem;
+}
+.slds-select {
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+}
+.slds-form-element__label {
+    display: inherit;
+}
+.modal-overlay {
+    background: rgba(215, 214, 217, 0.8);
+}
