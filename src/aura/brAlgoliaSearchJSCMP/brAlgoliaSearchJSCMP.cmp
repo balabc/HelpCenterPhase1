@@ -21,7 +21,7 @@
     <div class="serp-header">
         <div class="serp__filter-trigger-icon" id="serp__filter-trigger" onclick="{!c.toggleMobileFilter}"></div>
         <div class="wrap-searchbox">
-            <div class="searchbox">
+            <div class="searchbox searchbox-uniq">
                 <lightning:input type="text" aura:id="algolia-search-input" class="searchbox__input-text" placeholder="{!$Label.c.fieldAlgoliaSearchSearch}" name="input-name" label="" value="{!v.searchText}" onchange="{!c.searchChange}"/>
                 
                 <input type="reset" class="searchbox__input-reset" value="{!$Label.c.fieldAlgoliaSearchClear}" onclick="{!c.clearSearch}"/>

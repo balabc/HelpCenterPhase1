@@ -11,7 +11,7 @@
         var query = component.get("v.searchText"),
             changeSearch = $A.get("e.c:brChangeHeaderSearchBarEvent");
         
-        if (query.length >= 3) { 
+        if (query.length >= 1) {
             helper.getSearchResult(component);
         } else {
             component.set("v.categories", null);
@@ -27,7 +27,7 @@
     filterChange: function(component, event, helper) { 
         var query = component.get("v.searchText");
         if(!!query && (query.length > 0)) {
-            if(query.length >= 3) {
+            if(query.length >= 1) {
         		helper.getSearchResult(component);
             }
         }

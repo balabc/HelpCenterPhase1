@@ -31,9 +31,12 @@
             facetFilters = [],
             facetFilter = [],
             strFilter = '',
-            indexName = '';
-        
-        switch (filter.type) {
+            indexName = '',
+            filter_type = filter.type;
+
+        //console.log(filter);
+
+        switch (filter_type) {
             case 'kb': {
                 indexName = 'Knowledge_Community';
                 if (availableIndexes.indexOf(indexName) > -1) {
@@ -112,7 +115,7 @@
                         queries, 
                         query
                     );
-                    filter.type = indexName;
+                    filter_type = indexName;
                 }
                 break;
             } 
@@ -160,7 +163,7 @@
                         queries, 
                         query
                     );
-                    filter.type = indexName;
+                    filter_type = indexName;
                 }
                 break;
             }
@@ -179,8 +182,8 @@
                 break;
              }
         }
-        
-        filter.type = indexName;
+
+        filter_type = indexName;
         
         //index.search({ query: query }, function searchDone(err, content) {
         client.search(queries, function searchDone(err, content) {    
@@ -205,8 +208,8 @@
                     item = {};
 
                 filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
-                console.log(hits);
-                if ((hits.length > 0) && ((filter.type == category.index) || (filter.type == 'All'))) { 
+                //console.log(hits);
+                if ((hits.length > 0) && ((filter_type == category.index) || (filter_type == 'All'))) {
                     if (availableIndexes.indexOf(category.index) > -1) {
                         switch (category.index) {
                             case 'Knowledge_Community': {
@@ -229,7 +232,9 @@
 
                                         for (var ih in hlr) {
                                             if (hlr.hasOwnProperty(ih)) {
-                                                hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                                while (hlr[ih].value.indexOf('<em>') > -1) {
+                                                    hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                                }
                                             }
                                         }
 
@@ -239,9 +244,10 @@
                                         if (hlr.hasOwnProperty('Section')) {
                                             section = hlr.Section.value;
                                         }
-                                        if (hlr.hasOwnProperty('Section_Content')) {
-                                            section_content = hlr.Section_Content.value;
-                                        }
+                                    }
+
+                                    while (section_content.indexOf('<em>') > -1) {
+                                        section_content = section_content.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
                                     if (!!item.source.Data_Category)
@@ -272,25 +278,16 @@
                                         source: hits[key]
                                     };
 
-                                    var title = item.source.Title,
+                                    var title = item.source._snippetResult.Title.value,
                                         body = item.source._snippetResult.Body.value,
                                         hlr = item.source._highlightResult;
 
-                                    if (!!hlr) {
+                                    while (title.indexOf('<em>') > -1) {
+                                        title = title.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                    }
 
-                                        for (var ih in hlr) {
-                                            if (hlr.hasOwnProperty(ih)) {
-                                                hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
-                                            }
-                                        }
-
-                                        if (hlr.hasOwnProperty('Title')) {
-                                            title = hlr.Title.value;
-                                        }
-                                        if (hlr.hasOwnProperty('Body')) {
-                                            body = hlr.Body.value;
-                                        }
-
+                                    while (body.indexOf('<em>') > -1) {
+                                        body = body.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
                                     item.left = '<p class="serp__item-left-text">' + item.source.PostedTo + '</p>';
@@ -330,16 +327,19 @@
 
                                         for (var ih in hlr) {
                                             if (hlr.hasOwnProperty(ih)) {
-                                                hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                                while (hlr[ih].value.indexOf('<em>') > -1) {
+                                                    hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                                }
                                             }
                                         }
 
                                         if (hlr.hasOwnProperty('Title')) {
                                             title = hlr.Title.value;
                                         }
-                                        if (hlr.hasOwnProperty('Body')) {
-                                            body = hlr.Body.value;
-                                        }
+                                    }
+
+                                    while (body.indexOf('<em>') > -1) {
+                                        body = body.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
                                     item.left = '<p class="serp__item-left-text">' + item.source.Categories + '</p>';
