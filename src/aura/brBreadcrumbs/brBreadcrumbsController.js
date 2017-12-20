@@ -1,20 +1,11 @@
 ({
     doInit : function(component, event, helper) {
-
         if($A.get("$Browser.formFactor") === 'PHONE')
             return;
-
-        helper.processStaff(component, event);
+        helper.processCrumbs(component, event);
     },
     toggleCrumbs : function(component, event, helper) {
-        var crumbPics = document.getElementsByClassName('breadcrumbs__dropdown');
-        for(var i=0;crumbPics.length>i;i++){
-            crumbPics[i].classList.toggle('breadcrumbs__dropdown--active');
-        }
-        var crumbList = document.getElementsByClassName('breadcrumbs__dropdown-trigger-text');
-        for(var i=0;crumbPics.length>i;i++){
-            crumbList[i].classList.toggle('breadcrumbs__dropdown-trigger-text--active');
-        }
+        helper.toggleCrumbs(component);
     },
     onClick : function(component, event, helper) {
         var menuType = event.target.dataset.type;
