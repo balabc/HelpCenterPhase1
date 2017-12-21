@@ -1,6 +1,7 @@
 .THIS.wrap-userpic {
     padding: 10px 0;
     cursor: pointer;
+    margin-left: 20px;
 }
 .THIS .header__userpic {
     margin-right: 0;

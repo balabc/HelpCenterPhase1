@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="header__profile-dropdown" id="userDropDownMenu">
-        <div class="wrap-arrow" onclick="{!c.toggleDropdownMenu}">
+        <div class="wrap-arrow" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
             <div class="header__profile-dropdown-trigger nav-arrow" id="arrow">
                     <aura:if isTrue="{!notequals(v.type, null)}">
                     <div class="nav-arrow__handler">
