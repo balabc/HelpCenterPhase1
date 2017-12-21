@@ -7,7 +7,7 @@
     <c:brMobileNavMenu  askbutton="{!v.askbutton}"/>
     <c:brSearchModal />
 
-    <div class="body-inner main-content">
+    <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
         <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
             <c:brThemeHeader isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" />
 

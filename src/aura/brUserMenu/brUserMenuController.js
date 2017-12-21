@@ -12,12 +12,12 @@
     },
 
     toggleDropdownMenu: function (cmp, event, helper) {
-        var toggleDropdown = cmp.find("dropdownMenu"),
-            arrow = cmp.find('arrow');
+        var toggleDropdown = document.getElementById('userMenu');
+        var arrow = document.getElementById('arrow');
         $A.util.toggleClass(toggleDropdown, "toggle");
         $A.util.toggleClass(arrow, "nav-arrow--up");
 
-        if (!$A.util.hasClass(toggleDropdown, "toggle")) {
+        if (!document.getElementById('userMenu').classList.contains('toggle')) {
             helper.setUserMenuItems(cmp);
             helper.getReputationPoints(cmp);
             helper.getReputationLevel(cmp);

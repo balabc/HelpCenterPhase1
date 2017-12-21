@@ -7,20 +7,20 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <div class="wrap-userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
+    <div class="wrap-userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}" id="wrapUserPic">
         <div class="header__userpic">
             <aura:if isTrue="{!and(notequals(v.type, 'Guest'), notequals(v.user, null))}">
-                <img src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
+                <img class="userHeaderAvatar" src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
                 <aura:set attribute="else">
-                    <img src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
+                    <img class="userHeaderAvatar" src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
                          srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
                 </aura:set>
             </aura:if>
         </div>
     </div>
-    <div class="header__profile-dropdown">
+    <div class="header__profile-dropdown" id="userDropDownMenu">
         <div class="wrap-arrow" onclick="{!c.toggleDropdownMenu}">
-            <div class="header__profile-dropdown-trigger nav-arrow" aura:id="arrow">
+            <div class="header__profile-dropdown-trigger nav-arrow" id="arrow">
                     <aura:if isTrue="{!notequals(v.type, null)}">
                     <div class="nav-arrow__handler">
                         <aura:if isTrue="{!notequals(v.type, 'Guest')}">
@@ -33,13 +33,13 @@
                 </aura:if>
             </div>
         </div>
-        <div aura:id="dropdownMenu" class="header__profile-dropdown-wrap-list toggle">
+        <div class="header__profile-dropdown-wrap-list toggle" id="userMenu">
             <div class="dropdown">
                 <div class="dropdown__head header__profile-dropdown-head">
                     <div class="header__profile-dropdown-info">
                         <div class="header__profile-dropdown-userpic">
-                            <a href="{!$SfdcSite.pathPrefix + '/s/profile/' + v.user.Id}">
-                                <img src="{!v.user.SmallPhotoUrl}"  alt="{!$Label.c.msgAvatar}" />
+                            <a class="userProfile" href="{!$SfdcSite.pathPrefix + '/s/profile/' + v.user.Id}">
+                                <img class="userAvatar" src="{!v.user.SmallPhotoUrl}"  alt="{!$Label.c.msgAvatar}" />
                             </a>
                         </div>
                         <div class="header__profile-dropdown-text-info">
