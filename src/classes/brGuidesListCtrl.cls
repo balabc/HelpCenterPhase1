@@ -1,5 +1,13 @@
 public with sharing class brGuidesListCtrl {
 
+    /**
+     * Returns articles for guide
+     *
+     * {@inheritDoc}
+     *
+     * @return      list guide articles
+     * @see         List<brGuideItem__mdt>
+     */
     @AuraEnabled
     public static List<brGuideItem__mdt> getGuideArticles() {
         if (Test.isRunningTest()) {
@@ -15,6 +23,14 @@ public with sharing class brGuidesListCtrl {
                 FROM brGuideItem__mdt ORDER BY Sort__c ASC NULLS LAST];
     }
 
+    /**
+     * Returns counts for each category guides
+     *
+     * {@inheritDoc}
+     *
+     * @return      map counts for categories
+     * @see         Map<String, Integer>
+     */
     @AuraEnabled
     public static Map<String, Integer> getCountForEachCategory() {
         return brArticleContentService.getCountForEachCategory('Learning__kav');

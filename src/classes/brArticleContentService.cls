@@ -1,5 +1,14 @@
 public with sharing class brArticleContentService {
 
+    /**
+     * Returns data category and article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleId	String
+     * @return      map with data category and article type
+     * @see         Map<String, String>
+     */
     public static Map<String, String> getDataForArticle(String articleId) { 
         Map<String, String> result = new Map<String, String>();
         String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
@@ -11,6 +20,15 @@ public with sharing class brArticleContentService {
         return result;
     }
 
+    /**
+     * Returns counts for each category by article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType		String 
+     * @return      map with counts for each category
+     * @see         Map<String, Integer>
+     */
     public static Map<String, Integer> getCountForEachCategory(String articleType) {
         Map<String, Integer> result = new Map<String, Integer>();
 
@@ -48,6 +66,15 @@ public with sharing class brArticleContentService {
         return result;
     }
 
+    /**
+     * Returns content for article by article id
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleId   String
+     * @return      model for article
+     * @see         brArticleModel
+     */
     public static brArticleModel getArticleContent(String articleId) {
         brArticleModel article = new brArticleModel();
         article.item = brArticleContentServiceSelector.getArticleById(articleId);
@@ -56,7 +83,16 @@ public with sharing class brArticleContentService {
 
         return article;
     }
-
+    
+    /**
+     * Returns artiles in current category by article id
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleId   String
+     * @return      list articles
+     * @see         List<SObject>
+     */
     public static List<SObject> getListArticleInCurrentCategory(String articleId) {
         String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
 

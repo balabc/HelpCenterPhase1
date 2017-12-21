@@ -1,5 +1,15 @@
 public with sharing class brCommunitySpotlightServiceSelector {
 
+    /**
+     * Returns user member
+     *
+     * {@inheritDoc}
+     *
+     * @param       userId	String
+     * @param       communityId	String
+     * @return      list user member
+     * @see         List<NetworkMember>
+     */
     public static List<NetworkMember> getUserMember(Id userId, Id communityId) {
         if (userId != null) {
             List<NetworkMember> userMember = [
@@ -20,6 +30,16 @@ public with sharing class brCommunitySpotlightServiceSelector {
         return null;
     }
 
+    /**
+     * Returns count posts by user id and community id
+     *
+     * {@inheritDoc}
+     *
+     * @param       userId	String
+     * @param       communityId	String
+     * @return      count posts
+     * @see         Integer
+     */
     public static Integer getUserCountPosts(Id userId, Id communityId) {
         if (userId != null) {
             List<AggregateResult> countPosts = [
@@ -37,6 +57,16 @@ public with sharing class brCommunitySpotlightServiceSelector {
         return 0;
     }
 
+    /**
+     * Returns count comments by user id and community id
+     *
+     * {@inheritDoc}
+     *
+     * @param       userId	String
+     * @param       communityId	String
+     * @return      count comments
+     * @see         Integer
+     */
     public static Integer getUserCountComments(Id userId, Id communityId) {
         if (userId != null) {
             List<AggregateResult> countPosts = [
@@ -54,6 +84,16 @@ public with sharing class brCommunitySpotlightServiceSelector {
         return 0;
     }
 
+    /**
+     * Returns count likes by user id and community id
+     *
+     * {@inheritDoc}
+     *
+     * @param       userId	String
+     * @param       communityId	String
+     * @return      count likes
+     * @see         Integer
+     */
     public static Integer getUserCountLikes(Id userId, Id communityId) {
         if (userId != null) {
             List<AggregateResult> countPosts = [
@@ -71,6 +111,15 @@ public with sharing class brCommunitySpotlightServiceSelector {
         return 0;
     }
 
+    /**
+     * Returns user photos
+     *
+     * {@inheritDoc}
+     *
+     * @param       userId	String
+     * @return      list user photos
+     * @see         List<User>
+     */
     public static List<User> getUserMemberPhotoUrl(Id userId) {
         if (userId != null) {
             List<User> userMember = [

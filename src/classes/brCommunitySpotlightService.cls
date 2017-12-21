@@ -1,5 +1,15 @@
 public with sharing class brCommunitySpotlightService {
 
+    /**
+     * Returns user information
+     *
+     * {@inheritDoc}
+     *
+     * @param       userId	String
+     * @param       communityId	String
+     * @return      user information
+     * @see         brCommunitySpotlightModel
+     */
     public static brCommunitySpotlightModel getUserInfo(Id userId, Id communityId) {
 
         brCommunitySpotlightModel user = new brCommunitySpotlightModel();
