@@ -1,5 +1,9 @@
 <aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="brBreadcrumbsCtrl">
 
+    <aura:attribute name="isInternalClick" type="String" default="false"/>
+    <aura:attribute name="isOutside" type="String" default="true"/>
+    <aura:attribute name="isOpen" type="String" default="false"/>
+
     <aura:attribute name="testString" type="String" default=""/>
     <aura:attribute name="breadCrumbHome" type="Object" default=""/>
     <aura:attribute name="isReady" type="Boolean" default="false"/>
@@ -29,7 +33,7 @@
                         <div class="breadcrumbs__dropdown-position">
                             <div class="dropdown breadcrumbs__dropdown"> <!-- breadcrumbs__dropdown- -active -->
                                 <div class="dropdown__body breadcrumbs__dropdown-body">
-                                    <ul class="breadcrumbs__dropdown-list"  aura:id="crumbsSubMenu">
+                                    <ul class="breadcrumbs__dropdown-list crumbs-catch-me"  aura:id="crumbsSubMenu">
                                         <aura:iteration items="{!v.breadCrumbSubItems}" var="breadcrumb">
                                             <li class="{!(breadcrumb.active == 'true')? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
                                                 <a href="javascript:void(0);" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" class="breadcrumbs__dropdown-link truncated" onclick="{!c.onClick}">
@@ -45,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div><!--DebugInfo:(isOpen: {!v.isOpen} | isOutside: {!v.isOutside} | isInternalClick: {!v.isInternalClick})-->
             </aura:if>
         </div>
     </aura:if>
