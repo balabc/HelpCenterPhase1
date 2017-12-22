@@ -1,27 +1,53 @@
 ({
     doInit: function(component, event, helper) {
+
+        component.set('v.filter_lists', {
+            cm: {
+                posted_in: [
+                    {'label': 'All', 'value': 'All'},
+                    {'label': 'Q&amp;A', 'value': 'Q&amp;A'},
+                    {'label': 'Groups', 'value': 'Groups'}
+                ]
+            },
+            ideas: {
+                record_type: [
+                    {'label': 'All', 'value': 'All'},
+                    {'label': 'Ideas', 'value': 'Ideas'},
+                    {'label': 'Comments', 'value': 'Comments'}
+                ],
+                merged_type: [
+                    {'label': 'All Ideas', 'value': 'All'},
+                    {'label': 'Non-Merged Ideas', 'value': '-Merged'},
+                    {'label': 'Merged Ideas', 'value': 'Merged'}
+                ]
+            }
+        });
+
         var objFilter = {
             kb: {
                 article_type: {
                     user_docs: false,
-                    videos: false,
+                    video: false,
                     guides: false
                 }
             }, 
             cm: {
                 posted_in: 'All',
                 is_answer: false,
+                is_null_answer: false,
+                with_comments: false,
+                without_comments: false,
                 record_type: {
-                    comment: true,
-                    question: true,
-                    post: true,
-                    announcement: true
+                    comment: false,
+                    question: false,
+                    post: false,
+                    announcement: false
                 },
                 sorting_index: 'FeedItem_Community'
             },
             ideas: {
                 record_type: 'All',
-                is_merged: false,
+                merged_type: '-Merged',
                 status: {
                     under_point_threshold: false,
                     closed: false,

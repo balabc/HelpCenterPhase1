@@ -46,7 +46,7 @@
                             <aura:iteration items="{!category.items}" var="item">
                                 <c:brAlgoliaSearchResultRow item="{!item}"/>
                             </aura:iteration>
-                            <a href="{!category.link}" class="serp__section-link" onclick="{!c.onClickViewMore}">{!$Label.c.lnkAlgoliaSearchViewmoreresultsfor + ' '} <aura:unescapedHtml value="{!category.name}"/></a>
+                            <a href="javascript:void(0);" data-link="{!category.link}" class="serp__section-link" onclick="{!c.onClickViewMore}">{!$Label.c.lnkAlgoliaSearchViewmoreresultsfor + ' '} <aura:unescapedHtml value="{!category.name}"/></a>
                         </div>
                     </aura:iteration>
                 </div>

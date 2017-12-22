@@ -21,8 +21,34 @@
         changeSearch.fire();
     },
     onClickViewMore: function(component, event, helper) {
-        var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
-        toggleSearchModal.fire();
+        var target = event.target,
+            objSfdcSite = $A.get('$SfdcSite'),
+            url = target.dataset.link,
+            filter = component.find('algolia_search_filter'),
+            elem;
+        
+        objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
+        
+        switch (url) {
+            case (objSfdcSite + '/s/knowledge'): {
+                elem = filter.find('filter_row_kb').getElement();
+                break;
+            }  
+            case (objSfdcSite + '/s/community'): {
+                elem = filter.find('filter_row_cm').getElement();
+                break;
+            }  
+            case (objSfdcSite + '/s/ideas'): {
+                elem = filter.find('filter_row_ideas').getElement();
+                break;
+            }  
+        }
+        
+        if (!!elem) {
+            elem.getElementsByClassName('filter__section-title')[0].click();
+        }
+        /*var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
+        toggleSearchModal.fire();*/
     },
     filterChange: function(component, event, helper) { 
         var query = component.get("v.searchText");

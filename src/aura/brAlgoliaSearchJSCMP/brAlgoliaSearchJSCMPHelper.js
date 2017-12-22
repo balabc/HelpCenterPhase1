@@ -28,6 +28,7 @@
             client = algoliasearch("QUTLQTIH9V", component.get("v.apiKey")),
             availableIndexes = component.get("v.availableIndexes"),
             queries = [],
+            queries_params = {},
             facetFilters = [],
             facetFilter = [],
             strFilter = '',
@@ -43,22 +44,23 @@
                     for (var key in filter.values.article_type) {
                         if (filter.values.article_type[key]) {
                             var article_types = {
-                                user_docs: 'User Documentation',
-                                videos: 'Videos',
-                                guides: 'Guide'
+                                user_docs: 'Public__kav',
+                                video: 'University__kav',
+                                guides: 'Learning__kav'
                             };
-                            facetFilter.push("type__c:" + article_types[key]);
+                            facetFilter.push("articletype:" + article_types[key]);
                         }
                     }
                     facetFilters.push(facetFilter);
-                    queries.push({
-                        indexName: indexName, 
-                        query: query,
-                        params: {
+                    queries_params = {
                             attributesToRetrieve: "*",
                             facets: ["type__c"],
                             facetFilters: facetFilters
-                        }
+                        };
+                    queries.push({
+                        indexName: indexName, 
+                        query: query,
+                        params: queries_params
                     });
                     this.getOtherIndexes(
                         availableIndexes, 
@@ -88,23 +90,57 @@
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
                     facetFilter = [];
-                    
-                    
-                    if (filter.values.is_answer) {
-                        facetFilters.push(['IsAnswered:Answered']);
+
+                    if (!((!!filter.values.is_answer) && (!!filter.values.is_null_answer))) {
+                        if (filter.values.is_answer) {
+                            facetFilters.push(['IsAnswered:Answered']);
+                        }
+
+                        if (filter.values.is_null_answer) {
+                            facetFilters.push(['IsAnswered:-Answered']);
+                        }
                     }
-                    
+
                     if (filter.values.sorting_index != 'FeedItem_Community') {
                         indexName = filter.values.sorting_index;
                     }
-                    queries.push({
-                        indexName: indexName, 
-                        query: query,
-                        params: {
+                    
+                    queries_params = {
                             attributesToRetrieve: '*',
                             facets: ['RecordType', 'PostedIn', 'IsAnswered'],
                             facetFilters: facetFilters
+                        };
+                    
+                    if (indexName === 'FeedItem_Community_Recent_Activity') {
+                        queries_params.filters = '(CommentCount > 0)';
+                    } else if (indexName === 'FeedItem_Community_Latest_Post') {
+                        queries_params.filters = '(RecordType:"Question" OR RecordType:"Post")';
+                    }
+
+                    if (!((!!filter.values.with_comments) && (!!filter.values.without_comments))) {
+                        if (filter.values.with_comments) {
+                            if (!!queries_params.filters && (queries_params.filters !== ''))
+                                queries_params.filters += ' AND ';
+                            else
+                                queries_params.filters = '';
+
+                            queries_params.filters = queries_params.filters + 'CommentCount > 0';
                         }
+
+                        if (filter.values.without_comments) {
+                            if (!!queries_params.filters && (queries_params.filters !== ''))
+                                queries_params.filters += ' AND ';
+                            else
+                                queries_params.filters = '';
+
+                            queries_params.filters = queries_params.filters + 'CommentCount = 0';
+                        }
+                    }
+                    
+                    queries.push({
+                        indexName: indexName, 
+                        query: query,
+                        params: queries_params
                     });
                     this.getOtherIndexes(
                         availableIndexes, 
@@ -128,31 +164,41 @@
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
                     facetFilter = [];
+
                     for (var key in filter.values.status) {
                         if (filter.values.status[key]) {
                             facetFilter.push('Status:' + component.find('algolia_search_filter').find('ideas_' + key).get("v.value"));
                         }
                     }
+
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
                     facetFilter = [];
-                    
-                    
-                    if (filter.values.is_merged) {
-                        facetFilters.push(['IsMerged:Merged']);
-                    }
-                    
+
+                    if (filter.values.merged_type != 'All')
+                        facetFilter.push('IsMerged:' + filter.values.merged_type);
+
+                    if (facetFilter.length > 0)
+                        facetFilters.push(facetFilter);
+
                     if (filter.values.sorting_index != 'Ideas_Community') {
                         indexName = filter.values.sorting_index;
                     }
-                    queries.push({
-                        indexName: indexName, 
-                        query: query,
-                        params: {
+                    
+                    queries_params = {
                             attributesToRetrieve: '*',
                             facets: ['RecordType', 'IsMerged', 'Status'],
                             facetFilters: facetFilters
-                        }
+                        };
+                    
+                    if (indexName === 'Ideas_Community_Trending') {
+                        queries_params.filters = 'CommentCount > 0';
+                    }
+                    
+                    queries.push({
+                        indexName: indexName, 
+                        query: query,
+                        params: queries_params
                     });
                     this.getOtherIndexes(
                         availableIndexes, 
