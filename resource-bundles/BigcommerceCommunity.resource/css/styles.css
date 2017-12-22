@@ -529,6 +529,12 @@ a {
     height: 35px;
     background: #f6f7f9; }
 
+.anchor-margin:before {
+  display: block;
+  content: "";
+  height: 90px;
+  margin-top: -90px; }
+
 .bg--white {
   background: #ffffff; }
 
@@ -1653,7 +1659,7 @@ textarea::placeholder {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 690px; }
+    height: 500px; }
     .jumbotron__wrap-img img {
       display: block;
       position: absolute;
@@ -1664,7 +1670,7 @@ textarea::placeholder {
   .jumbotron__content {
     display: inline-block;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     padding-left: 10px;
     padding-right: 10px;
@@ -4384,7 +4390,7 @@ textarea::placeholder {
     width: 25%;
     padding-right: 30px; }
   .article__content {
-    float: left;
+    float: right;
     width: 75%; }
   .article__voting {
     display: inline-block; }
@@ -4926,9 +4932,17 @@ textarea::placeholder {
 
 .doc-nav {
   overflow-y: auto;
-  width: 100%;
-  max-width: 258px;
+  width: 250px;
   max-height: calc(100vh - 150px); }
+  .doc-nav--fixed, .doc-nav .fixed {
+    position: fixed;
+    top: 70px;
+    max-height: calc(100vh - 70px); }
+  .doc-nav::-webkit-scrollbar {
+    width: 5px;
+    height: 5px; }
+  .doc-nav::-webkit-scrollbar-thumb {
+    background: #d3d5d5; }
   .doc-nav__inner {
     overflow: hidden;
     width: 100%;
@@ -5012,33 +5026,47 @@ textarea::placeholder {
       border-left: 1px solid #d4d4d4;
       border-bottom: 1px solid rgba(35, 46, 105, 0);
       transition: all 0.3s ease; }
-      .doc-nav__item-view:hover, .doc-nav__item-view.doc-nav__item-view--active, .doc-nav__item-view.active {
-        border-left: 3px solid #6d6e7a;
-        border-bottom: 1px solid rgba(35, 46, 105, 0.1);
-        border-radius: 0 5px 5px 0;
-        background: #ffffff;
-        box-shadow: 0 2px 4px 0 rgba(35, 46, 105, 0.1); }
-        .doc-nav__item-view:hover .doc-nav__link-view, .doc-nav__item-view.doc-nav__item-view--active .doc-nav__link-view, .doc-nav__item-view.active .doc-nav__link-view {
+      .doc-nav__item-view:hover {
+        border-left: 3px solid #6d6e7a; }
+        .doc-nav__item-view:hover .doc-nav__link-view {
           padding-left: 10px;
           font-family: 'source_sans_prosemibold', Arial, sans-serif;
           color: #4c4b58; }
-        .doc-nav__item-view:hover .doc-nav__link-view-sub, .doc-nav__item-view.doc-nav__item-view--active .doc-nav__link-view-sub, .doc-nav__item-view.active .doc-nav__link-view-sub {
+        .doc-nav__item-view:hover .doc-nav__link-view-sub {
+          padding-left: 20px; }
+      .doc-nav__item-view.doc-nav__item-view--active, .doc-nav__item-view.active {
+        border-left: 3px solid #6d6e7a;
+        border-radius: 0 5px 5px 0;
+        background: #ffffff;
+        box-shadow: 0 2px 4px 0 rgba(35, 46, 105, 0.1); }
+        .doc-nav__item-view.doc-nav__item-view--active .doc-nav__link-view, .doc-nav__item-view.active .doc-nav__link-view {
+          padding-left: 10px;
+          font-family: 'source_sans_prosemibold', Arial, sans-serif;
+          color: #4c4b58; }
+        .doc-nav__item-view.doc-nav__item-view--active .doc-nav__link-view-sub, .doc-nav__item-view.active .doc-nav__link-view-sub {
           padding-left: 20px; }
     .doc-nav__item-view-label {
       border-left: 1px solid #d4d4d4;
       border-bottom: 1px solid rgba(35, 46, 105, 0);
       transition: all 0.3s ease; }
-      .doc-nav__item-view-label:hover, .doc-nav__item-view-label.doc-nav__item-view-label--active, .doc-nav__item-view-label.active {
-        border-left: 3px solid #6d6e7a;
-        border-bottom: 1px solid rgba(35, 46, 105, 0.1);
-        border-radius: 0 5px 5px 0;
-        background: #ffffff;
-        box-shadow: 0 2px 4px 0 rgba(35, 46, 105, 0.1); }
-        .doc-nav__item-view-label:hover .doc-nav__link-view-label, .doc-nav__item-view-label.doc-nav__item-view-label--active .doc-nav__link-view-label, .doc-nav__item-view-label.active .doc-nav__link-view-label {
+      .doc-nav__item-view-label:hover {
+        border-left: 3px solid #6d6e7a; }
+        .doc-nav__item-view-label:hover .doc-nav__link-view-label {
           padding-left: 10px;
           font-family: 'source_sans_prosemibold', Arial, sans-serif;
           color: #4c4b58; }
-        .doc-nav__item-view-label:hover .doc-nav__link-view-sub, .doc-nav__item-view-label.doc-nav__item-view-label--active .doc-nav__link-view-sub, .doc-nav__item-view-label.active .doc-nav__link-view-sub {
+        .doc-nav__item-view-label:hover .doc-nav__link-view-sub {
+          padding-left: 20px; }
+      .doc-nav__item-view-label.doc-nav__item-view-label--active, .doc-nav__item-view-label.active {
+        border-left: 3px solid #6d6e7a;
+        border-radius: 0 5px 5px 0;
+        background: #ffffff;
+        box-shadow: 0 2px 4px 0 rgba(35, 46, 105, 0.1); }
+        .doc-nav__item-view-label.doc-nav__item-view-label--active .doc-nav__link-view-label, .doc-nav__item-view-label.active .doc-nav__link-view-label {
+          padding-left: 10px;
+          font-family: 'source_sans_prosemibold', Arial, sans-serif;
+          color: #4c4b58; }
+        .doc-nav__item-view-label.doc-nav__item-view-label--active .doc-nav__link-view-sub, .doc-nav__item-view-label.active .doc-nav__link-view-sub {
           padding-left: 20px; }
   .doc-nav__label {
     left: -3px;
@@ -5065,7 +5093,8 @@ textarea::placeholder {
           border-top-color: #777777; }
     .doc-nav__link-lvl-2 {
       padding: 6px 25px 5px 10px;
-      font-size: 0.875rem;
+      font-family: 'source_sans_proregular', Arial, sans-serif;
+      font-size: 0.95rem;
       line-height: 1.25rem;
       text-transform: capitalize;
       color: #86848c;
@@ -5086,8 +5115,9 @@ textarea::placeholder {
       .doc-nav__link-lvl-2--no-sub:hover:after {
         border-top-color: transparent; }
     .doc-nav__link-view {
+      font-family: 'source_sans_proregular', Arial, sans-serif;
       padding: 8px 10px 8px 12px;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       line-height: 0.9375rem;
       color: #86848c;
       transition: all 0.3s ease; }
@@ -5102,13 +5132,19 @@ textarea::placeholder {
       .doc-nav__link-view-sub:hover {
         color: #4c4b58; }
     .doc-nav__link-view-label {
+      font-family: 'source_sans_proregular', Arial, sans-serif;
       padding: 8px 10px 8px 12px;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       line-height: 0.9375rem;
       color: #86848c;
       transition: all 0.3s ease; }
       .doc-nav__link-view-label:hover {
         color: #4c4b58; }
+
+@media only screen and (max-width: 1120px) {
+  .doc-nav {
+    width: 100%;
+    max-width: 258px; } }
 
 @media only screen and (max-width: 992px) {
   .doc-nav__list-lvl-2 {
