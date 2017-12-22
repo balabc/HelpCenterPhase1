@@ -339,3 +339,7 @@ body .DESKTOP.uiContainerManager {
 .modal-overlay {
     background: rgba(215, 214, 217, 0.8);
 }
+
+.mobile-search-filter-is-active .serp__filter-trigger-icon:before {
+    background-position: -778px -648px;
+}
