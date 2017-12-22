@@ -339,7 +339,47 @@ body .DESKTOP.uiContainerManager {
 .modal-overlay {
     background: rgba(215, 214, 217, 0.8);
 }
-
 .mobile-search-filter-is-active .serp__filter-trigger-icon:before {
     background-position: -778px -648px;
+}
+
+.forceToastMessage{
+    width:100%;
+    border-radius: unset;
+    margin: 0;
+}
+/*.toastContent::before{
+    content:"<span>PIC</span>";
+}*/
+.slds-theme_info, .slds-theme--info {
+    background-color: white;
+}
+.toastClose{
+    color: #afb4be;
+    width: 10px;
+    height: 10px;
+}
+.toastClose:hover{
+    color: #afb4be !important;
+}
+.forceToastMessage{
+    min-height: 98px;
+    padding: 30px 0 30px 70px;
+}
+.toastMessage{
+    color: #4c4b58;
+    /*line-height: 1.5;*/
+    letter-spacing: 0;
+    /*padding-left: 70px;*/
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.3;
+}
+.toastTitle{
+    display:none;
+    color: #4c4b58;
+    font-family: 'source_sans_prolight', Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    letter-spacing: 0;
 }
