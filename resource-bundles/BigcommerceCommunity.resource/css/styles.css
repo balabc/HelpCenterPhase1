@@ -5490,3 +5490,7 @@ textarea::placeholder {
   background-image: url(../images/sprites/sprite.svg);
   background-size: 874px 729px;
 }
+
+.forceToastMessage:before{
+   content:url("../images/icon-alert-warning.png");
+}
