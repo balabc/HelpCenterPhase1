@@ -343,16 +343,21 @@ body .DESKTOP.uiContainerManager {
     background-position: -778px -648px;
 }
 
+.slds-theme_info, .slds-theme--info {
+    background-color: white;
+}
+/*TODO:should be at main styles
+.forceToastMessage:before{
+    content:url("https://bc-community-developer-edition.eu9.force.com/support/resource/1513953004000/BigcommerceCommunity/images/icon-alert-warning.png");
+    content:url("../images/icon-alert-warning.png");
+}
+*/
 .forceToastMessage{
     width:100%;
     border-radius: unset;
     margin: 0;
-}
-/*.toastContent::before{
-    content:"<span>PIC</span>";
-}*/
-.slds-theme_info, .slds-theme--info {
-    background-color: white;
+    min-height: 98px;
+    padding: 15px;
 }
 .toastClose{
     color: #afb4be;
@@ -362,24 +367,16 @@ body .DESKTOP.uiContainerManager {
 .toastClose:hover{
     color: #afb4be !important;
 }
-.forceToastMessage{
-    min-height: 98px;
-    padding: 30px 0 30px 70px;
+.toastContent{
+    padding-left: 30px;
 }
 .toastMessage{
     color: #4c4b58;
-    /*line-height: 1.5;*/
     letter-spacing: 0;
-    /*padding-left: 70px;*/
     font-family: 'source_sans_proregular', Arial, sans-serif;
     font-size: 0.9375rem;
-    line-height: 1.3;
+    line-height: 1;
 }
 .toastTitle{
     display:none;
-    color: #4c4b58;
-    font-family: 'source_sans_prolight', Arial, sans-serif;
-    font-size: 100%;
-    line-height: 1.5;
-    letter-spacing: 0;
 }
