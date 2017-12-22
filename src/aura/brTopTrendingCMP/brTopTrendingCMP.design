@@ -1,5 +1,6 @@
-<design:component >
-	<design:attribute name="idsPopular" label="Groups"/>
-    
+<design:component>
+	<design:attribute name="idsPopular" label="Popular group ids"/>
 	<design:attribute name="br_Trending_now" label="Title"/>
+    <design:attribute name="isShowGroupPosts" label="Use group for news and updates"/>
+    <design:attribute name="groupId" label="New updates group id" />
 </design:component>

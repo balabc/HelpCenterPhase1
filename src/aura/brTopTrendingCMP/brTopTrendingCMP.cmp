@@ -2,9 +2,12 @@
     <aura:attribute name="listPopular" type="List"/>
     <aura:attribute name="listQuestions" type="List"/>
     <aura:attribute name="listNews" type="List"/>
+    <aura:attribute name="listGroupPosts" type="List"/>
      
     <aura:attribute name="idsPopular" type="String"/>
     <aura:attribute name="br_Trending_now" type="String"/>
+    <aura:attribute name="isShowGroupPosts" type="Boolean"/>
+    <aura:attribute name="groupId" type="String" />
     <aura:attribute name="idListGroup" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
@@ -20,7 +23,7 @@
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
                             <aura:iteration items="{!v.listPopular}" var="item">
-                                <li class="list-group__item" data-id="{!item.id}" onclick="{!c.navigateToArticle}">
+                                <li class="list-group__item" data-id="{!item.id}" onclick="{!c.navigateTosObject}">
                                     <a>{!item.name}</a>
                                 </li>
                             </aura:iteration>
@@ -40,7 +43,7 @@
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
                             <aura:iteration items="{!v.listQuestions}" var="question">
-                                <li class="list-group__item" data-id="{!question.id}" onclick="{!c.navigateToArticle}">
+                                <li class="list-group__item" data-id="{!question.id}" onclick="{!c.navigateTosObject}">
                                     <a>{!question.name}</a>
                                 </li>
                             </aura:iteration>
@@ -59,11 +62,20 @@
                     </div>
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
-                            <aura:iteration items="{!v.listNews}" var="news">
-                                <li class="list-group__item" data-id="{!news.item.Id}" onclick="{!c.navigateToArticle}">
-                                    <a>{!news.item.Name}</a>
-                                </li>
-                            </aura:iteration>
+                            <aura:if isTrue="{!v.isShowGroupPosts}">
+                                <aura:iteration items="{!v.listGroupPosts}" var="post">
+                                    <li id="posts" class="list-group__item" data-id="{!post.Id}" onclick="{!c.navigateTosObject}">
+                                        <a>Quisque cursus</a>
+                                    </li>
+                                </aura:iteration>
+                                <aura:set attribute="else">
+                                    <aura:iteration items="{!v.listNews}" var="news">
+                                        <li class="list-group__item" data-id="{!news.item.Id}" onclick="{!c.navigateTosObject}">
+                                            <a>{!news.item.Name}</a>
+                                        </li>
+                                    </aura:iteration>
+                                </aura:set>
+                            </aura:if>
                         </ul>
                     </div>
                     <div class="panel-info__footer">

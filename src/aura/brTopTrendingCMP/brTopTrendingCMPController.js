@@ -4,12 +4,16 @@
         data = {'ids': component.get('v.idsPopular')};
         helper.getData(component, 'v.listPopular', 'c.getChatterGroupByStringId', data);
         helper.getData(component, 'v.listQuestions', 'c.getQuestions', false);
-        helper.getData(component, 'v.listNews', 'c.getBlogArticles', false);
+        if (component.get('v.isShowGroupPosts')) {
+            helper.getData(component, 'v.listGroupPosts', 'c.getGroupPosts', {'id': component.get('v.groupId')});
+        } else {
+            helper.getData(component, 'v.listNews', 'c.getBlogArticles', false);
+        }
         
         //00B0O000009JuTYUA0
         helper.getData(component, 'v.idListGroup', 'c.getChatterGroupListId', false);
 	},
-    navigateToArticle : function (component, event, helper) {
+    navigateTosObject : function (component, event, helper) {
         console.log(event);
         var target = event.target.closest('li'),
             id = target.getAttribute('data-id'),

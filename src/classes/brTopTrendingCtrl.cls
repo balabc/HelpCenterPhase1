@@ -59,5 +59,11 @@ public with sharing class brTopTrendingCtrl {
         }
         return articleWrappers;
     }
-
+    @AuraEnabled
+    public static List<FeedItem> getGroupPosts(String id) {
+        return [SELECT Id, Body FROM FeedItem
+                                WHERE ParentId = :id
+                                ORDER BY CreatedDate
+                                DESC LIMIT 4];
+    }
 }
