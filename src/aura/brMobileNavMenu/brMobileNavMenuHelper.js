@@ -14,9 +14,12 @@
     initMenu: function(component, items) {
         var user = component.get('v.user'),
             objSfdcSite = $A.get('$SfdcSite'),
-            objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: ''),
-            locationPage = window.location.pathname.replace(objSfdcSite + '/s', ''),
-            menuItems;
+            locationPage = window.location.pathname;
+
+        objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
+        locationPage = locationPage.replace(objSfdcSite + '/s', '').replace('/login', '').replace('/profile/', '');
+
+        console.log(locationPage);
         
         
         if (items.length > 0) {
