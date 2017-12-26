@@ -380,3 +380,6 @@ body .DESKTOP.uiContainerManager {
 .toastTitle{
     display:none;
 }
+.article-area__content .article ul {
+    padding-left: 40px
+}
