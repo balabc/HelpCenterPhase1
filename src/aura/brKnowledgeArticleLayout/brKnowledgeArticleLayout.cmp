@@ -12,20 +12,10 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <aura:if isTrue="{!v.isContentVisible}">
-        <div class="container article-container">
+        <div class="container article-area-container">
             {!v.breadcrumbs}
             <aura:if isTrue="{!v.isKnowledgeBaseArticle}">
                 {!v.articleContent1}
-<!--
-                <div class="panel-content">
-                    <div class="panel-content__body">
-                        <div class="panel-content__body-content text-center">
-                            <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
-                            <a href="#" class="button button- -sm button- -primary">Ask a question</a>
-                        </div>
-                    </div>
-                </div>
--->
                 <div class="br_clear">
                     <div class="panel-content__body-pre-content text-center">&nbsp;</div><!-- nothing -->
                     <div class="panel-content panel-content__body-br-content">
@@ -43,6 +33,6 @@
                 </aura:set>
             </aura:if>
         </div>
+            {!v.landingFooter}
     </aura:if>
-    {!v.landingFooter}
 </aura:component>

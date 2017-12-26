@@ -9,12 +9,12 @@
     <aura:handler name="change" value="{!v.articleId}" action="{!c.hasVotingCurrentUser}"/>
 
     <aura:if isTrue="{!notequals(v.articleId, null)}">
-        <div class="article__voting">
+        <div class="article-area__voting">
             <aura:if isTrue="{!equals(v.feedbackMessage,null)}">
-                <div class="article__voting-inner">
-                    <span class="article__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
-                    <div class="article__voting-wrap-buttons">
-                        <div class="article__voting-buttons">
+                <div class="article-area__voting-inner">
+                    <span class="article-area__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
+                    <div class="article-area__voting-wrap-buttons">
+                        <div class="article-area__voting-buttons">
                             <aura:if isTrue="{!equals(v.userType,'Guest')}">
                                 <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteYes}</a>
                                 <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteNo}</a>
