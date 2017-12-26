@@ -18,26 +18,29 @@
             classes = [
                 'serp__filter-section',
                 'serp__panel',
-                'searchbox-uniq'
-            ],
-            clos_modal = target.closest('.modal');
+                'searchbox-uniq',
+                'serp__filter-trigger-icon'
+            ];
 
-	    if (!!clos_modal) {
-            for (var i in classes) {
-                var clos = target.closest('.' + classes[i]);
-
-                if (target.className.indexOf(classes[i]) > -1) {
-                    flag = false;
-                } else {
-                    if (!!clos) {
+        if (!!target && (typeof target.closest !== "undefined")) {
+            var clos_modal = target.closest('.modal');
+            if (!!clos_modal) {
+                for (var i in classes) {
+                    var clos = target.closest('.' + classes[i]);
+    
+                    if (target.className.indexOf(classes[i]) > -1) {
                         flag = false;
+                    } else {
+                        if (!!clos) {
+                            flag = false;
+                        }
                     }
                 }
-            }
-
-            if (flag) {
-                var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
-                toggleSearchModal.fire();
+    
+                if (flag) {
+                    var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
+                    toggleSearchModal.fire();
+                }
             }
         }
 
