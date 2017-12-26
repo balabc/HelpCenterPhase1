@@ -383,3 +383,7 @@ body .DESKTOP.uiContainerManager {
 .article-area__content .article ul {
     padding-left: 40px
 }
+.anchor-margin:before {
+    height: 70px;
+    margin-top: -70px;
+}
