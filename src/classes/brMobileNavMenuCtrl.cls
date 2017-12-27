@@ -38,6 +38,8 @@ public with sharing class brMobileNavMenuCtrl {
      */
     @AuraEnabled
     public static List<brPhoneSupportList__c> getPhoneList () {
+        brSecurityService.performAccessCheck('read', 'brPhoneSupportList__c', new List<String>{'Country__c','Name','Order__c','Phone__c'});
+
         List<brPhoneSupportList__c> phoneList = [SELECT Country__c,Id,Name,Order__c,Phone__c FROM brPhoneSupportList__c ORDER BY Order__c ASC];
         return phoneList;
     }
