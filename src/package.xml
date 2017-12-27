@@ -129,8 +129,8 @@
         <members>brCategoriesController</members>
         <members>brCategoriesTest</members>
         <members>brCategoryModel</members>
-        <members>brCategorySevice</members>
-        <members>brCategorySeviceSelector</members>
+        <members>brCategoryService</members>
+        <members>brCategoryServiceSelector</members>
         <members>brGuidesListCtrl</members>
         <members>brNavigationMenuItemService</members>
         <members>brNavigationMenuItemModel</members>

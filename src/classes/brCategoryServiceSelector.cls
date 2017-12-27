@@ -1,4 +1,4 @@
-public with sharing class brCategorySeviceSelector {
+public with sharing class brCategoryServiceSelector {
 
     /**
      * Returns categories for category group

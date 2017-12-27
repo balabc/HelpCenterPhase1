@@ -62,8 +62,8 @@ public with sharing class brCategoriesCatalogService {
             am.categories = cats;
             articles.add(am);
         }     
-        Map<String,Map<String,Map<String,List<String>>>> categoryHierarchy = brCategorySevice.getCategoryHierarchy(dataCategoryName);
-        Map<String, String> catNameMap = brCategorySevice.getAllCategoriesMap(dataCategoryName);
+        Map<String,Map<String,Map<String,List<String>>>> categoryHierarchy = brCategoryService.getCategoryHierarchy(dataCategoryName);
+        Map<String, String> catNameMap = brCategoryService.getAllCategoriesMap(dataCategoryName);
         for(String key : categoryHierarchy.keySet()) {
             brCategoriesCatalogModel ccm = new brCategoriesCatalogModel();
             ccm.id = key;
@@ -137,7 +137,7 @@ public with sharing class brCategoriesCatalogService {
         List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
         List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType); 
         Map<String, List<brArticleModel>> articlesCats = new Map<String, List<brArticleModel>>();    
-        List<brCategoryModel.CategoryWrapper> allCats = brCategorySevice.getAllCategoriesList(dataCategoryName);
+        List<brCategoryModel.CategoryWrapper> allCats = brCategoryService.getAllCategoriesList(dataCategoryName);
         
         List<brArticleModel> tmpCats;
         String articleId;
