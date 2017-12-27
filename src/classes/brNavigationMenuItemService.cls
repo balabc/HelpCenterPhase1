@@ -1,6 +1,13 @@
 public with sharing class brNavigationMenuItemService {
 
     public static List<List<SObject>> getArticleByUrl(String url) {
+        brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'urlName','ArticleType','PublishStatus'});
+        brSecurityService.performAccessCheck('read', 'Learning__kav', new List<String>{'urlName','ArticleType','PublishStatus'});
+        brSecurityService.performAccessCheck('read', 'University__kav', new List<String>{'urlName','ArticleType','PublishStatus'});
+        brSecurityService.performAccessCheck('search', 'Public__kav',null);
+        brSecurityService.performAccessCheck('search', 'Learning__kav',null);
+        brSecurityService.performAccessCheck('search', 'University__kav',null);
+
         List<String> describeList = new List<String>();
         Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
         Set<String> keySet = gd.keySet();
@@ -18,11 +25,21 @@ public with sharing class brNavigationMenuItemService {
     }
 
     public static List<brCommunity_Menu_Map__mdt> getMetaDataMenuByArticleType(String articleType) {
+        brSecurityService.performAccessCheck('read', 'brCommunity_Menu_Map__mdt', new List<String>{'MasterLabel','Data_Category_Group__c',
+            'Menu_Target__c','Object_Name__c'});
+
         List<brCommunity_Menu_Map__mdt> results = brNavigationMenuItemServiceSelector.getMetaDataMenuByArticleType(articleType);
         return results;
     }
 
     public static List<brNavigationMenuItemModel> getNavigationMenu() {
+        brSecurityService.performAccessCheck('read', 'NavigationLinkSet', new List<String>{'NetworkId'});
+        brSecurityService.performAccessCheck('read', 'NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','Position',
+            'Label','SystemModstamp','Target','TargetPrefs','Type','ParentId'});
+        brSecurityService.performAccessCheck('read', 'brCommunity_Menu_Map__mdt', new List<String>{'MasterLabel','Data_Category_Group__c',
+            'Menu_Target__c','Object_Name__c'});
+        brSecurityService.performAccessCheck('read', 'brCommunity_Category_Menu_Map__mdt', new List<String>{'Menu_Item_Id__c','Target__c'});
+
         Id communityId = Network.getNetworkId();
         String currentMenuId = brNavigationMenuItemServiceSelector.getCurrentNavigationMenu(communityId);
 
