@@ -1,6 +1,8 @@
 public with sharing class brUserMenuCtrl {
     @AuraEnabled
     public static User getCurrentUser() {
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'SmallPhotoUrl','Name'});
+
         return [SELECT Id, Name, SmallPhotoUrl FROM User WHERE Id = :userInfo.getUserId() LIMIT 1];
     }
 
@@ -11,6 +13,8 @@ public with sharing class brUserMenuCtrl {
 
     @AuraEnabled
     public static String getUserMenuItems() {
+        brSecurityService.performAccessCheck('read', 'brCommunityMetadata__mdt', new List<String>{'Value__c'});
+
         if (Test.isRunningTest()) {
             return '{"title": "Profile", "url": "profile", "new_window": true}';
         }
@@ -20,6 +24,8 @@ public with sharing class brUserMenuCtrl {
 
     @AuraEnabled
     public static Decimal getUserReputationPoints() {
+        brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{'ReputationPoints','NetworkId'});
+
         if (Test.isRunningTest()) {
             return 5;
         }
@@ -29,6 +35,8 @@ public with sharing class brUserMenuCtrl {
 
     @AuraEnabled
     public static String getUserReputationLevel() {
+        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','Threshold','ParentId'});
+
         Decimal reputationPoints = brUserMenuCtrl.getUserReputationPoints();
         String reputationLevel = '';
         List<ReputationLevel> reputationLevels = [SELECT Label, Threshold FROM ReputationLevel WHERE ParentId = :Network.getNetworkId() ORDER BY Threshold ASC];
