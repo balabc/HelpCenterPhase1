@@ -9,6 +9,10 @@ public with sharing class brFeedItemService {
      * @see         Integer
      */
     public static Integer getFeedItemCount() {
+        brSecurityService.performAccessCheck('read', 'Topic', new List<String>{'Name'});
+        brSecurityService.performAccessCheck('read', 'TopicAssignment', new List<String>{'NetworkId','TopicId','EntityId','EntityKeyPrefix'});
+        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'Title','BestCommentId','CreatedDate'});
+
         List<brFeedItemModel> items = new List<brFeedItemModel>();
         List<SObject> topics = brFeedItemServiceSelector.getTopics();
         Set<Id> topicIds = new Set<Id>();
@@ -35,6 +39,9 @@ public with sharing class brFeedItemService {
      * @see         List<brFeedItemModel>
      */
     public static List<brFeedItemModel> getQuestions() {
+        brSecurityService.performAccessCheck('read', 'Topic', new List<String>{'Name'});
+        brSecurityService.performAccessCheck('read', 'TopicAssignment', new List<String>{'NetworkId','TopicId','EntityId','EntityKeyPrefix'});
+        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'Title','CreatedDate'});
 
         List<brFeedItemModel> items = new List<brFeedItemModel>();
         List<SObject> topics = brFeedItemServiceSelector.getTopics();
