@@ -12,8 +12,28 @@
                 if (hasVoting) {
                     cmp.set('v.feedbackMessage', "Thanks for your feedback!");
                 }
-            } else {
-                console.log('callback error: hasVotingCurrentUser in brArticleFeedbackHelper.js');
+            } else if (state === "ERROR") {
+                console.error('callback error: hasVotingCurrentUser in brArticleFeedbackHelper.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -28,8 +48,28 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.reasons', reasons);
-            } else {
+            } else if (state === "ERROR") {
                 console.log('callback error: getReasons in brArticleFeedbackHelper.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -45,8 +85,28 @@
 
             if (state === 'SUCCESS') {
                cmp.set('v.feedbackMessage', "Thanks for your feedback!");
-            } else {
+            } else if (state === "ERROR") {
                 console.log('callback error: addVoteUp in brArticleFeedbackHelper.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -66,8 +126,28 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.feedbackMessage', "Thanks for your feedback!");
-            } else {
+            } else if (state === "ERROR") {
                 console.log('callback error: addVoteUp in brArticleFeedbackHelper.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -82,8 +162,28 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.userType', type);
-            } else {
+            } else if (state === "ERROR") {
                 console.log('callback error: getUserType in brUserMenu.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 

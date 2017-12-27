@@ -8,8 +8,28 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.user', user);
-            } else {
-                console.log('callback error: getCurrentUser in brUserMenu.js');
+            } else if (state === "ERROR") {
+                //console.log('callback error: getCurrentUser in brUserMenu.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -27,8 +47,28 @@
                 if (typeof callback === 'function') {
                     callback(type);
                 }
-            } else {
-                console.log('callback error: getUserType in brUserMenu.js');
+            } else if (state === "ERROR") {
+                //console.log('callback error: getUserType in brUserMenu.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -45,8 +85,28 @@
             if (state === 'SUCCESS') {
                 var menuItemsJSON = JSON.parse(menuItems);
                 cmp.set('v.menuItems', menuItemsJSON);
-            } else {
+            } else if (state === "ERROR") {
                 console.log('callback error: setUserMenuItems in brUserMenu.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -62,8 +122,28 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.reputationPoints', reputationPoints);
-            } else {
-                console.log('callback error: getReputationPoints in brUserMenu.js');
+            } else if (state === "ERROR") {
+                //console.log('callback error: getReputationPoints in brUserMenu.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
@@ -79,8 +159,28 @@
 
             if (state === 'SUCCESS') {
                 cmp.set('v.reputationLevel', reputationLevel);
-            } else {
-                console.log('callback error: getReputationLevel in brUserMenu.js');
+            } else if (state === "ERROR") {
+                //console.log('callback error: getReputationLevel in brUserMenu.js');
+                var errors = response.getError();
+                var error_msg = '';
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        if (errors[0].message == 'access_error') {
+                            error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                        } else {
+                            error_msg = errors[0].message;
+                        }
+                    }
+                }
+                if (error_msg.length === 0) {
+                    error_msg = $A.get("$Label.c.hUnknownError");
+                }
+                var toastEvent = $A.get("e.force:showToast");
+                toastEvent.setParams({
+                    mode: "sticky",
+                    message: error_msg
+                });
+                toastEvent.fire();
             }
         });
 
