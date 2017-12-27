@@ -1,5 +1,8 @@
 public with sharing class brMainNavMenuService {
     public static List<String> getLabels() {
+        brSecurityService.performAccessCheck('read', 'NavigationLinkSet', new List<String>{'NetworkId'});
+        brSecurityService.performAccessCheck('read', 'NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','Type'});
+
         if (Test.isRunningTest()) {
             return new List<String>{'Test'};
         }
