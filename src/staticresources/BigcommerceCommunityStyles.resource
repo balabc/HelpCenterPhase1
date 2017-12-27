@@ -387,3 +387,6 @@ body .DESKTOP.uiContainerManager {
     height: 70px;
     margin-top: -70px;
 }
+.mobile-menu-is-active .doc-nav__link-lvl-2--numeric:before {
+    top: calc(50% - 10px);
+}

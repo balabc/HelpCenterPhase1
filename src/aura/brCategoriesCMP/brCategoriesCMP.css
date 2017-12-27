@@ -35,6 +35,11 @@
     content: none;
 }
 
+/*
+.mobile-menu-is-active .doc-nav__link-lvl-2--numeric:before {
+    top: calc(50% - 10px);
+}
+*/
 
 
 /*need transfer to parent component "class mobile"

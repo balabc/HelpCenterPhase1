@@ -15,6 +15,7 @@
         
         helper.changeMobileMenuLvl(component, {
             id: li.getAttribute('data-id'),
+            isClick: true,
             title: li.getAttribute('data-title'),
             where: li.getAttribute('data-where')
         });

@@ -17,8 +17,10 @@
         var data = component.get("v.data");
         if (!!data) {
             if (data.hasOwnProperty('id')) {
-                console.log('changeData', data);
+                console.log(data);
+
                 component.set('v.selectedArticleId', data.id);
+
                 helper.getResponse(component);
             }
         }

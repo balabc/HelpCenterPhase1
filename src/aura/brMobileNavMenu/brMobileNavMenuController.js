@@ -13,10 +13,12 @@
     },
     onChangeLvl: function(component, event, helper) {
         var data = (!!event.getParam)? event.getParam("data"): { where: 'prev' },
+            isClick = (!!data.isClick)? true: false,
+
             menuItems = component.get('v.menuItems'),
 			menuIds = component.get('v.menuIds'),     
 			currentId = undefined;
-        
+
         
         switch (data.where) {
             case 'next': {
@@ -31,10 +33,19 @@
                 currentId = menuIds.pop();
                 currentId = menuIds[menuIds.length - 1];
                 break;
-            }   
+            }
         }
-        
+
         menuItems = helper.getCurrentLvl(menuItems, currentId);
+
+        if (!!menuItems.obj) {
+            menuItems.obj.isClick = isClick;
+            if (menuItems.obj.isClick) {
+                menuItems.obj.id = ' ';
+                menuItems.obj.target = ' ';
+            }
+        }
         helper.setItemsMenu(component, menuItems, true);
+
     }
 })
