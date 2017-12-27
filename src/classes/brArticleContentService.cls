@@ -9,9 +9,13 @@ public with sharing class brArticleContentService {
      * @return      map with data category and article type
      * @see         Map<String, String>
      */
-    public static Map<String, String> getDataForArticle(String articleId) { 
+    public static Map<String, String> getDataForArticle(String articleId) {
         Map<String, String> result = new Map<String, String>();
         String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
+
+        brSecurityService.performAccessCheck('read',articleType.replace('__kav','') + '__DataCategorySelection',
+        new List<String>{'ParentId','DataCategoryGroupName','DataCategoryName'});
+
         String dataCategory = brArticleContentServiceSelector.getDataCategoryByArticleTypeAndId(articleType, articleId);
         
         result.put('articleType', articleType);
@@ -30,6 +34,9 @@ public with sharing class brArticleContentService {
      * @see         Map<String, Integer>
      */
     public static Map<String, Integer> getCountForEachCategory(String articleType) {
+        brSecurityService.performAccessCheck('read', 'brGuideItem__mdt', new List<String>{'First_Chapter_Url__c'});
+        brSecurityService.performAccessCheck('read', articleType, new List<String>{'UrlName'});
+
         Map<String, Integer> result = new Map<String, Integer>();
 
         List<sObject> guides = brArticleContentServiceSelector.getAllArticleForGuide();
@@ -76,6 +83,14 @@ public with sharing class brArticleContentService {
      * @see         brArticleModel
      */
     public static brArticleModel getArticleContent(String articleId) {
+        brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'Article__c'});
+        brSecurityService.performAccessCheck('read', 'Learning__kav', new List<String>{'KnowledgeArticleId', 'Title',
+            'Article__c','Guide_Title__c', 'Sort_Oder_in_Category__c','Back_Button_URL__c',
+            'Next_Button_Text__c','Next_Button_URL__c'});
+        brSecurityService.performAccessCheck('read', 'University__kav', new List<String>{'KnowledgeArticleId', 'Title',
+            'Description__c','Additional_Resources__c', 'Next_Video_URL__c','Next_Video_Link_Text__c',
+            'Prev_Video_URL__c','Prev_Video_Link_Text__c','Video_URL__c'});
+
         brArticleModel article = new brArticleModel();
         article.item = brArticleContentServiceSelector.getArticleById(articleId);
         article.id = articleId;
@@ -95,6 +110,12 @@ public with sharing class brArticleContentService {
      */
     public static List<SObject> getListArticleInCurrentCategory(String articleId) {
         String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
+
+        brSecurityService.performAccessCheck('read','kav', new List<String>{'PublishStatus'});
+        brSecurityService.performAccessCheck('read',articleType.replace('__kav','') + '__DataCategorySelection',
+            new List<String>{'ParentId','DataCategoryName'});
+        brSecurityService.performAccessCheck('read',articleType,
+            new List<String>{'KnowledgeArticleId','Title','Nav_Title__c','Sort_Oder_in_Category__c','PublishStatus'});
 
         String dataCategory = brArticleContentServiceSelector.getDataCategoryNameByArticleId(articleId, articleType);
         List<SObject> items = brArticleContentServiceSelector.getArticleListInDataCategory(articleType);

@@ -11,6 +11,8 @@ public with sharing class brAlgoliaSearchCtrl {
     @AuraEnabled
     public static String getApiKey() {
         brAlgolia_Profile_Setting__c setting = brAlgolia_Profile_Setting__c.getInstance(UserInfo.getProfileId());
+        brSecurityService.performAccessCheck('read', 'brAlgolia_Profile_Setting__c', new List<String>{'Secured_Api_key__c'});
+
         if (setting.Secured_Api_key__c != null) {
             return setting.Secured_Api_key__c;
         } else {
