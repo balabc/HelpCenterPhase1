@@ -111,7 +111,9 @@ public with sharing class brArticleContentService {
     public static List<SObject> getListArticleInCurrentCategory(String articleId) {
         String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
 
-        brSecurityService.performAccessCheck('read','kav', new List<String>{'PublishStatus'});
+        brSecurityService.performAccessCheck('read','Public__kav', new List<String>{'PublishStatus'});
+        brSecurityService.performAccessCheck('read','Learning__kav', new List<String>{'PublishStatus'});
+        brSecurityService.performAccessCheck('read','University__kav', new List<String>{'PublishStatus'});
         brSecurityService.performAccessCheck('read',articleType.replace('__kav','') + '__DataCategorySelection',
             new List<String>{'ParentId','DataCategoryName'});
         brSecurityService.performAccessCheck('read',articleType,

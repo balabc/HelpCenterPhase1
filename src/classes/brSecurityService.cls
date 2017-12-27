@@ -2,8 +2,10 @@ public with sharing class brSecurityService {
     public static void performAccessCheck(String accessType, String objectName, List<String> fieldNames) {
         Schema.DescribeSObjectResult objectDescribe;
 
-        if(objectName == 'KnowledgeArticleVersion' || objectName == 'KnowledgeArticle' || objectName == 'kav'){
+        if(objectName == 'KnowledgeArticleVersion'){
             objectDescribe = KnowledgeArticleVersion.sObjectType.getDescribe();
+        } else if (objectName == 'KnowledgeArticle') {
+            objectDescribe = KnowledgeArticle.sObjectType.getDescribe();
         } else {
             objectDescribe = Schema.getGlobalDescribe().get(objectName).getDescribe();
         }
