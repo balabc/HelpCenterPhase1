@@ -181,6 +181,8 @@ public with sharing class brBreadcrumbsCtrl {
      * @return  string target menu item value like "/something"
      */
     public static String getTargetByObjectName(String objectName){
+        brSecurityService.performAccessCheck('read','brCommunity_Menu_Map__mdt', new List<String>{'Menu_Target__c','Object_Name__c'});
+
         try{
             return [SELECT Menu_Target__c FROM brCommunity_Menu_Map__mdt WHERE Object_Name__c = :objectName].Menu_Target__c;
         }catch (Exception e){
@@ -195,6 +197,8 @@ public with sharing class brBreadcrumbsCtrl {
      * @return  menu item id (of category menu item)
      */
     public static String getMenuIdByTarget(String target){
+        brSecurityService.performAccessCheck('read','brCommunity_Category_Menu_Map__mdt', new List<String>{'Menu_Item_Id__c','Target__c'});
+
         try{
             return [SELECT Menu_Item_Id__c FROM brCommunity_Category_Menu_Map__mdt WHERE Target__c = :target].Menu_Item_Id__c;
         }catch (Exception e){
@@ -209,6 +213,8 @@ public with sharing class brBreadcrumbsCtrl {
      * @return  menu like target value "/something" that will be used in building URL
      */
     public static String getTargetByMenuId(String menuItemId){
+        brSecurityService.performAccessCheck('read','brCommunity_Category_Menu_Map__mdt', new List<String>{'Target__c','Menu_Item_Id__c'});
+
         try{
             return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c;
         }catch (Exception e){
@@ -223,6 +229,8 @@ public with sharing class brBreadcrumbsCtrl {
      * @return   Id of object listveiw
      */
     public static String getObjectListViewId(String sObjectName){
+        brSecurityService.performAccessCheck('read','ListView', new List<String>{'SobjectType'});
+
         try{
             return [SELECT Id FROM ListView WHERE SobjectType  = :sObjectName LIMIT 1].Id;
         }catch (Exception e){
@@ -237,6 +245,8 @@ public with sharing class brBreadcrumbsCtrl {
      * @return
      */
     public static NavigationMenuItem getMenuItemByID(String menuID){
+        brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
+
         List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE Id = :menuID];
         return (items.size()>0)?items.get(0):null;
     }
@@ -248,6 +258,8 @@ public with sharing class brBreadcrumbsCtrl {
      * @return
      */
     public static NavigationMenuItem getMenuItemByTarget(String inputTarget){
+        brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
+
         List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE Target = :inputTarget];
         return (items.size()>0)?items.get(0):null;
     }
@@ -259,8 +271,9 @@ public with sharing class brBreadcrumbsCtrl {
      * @return
      */
     public static List<NavigationMenuItem> getChildrenMenuItems(String parentId){
+        brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
+
         List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE ParentId = :parentId ];//AND Type != 'MenuLabel'
         return items;
     }
-
 }
