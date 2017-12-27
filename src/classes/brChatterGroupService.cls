@@ -17,6 +17,8 @@ public with sharing class brChatterGroupService {
 			}
 		}
 		if(groupIds.size() > 0) {
+			brSecurityService.performAccessCheck('read', 'CollaborationGroup', new List<String>{'Name'});
+
 			List<SObject> listGroups = brChatterGroupServiceSelector.getChatterGroup(groupIds);
 			List<brChatterGroupModel> chatterGroupModels = new List<brChatterGroupModel>();
 			for(SObject gr : listGroups) {
@@ -32,6 +34,8 @@ public with sharing class brChatterGroupService {
 
 	}
 	public static Id getListId() {
+		brSecurityService.performAccessCheck('read', 'ListView', new List<String>{'Name','SobjectType'});
+
 		return brChatterGroupServiceSelector.getListId();
 	}
 }
