@@ -83,7 +83,7 @@ public with sharing class brArticleContentService {
      * @see         brArticleModel
      */
     public static brArticleModel getArticleContent(String articleId) {
-        brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'Article__c'});
+        brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'KnowledgeArticleId','Title','Article__c'});
         brSecurityService.performAccessCheck('read', 'Learning__kav', new List<String>{'KnowledgeArticleId', 'Title',
             'Article__c','Guide_Title__c', 'Sort_Oder_in_Category__c','Back_Button_URL__c',
             'Next_Button_Text__c','Next_Button_URL__c'});
