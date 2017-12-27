@@ -247,7 +247,8 @@ public with sharing class brBreadcrumbsCtrl {
     public static NavigationMenuItem getMenuItemByID(String menuID){
         brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
 
-        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE Id = :menuID];
+        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type
+                                            FROM NavigationMenuItem WHERE Id = :menuID AND NavigationLinkSetId = :getNavigationLinkSetId()];
         return (items.size()>0)?items.get(0):null;
     }
     /**
@@ -260,7 +261,8 @@ public with sharing class brBreadcrumbsCtrl {
     public static NavigationMenuItem getMenuItemByTarget(String inputTarget){
         brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
 
-        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE Target = :inputTarget];
+        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type
+                                            FROM NavigationMenuItem WHERE Target = :inputTarget AND NavigationLinkSetId = :getNavigationLinkSetId()];
         return (items.size()>0)?items.get(0):null;
     }
     /**
@@ -273,7 +275,13 @@ public with sharing class brBreadcrumbsCtrl {
     public static List<NavigationMenuItem> getChildrenMenuItems(String parentId){
         brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
 
-        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type FROM NavigationMenuItem WHERE ParentId = :parentId ];//AND Type != 'MenuLabel'
+        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type
+                                            FROM NavigationMenuItem WHERE ParentId = :parentId AND NavigationLinkSetId = :getNavigationLinkSetId()];//AND Type != 'MenuLabel'
         return items;
     }
+
+    public static String getNavigationLinkSetId(){
+        return [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId()].Id;
+    }
+
 }
