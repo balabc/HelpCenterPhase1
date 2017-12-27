@@ -10,6 +10,8 @@ public with sharing class brIdeaService {
      * @see         Integer
      */
     public static Integer getIdeaCount(Id communityId) {
+        brSecurityService.performAccessCheck('read', 'Community', new List<String>{'NetworkId'});
+        brSecurityService.performAccessCheck('read', 'Idea', new List<String>{'CommunityId'});
 
         List<Community> zoneList = brIdeaServiceSelector.getZoneList(communityId);
         if (zoneList.size() > 0) {
