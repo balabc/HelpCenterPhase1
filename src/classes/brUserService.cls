@@ -9,6 +9,7 @@ public with sharing class brUserService {
      * @see         brLeaderboardModel
      */
     public static brLeaderboardModel getUserInfo() {
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'FullPhotoUrl','SmallPhotoUrl','MediumPhotoUrl','Name'});
 
         Set<id> usersId = new Set<id>();
         usersId.add(UserInfo.getUserId());
@@ -35,6 +36,8 @@ public with sharing class brUserService {
      * @see         Integer
      */
     public static Integer getUserCount(Id communityId) {
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'Name'});
+        brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{'MemberId','ReputationPoints','NetworkId'});
 
         return brUserServiceSelector.getUserMembers(communityId, 50000).size();
 
@@ -50,6 +53,11 @@ public with sharing class brUserService {
      * @see         List<brLeaderboardModel>
      */
     public static List<brLeaderboardModel> getUserLeaderboard(Id communityId) {
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'Name'});
+        brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{'MemberId','ReputationPoints','NetworkId'});
+        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','LevelNumber','Threshold','ParentId'});
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'FullPhotoUrl','SmallPhotoUrl','MediumPhotoUrl','Name'});
+        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','LevelNumber','Threshold','ParentId'});
 
         List<brLeaderboardModel> leaderboardModels = new List<brLeaderboardModel>();
         List<NetworkMember> userMembers = brUserServiceSelector.getUserMembers(communityId, 5);
