@@ -25,26 +25,25 @@
 
                 }else if (state === "ERROR") {
                     var errors = response.getError();
-                    console.log("Errors: ", errors);
+                    var error_msg = '';
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            var error_msg = '';
                             if(errors[0].message == 'access_error'){
                                 error_msg = $A.get("$Label.c.hCommunityFLSAccess");
                             }else{
                                 error_msg = errors[0].message;
                             }
-                            var toastEvent = $A.get("e.force:showToast");
-                            toastEvent.setParams({
-                                mode: "sticky",
-                                message: error_msg
-                            });
-                            toastEvent.fire();
-                            //console.error("Error message: " + errors[0].message);
                         }
-                    } else {
-                        console.log("Unknown error");
                     }
+                    if(error_msg.length === 0){
+                        error_msg = $A.get("$Label.c.hUnknownError");
+                    }
+                    var toastEvent = $A.get("e.force:showToast");
+                    toastEvent.setParams({
+                        mode: "sticky",
+                        message: error_msg
+                    });
+                    toastEvent.fire();
                 }
             });
             $A.enqueueAction(action);
