@@ -1946,6 +1946,14 @@
         <shortDescription>Ideas points</shortDescription>
         <value>points</value>
     </labels>
+	<labels>
+        <fullName>hCommunityFLSAccess</fullName>
+        <categories>Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hCommunityFLSAccess</shortDescription>
+        <value>You don't have access to this record. Ask your administrator for help.</value>
+    </labels>	
     <labels>
         <fullName>test</fullName>
         <categories>Events</categories>

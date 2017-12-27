@@ -28,7 +28,19 @@
                     console.log("Errors: ", errors);
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            console.log("Error message: " + errors[0].message);
+                            var error_msg = '';
+                            if(errors[0].message == 'access_error'){
+                                error_msg = $A.get("$Label.c.hCommunityFLSAccess");
+                            }else{
+                                error_msg = errors[0].message;
+                            }
+                            var toastEvent = $A.get("e.force:showToast");
+                            toastEvent.setParams({
+                                mode: "sticky",
+                                message: error_msg
+                            });
+                            toastEvent.fire();
+                            //console.error("Error message: " + errors[0].message);
                         }
                     } else {
                         console.log("Unknown error");
@@ -37,7 +49,7 @@
             });
             $A.enqueueAction(action);
         }catch(e){
-            console.log('tryE:', e);
+            console.error('tryE:', e);
         }
     },
     toggleCrumbs: function(component) {
