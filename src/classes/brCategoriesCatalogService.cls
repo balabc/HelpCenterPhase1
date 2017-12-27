@@ -1,8 +1,18 @@
 public with sharing class brCategoriesCatalogService {
     
     public static List<brCategoriesCatalogModel> getCatalog(String selectId, String articleType, String dataCategoryName) {
+        if (articleType == 'University__kav') {
+            brSecurityService.performAccessCheck('read', articleType, new List<String>{
+                'KnowledgeArticleId', 'Title', 'Nav_Title__c','Sort_Oder_in_Category__c','PublishStatus'});
+        } else {
+            brSecurityService.performAccessCheck('read', articleType, new List<String>{
+                'KnowledgeArticleId', 'Title', 'Nav_Title__c','Sort_Oder_in_Category__c','PublishStatus','Section_Anchors__c'});
+        }
+        brSecurityService.performAccessCheck('read', articleType.replace('__kav','') + '__DataCategorySelection', new List<String>{
+                'ParentId','DataCategoryGroupName','DataCategoryName'});
+
         List<brCategoriesCatalogModel> catCatalogList = new List<brCategoriesCatalogModel>();
-        List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType); 
+        List<sObject> articlesList = brCategoriesCatalogServiceSelector.getArticles(articleType);
         List<sObject> catsList = brCategoriesCatalogServiceSelector.getArticleCategories(articleType);   
         
         Boolean isNumeric = (articleType == 'Learning__kav');
