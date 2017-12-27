@@ -55,11 +55,11 @@ public with sharing class brFeaturedIdeaCtrl {
     }
 
     public static Idea getIdeaData(String ideaId) {//, String communityId
-        System.debug('ideaId:'+ideaId);
-        //System.debug('communityId:'+communityId);
+        brSecurityService.performAccessCheck('read', 'Idea', new List<String>{'Body','CreatorName','IsHtml','Title','VoteScore','VoteTotal'});
+
         Idea ideaItem = new Idea();
         try {
-            ideaItem = [SELECT Body, CreatorName,IsHtml,Title,VoteScore,VoteTotal FROM Idea WHERE Id = :ideaId];//AND CommunityId = :communityId
+            ideaItem = [SELECT Body,CreatorName,IsHtml,Title,VoteScore,VoteTotal FROM Idea WHERE Id = :ideaId];//AND CommunityId = :communityId
         }catch (Exception e){
             //ooops
         }
