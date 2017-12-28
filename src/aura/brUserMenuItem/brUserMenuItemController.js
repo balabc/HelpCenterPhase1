@@ -1,5 +1,10 @@
 ({
     openNewWindow: function (cmp, event, helper) {
+        var toggleDropdown = document.getElementById('userMenu');
+        var arrow = document.getElementById('arrow');
+        $A.util.toggleClass(toggleDropdown, "toggle");
+        $A.util.toggleClass(arrow, "nav-arrow--up");
+
         var menuItem = cmp.get('v.menuItem'),
             urlEvent = $A.get("e.force:navigateToURL"),
             location = window.location.href,

@@ -10,8 +10,14 @@ public with sharing class brArticleFeedbackCtrl {
     @AuraEnabled
     public static Boolean hasVoteForArticle(String articleId) {
         brSecurityService.performAccessCheck('read', 'Vote', new List<String>{'CreatedById','ParentId'});
+        Boolean hasVote = false;
 
-        return [SELECT Id FROM Vote WHERE CreatedById = :userInfo.getUserId() AND ParentId = :articleId].isEmpty()?false:true;
+        try {
+            hasVote = [SELECT Id FROM Vote WHERE CreatedById = :userInfo.getUserId() AND ParentId = :articleId].isEmpty() ? false : true;
+        } catch (QueryException ex) {
+            System.debug('brArticleFeedbackCtrl::hasVoteForArticle: ' + ex.getMessage());
+        }
+        return hasVote;
     }
 
     @AuraEnabled
@@ -34,8 +40,11 @@ public with sharing class brArticleFeedbackCtrl {
     @AuraEnabled
     public static void addVoteUpForArticle(String articleId) {
         brSecurityService.performAccessCheck('create', 'Vote', new List<String>{'Type','ParentId'});
-
-        insert new Vote(ParentId = articleId, Type = 'Up');
+        try {
+            insert new Vote(ParentId = articleId, Type = 'Up');
+        } catch (DmlException ex) {
+            System.debug('brArticleFeedbackCtrl::addVoteUpForArticle: ' + ex.getMessage());
+        }
     }
 
     @AuraEnabled
@@ -44,11 +53,20 @@ public with sharing class brArticleFeedbackCtrl {
         brSecurityService.performAccessCheck('read', 'KnowledgeArticle', new List<String>{'ArticleNumber'});
         brSecurityService.performAccessCheck('create', 'brArticleFeedback__c', new List<String>{'Reason__c','Article_Number__c'});
 
-        insert new Vote(ParentId = articleId, Type = 'Down');
+        try {
+            insert new Vote(ParentId = articleId, Type = 'Down');
+        } catch (DmlException ex) {
+            System.debug('brArticleFeedbackCtrl::addVoteDownAndSaveReasonForArticle: ' + ex.getMessage());
+        }
 
         if (!Test.isRunningTest()) {
             String articleNumber = [SELECT ArticleNumber FROM KnowledgeArticle WHERE Id = :articleId LIMIT 1].ArticleNumber;
-            insert new brArticleFeedback__c(Reason__c = reason, Article_Number__c = articleNumber);
+
+            try {
+                insert new brArticleFeedback__c(Reason__c = reason, Article_Number__c = articleNumber);
+            } catch (DmlException ex) {
+                System.debug('brArticleFeedbackCtrl::addVoteDownAndSaveReasonForArticle: ' + ex.getMessage());
+            }
         }
     }
 }
