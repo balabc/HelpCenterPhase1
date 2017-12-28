@@ -49,6 +49,20 @@ private class brArticleContentTest {
         brArticleModel m3 = brArticleContentController.getArticleContent(article2.id);
         brArticleModel m4 = brArticleContentController.getArticleContent(article3.id);
         List<SObject> m2 = brArticleContentController.getListArticleInCurrentCategory(article.id);
+        Map<String, Integer> m23 = brArticleContentController.getCountForEachCategory('Learning__kav');
+        //List<SObject> test12 = brArticleContentServiceSelector.getAllArticleByArticleType('Public__kav');
+        String test123 = brArticleContentServiceSelector.getArticleByUrlKnowledgeArticleId('t321est', 'Learning__kav');
+
+        brArticleContentServiceSelector.getDataCategoryByArticleTypeAndId('test', 'test');
+        brArticleContentServiceSelector.getArticleById('test');
+        brArticleContentServiceSelector.getDataCategoryNameByArticleId('test', 'test');
+        brArticleContentServiceSelector.getArticleByUrl('test', 'test');
+        brArticleContentServiceSelector.getArticleByUrlKnowledgeArticleId('test', 'test');
+        brArticleContentServiceSelector.getArticleListInDataCategory('test');
+        brArticleContentServiceSelector.getAllArticleByArticleType('test');
+        brArticleContentServiceSelector.getArticleListByDataCategory('test', new List<String>());
+
+        brArticleTypeSelectorCtrl.getArticleTypeByRecordId(article.id);
 
         Test.stopTest();
     }

@@ -186,6 +186,7 @@
         <members>brMainNavMenuAltCtrlTest</members>
         <members>brMainNavMenuCtrlTest</members>
         <members>brSecurityService</members>
+		<members>brFeedItemTest</members>
         <name>ApexClass</name>
     </types>
     <types>

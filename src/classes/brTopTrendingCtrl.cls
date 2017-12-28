@@ -52,22 +52,37 @@ public with sharing class brTopTrendingCtrl {
     public static List<brBlogArticleWrapper> getBlogArticles() {
         brSecurityService.performAccessCheck('read', 'brBlog_article__c', new List<String>{'Published__c','Name','Published_Date__c'});
 
-        List<brBlogArticleWrapper> articleWrappers  = new List<brBlogArticleWrapper>();
-        List<brBlog_article__c> articles = [SELECT id, Name FROM brBlog_article__c WHERE Published__c = true ORDER BY Published_Date__c DESC limit 4];
-        for(brBlog_article__c art : articles) {
-            brBlogArticleWrapper cls = new brBlogArticleWrapper();
-            cls.item = art;
-            articleWrappers.add(cls);
+        try {
+            List<brBlogArticleWrapper> articleWrappers = new List<brBlogArticleWrapper>();
+            List<brBlog_article__c> articles = [SELECT id, Name FROM brBlog_article__c WHERE Published__c = true ORDER BY Published_Date__c DESC limit 4];
+            for (brBlog_article__c art : articles) {
+                brBlogArticleWrapper cls = new brBlogArticleWrapper();
+                cls.item = art;
+                articleWrappers.add(cls);
+            }
+            return articleWrappers;
+        } catch (Exception e) {
+            System.debug(e.getMessage());
+            return null;
         }
-        return articleWrappers;
     }
+
     @AuraEnabled
     public static List<FeedItem> getGroupPosts(String id) {
         brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'ParentId','CreatedDate'});
 
-        return [SELECT Id, Body FROM FeedItem
-                                WHERE ParentId = :id
-                                ORDER BY CreatedDate
-                                DESC LIMIT 4];
+        try {
+            return [
+                    SELECT Id, Body
+                    FROM FeedItem
+                    WHERE ParentId = :id
+                    ORDER BY CreatedDate
+                            DESC
+                    LIMIT 4
+            ];
+        } catch (Exception e) {
+            System.debug(e.getMessage());
+            return null;
+        }
     }
 }

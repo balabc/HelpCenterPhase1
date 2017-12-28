@@ -56,12 +56,6 @@ public with sharing class brCategoryServiceSelector {
         objType.add('KnowledgeArticleVersion');
         List<DescribeDataCategoryGroupResult> describeCategoryResult = Schema.describeDataCategoryGroups(objType);
         List<Schema.DataCategoryGroupSObjectTypePair> pairs = new list<Schema.DataCategoryGroupSObjectTypePair>();
-        /*for(Schema.DescribeDataCategoryGroupResult s : describeCategoryResult) {
-            Schema.DataCategoryGroupSObjectTypePair thisPair = new Schema.DataCategoryGroupSObjectTypePair();
-            thisPair.sObject = 'KnowledgeArticleVersion';
-            thisPair.dataCategoryGroupName = s.getName();
-            pairs.add(thisPair);            
-        }*/
         Schema.DataCategoryGroupSObjectTypePair thisPair = new Schema.DataCategoryGroupSObjectTypePair();
         thisPair.sObject = 'KnowledgeArticleVersion';
         thisPair.dataCategoryGroupName = categoryGroup;

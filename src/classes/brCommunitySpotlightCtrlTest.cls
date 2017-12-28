@@ -23,6 +23,11 @@ private class brCommunitySpotlightCtrlTest {
             brCommunitySpotlightService.getUserInfo(UserInfo.getUserId(), userMembers[0].NetworkId);
         }
 
+        List<User> users = [SELECT id FROM User WHERE Id = '0050O000007Bckb'];
+        System.runAs(users[0]) {
+            List<brFeedItemModel> ad = brFeedItemService.getQuestions();
+        }
+
         Test.stopTest();
 
     }

@@ -12,11 +12,16 @@ public with sharing class brIdeaServiceSelector {
     public static List<Community> getZoneList(String networkId) {
 
         List<Community> zoneList = new List<Community>();
-        zoneList = [
-                SELECT id, NetworkId
-                FROM Community
-                WHERE NetworkId = :networkId
-        ];
+        try {
+            zoneList = [
+                    SELECT id, NetworkId
+                    FROM Community
+                    WHERE NetworkId = :networkId
+            ];
+        } catch (Exception e) {
+            System.debug(e.getMessage());
+            zoneList = null;
+        }
         return zoneList;
 
     }
@@ -33,11 +38,16 @@ public with sharing class brIdeaServiceSelector {
     public static List<Idea> getIdeaList(List<Community> zoneList) {
 
         List<Idea> listIdea = new List<Idea>();
-        listIdea = [
-                SELECT id
-                FROM Idea
-                WHERE CommunityId IN :zoneList
-        ];
+        try {
+            listIdea = [
+                    SELECT id
+                    FROM Idea
+                    WHERE CommunityId IN :zoneList
+            ];
+        } catch (Exception e) {
+            System.debug(e.getMessage());
+            listIdea = null;
+        }
         return listIdea;
 
     }

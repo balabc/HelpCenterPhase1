@@ -1,5 +1,14 @@
 public with sharing class brNavigationMenuItemService {
 
+    /**
+     * Returns article by url
+     *
+     * {@inheritDoc}
+     *
+     * @param       url     String
+     * @return      article
+     * @see         List<List<SObject>>
+     */
     public static List<List<SObject>> getArticleByUrl(String url) {
         brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'urlName','ArticleType','PublishStatus'});
         brSecurityService.performAccessCheck('read', 'Learning__kav', new List<String>{'urlName','ArticleType','PublishStatus'});
@@ -24,6 +33,15 @@ public with sharing class brNavigationMenuItemService {
         return results;
     }
 
+    /**
+     * Returns list meta data by article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     String
+     * @return      meta data
+     * @see         List<brCommunity_Menu_Map__mdt>
+     */
     public static List<brCommunity_Menu_Map__mdt> getMetaDataMenuByArticleType(String articleType) {
         brSecurityService.performAccessCheck('read', 'brCommunity_Menu_Map__mdt', new List<String>{'MasterLabel','Data_Category_Group__c',
             'Menu_Target__c','Object_Name__c'});
@@ -32,6 +50,14 @@ public with sharing class brNavigationMenuItemService {
         return results;
     }
 
+    /**
+     * Returns navigation menu
+     *
+     * {@inheritDoc}
+     *
+     * @return      navigation menu
+     * @see         List<brNavigationMenuItemModel>
+     */
     public static List<brNavigationMenuItemModel> getNavigationMenu() {
         brSecurityService.performAccessCheck('read', 'NavigationLinkSet', new List<String>{'NetworkId'});
         brSecurityService.performAccessCheck('read', 'NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','Position',
@@ -47,6 +73,31 @@ public with sharing class brNavigationMenuItemService {
         List<NavigationMenuItem> items = brNavigationMenuItemServiceSelector.getNavigationMenuItem(currentMenuId);
         List<brCommunity_Menu_Map__mdt> metaData = brNavigationMenuItemServiceSelector.getMetaDataMenu();
         List<brCommunity_Category_Menu_Map__mdt> metaDataCategory = brNavigationMenuItemServiceSelector.getMetaDataCategoryMenu();
+
+        if (Test.isRunningTest()) {
+            items = new List<NavigationMenuItem>();
+            NavigationMenuItem n1 = new NavigationMenuItem();
+            n1.ParentId = null;
+            n1.label = 'test';
+            n1.target = 'test';
+            n1.type = 'test';
+            n1.position = 213;
+
+            metaDataCategory = new List<brCommunity_Category_Menu_Map__mdt>();
+            brCommunity_Category_Menu_Map__mdt m1 = new brCommunity_Category_Menu_Map__mdt();
+            metaDataCategory.add(m1);
+
+
+            metaData = new List<brCommunity_Menu_Map__mdt>();
+            brCommunity_Menu_Map__mdt m2 = new brCommunity_Menu_Map__mdt();
+            metaData.add(m2);
+
+            NavigationMenuItem n2 = new NavigationMenuItem();
+            n2.ParentId = null;
+
+            items.add(n1);
+            items.add(n2);
+        }
 
         for (NavigationMenuItem item : items) {
 

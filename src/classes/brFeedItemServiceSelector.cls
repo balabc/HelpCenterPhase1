@@ -9,11 +9,13 @@ public with sharing class brFeedItemServiceSelector {
      * @see         List<SObject>
      */
     public static List<SObject> getTopics() {
-        List<SObject> topics = [
-                SELECT id
-                FROM Topic
-        ];
-        return topics;
+        try {
+            List<SObject> topics = [
+                    SELECT id
+                    FROM Topic
+            ];
+            return topics;
+        } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
 
     /**
@@ -26,13 +28,15 @@ public with sharing class brFeedItemServiceSelector {
      * @see         List<SObject>
      */
     public static List<SObject> getTopicAssignments(Set<Id> ids) {
-        List<SObject> topicAssignments = [
-                SELECT Id, NetworkId, TopicId, Topic.Name, EntityId, EntityKeyPrefix
-                FROM TopicAssignment
-                WHERE TopicId IN :ids
-                LIMIT 1000
-        ];
-        return topicAssignments;
+        try {
+            List<SObject> topicAssignments = [
+                    SELECT Id, NetworkId, TopicId, Topic.Name, EntityId, EntityKeyPrefix
+                    FROM TopicAssignment
+                    WHERE TopicId IN :ids
+                    LIMIT 1000
+            ];
+            return topicAssignments;
+        } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
 
     /**
@@ -46,15 +50,17 @@ public with sharing class brFeedItemServiceSelector {
      * @see         List<SObject>
      */
     public static List<SObject> getQuestionBestComment(Set<Id> ids, Integer limitSql) {
-        List<SObject> questions = new List<SObject>();
-        questions = [
-                SELECT id, Title
-                FROM FeedItem
-                WHERE id IN :ids AND BestCommentId != null
-                ORDER BY CreatedDate DESC
-                limit :limitSql
-        ];
-        return questions;
+        try {
+            List<SObject> questions = new List<SObject>();
+            questions = [
+                    SELECT id, Title
+                    FROM FeedItem
+                    WHERE id IN :ids AND BestCommentId != null
+                    ORDER BY CreatedDate DESC
+                    limit :limitSql
+            ];
+            return questions;
+        } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
 
     /**
@@ -68,14 +74,16 @@ public with sharing class brFeedItemServiceSelector {
      * @see         List<SObject>
      */
     public static List<SObject> getQuestion(Set<Id> ids, Integer limitSql) {
-        List<SObject> questions = [
-                SELECT id, Title
-                FROM FeedItem
-                WHERE id IN :ids
-                ORDER BY CreatedDate DESC
-                limit :limitSql
-        ];
-        return questions;
+        try {
+            List<SObject> questions = [
+                    SELECT id, Title
+                    FROM FeedItem
+                    WHERE id IN :ids
+                    ORDER BY CreatedDate DESC
+                    limit :limitSql
+            ];
+            return questions;
+        } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
 
 }

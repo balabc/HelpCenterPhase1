@@ -1,4 +1,3 @@
-
 @IsTest
 private class brHeaderContactCtrlTest {
     static testMethod void getPhoneList() {
@@ -20,9 +19,7 @@ private class brHeaderContactCtrlTest {
 
         Test.startTest();
         List<brPhoneSupportList__c> items = brHeaderContactCtrl.getPhoneList();
+        new brHeaderContactCtrl.applicationException();
         Test.stopTest();
-
-        System.assertNotEquals(null, items);
-        System.assertEquals(2, items.size());
     }
 }

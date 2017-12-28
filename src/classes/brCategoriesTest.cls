@@ -22,6 +22,7 @@ private class brCategoriesTest {
         tempCat.DataCategoryName = 'Inventory_management';
         tempCat.ParentId = article.id;
 
+
         insert tempCat;
 
         Public__kav article2 = new Public__kav(Title = 'Test1', Nav_Title__c = 'Test', UrlName = 'tes231123312t1', Section_Anchors__c = 'asdsafds:sdfsdf;dsafasfd:sdfsdf;');
@@ -39,14 +40,17 @@ private class brCategoriesTest {
         insert tempCat1;
 
         Test.startTest();
-        /*System.debug('222222222' + article2);
-        System.debug('3333333333' + 'SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + c + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
-        List<sObject> articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + article2.ArticleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
-        System.debug('1111111test' + articles);*/
         List<Public__kav> pubList = [SELECT KnowledgeArticleId, UrlName FROM Public__kav WHERE Id = :article2.Id];
         List<Learning__kav> gdList = [SELECT KnowledgeArticleId, UrlName FROM Learning__kav WHERE Id = :article1.Id];
         brCategoriesController.getCatalog(article.id, 'Learning__kav', tempCat.DataCategoryGroupName, gdList[0].UrlName);
         brCategoriesController.getCatalog(article2.id, 'Public__kav', tempCat1.DataCategoryGroupName, pubList[0].UrlName);
+        brCategoriesCatalogServiceSelector.getArticleCategories('test');
+        brCategorySeviceSelector.getCategories('Inventory_management');
+        brCategorySeviceSelector.getFirstCategories('Inventory_management');
+        brCategorySeviceSelector.getSubCategories('Inventory_management');
+        brCategorySeviceSelector.getCategories('Payments');
+        brCategorySeviceSelector.getFirstCategories('Payments');
+        brCategorySeviceSelector.getSubCategories('Payments');
         Test.stopTest();
     }
 

@@ -11,20 +11,24 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @see         List<NetworkMember>
      */
     public static List<NetworkMember> getUserMember(Id userId, Id communityId) {
-        if (userId != null) {
-            List<NetworkMember> userMember = [
-                    SELECT
-                            MemberId,
-                            Member.Name,
-                            ReputationPoints
-                    FROM
-                            NetworkMember
-                    WHERE
-                            (NetworkId = :communityId) AND
-                            (MemberId = :userId)
-                    LIMIT 1
-            ];
-            return userMember;
+        try {
+            if (userId != null) {
+                List<NetworkMember> userMember = [
+                        SELECT
+                                MemberId,
+                                Member.Name,
+                                ReputationPoints
+                        FROM
+                                NetworkMember
+                        WHERE
+                        (NetworkId = :communityId) AND
+                        (MemberId = :userId)
+                        LIMIT 1
+                ];
+                return userMember;
+            }
+        } catch (Exception e) {
+            System.debug(e.getMessage());
         }
 
         return null;
@@ -41,17 +45,21 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @see         Integer
      */
     public static Integer getUserCountPosts(Id userId, Id communityId) {
-        if (userId != null) {
-            List<AggregateResult> countPosts = [
-                    SELECT
-                            SUM(PostCount)
-                    FROM
-                            ChatterActivity
-                    WHERE
-                            (ParentId = :userId) AND
-                            (NetworkId = :communityId)
-            ];
-            return Integer.valueOf(countPosts[0].get('expr0'));
+        try {
+            if (userId != null) {
+                List<AggregateResult> countPosts = [
+                        SELECT
+                                SUM(PostCount)
+                        FROM
+                                ChatterActivity
+                        WHERE
+                        (ParentId = :userId) AND
+                        (NetworkId = :communityId)
+                ];
+                return Integer.valueOf(countPosts[0].get('expr0'));
+            }
+        } catch (Exception e) {
+            System.debug(e.getMessage());
         }
 
         return 0;
@@ -68,17 +76,21 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @see         Integer
      */
     public static Integer getUserCountComments(Id userId, Id communityId) {
-        if (userId != null) {
-            List<AggregateResult> countPosts = [
-                    SELECT
-                            SUM(CommentCount)
-                    FROM
-                            ChatterActivity
-                    WHERE
-                            (ParentId = :userId) AND
-                            (NetworkId = :communityId)
-            ];
-            return Integer.valueOf(countPosts[0].get('expr0'));
+        try {
+            if (userId != null) {
+                List<AggregateResult> countPosts = [
+                        SELECT
+                                SUM(CommentCount)
+                        FROM
+                                ChatterActivity
+                        WHERE
+                        (ParentId = :userId) AND
+                        (NetworkId = :communityId)
+                ];
+                return Integer.valueOf(countPosts[0].get('expr0'));
+            }
+        } catch (Exception e) {
+            System.debug(e.getMessage());
         }
 
         return 0;
@@ -95,17 +107,21 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @see         Integer
      */
     public static Integer getUserCountLikes(Id userId, Id communityId) {
-        if (userId != null) {
-            List<AggregateResult> countPosts = [
-                    SELECT
-                            SUM(LikeReceivedCount)
-                    FROM
-                            ChatterActivity
-                    WHERE
-                            (ParentId = :userId) AND
-                            (NetworkId = :communityId)
-            ];
-            return Integer.valueOf(countPosts[0].get('expr0'));
+        try {
+            if (userId != null) {
+                List<AggregateResult> countPosts = [
+                        SELECT
+                                SUM(LikeReceivedCount)
+                        FROM
+                                ChatterActivity
+                        WHERE
+                        (ParentId = :userId) AND
+                        (NetworkId = :communityId)
+                ];
+                return Integer.valueOf(countPosts[0].get('expr0'));
+            }
+        } catch (Exception e) {
+            System.debug(e.getMessage());
         }
 
         return 0;
@@ -121,21 +137,25 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @see         List<User>
      */
     public static List<User> getUserMemberPhotoUrl(Id userId) {
-        if (userId != null) {
-            List<User> userMember = [
-                    SELECT
-                            Id,
-                            FullPhotoUrl,
-                            SmallPhotoUrl,
-                            MediumPhotoUrl,
-                            Name
-                    FROM
-                            User
-                    WHERE
-                            Id = :userId
-                    LIMIT 1
-            ];
-            return userMember;
+        try {
+            if (userId != null) {
+                List<User> userMember = [
+                        SELECT
+                                Id,
+                                FullPhotoUrl,
+                                SmallPhotoUrl,
+                                MediumPhotoUrl,
+                                Name
+                        FROM
+                                User
+                        WHERE
+                                Id = :userId
+                        LIMIT 1
+                ];
+                return userMember;
+            }
+        } catch (Exception e) {
+            System.debug(e.getMessage());
         }
 
         return null;

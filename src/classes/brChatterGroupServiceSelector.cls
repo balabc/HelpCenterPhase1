@@ -1,43 +1,48 @@
 public with sharing class brChatterGroupServiceSelector {
+
+    /**
+     * Returns chatters group what exit in ids
+     *
+     * {@inheritDoc}
+     *
+     * @param       ids     String
+     * @return      list chatter group
+     * @see         List<SObject>
+     */
     public static List<SObject> getChatterGroup(List<Id> ids) {
-    	List<SObject> groupList = new List<SObject>();
-    	if(ids.size() == 1) {
-    		SObject groupS1 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[0]]; 
-    		groupList.add(groupS1);
-    	}
-    	if(ids.size() == 2) {
-    		SObject groupS1 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[0]]; 
-    		groupList.add(groupS1);
-    		SObject groupS2 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[1]]; 
-    		groupList.add(groupS2);    		
-    	}
-    	if(ids.size() == 3) {
-    		SObject groupS1 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[0]]; 
-    		groupList.add(groupS1);
-    		SObject groupS2 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[1]]; 
-    		groupList.add(groupS2);
-    		SObject groupS3 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[2]]; 
-    		groupList.add(groupS3);      		
-    	}
-    	if(ids.size() == 4) {
-    		SObject groupS1 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[0]]; 
-    		groupList.add(groupS1);
-    		SObject groupS2 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[1]]; 
-    		groupList.add(groupS2);
-    		SObject groupS3 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[2]]; 
-    		groupList.add(groupS3);      		
-    		SObject groupS4 = [SELECT id, Name FROM CollaborationGroup WHERE id = :ids[3]]; 
-    		groupList.add(groupS4);
-    	}    	    	   	 	
-    	return groupList;
+        try {
+            List<SObject> groupList = new List<SObject>();
+            List<SObject> groupS1 = [SELECT id, Name FROM CollaborationGroup WHERE id in :ids];
+
+            for (Id soid : ids) {
+                for (SObject so : groupS1) {
+                    if (soid == so.get('id')) {
+                        groupList.add(so);
+                    }
+                }
+            }
+
+            return groupList;
+        } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
+
+    /**
+     * Returns chatter group id
+     *
+     * {@inheritDoc}
+     *
+     * @return      chatter group id
+     * @see         Id
+     */
     public static Id getListId() {
-    	List<ListView> listViews = [SELECT Id, Name FROM ListView WHERE SobjectType = 'CollaborationGroup' and Name = 'Active Groups'];
-    	if(listViews.size() > 0) {
-    		return listViews[0].id;
-    	} else {
-    		return null;
-    	}
+        try {
+            List<ListView> listViews = [SELECT Id, Name FROM ListView WHERE SobjectType = 'CollaborationGroup' and Name = 'Active Groups'];
+            if (listViews.size() > 0) {
+                return listViews[0].id;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
-    
+
 }
