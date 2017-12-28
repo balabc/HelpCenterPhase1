@@ -1,5 +1,5 @@
 <design:component>
-    <design:attribute name="title" label="Title" description="title for video" />
-    <design:attribute name="videoDescription" label="Description" description="description for video" />
-    <design:attribute name="videoUrl" label="URL" description="url for video" />
+    <design:attribute name="title" label="Title" description="Title for video" />
+    <design:attribute name="videoDescription" label="Description" description="Description for video" />
+    <design:attribute name="videoUrl" label="Video URL" description="URL of embed video" />
 </design:component>
