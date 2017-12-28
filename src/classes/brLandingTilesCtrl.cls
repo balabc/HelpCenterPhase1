@@ -10,11 +10,19 @@ public with sharing class brLandingTilesCtrl {
     @AuraEnabled
     public static ListView getListViews() {
         brSecurityService.performAccessCheck('read', 'ListView', new List<String>{'SobjectType','Name'});
+        ListView view = null;
 
-        ListView view = [   SELECT Id, SobjectType FROM ListView
-                            WHERE SobjectType = 'CollaborationGroup'
-                            AND Name = 'Active Groups'
-                            LIMIT 1];
+        try {
+            view = [
+                    SELECT Id, SobjectType
+                    FROM ListView
+                    WHERE SobjectType = 'CollaborationGroup'
+                    AND Name = 'Active Groups'
+                    LIMIT 1
+            ];
+        } catch (QueryException ex) {
+            System.debug('brLandingTilesCtrl::getListViews: ' + ex.getMessage());
+        }
 
         return view;
     }

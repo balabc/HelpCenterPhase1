@@ -1,4 +1,3 @@
-
 <aura:component description="brCommonQuestions" controller="brCommonQuestionsCtrl">
 
     <aura:attribute name="articlesList" type="Object[]"/>
@@ -6,7 +5,7 @@
     <aura:attribute name="baseURL" type="String" default=""/><!-- deprecated? -->
     <aura:attribute name="articleBaseURL" type="String" default=""/>
 
-    <aura:handler name="init" action="{!c.onInit}" value="{!this}"/>
+   <!-- <aura:handler name="init" action="{!c.onInit}" value="{!this}"/> -->
     <aura:method name="reInit" action="{!c.onInit}"></aura:method>
 
     <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hCommonQuestions}</h4>

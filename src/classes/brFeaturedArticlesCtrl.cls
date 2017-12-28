@@ -15,11 +15,17 @@ public with sharing class brFeaturedArticlesCtrl {
         brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'ArticleNumber','ArticleTotalViewCount',
             'KnowledgeArticleId','Title','UrlName','IsLatestVersion','PublishStatus','IsVisibleInPkb'});
 
-        List<Public__kav> kArticles = [ SELECT ArticleNumber,ArticleTotalViewCount,Id,KnowledgeArticleId,Title,UrlName
-                                        FROM Public__kav
-                                        WHERE IsLatestVersion = true AND PublishStatus = 'Online' AND IsVisibleInPkb = true
-                                        ORDER BY ArticleTotalViewCount DESC
-                                        LIMIT :Integer.valueOf(countArticles)];
+        List<Public__kav> kArticles = new List<Public__kav>();
+
+        try {
+            kArticles = [ SELECT ArticleNumber,ArticleTotalViewCount,Id,KnowledgeArticleId,Title,UrlName
+                                            FROM Public__kav
+                                            WHERE IsLatestVersion = true AND PublishStatus = 'Online' AND IsVisibleInPkb = true
+                                            ORDER BY ArticleTotalViewCount DESC
+                                            LIMIT :Integer.valueOf(countArticles)];
+        } catch (QueryException ex) {
+            System.debug('brFeaturedArticlesCtrl::getArticles: ' + ex.getMessage());
+        }
         return kArticles;
     }
 }
