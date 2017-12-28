@@ -3,12 +3,12 @@
     <aura:attribute name="listQuestions" type="List"/>
     <aura:attribute name="listNews" type="List"/>
     <aura:attribute name="listGroupPosts" type="List"/>
-     
+
     <aura:attribute name="idsPopular" type="String"/>
-    <aura:attribute name="br_Trending_now" type="String"/>
+    <aura:attribute name="br_Trending_now" type="String" default="Trending now" access="global"/>
     <aura:attribute name="isShowGroupPosts" type="Boolean"/>
     <aura:attribute name="groupId" type="String" />
-    <aura:attribute name="idListGroup" type="String"/>
+    <aura:attribute name="idListGroup" type="String" access="global"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
