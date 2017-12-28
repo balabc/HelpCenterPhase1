@@ -6,9 +6,24 @@ public with sharing class brMainNavMenuService {
         if (Test.isRunningTest()) {
             return new List<String>{'Test'};
         }
-        String navId = [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId()].Id; List<String> labels = new List<String>();
+        String navId = null;
 
-        for (NavigationMenuItem navItem : [SELECT Label FROM NavigationMenuItem WHERE NavigationLinkSetId = :navId AND Type = 'ExternalLink']) { labels.add(navItem.Label);}
+        try {
+            navId = [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId()].Id; List<String> labels = new List<String>();
+        } catch (QueryException ex) {
+            System.debug('brMainNavMenuService::getLabels: ' + ex.getMessage());
+        }
+
+        List<NavigationMenuItem> navigationMenuItems = new List<NavigationMenuItem>();
+        List<String> labels = new List<String>();
+
+        try {
+            navigationMenuItems = [SELECT Label FROM NavigationMenuItem WHERE NavigationLinkSetId = :navId AND Type = 'ExternalLink'];
+        } catch (QueryException ex) {
+            System.debug('brMainNavMenuService::getLabels: ' + ex.getMessage());
+        }
+
+        for (NavigationMenuItem navItem : navigationMenuItems) { labels.add(navItem.Label);}
 
         return labels;
     }
