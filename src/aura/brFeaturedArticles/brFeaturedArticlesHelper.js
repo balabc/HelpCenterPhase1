@@ -13,7 +13,7 @@
                     var error_msg = '';
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                            if (errors[0].message == 'access_error') {
+                            if (errors[0].message === 'access_error') {
                                 error_msg = $A.get("$Label.c.hCommunityFLSAccess");
                             } else {
                                 error_msg = errors[0].message;
