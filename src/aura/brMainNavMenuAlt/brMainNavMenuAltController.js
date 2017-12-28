@@ -1,27 +1,26 @@
 ({
     doInit: function (component, event, helper) {
-        if ($A.get("$Browser.formFactor") != 'PHONE') {
-            window.onscroll = function () {
-                var cnHeader = 'header',
-                    cnHeaderSticky = 'header--make-sticky',
-                    cnSubstrate = 'header__dropdown-menu-substrate',
-                    cnSubstrateActive = 'header__dropdown-menu-substrate--active',
-                    prevActiveMenuItem = component.get('v.prevActiveMenuItemId');
-                var header = document.getElementsByClassName(cnHeader)[0],
-                    substrate = document.getElementsByClassName(cnSubstrate)[0];
+        window.onscroll = function () {
+            var cnHeader = 'header',
+                cnHeaderSticky = 'header--make-sticky',
+                cnSubstrate = 'header__dropdown-menu-substrate',
+                cnSubstrateActive = 'header__dropdown-menu-substrate--active',
+                prevActiveMenuItem = component.get('v.prevActiveMenuItemId');
+            var header = document.getElementsByClassName(cnHeader)[0],
+                substrate = document.getElementsByClassName(cnSubstrate)[0];
 
-                if ((window.scrollY > 0 || (prevActiveMenuItem != '' && prevActiveMenuItem != undefined && window.scrollY == 0))
-                    && header != undefined) {
-                    header.classList.add(cnHeaderSticky);
-                } else {
-                    if (substrate != undefined && header != undefined) {
-                        if (!substrate.classList.contains(cnSubstrateActive)){
-                            header.classList.remove(cnHeaderSticky);
-                        }
+            if ((window.scrollY > 0 || (prevActiveMenuItem != '' && prevActiveMenuItem != undefined && window.scrollY == 0))
+                && header != undefined) {
+                header.classList.add(cnHeaderSticky);
+            } else {
+                if (substrate != undefined && header != undefined) {
+                    if (!substrate.classList.contains(cnSubstrateActive)){
+                        header.classList.remove(cnHeaderSticky);
                     }
                 }
-            };
-        }
+            }
+        };
+
         helper.getNavigationMenuItemExternalLabels(component);
     },
     onClick : function(component, event) {

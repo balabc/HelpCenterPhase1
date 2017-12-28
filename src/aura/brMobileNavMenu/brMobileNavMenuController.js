@@ -1,15 +1,12 @@
 ({
     doInit: function(component, event, helper) {
-        var device = $A.get("$Browser.formFactor");
-        if (device === 'PHONE') {
-            component.set('v.menuIds', [0]);
-            component.set('v.currentObj', undefined);        
-            component.set('v.menuList', []);       
-            component.set('v.menuItems', []);
-            
-            helper.getNavigationMenu(component);
-            helper.fillPhoneList(component);
-        }
+        component.set('v.menuIds', [0]);
+        component.set('v.currentObj', undefined);
+        component.set('v.menuList', []);
+        component.set('v.menuItems', []);
+
+        helper.getNavigationMenu(component);
+        helper.fillPhoneList(component);
     },
     onChangeLvl: function(component, event, helper) {
         var data = (!!event.getParam)? event.getParam("data"): { where: 'prev' },
