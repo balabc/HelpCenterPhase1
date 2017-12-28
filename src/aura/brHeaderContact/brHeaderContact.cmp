@@ -2,6 +2,8 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
+    <aura:attribute name="openCounter" type="Integer" default="0"/>
+
     <aura:attribute name="phoneList" type="Object[]"/>
     <aura:attribute name="phoneCount" type="Integer" default="0"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
