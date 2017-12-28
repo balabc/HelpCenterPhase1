@@ -62,6 +62,7 @@
             }
     .THIS .filters-block .filter-selector ul{
         display: none;
+        list-style: none;
         }
         .THIS .filters-block .filter-selector ul li {
             padding: 4px 10px;
