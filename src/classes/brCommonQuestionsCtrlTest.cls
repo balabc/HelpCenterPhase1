@@ -16,13 +16,14 @@ private class brCommonQuestionsCtrlTest {
 
         Public__kav a = new Public__kav(Title='Hello',UrlName='hello',Summary='SomeSummaryText',IsVisibleInPkb=true);
         insert a;
-        a = [SELECT KnowledgeArticleId FROM Public__kav WHERE Id = :a.Id];
-
         System.assertNotEquals(null, a.id);
+
+        a = [SELECT KnowledgeArticleId FROM Public__kav WHERE Id = :a.Id];
         System.assertNotEquals(null, a.KnowledgeArticleId);
 
+        KbManagement.PublishingService.publishArticle(a.KnowledgeArticleId, true);
+
         Test.startTest();
-            KbManagement.PublishingService.publishArticle(a.KnowledgeArticleId, true);
             List<Public__kav> kArticles = brCommonQuestionsCtrl.getArticles();
         Test.stopTest();
 
