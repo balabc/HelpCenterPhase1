@@ -366,6 +366,15 @@ body .DESKTOP.uiContainerManager {
 }
 .toastClose:hover{
     color: #afb4be !important;
+    box-shadow: none;
+}
+.toastClose:active{
+    color: #afb4be !important;
+    box-shadow: none;
+}
+.toastClose:focus{
+    color: #afb4be !important;
+    box-shadow: none;
 }
 .toastContent{
     padding-left: 30px;
