@@ -40,10 +40,15 @@ public with sharing class brArticleContentService {
         Map<String, Integer> result = new Map<String, Integer>();
 
         List<sObject> guides = brArticleContentServiceSelector.getAllArticleForGuide();
+        List<sObject> guide_articles = brArticleContentServiceSelector.getAllArticleByArticleType(articleType);
+        List<sObject> categories = brArticleContentServiceSelector.getArticleListInDataCategory(articleType);
         List<sObject> articles = null;
+        List<String> ids;
         String fcu = null;
+        String dataCategory;
         String id = null;
-        String idGuide = null;
+        sObject idArticle = null;
+        sObject idCategory = null;
         Integer count = 0;
 
         if (guides.size() > 0) {
@@ -52,12 +57,26 @@ public with sharing class brArticleContentService {
                 id = String.valueOf(guide.get('Id'));
                 fcu = String.valueOf(guide.get('First_Chapter_Url__c'));
 
-                idGuide = brArticleContentServiceSelector.getArticleByUrl(fcu, articleType);
+                idArticle = brArticleContentService.getArticleByUrl(fcu, guide_articles);
 
-                if (idGuide != null) {
-                    articles = brArticleContentService.getListArticleInCurrentCategory(idGuide);
-                    if (articles != null) {
-                        count = articles.size();
+                if (idArticle != null) {
+
+                    ids = new List<String>();
+                    idCategory = brArticleContentService.getDataCategoryNameByArticleId(String.valueOf(idArticle.get('Id')), categories);
+                    if (idCategory != null) {
+                        dataCategory = String.valueOf(idCategory.get('DataCategoryName'));
+
+                        for (SObject item : categories) {
+                            if (dataCategory == String.valueOf(item.get('DataCategoryName'))) {
+                                if (!String.isEmpty(String.valueOf(item.get('ParentId')))) {
+                                    ids.add(String.valueOf(item.get('ParentId')));
+                                }
+                            }
+                        }
+
+                        if (ids != null) {
+                            count = ids.size();
+                        }
                     }
                 }
 
@@ -71,6 +90,26 @@ public with sharing class brArticleContentService {
         }
 
         return result;
+    }
+
+    /**
+     * Returns article by url
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleId     String
+     * @return      article
+     * @see         sObject
+     */
+    public static sObject getArticleByUrl(String f_url, List<sObject> guide_articles) {
+        String url;
+        for (sObject article : guide_articles) {
+            url = String.valueOf(article.get('UrlName'));
+            if (f_url == url) {
+                return article;
+            }
+        }
+        return null;
     }
 
     /**
@@ -98,7 +137,27 @@ public with sharing class brArticleContentService {
 
         return article;
     }
-    
+
+    /**
+     * Returns data category name
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleId   String
+     * @param       categories   List<SObject>
+     * @return      list articles
+     * @see         SObject
+     */
+    public static SObject getDataCategoryNameByArticleId(String articleId, List<SObject> categories) {
+        SObject res = null;
+        for (SObject category : categories) {
+            if (articleId == String.valueOf(category.get('ParentId'))) {
+                return category;
+            }
+        }
+
+        return null;
+    }
     /**
      * Returns artiles in current category by article id
      *

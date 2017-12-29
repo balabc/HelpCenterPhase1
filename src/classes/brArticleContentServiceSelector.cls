@@ -15,10 +15,7 @@ public with sharing class brArticleContentServiceSelector {
         try {
             List<sObject> cats = Database.query('SELECT id, ParentId, DataCategoryGroupName, DataCategoryName FROM ' + articleType + '__DataCategorySelection WHERE ParentId = \'' + articleId + '\'');
             return String.valueOf(cats[0].get('DataCategoryGroupName'));
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -49,10 +46,23 @@ public with sharing class brArticleContentServiceSelector {
 
 
     	    return (sObject) Database.query(q);
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
+    }
+
+    /**
+     * Returns data category name by article type
+     *
+     * {@inheritDoc}
+     *
+     * @param       articleType     String
+     * @return      data category name
+     * @see         String
+     */
+    public static List<SObject> getDataCategories(String articleType) {
+        String q = 'SELECT DataCategoryName, ParentId FROM ' + articleType.replace('__kav','') + '__DataCategorySelection WHERE Parent.PublishStatus = \'Online\'';
+        try {
+        return Database.query(q);
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -70,10 +80,7 @@ public with sharing class brArticleContentServiceSelector {
         try {
             SObject result = Database.query(q);
             return String.valueOf(result.get('DataCategoryName'));
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -89,10 +96,7 @@ public with sharing class brArticleContentServiceSelector {
         String q = 'SELECT ParentId, DataCategoryName FROM ' + articleType.replace('__kav','') + '__DataCategorySelection WHERE Parent.PublishStatus = \'Online\'';
         try {
             return Database.query(q);
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -109,10 +113,7 @@ public with sharing class brArticleContentServiceSelector {
         String q = 'SELECT KnowledgeArticleId, Title, Nav_Title__c, Id, Sort_Oder_in_Category__c FROM ' + articleType + ' WHERE (PublishStatus = \'Online\') AND (Id IN :ids) ORDER BY Sort_Oder_in_Category__c ASC';
         try {
             return Database.query(q);
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -125,13 +126,10 @@ public with sharing class brArticleContentServiceSelector {
      * @see         List<sObject>
      */
     public static List<sObject> getAllArticleByArticleType(String articleType) {
-        String q = 'SELECT Id, DataCategoryName FROM ' + articleType + ' WHERE (PublishStatus = \'Online\')';
+        String q = 'SELECT Id, UrlName FROM ' + articleType + ' WHERE (PublishStatus = \'Online\')';
         try {
             return Database.query(q);
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -140,16 +138,13 @@ public with sharing class brArticleContentServiceSelector {
      * {@inheritDoc}
      *
      * @return      list guides
-     * @see         List<sObject>
+     * @see         List<sObject> 
      */
     public static List<sObject> getAllArticleForGuide() {
         String q = 'SELECT Id, First_Chapter_Url__c FROM brGuideItem__mdt';
         try {
             return Database.query(q);
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -169,10 +164,7 @@ public with sharing class brArticleContentServiceSelector {
             } else {
                 return null;
             }
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
 
     /**
@@ -192,12 +184,7 @@ public with sharing class brArticleContentServiceSelector {
             } else {
                 return null;
             }
-        } catch (Exception e) {
-            System.debug(e);
-            return null;
-        }
+        } catch (Exception e) {System.debug(e);return null;}
     }
-
-
 
 }
