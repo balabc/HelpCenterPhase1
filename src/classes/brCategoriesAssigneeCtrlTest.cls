@@ -92,7 +92,7 @@ private class brCategoriesAssigneeCtrlTest {
 
         System.assertEquals(1, numberAfterFailInsert);
         System.assertEquals(1, numberAfterUpdate);
-        System.assertEquals('Category 1', updatedRecord.Categories__c);
+        System.assertEquals('Updated category', updatedRecord.Categories__c);
         System.assertEquals(2, numberSuccessInsert);
     }
 

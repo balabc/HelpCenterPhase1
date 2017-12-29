@@ -36,34 +36,24 @@ private class brIdeaTriggerHandlerTest {
 
     @isTest
     static void testCreateSubscriptionsOnInsert(){
-        Idea testIdea;
-        User testUser;
-
         Test.startTest();
 
-        Profile stdUserProfile = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
-
-        testUser = new User(Alias = 'testusr', Email='testusr@testorg.com',
-                EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
-                LocaleSidKey='en_US', ProfileId = stdUserProfile.Id,
-                TimeZoneSidKey='America/Los_Angeles', UserName='testusr@testorg.com');
-
+        User testUser = [SELECT Id FROM User WHERE UserName = 'testusr@testorg.com' LIMIT 1];
         String cId = brLghtIdeasHelper.getCommunityId('');
+        Idea testIdea = new Idea(Title = 'Test idea', Body = 'Body of test idea', Status = 'New',
+                Categories = 'test', CommunityId = cId);
 
         System.runAs(testUser) {
-            testIdea = new Idea(Title = 'Test idea', Body = 'Body of test idea', Status = 'New',
-                    Categories = 'test', CommunityId = cId);
-
             insert testIdea;
         }
 
         Test.stopTest();
 
-        Integer subscrNumber = [SELECT COUNT() FROM brIdeaSubscription__c];
-        brIdeaSubscription__c subscr = [SELECT Idea__c, User__c FROM brIdeaSubscription__c LIMIT 1];
+        Integer subscrNumber = [SELECT COUNT() FROM brIdeaSubscription__c WHERE Idea__c = :testIdea.Id];
+        brIdeaSubscription__c subscr = [SELECT Idea__c, User__c FROM brIdeaSubscription__c WHERE Idea__c = :testIdea.Id];
 
         System.assertEquals(1, subscrNumber, 'Invalid number of subscriptions created');
-        System.assertEquals(testIdea.Id, subscr.Idea__c, 'Invalid Idea in Subscribtion');
+        System.assertEquals(testIdea.Id, subscr.Idea__c, 'Invalid Idea in subscribtion');
         System.assertEquals(testUser.Id, subscr.User__c, 'Invalid User in subscription');
     }
 
