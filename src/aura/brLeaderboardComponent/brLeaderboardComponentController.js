@@ -5,7 +5,7 @@
     
     jsLoaded: function(component, event, helper) {
         helper.initSlider();
-        helper.getLeaderboardCommunity(component);
+        helper.getData(component, 'v.userLeaderboard', 'c.getUserLeaderboard', false);
         
         window.addEventListener('resize', function() {
             if (!!window.mySwiper) {

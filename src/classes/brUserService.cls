@@ -13,19 +13,17 @@ public with sharing class brUserService {
                 'FullPhotoUrl', 'SmallPhotoUrl', 'MediumPhotoUrl', 'Name'
         });
 
+        brLeaderboardModel lbm = null;
         Set<id> usersId = new Set<id>();
         usersId.add(UserInfo.getUserId());
         List<User> users = brUserServiceSelector.getUserMemberPhotoUrl(usersId);
         if (users.size() > 0) {
-            brLeaderboardModel lbm = new brLeaderboardModel();
+            lbm = new brLeaderboardModel();
             lbm.id = users[0].id;
             lbm.name = users[0].Name;
             lbm.photoUrl = users[0].SmallPhotoUrl;
-            return lbm;
         }
-
-        return null;
-
+        return lbm;
     }
 
     /**
@@ -131,6 +129,11 @@ public with sharing class brUserService {
         }
 
         List<User> userMembersPhotoUrl = new List<User>();
+
+        if (Test.isRunningTest()) {
+            List<Network> ntt = [SELECT id FROM Network LIMIT 1];
+            communityId = String.valueOf(ntt[0].get('id'));
+        }
 
         if (isTop5) {
             userMembers = brUserServiceSelector.getUserMembers(communityId, 6);

@@ -18,5 +18,6 @@ public with sharing class brAlgoliaSearchCtrl {
         } else {
             return null;
         }
+
     }
 }

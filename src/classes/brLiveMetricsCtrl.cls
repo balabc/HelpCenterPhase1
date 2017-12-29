@@ -10,8 +10,8 @@ public with sharing class brLiveMetricsCtrl {
      * @see         Integer
      */
 	@AuraEnabled
-	public static Integer getUserCount(String networkId) {
-		return brUserService.getUserCount(networkId);
+	public static Integer getUserCount() {
+		return brUserService.getUserCount(brLiveMetricsCtrl.getCommunityId());
 	}
 	
     /**
@@ -24,8 +24,8 @@ public with sharing class brLiveMetricsCtrl {
      * @see         Integer
      */
 	@AuraEnabled
-	public static Integer getIdeaCount(String networkId) {
-		return brIdeaService.getIdeaCount(networkId);
+	public static Integer getIdeaCount() {
+		return brIdeaService.getIdeaCount(brLiveMetricsCtrl.getCommunityId());
 	}	
 	
     /**

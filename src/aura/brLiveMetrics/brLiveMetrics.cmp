@@ -1,6 +1,5 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="brLiveMetricsCtrl">
 
-	<aura:attribute name="networkId" type="String"/>
 	<aura:attribute name="members" type="Integer"/>
 	<aura:attribute name="ideas" type="Integer"/>
 	<aura:attribute name="solutions" type="Integer"/>

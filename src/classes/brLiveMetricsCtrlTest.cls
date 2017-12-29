@@ -24,14 +24,14 @@ private class brLiveMetricsCtrlTest {
 
         Test.startTest();
         brLiveMetricsCtrl.getCommunityId();
-        brLiveMetricsCtrl.getIdeaCount(null);
+        brLiveMetricsCtrl.getIdeaCount();
         brIdeaService.getIdeaCount(null);
         brIdeaServiceSelector.getIdeaList(null);
         brIdeaServiceSelector.getZoneList(null);
         brLiveMetricsCtrl.getFeedItemCount();
         List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember];
         if (userMembers.size() > 0) {
-            brLiveMetricsCtrl.getUserCount(userMembers[0].NetworkId);
+            brLiveMetricsCtrl.getUserCount();
         }
         Test.stopTest();
     }

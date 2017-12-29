@@ -51,6 +51,9 @@ private class brCategoriesTest {
         brCategorySeviceSelector.getCategories('Payments');
         brCategorySeviceSelector.getFirstCategories('Payments');
         brCategorySeviceSelector.getSubCategories('Payments');
+        brCategorySeviceSelector.getCategories('Live_Chat');
+        brCategorySeviceSelector.getFirstCategories('Live_Chat');
+        brCategorySeviceSelector.getSubCategories('Live_Chat');
         Test.stopTest();
     }
 

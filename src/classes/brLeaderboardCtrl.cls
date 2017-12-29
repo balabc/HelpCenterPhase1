@@ -10,8 +10,8 @@ public with sharing class brLeaderboardCtrl {
      * @see         List<brLeaderboardModel>
      */
     @AuraEnabled
-    public static List<brLeaderboardModel> getUserLeaderboard(Id communityId) {
-        return brUserService.getUserLeaderboard(communityId);
+    public static List<brLeaderboardModel> getUserLeaderboard() {
+        return brUserService.getUserLeaderboard(brLeaderboardCtrl.getCommunityId());
     }
 
     /**
