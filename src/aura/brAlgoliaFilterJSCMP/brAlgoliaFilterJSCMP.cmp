@@ -94,7 +94,7 @@
                     
                     <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchSortingIndex}</h5>
                     <div class="filter__item">
-                        <lightning:select name="cm_sorting_index" label="" aura:id="cm_sorting_index" value="{!v.brFilter.cm.sorting_index}">
+                        <lightning:select name="cm_sorting_index" label="{!$Label.c.hAlgoliaSearchSortingIndex}" aura:id="cm_sorting_index" value="{!v.brFilter.cm.sorting_index}">
                             <option text="{!$Label.c.fieldAlgoliaSearchRelevance}" value="FeedItem_Community"/>
                             <option text="{!$Label.c.fieldAlgoliaSearchLatestPosts}" value="FeedItem_Community_Latest_Post"/>
                             <option text="{!$Label.c.fieldAlgoliaSearchRecentActivity}" value="FeedItem_Community_Recent_Activity"/>
@@ -232,7 +232,7 @@
                     
                     <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchSortingIndex}</h5>
                     <div class="filter__item">
-                        <lightning:select name="ideas_sorting_index" label="" aura:id="ideas_sorting_index" value="{!v.brFilter.ideas.sorting_index}">
+                        <lightning:select name="ideas_sorting_index" label="{!$Label.c.hAlgoliaSearchSortingIndex}" aura:id="ideas_sorting_index" value="{!v.brFilter.ideas.sorting_index}">
                             <option text="{!$Label.c.fieldAlgoliaSearchRelevance}" value="Ideas_Community"/>
                             <option text="{!$Label.c.fieldAlgoliaSearchTrending}" value="Ideas_Community_Trending"/>
                             <option text="{!$Label.c.fieldAlgoliaSearchPopular}" value="Ideas_Community_Popular"/>

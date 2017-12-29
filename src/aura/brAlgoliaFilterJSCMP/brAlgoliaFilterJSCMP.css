@@ -1,6 +1,6 @@
 .THIS {}
 
-.THIS legend.slds-form-element__legend.slds-form-element__label {
+.THIS legend.slds-form-element__legend.slds-form-element__label, .THIS label.slds-form-element__label > span {
     display: none;
 }
 
