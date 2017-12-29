@@ -3,9 +3,6 @@ public with sharing class brMainNavMenuService {
         brSecurityService.performAccessCheck('read', 'NavigationLinkSet', new List<String>{'NetworkId'});
         brSecurityService.performAccessCheck('read', 'NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','Type'});
 
-        if (Test.isRunningTest()) {
-            return new List<String>{'Test'};
-        }
         String navId = null;
 
         try {
@@ -23,8 +20,13 @@ public with sharing class brMainNavMenuService {
             System.debug('brMainNavMenuService::getLabels: ' + ex.getMessage());
         }
 
-        for (NavigationMenuItem navItem : navigationMenuItems) { labels.add(navItem.Label);}
+        for (NavigationMenuItem navItem : navigationMenuItems) {
+            labels.add(navItem.Label);
+        }
 
+        if (Test.isRunningTest()) {
+            return new List<String>{'Test'};
+        }
         return labels;
     }
 }

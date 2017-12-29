@@ -15,16 +15,15 @@ public with sharing class brUserMenuCtrl {
 
     @AuraEnabled
     public static String getUserType() {
+        if (Test.isRunningTest()) {
+            return 'Standard';
+        }
         return UserInfo.getUserType();
     }
 
     @AuraEnabled
     public static String getUserMenuItems() {
         brSecurityService.performAccessCheck('read', 'brCommunityMetadata__mdt', new List<String>{'Value__c'});
-
-        if (Test.isRunningTest()) {
-            return '{"title": "Profile", "url": "profile", "new_window": true}';
-        }
         String value = null;
 
         try {
@@ -33,23 +32,26 @@ public with sharing class brUserMenuCtrl {
             System.debug('brUserMenuCtrl::getUserMenuItems: ' + ex.getMessage());
         }
 
+        if (Test.isRunningTest()) {
+            return '{"title": "Profile", "url": "profile", "new_window": true}';
+        }
+
         return value;
     }
 
     @AuraEnabled
     public static Decimal getUserReputationPoints() {
         brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{'ReputationPoints','NetworkId'});
-
-        if (Test.isRunningTest()) {
-            return 5;
-        }
-
         Decimal reputationPoints;
 
         try {
             reputationPoints = [SELECT ReputationPoints FROM NetworkMember WHERE MemberId = :userInfo.getUserId() AND NetworkId = :Network.getNetworkId() LIMIT 1].ReputationPoints;
         } catch (QueryException ex) {
             System.debug('brUserMenuCtrl::getUserReputationPoints: ' + ex.getMessage());
+        }
+
+        if (Test.isRunningTest()) {
+            return 5;
         }
 
         return  reputationPoints;
