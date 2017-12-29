@@ -2,9 +2,7 @@
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="isAltMainNav" type="Boolean" />
     <aura:attribute name="search" type="String"/>
-    
-    <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
-    <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
+
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <header class="{!if(not(v.isAltMainNav), 'header', 'header header--upd')}" id="themeHeader">

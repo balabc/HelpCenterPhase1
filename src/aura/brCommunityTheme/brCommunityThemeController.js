@@ -1,4 +1,7 @@
 ({
+    doInit : function(component, event, helper) {
+        component.set('v.search', '');
+    },
     closeUserMenu: function (cmp, event, helper) {
         var userDropDownMenu = document.getElementById('userDropDownMenu'),
             isOpenUserMenu = true;
@@ -42,16 +45,12 @@
             }
         }
     },
-    toggleSearch: function(component, event, helper) {
+    toggleSearchModal : function(component, event, helper) {
         var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
         toggleSearchModal.fire();
     },
-    toggleMobileMenu: function(component, event, helper) {
-        var menu_btn = event.target.closest('.header-mobile__menu-button');
-        helper.toggleMobileMenu(menu_btn);
-    },
-    toggleMobileMenuExternal: function(component, event, helper) {
-        var menu_btn = document.getElementsByClassName('header-mobile__menu-button')[0];
-        helper.toggleMobileMenu(menu_btn);
+    changeSearch : function(component, event, helper) {
+        var search = event.getParam("search");
+        component.set('v.search', search);
     }
 })

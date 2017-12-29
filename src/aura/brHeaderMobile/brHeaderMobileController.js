@@ -1,14 +1,16 @@
 ({
     doInit: function (cmp, event) {
-        window.onscroll = function () {
-            var mobileHeader = cmp.find('header-mobile').getElement();
+        if ($A.get("$Browser.formFactor") == 'PHONE') {
+            window.onscroll = function () {
+                var mobileHeader = cmp.find('header-mobile').getElement();
 
-            if (window.scrollY > 0) {
-                $A.util.addClass(mobileHeader, "header-mobile--make-sticky");
-            } else {
-                $A.util.removeClass(mobileHeader, "header-mobile--make-sticky");
-            }
-        };
+                if (window.scrollY > 0) {
+                    $A.util.addClass(mobileHeader, "header-mobile--make-sticky");
+                } else {
+                    $A.util.removeClass(mobileHeader, "header-mobile--make-sticky");
+                }
+            };
+        }
     },
     showHomePage: function(component, event, helper) {
         var urlEvent = $A.get("e.force:navigateToURL");

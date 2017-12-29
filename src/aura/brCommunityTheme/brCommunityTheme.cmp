@@ -1,11 +1,17 @@
 <aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
     <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="search" type="String" default="initialize"/>
+
+    <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <ltng:require styles="{!join(',', $Resource.BigcommerceCommunity + '/css/styles.css', $Resource.BigcommerceCommunityStyles)}" /><!-- TODO add Resource value provider-->
 
     <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
-        <c:brMobileNavMenu  askbutton="{!v.askbutton}"/>
+        <c:brMobileNavMenu askbutton="{!v.askbutton}"/>
     </aura:if>
 
     <c:brSearchModal />
@@ -14,7 +20,7 @@
         <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
 
             <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
-                <c:brThemeHeader isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" />
+                <c:brThemeHeader isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" search="{!v.search}"/>
             </aura:if>
 
             <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">

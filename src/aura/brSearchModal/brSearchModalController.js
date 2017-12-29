@@ -19,6 +19,7 @@
                 'serp__filter-section',
                 'serp__panel',
                 'searchbox-uniq',
+                'serp__filter-section-panel-inner',
                 'serp__filter-trigger-icon'
             ];
 
