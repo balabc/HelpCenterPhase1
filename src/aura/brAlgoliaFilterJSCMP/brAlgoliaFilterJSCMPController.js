@@ -5,7 +5,7 @@
             cm: {
                 posted_in: [
                     {'label': 'All', 'value': 'All'},
-                    {'label': 'Q&amp;A', 'value': 'Q&amp;A'},
+                    {'label': 'Q&A', 'value': 'Q&amp;A'},
                     {'label': 'Groups', 'value': 'Groups'}
                 ]
             },
