@@ -36,7 +36,6 @@
                         component.set('v.statusIndicator', messageObject['status']['indicator']);
                         component.set('v.minutesSinceRefresh', 0);//restart count
                     }
-                    console.log(xmlHttp.responseText);
                 } else {
                   console.error(xmlHttp.statusText);
                 }
