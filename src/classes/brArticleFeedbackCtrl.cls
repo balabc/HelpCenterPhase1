@@ -62,9 +62,7 @@ public with sharing class brArticleFeedbackCtrl {
         if (!Test.isRunningTest()) {
             String articleNumber = [SELECT ArticleNumber FROM KnowledgeArticle WHERE Id = :articleId LIMIT 1].ArticleNumber;
 
-            try {
-                insert new brArticleFeedback__c(Reason__c = reason, Article_Number__c = articleNumber);
-            } catch (DmlException ex) {
+            try { insert new brArticleFeedback__c(Reason__c = reason, Article_Number__c = articleNumber);} catch (DmlException ex) {
                 System.debug('brArticleFeedbackCtrl::addVoteDownAndSaveReasonForArticle: ' + ex.getMessage());
             }
         }

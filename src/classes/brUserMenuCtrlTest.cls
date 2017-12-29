@@ -53,4 +53,12 @@ private class brUserMenuCtrlTest {
         System.assertEquals('Level One', reputationLevel, 'wrong reputation level');
     }
 
+    @isTest
+    static void getUserType() {
+        Test.startTest();
+        String userType = brUserMenuCtrl.getUserType();
+        Test.stopTest();
+        System.assertEquals('Standard', userType, 'wrong user type');
+    }
+
 }
