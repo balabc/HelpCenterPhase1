@@ -1,5 +1,5 @@
 ({
-    getSubMenuUser: function(component, user){
+    getSubMenuUser: function(component, user) {
         return [                       
             {id: 'profile', label: $A.get('$Label.c.lnkProfile'), type: 'SalesforceObject', target: user.id},
             {id: 'my_messages', label: $A.get('$Label.c.lnkMyMessages'), type: 'InternalLink', target: '/messages/Home'},

@@ -18,3 +18,9 @@
 .THIS .askCommunityBtn:focus {
     box-shadow: none;
 }
+.THIS .can-hide[data-is-show] {
+    display: none;
+}
+.THIS .can-hide[data-is-show="true"] {
+    display: block;
+}
