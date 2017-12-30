@@ -3,7 +3,7 @@
     
     <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
     
-    <aura:renderIf isTrue="{!(v.data.length)}">
+    <aura:if isTrue="{!(v.data.length)}">
         <li class="header-mobile__menu-content">
             <aura:iteration items="{!v.data}" var="item">
                 <br/>
@@ -12,5 +12,5 @@
                 <br/>
             </aura:iteration>
         </li>
-    </aura:renderIf>    
+    </aura:if>
 </aura:component>

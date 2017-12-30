@@ -11,45 +11,38 @@
     <aura:handler name="eventMobileNavMenuItem" event="c:brMobileNavMenuItemEvent" action="{!c.onChangeLvl}"/>
 
     <div class="header-mobile__nav" id="header-mobile__nav">
-        <aura:renderIf isTrue="{!(!!v.currentObj)}">
-            <div class="header-mobile__menu-item-goback" onclick="{!c.onChangeLvl}">
-                <div class="header-mobile__menu-goback">
-                    <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
-                        <div class="nav-arrow-hor-angular__handler">
-                            <span class="nav-arrow-hor-angular__icon"></span>
-                        </div>
+        <div class="header-mobile__menu-item-goback can-hide" onclick="{!c.onChangeLvl}" data-is-show="{!(!!v.currentObj)}">
+            <div class="header-mobile__menu-goback">
+                <div class="header-mobile__menu-arrow-angular-right nav-arrow-hor-angular">
+                    <div class="nav-arrow-hor-angular__handler">
+                        <span class="nav-arrow-hor-angular__icon"></span>
                     </div>
                 </div>
-                <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
-                    <span class="header-mobile__menu-text truncated">{!v.currentObj.label}</span>
-                </a>
             </div>
-        </aura:renderIf>
-        <div class="header-mobile__nav-inner">
-            <aura:renderIf isTrue="{!(v.currentObj.isComponent == true)}">
-                <c:brCategoriesCMP data="{!v.currentObj}" aura:id="brCategoriesCMP"/>
-                <aura:set attribute="else">
-                    <ul class="header-mobile__menu">
-                        <aura:renderIf isTrue="{!(v.menuList.length)}">
-                            <aura:iteration items="{!v.menuList}" var="item" >
-                                <aura:renderIf isTrue="{!equals(item.id,'ask')}">
-                                    <li class="header-mobile__menu-item askCommunityBtn">
-                                            {!v.askbutton}
-                                    </li>
-                                    <aura:set attribute="else">
-                                        <c:brMobileNavMenuItem item="{!item}" />
-                                    </aura:set>
-                                </aura:renderIf>
-                            </aura:iteration>
-                            <aura:set attribute="else">
-                                <aura:renderIf isTrue="{!(!!v.currentObj)}">
-                                    <c:brMobileNavMenuItemStatic data="{!v.phoneList}" />
-                                </aura:renderIf>
-                            </aura:set>
-                        </aura:renderIf>
-                    </ul>
-                </aura:set>
-            </aura:renderIf>
+            <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+                <span class="header-mobile__menu-text truncated">{!v.currentObj.label}</span>
+            </a>
+        </div>
+        <div class="header-mobile__nav-inner can-hide" data-is-show="{!(v.currentObj.isComponent == true)}">
+            <c:brCategoriesCMP data="{!v.currentObj}" aura:id="brCategoriesCMP"/>
+        </div>
+
+        <div class="header-mobile__nav-inner can-hide" data-is-show="{!(v.currentObj.isComponent != true)}">
+            <ul class="header-mobile__menu can-hide" data-is-show="{!(!!v.menuList.length)}">
+                <aura:iteration items="{!v.menuList}" var="item" >
+                    <c:brMobileNavMenuItem item="{!item}" />
+                    <!--
+                    aura:renderIf isTrue="{!equals(item.id,'ask')}"
+                    <li class="header-mobile__menu-item askCommunityBtn">
+                        {!v.askbutton}
+                    </li>
+                     -->
+                </aura:iteration>
+            </ul>
+
+            <ul class="header-mobile__menu can-hide" data-is-show="{!(!v.menuList.length)}">
+                <c:brMobileNavMenuItemStatic data="{!v.phoneList}" />
+            </ul>
         </div>
     </div>
 </aura:component>

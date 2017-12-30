@@ -3,45 +3,39 @@
     
     <aura:registerEvent name="eventMobileNavMenuToggle" type="c:brMobileNavMenuToggleEvent"/>
     <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
-    
-    <aura:renderIf isTrue="{!v.item.hasSubMenu}">
-        <li class="header-mobile__menu-item" 
-            onclick="{!c.onChangeLvl}" 
-            data-title="{!v.item.label}" 
-            data-type=""
-            data-removed-type="{!v.item.type}"
-            data-target="{!v.item.target}"
-            data-id="{!v.item.id}"
-            data-where="next">
-            <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
-                <aura:renderIf isTrue="{!v.item.has_picture}">
-                    <aura:unescapedHtml value="{!v.item.picture}" />
-                </aura:renderIf>
-                <span class="header-mobile__menu-text truncated">{!v.item.label}</span>
-            </a>
-            <div class="header-mobile__menu-tosub">
-                <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
-                    <div class="nav-arrow-hor-simple__handler">
-                        <span class="nav-arrow-hor-simple__icon"></span>
-                    </div>
+
+    <li class="header-mobile__menu-item can-hide"
+        data-is-show="{!(!!v.item.hasSubMenu)}"
+        onclick="{!c.onChangeLvl}"
+        data-title="{!v.item.label}"
+        data-type=""
+        data-removed-type="{!v.item.type}"
+        data-target="{!v.item.target}"
+        data-id="{!v.item.id}"
+        data-where="next">
+        <a href="javascript:void(0);" class="header-mobile__menu-link truncated">
+            <aura:unescapedHtml value="{!((!!v.item.has_picture)? v.item.picture: '')}" />
+            <span class="header-mobile__menu-text truncated">{!v.item.label}</span>
+        </a>
+        <div class="header-mobile__menu-tosub">
+            <div class="header-mobile__menu-arrow-left nav-arrow-hor-simple">
+                <div class="nav-arrow-hor-simple__handler">
+                    <span class="nav-arrow-hor-simple__icon"></span>
                 </div>
             </div>
-        </li>
-        <aura:set attribute="else">
-            <li class="header-mobile__menu-item">
-                <a href="{!((v.item.type == 4)? (((!!$SfdcSite)? $SfdcSite.pathPrefix: '') + v.item.target): 'javascript:void(0);')}"
-                   class="header-mobile__menu-link truncated" 
-                   data-type="{!v.item.type}" 
-                   data-target="{!v.item.target}" 
-                   data-menu-item-id="{!v.item.id}" 
-                   data-toggle-menu="true"
-                   onclick="{!c.onClick}">
-                    <aura:renderIf isTrue="{!v.item.has_picture}">
-                        <aura:unescapedHtml value="{!v.item.picture}" />
-                    </aura:renderIf>
-                    <span class="header-mobile__menu-text truncated">{!v.item.label}<i class="{!v.item.icon}"></i></span>
-                </a>                          
-            </li>                   
-        </aura:set>
-    </aura:renderIf>
+        </div>
+    </li>
+
+    <li class="header-mobile__menu-item can-hide" data-is-show="{!(!v.item.hasSubMenu)}">
+        <a href="{!((v.item.type == 4)? (((!!$SfdcSite)? $SfdcSite.pathPrefix: '') + v.item.target): 'javascript:void(0);')}"
+           class="header-mobile__menu-link truncated"
+           data-type="{!v.item.type}"
+           data-target="{!v.item.target}"
+           data-menu-item-id="{!v.item.id}"
+           data-toggle-menu="true"
+           onclick="{!c.onClick}">
+            <aura:unescapedHtml value="{!((!!v.item.has_picture)? v.item.picture: '')}" />
+            <span class="header-mobile__menu-text truncated">{!v.item.label}<i class="{!v.item.icon}"></i></span>
+        </a>
+    </li>
 </aura:component>

@@ -16,7 +16,7 @@
                 <span class="icon-svg-arrow-angular-lg-left-white"></span>
         </a>
 
-        <aura:renderIf isTrue="{!(!!v.nextArticle)}">
+        <aura:if isTrue="{!(!!v.nextArticle)}">
             <a href="javascript:void(0);"
                class="button button--primary button--lg"
                data-id="{!v.nextArticle.Id}"
@@ -27,7 +27,7 @@
             <aura:set attribute="else">
                 <a href="javascript:void(0);" class="button button--primary button--lg button--icon disabled"><span class="icon-svg-arrow-angular-lg-left-white right"></span></a>
             </aura:set>
-        </aura:renderIf>
+        </aura:if>
     </div>
 
     <div class="related-posts">
