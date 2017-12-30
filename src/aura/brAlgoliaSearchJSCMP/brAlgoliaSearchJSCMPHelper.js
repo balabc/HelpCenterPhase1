@@ -118,7 +118,7 @@
                         }
 
                         if (filter.values.is_null_answer) {
-                            facetFilters.push(['IsAnswered:-Answered']);
+                            facetFilters.push(['IsAnswered:noBest']);
                         }
                     }
 
@@ -195,7 +195,7 @@
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
                     facetFilter = [];
-
+                    console.log(filter.values.merged_type);
                     if (filter.values.merged_type != 'All')
                         facetFilter.push('IsMerged:' + filter.values.merged_type);
 
@@ -362,8 +362,8 @@
                                         '<p class="serp__item-title truncated">' + title + '</p>',
                                         '<p class="serp__item-description truncated">' + body + '</p>',
                                         '<p class="serp__item-description truncated">' + 
-                                        (item.source.IsAnswered? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
-                                        (item.source.IsAnswered?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
+                                        (item.source.IsAnswered == 'Answered'? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
+                                        (item.source.IsAnswered == 'Answered'?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
                                         '&nbsp;&nbsp;&nbsp;<span class="icon-svg-like-sm-grey"></span>&nbsp;' + item.source.LikeCount + 
                                         '&nbsp;&nbsp;&nbsp;<span class="icon-svg-comments-sm-grey pos-top-2"></span>&nbsp;' + item.source.CommentCount + 
                                         '</p>'

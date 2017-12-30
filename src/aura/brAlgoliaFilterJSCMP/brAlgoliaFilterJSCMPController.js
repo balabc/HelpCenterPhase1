@@ -17,7 +17,7 @@
                 ],
                 merged_type: [
                     {'label': 'All Ideas', 'value': 'All'},
-                    {'label': 'Non-Merged Ideas', 'value': '-Merged'},
+                    {'label': 'Non-Merged Ideas', 'value': 'nonMerged'},
                     {'label': 'Merged Ideas', 'value': 'Merged'}
                 ]
             }
@@ -47,7 +47,7 @@
             },
             ideas: {
                 record_type: 'All',
-                merged_type: '-Merged',
+                merged_type: 'nonMerged',
                 status: {
                     under_point_threshold: false,
                     closed: false,
