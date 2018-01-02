@@ -33,6 +33,7 @@
                 }
                 break;
             }
+            // no default
         }
     }
 })

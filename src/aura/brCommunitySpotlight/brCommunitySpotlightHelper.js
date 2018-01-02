@@ -74,6 +74,7 @@
                 }
                 break;
             }
+            // no default
         }
     }
 })

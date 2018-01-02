@@ -47,7 +47,8 @@
                     urlEvent.fire();
                 }
                 break;
-            } 
+            }
+            // no default
         }
     }
 })

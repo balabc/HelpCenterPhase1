@@ -10,7 +10,7 @@
                 var pageNumbers = [],
                     countVideoArticles = videoArticles.length,
                     videosPerPage = cmp.get('v.videosPerPage'),
-                    countAllPages = (countVideoArticles%videosPerPage==0?countVideoArticles/videosPerPage:countVideoArticles/videosPerPage+1);
+                    countAllPages = (countVideoArticles%videosPerPage===0?countVideoArticles/videosPerPage:countVideoArticles/videosPerPage+1);
 
                 for (var i=1;i<countAllPages;i++) {
                     pageNumbers.push(i);
