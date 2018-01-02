@@ -189,6 +189,7 @@
         <members>brFeedItemTest</members>
         <members>brMenuListViewCtrlTest</members>
         <members>brKnowledgeArticleLayoutCtrlTest</members>
+        <members>brNetwork</members>
         <name>ApexClass</name>
     </types>
     <types>
