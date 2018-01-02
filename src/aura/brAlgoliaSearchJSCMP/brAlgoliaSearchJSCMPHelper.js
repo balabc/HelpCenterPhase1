@@ -106,9 +106,9 @@
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
                     facetFilter = [];
-                    for (var key in filter.values.record_type) {
-                        if (filter.values.record_type[key])
-                            facetFilter.push('RecordType:' + key);
+                    for (var key2 in filter.values.record_type) {
+                        if (filter.values.record_type[key2])
+                            facetFilter.push('RecordType:' + key2);
                     }
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
@@ -188,9 +188,9 @@
                         facetFilters.push(facetFilter);
                     facetFilter = [];
 
-                    for (var key in filter.values.status) {
-                        if (filter.values.status[key]) {
-                            facetFilter.push('Status:' + component.find('algolia_search_filter').find('ideas_' + key).get("v.value"));
+                    for (var key3 in filter.values.status) {
+                        if (filter.values.status[key3]) {
+                            facetFilter.push('Status:' + component.find('algolia_search_filter').find('ideas_' + key3).get("v.value"));
                         }
                     }
 
@@ -266,30 +266,30 @@
                 link_index = '',
                 filterCounts = {},
                 objSfdcSite = $A.get('$SfdcSite'),
-            	availableIndexes = component.get("v.availableIndexes");
+            	availableIndexes2 = component.get("v.availableIndexes");
 
             objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
 
             for (var i = 0; i < categories.length; ++i) {
                 var category = categories[i], 
                     hits = category.hits,
-                    tmpListData = [],
                     item = {};
+                tmpListData = [];
 
                 filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
                 //console.log(hits);
                 if ((hits.length > 0) && ((filter_type === category.index) || (filter_type === 'All'))) {
-                    if (availableIndexes.indexOf(category.index) > -1) {
+                    if (availableIndexes2.indexOf(category.index) > -1) {
                         switch (category.index) {
                             case 'Knowledge_Community': {
                                 filterCounts['Knowledge_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
                                 link_index = objSfdcSite + '/s/knowledge';
-                                for (var key in hits) {
+                                for (var key6 in hits) {
                                     item = {
                                         left: '',
                                         right: [],
-                                        source: hits[key]
+                                        source: hits[key6]
                                     };
 
                                     var title = item.source.title,
@@ -340,29 +340,29 @@
                                 filterCounts['FeedItem_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchCommunity');
                                 link_index = objSfdcSite + '/s/community';
-                                for (var key in hits) {
+                                for (var key4 in hits) {
                                     item = {
                                         left: '',
                                         right: [],
-                                        source: hits[key]
+                                        source: hits[key4]
                                     };
 
-                                    var title = item.source._snippetResult.Title.value,
-                                        body = item.source._snippetResult.Body.value,
-                                        hlr = item.source._highlightResult;
+                                    var title4 = item.source._snippetResult.Title.value,
+                                        body4 = item.source._snippetResult.Body.value,
+                                        hlr4 = item.source._highlightResult;
 
-                                    while (title.indexOf('<em>') > -1) {
-                                        title = title.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                    while (title4.indexOf('<em>') > -1) {
+                                        title4 = title4.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
-                                    while (body.indexOf('<em>') > -1) {
-                                        body = body.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                    while (body4.indexOf('<em>') > -1) {
+                                        body4 = body4.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
                                     item.left = '<p class="serp__item-left-text">' + item.source.PostedTo + '</p>';
                                     item.right = [
-                                        '<p class="serp__item-title truncated">' + title + '</p>',
-                                        '<p class="serp__item-description truncated">' + body + '</p>',
+                                        '<p class="serp__item-title truncated">' + title4 + '</p>',
+                                        '<p class="serp__item-description truncated">' + body4 + '</p>',
                                         '<p class="serp__item-description truncated">' + 
                                         (item.source.IsAnswered === 'Answered'? ('<span class="text-status text-status--success"><span class="icon-svg-check-success pos-top-2"></span>&nbsp;<span class="relative">' + item.source.IsAnswered + '</span></span>&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
                                         (item.source.IsAnswered === 'Answered'?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
@@ -381,40 +381,40 @@
                                 filterCounts['Ideas_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchIdeas');
                                 link_index = objSfdcSite + '/s/ideas';
-                                for (var key in hits) {
+                                for (var key5 in hits) {
                                     item = {
                                         left: '',
                                         right: [],
-                                        source: hits[key]
+                                        source: hits[key5]
                                     };
 
-                                    var title = item.source.Title,
-                                        body = item.source._snippetResult.Body.value,
-                                        hlr = item.source._highlightResult;
+                                    var title5 = item.source.Title,
+                                        body5 = item.source._snippetResult.Body.value,
+                                        hlr5 = item.source._highlightResult;
 
-                                    if (!!hlr) {
+                                    if (!!hlr5) {
 
-                                        for (var ih in hlr) {
-                                            if (hlr.hasOwnProperty(ih)) {
-                                                while (hlr[ih].value.indexOf('<em>') > -1) {
-                                                    hlr[ih].value = hlr[ih].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                        for (var ih5 in hlr5) {
+                                            if (hlr5.hasOwnProperty(ih5)) {
+                                                while (hlr5[ih5].value.indexOf('<em>') > -1) {
+                                                    hlr5[ih5].value = hlr5[ih5].value.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                                 }
                                             }
                                         }
 
-                                        if (hlr.hasOwnProperty('Title')) {
-                                            title = hlr.Title.value;
+                                        if (hlr5.hasOwnProperty('Title')) {
+                                            title5 = hlr5.Title.value;
                                         }
                                     }
 
-                                    while (body.indexOf('<em>') > -1) {
-                                        body = body.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
+                                    while (body5.indexOf('<em>') > -1) {
+                                        body5 = body5.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
                                     item.left = '<p class="serp__item-left-text">' + item.source.Categories + '</p>';
                                     item.right = [
-                                        '<p class="serp__item-title truncated">' + title + '</p>',
-                                        '<p class="serp__item-description truncated">' + body + '</p>',
+                                        '<p class="serp__item-title truncated">' + title5 + '</p>',
+                                        '<p class="serp__item-description truncated">' + body5 + '</p>',
                                         '<p class="serp__item-description truncated">' + 
                                         (item.source.Status? (item.source.Status + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>'): '') +
                                         (item.source.Status?'&nbsp;&nbsp;&nbsp;' + item.source.CreatedDate: item.source.CreatedDate) + '&nbsp;&nbsp;&nbsp;<span class="middot">&middot;</span>' +
@@ -425,7 +425,8 @@
                                     tmpListData.push(item);
                                 }
                                 break;
-                            }            
+                            }
+                            // no default            
                         }
                     }
                     objData.push({
@@ -433,7 +434,7 @@
                         items: tmpListData,
                         link: link_index
                     });
-                    component.set('v.availableIndexes', availableIndexes); 
+                    component.set('v.availableIndexes', availableIndexes2); 
                     
                 }
 
