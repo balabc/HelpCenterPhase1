@@ -41,7 +41,8 @@
             case (objSfdcSite + '/s/ideas'): {
                 elem = filter.find('filter_row_ideas').getElement();
                 break;
-            }  
+            }
+            // no default
         }
         
         if (!!elem) {
