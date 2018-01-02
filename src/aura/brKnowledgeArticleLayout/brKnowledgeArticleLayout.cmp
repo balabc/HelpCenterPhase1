@@ -11,28 +11,28 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-    <aura:if isTrue="{!v.isContentVisible}">
-        <div class="container article-area-container">
-            {!v.breadcrumbs}
-            <aura:if isTrue="{!v.isKnowledgeBaseArticle}">
-                {!v.articleContent1}
-                <div class="br_clear">
-                    <div class="panel-content__body-pre-content text-center">&nbsp;</div><!-- nothing -->
-                    <div class="panel-content panel-content__body-br-content">
-                        <div class="panel-content__body ">
-                            <div class="panel-content__body-content text-center">
-                                <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
-                                {!v.askButton}
-                            </div>
+    <div class="container article-area-container">
+        {!v.breadcrumbs}
+        <aura:if isTrue="{!v.isKnowledgeBaseArticle}">
+            {!v.articleContent1}
+            <div class="br_clear">
+                <div class="panel-content__body-pre-content text-center">&nbsp;</div><!-- nothing -->
+                <div class="panel-content panel-content__body-br-content">
+                    <div class="panel-content__body ">
+                        <div class="panel-content__body-content text-center">
+                            <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
+                            {!v.askButton}
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <aura:set attribute="else">
-                    {!v.articleContent2}
-                </aura:set>
-            </aura:if>
-        </div>
+            <aura:set attribute="else">
+                {!v.articleContent2}
+            </aura:set>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!v.isContentVisible}">
             {!v.landingFooter}
     </aura:if>
 </aura:component>
