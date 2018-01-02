@@ -6,6 +6,9 @@
     fillPhoneList : function(component){
         try {
             var action = component.get("c.getPhoneList");
+
+            action.setStorable();
+            
             action.setCallback(this, function(response){
                 var state = response.getState();
                 if (state === "SUCCESS") {

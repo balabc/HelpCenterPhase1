@@ -5,6 +5,8 @@
             var action = component.get("c.getFeaturedIdeaData"),
             ideaId = component.get("v.ideaId");
 
+            action.setStorable();
+
             action.setParams({
                 ideaId: ideaId
             });

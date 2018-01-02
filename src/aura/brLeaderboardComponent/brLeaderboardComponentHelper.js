@@ -3,6 +3,9 @@
         var action = component.get(method);
         if (params !== false)
             action.setParams(params);
+
+        action.setStorable();
+
         action.setCallback(this, function(response) {
             var state = response.getState(),
                 data;

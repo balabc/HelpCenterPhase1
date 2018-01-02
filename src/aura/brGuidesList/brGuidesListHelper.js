@@ -2,6 +2,8 @@
     getCountForEachCategory : function(component) {
         var action = component.get('c.getCountForEachCategory');
 
+        action.setStorable();
+
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 categoriesCount = response.getReturnValue();

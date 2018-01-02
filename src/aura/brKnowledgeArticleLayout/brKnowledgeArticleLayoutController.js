@@ -7,6 +7,8 @@
             urlName: pathArray.pop()
         });
 
+        action.setStorable();
+
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 resVal = response.getReturnValue();

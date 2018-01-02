@@ -1,7 +1,7 @@
 ({
     showCurrentUser: function (cmp, event) {
         var action = cmp.get('c.getCurrentUser');
-
+        action.setStorable();
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 user = response.getReturnValue();
@@ -38,7 +38,7 @@
 
     getTypeForCurrentUser: function (cmp, callback) {
         var action = cmp.get('c.getUserType');
-
+        action.setStorable();
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 type = response.getReturnValue();
@@ -77,7 +77,7 @@
 
     setUserMenuItems: function (cmp, event) {
         var action = cmp.get('c.getUserMenuItems');
-
+        action.setStorable();
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 menuItems = response.getReturnValue();
@@ -115,7 +115,7 @@
 
     getReputationPoints: function (cmp, event) {
         var action = cmp.get('c.getUserReputationPoints');
-
+        action.setStorable();
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 reputationPoints = response.getReturnValue();
@@ -152,7 +152,7 @@
 
     getReputationLevel: function (cmp, event) {
         var action = cmp.get('c.getUserReputationLevel');
-
+        action.setStorable();
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 reputationLevel = response.getReturnValue();

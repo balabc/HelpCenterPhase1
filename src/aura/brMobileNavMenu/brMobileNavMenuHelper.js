@@ -140,6 +140,7 @@
     },
     fillPhoneList: function(component){
         var action = component.get("c.getPhoneList");
+        action.setStorable();
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -156,6 +157,7 @@
         action.setParams({ 
             url: url
         });
+        action.setStorable();
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {  
@@ -182,6 +184,7 @@
         action.setParams({
             articleType: obj.ArticleType
         });
+        action.setStorable();
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {      
@@ -202,6 +205,7 @@
     },
     getNavigationMenu: function(component) {
         var action = component.get("c.getNavigationMenu");
+        action.setStorable();
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {  
@@ -214,6 +218,7 @@
     },
     getUserInfo: function(component, items) {
         var action = component.get("c.getUserInfo");
+        action.setStorable();
         action.setCallback(this, function(response){
             var state = response.getState();
             if (state === "SUCCESS") {      

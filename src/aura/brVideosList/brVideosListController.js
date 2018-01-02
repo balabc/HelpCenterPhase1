@@ -1,7 +1,7 @@
 ({
     doInit: function (cmp, event, helper) {
         var action = cmp.get('c.getVideoArticles');
-
+        action.setStorable();
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 videoArticles = response.getReturnValue();

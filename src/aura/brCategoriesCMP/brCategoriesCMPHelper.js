@@ -9,6 +9,8 @@
             articleType: articleType,
             dataCategoryName: dataCategoryName
         });
+
+        action.setStorable();
         
         action.setCallback(this, function(response) {
             var state = response.getState();
@@ -47,6 +49,8 @@
                 dataCategoryName: dataCategoryName
             });
         }
+
+        action.setStorable();
                
         action.setCallback(this, function(response) {
             var state = response.getState();

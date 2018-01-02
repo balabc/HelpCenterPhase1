@@ -3,6 +3,8 @@
         try {
             var action = component.get("c.getArticles");
             action.setParams({"countArticles": component.get('v.articlesCount')});
+            action.setStorable();
+
             action.setCallback(this, function (response) {
                 var state = response.getState();
                 if (state === "SUCCESS") {

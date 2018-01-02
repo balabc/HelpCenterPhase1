@@ -2,7 +2,9 @@
 	getDataForArticle: function(component) {
 		var action = component.get("c.getDataForArticle"),
             articleId = component.get('v.recordId');
-        
+
+		action.setStorable();
+
         action.setParams({
             'articleId': articleId
         });
@@ -56,6 +58,8 @@
         action.setParams({
             'articleId': component.get('v.recordId')
         });
+
+        action.setStorable();
 
         action.setCallback(this, function(response){
             var state = response.getState();

@@ -42,6 +42,8 @@
     getReasons: function (cmp, event) {
         var action = cmp.get('c.getFeedbackReasons');
 
+        action.setStorable();
+
         action.setCallback(this, function (response) {
             var state = response.getState(),
                 reasons = response.getReturnValue();
@@ -155,6 +157,8 @@
     },
     getTypeForCurrentUser: function (cmp, event) {
         var action = cmp.get('c.getUserType');
+
+        action.setStorable();
 
         action.setCallback(this, function (response) {
             var state = response.getState(),

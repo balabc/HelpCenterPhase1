@@ -2,6 +2,8 @@
     loadUserInfo: function (cmp) {
         var action = cmp.get('c.getUserInfo');
 
+        action.setStorable();
+
         action.setCallback(this, function(response) {
             var state = response.getState(),
                 resVal = response.getReturnValue();
