@@ -15,7 +15,7 @@
             if (list.length > 1) {
                 for (var i in list) {
                     if (list[i].Id === articleId) {
-                        find_i = parseInt(i);
+                        find_i = parseInt(i, 10);
                         break;
                     }
                 }

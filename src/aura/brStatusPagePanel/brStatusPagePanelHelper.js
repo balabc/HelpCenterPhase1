@@ -18,6 +18,7 @@
           case statusRAW.includes('critical'):
             newStatusClass = 'bg--danger';
             break;
+          // no default
         }
         component.set('v.statusClass', newStatusClass);
     },

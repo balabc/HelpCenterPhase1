@@ -58,8 +58,8 @@
                 crumbPics[i].classList.toggle('breadcrumbs__dropdown--active');
             }
             var crumbList = document.getElementsByClassName('breadcrumbs__dropdown-trigger-text');
-            for(var i=0;crumbPics.length>i;i++){
-                crumbList[i].classList.toggle('breadcrumbs__dropdown-trigger-text--active');
+            for(var i2=0;crumbPics.length>i2;i2++){
+                crumbList[i2].classList.toggle('breadcrumbs__dropdown-trigger-text--active');
             }
             component.set("v.isInternalClick", 'true');
             var isOpen = (crumbList[0].classList.contains('breadcrumbs__dropdown-trigger-text--active'))?"true":"false";
@@ -77,8 +77,8 @@
                 crumbPics[i].classList.remove('breadcrumbs__dropdown--active');
             }
             var crumbList = document.getElementsByClassName('breadcrumbs__dropdown-trigger-text');
-            for(var i=0;crumbPics.length>i;i++){
-                crumbList[i].classList.remove('breadcrumbs__dropdown-trigger-text--active');
+            for(var i2=0;crumbPics.length>i2;i2++){
+                crumbList[i2].classList.remove('breadcrumbs__dropdown-trigger-text--active');
             }
             var isOpen = (crumbList[0].classList.contains('breadcrumbs__dropdown-trigger-text--active'))?"true":"false";
             component.set("v.isOpen", isOpen);

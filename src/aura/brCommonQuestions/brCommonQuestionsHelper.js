@@ -17,7 +17,7 @@
                            //console.log("Error message: " + errors[0].message);
                         }
                     } else if (state === "ERROR") {
-                        var errors = response.getError();
+                        errors = response.getError();
                         var error_msg = '';
                         if (errors) {
                             if (errors[0] && errors[0].message) {
