@@ -9,25 +9,9 @@ public with sharing class brFeedItemService {
      * @see         Integer
      */
     public static Integer getFeedItemCount() {
-        brSecurityService.performAccessCheck('read', 'Topic', new List<String>{'Name'});
-        brSecurityService.performAccessCheck('read', 'TopicAssignment', new List<String>{'NetworkId','TopicId','EntityId','EntityKeyPrefix'});
-        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'Title','BestCommentId','CreatedDate'});
+        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'NetworkScope','BestCommentId','Type','Visibility'});
 
-        List<brFeedItemModel> items = new List<brFeedItemModel>();
-        List<SObject> topics = brFeedItemServiceSelector.getTopics();
-        Set<Id> topicIds = new Set<Id>();
-        for (SObject top : topics) {
-            topicIds.add(Id.valueOf(String.valueOf(top.get('Id'))));
-        }
-
-        Set<Id> topicAssignmentIds = new Set<Id>();
-        List<SObject> topicAssignments = brFeedItemServiceSelector.getTopicAssignments(topicIds);
-        for (SObject top : topicAssignments) {
-            topicAssignmentIds.add(Id.valueOf(String.valueOf(top.get('EntityId'))));
-        }
-
-        List<SObject> topicQuestions = brFeedItemServiceSelector.getQuestionBestComment(topicAssignmentIds, 1000);
-        return topicQuestions.size();
+        return brFeedItemServiceSelector.getQuestionBestComment(10000);
     }
 
     /**
@@ -39,24 +23,11 @@ public with sharing class brFeedItemService {
      * @see         List<brFeedItemModel>
      */
     public static List<brFeedItemModel> getQuestions() {
-        brSecurityService.performAccessCheck('read', 'Topic', new List<String>{'Name'});
-        brSecurityService.performAccessCheck('read', 'TopicAssignment', new List<String>{'NetworkId','TopicId','EntityId','EntityKeyPrefix'});
-        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'Title','CreatedDate'});
+        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'Title','CreatedDate','NetworkScope','Type','Visibility'});
 
         List<brFeedItemModel> items = new List<brFeedItemModel>();
-        List<SObject> topics = brFeedItemServiceSelector.getTopics();
-        Set<Id> topicIds = new Set<Id>();
-        for (SObject top : topics) {
-            topicIds.add(Id.valueOf(String.valueOf(top.get('Id'))));
-        }
 
-        Set<Id> topicAssignmentIds = new Set<Id>();
-        List<SObject> topicAssignments = brFeedItemServiceSelector.getTopicAssignments(topicIds);
-        for (SObject top : topicAssignments) {
-            topicAssignmentIds.add(Id.valueOf(String.valueOf(top.get('EntityId'))));
-        }
-
-        List<SObject> topicQuestions = brFeedItemServiceSelector.getQuestion(topicAssignmentIds, 4);
+        List<SObject> topicQuestions = brFeedItemServiceSelector.getQuestion(4);
         for (SObject question : topicQuestions) {
             brFeedItemModel cls = new brFeedItemModel();
             cls.id = String.valueOf(question.get('Id'));

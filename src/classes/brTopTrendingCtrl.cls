@@ -69,33 +69,27 @@ public with sharing class brTopTrendingCtrl {
 
     @AuraEnabled
     public static List<brFeedItemModel> getGroupPosts(String id) {
-        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'ParentId','CreatedDate'});
+        brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'ParentId','CreatedDate','Type','Visibility','Body'});
         List<brFeedItemModel> feedItemModels = new List<brFeedItemModel>();
         Pattern titlePattern = Pattern.compile('<b>(.*?)</b>');
 
         try {
-            for (FeedItem feedItem: [SELECT Id, Body, Type FROM FeedItem
-                                        WHERE ParentId = :id AND Visibility = 'AllUsers'
-                                            AND Type='TextPost' ORDER BY Type DESC LIMIT 4]) {
-                Matcher m;
-                try {
-                    m = titlePattern.matcher(feedItem.Body);
+            for (FeedItem feedItem: [SELECT Id, Body FROM FeedItem
+                                        WHERE ParentId = :id AND Type='TextPost' AND Visibility = 'AllUsers'
+                                        ORDER BY CreatedDate DESC LIMIT 4]) {
 
-                    if (m.find()) {
-                        brFeedItemModel feedItemModel = new brFeedItemModel();
-                        feedItemModel.id = feedItem.Id;
-                        feedItemModel.name = m.group(1);
-                        feedItemModels.add(feedItemModel);
-                    }
-                } catch (Exception e) {
-                    System.debug(e.getMessage());
-                    return feedItemModels;
+                Matcher m;
+                m = titlePattern.matcher(feedItem.Body);
+
+                if (m.find()) {
+                    brFeedItemModel feedItemModel = new brFeedItemModel();
+                    feedItemModel.id = feedItem.Id;
+                    feedItemModel.name = m.group(1);
+                    feedItemModels.add(feedItemModel);
                 }
             }
             return feedItemModels;
-        } catch (Exception e) {
-            System.debug(e.getMessage());
-            return null;
-        }
+
+        } catch (Exception e) { System.debug(e.getMessage()); return null; }
     }
 }

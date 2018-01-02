@@ -1,44 +1,4 @@
 public with sharing class brFeedItemServiceSelector {
-
-    /**
-     * Returns topics
-     *
-     * {@inheritDoc}
-     *
-     * @return      topics list
-     * @see         List<SObject>
-     */
-    public static List<SObject> getTopics() {
-        try {
-            List<SObject> topics = [
-                    SELECT id
-                    FROM Topic
-            ];
-            return topics;
-        } catch (Exception e) {System.debug(e.getMessage());return null;}
-    }
-
-    /**
-     * Returns assignments topics and list ids
-     *
-     * {@inheritDoc}
-     *
-     * @param       ids     Set<Id>
-     * @return      assignments list
-     * @see         List<SObject>
-     */
-    public static List<SObject> getTopicAssignments(Set<Id> ids) {
-        try {
-            List<SObject> topicAssignments = [
-                    SELECT Id, NetworkId, TopicId, Topic.Name, EntityId, EntityKeyPrefix
-                    FROM TopicAssignment
-                    WHERE TopicId IN :ids
-                    LIMIT 1000
-            ];
-            return topicAssignments;
-        } catch (Exception e) {System.debug(e.getMessage());return null;}
-    }
-
     /**
      * Returns questions with the best comment and question must exist in array ids
      *
@@ -49,17 +9,17 @@ public with sharing class brFeedItemServiceSelector {
      * @return      questions list
      * @see         List<SObject>
      */
-    public static List<SObject> getQuestionBestComment(Set<Id> ids, Integer limitSql) {
+    public static Integer getQuestionBestComment(Integer limitSql) {
+        Integer questionsCount = 0;
         try {
-            List<SObject> questions = new List<SObject>();
-            questions = [
-                    SELECT id, Title
+            questionsCount = [
+                    SELECT COUNT()
                     FROM FeedItem
-                    WHERE id IN :ids AND BestCommentId != null
-                    ORDER BY CreatedDate DESC
+                    WHERE NetworkScope = :brNetwork.getNetworkId() AND Type='QuestionPost'
+                             AND BestCommentId != null AND Visibility = 'AllUsers'
                     limit :limitSql
             ];
-            return questions;
+            return questionsCount;
         } catch (Exception e) {System.debug(e.getMessage());return null;}
     }
 
@@ -68,17 +28,16 @@ public with sharing class brFeedItemServiceSelector {
      *
      * {@inheritDoc}
      *
-     * @param       ids         Set<Id>
      * @param       limitSql    Integer
      * @return      questions list
      * @see         List<SObject>
      */
-    public static List<SObject> getQuestion(Set<Id> ids, Integer limitSql) {
+    public static List<SObject> getQuestion(Integer limitSql) {
         try {
             List<SObject> questions = [
                     SELECT id, Title
                     FROM FeedItem
-                    WHERE id IN :ids
+                    WHERE NetworkScope = :brNetwork.getNetworkId() AND Type='QuestionPost' AND Visibility = 'AllUsers'
                     ORDER BY CreatedDate DESC
                     limit :limitSql
             ];

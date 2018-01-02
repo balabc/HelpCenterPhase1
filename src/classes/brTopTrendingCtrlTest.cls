@@ -3,7 +3,7 @@ private class brTopTrendingCtrlTest {
 
     static testMethod void TopTrendingTest() {
         CollaborationGroup cg = new CollaborationGroup();
-        cg.Name = 'Test1';
+        cg.Name = 'Test11';
         cg.CollaborationType = 'Public';
         insert cg;
 
@@ -21,10 +21,10 @@ private class brTopTrendingCtrlTest {
         cg4.Name = 'Test4';
         cg4.CollaborationType = 'Public';
         insert cg4;
-
+/*
         Topic top = new Topic();
         top.Name = 'Test';
-        insert top;
+        insert top;*/
 
         Account acc = new Account();
         acc.Name = 'Test';
@@ -33,13 +33,21 @@ private class brTopTrendingCtrlTest {
         FeedItem fi = new FeedItem();
         fi.Title = 'Test';
         fi.Body = 'Test';
-        fi.ParentId = acc.id;
+        fi.ParentId = UserInfo.getUserId();
+        fi.Type = 'QuestionPost';
         insert fi;
 
-        TopicAssignment ta = new TopicAssignment();
+        FeedItem fi2 = new FeedItem();
+        fi2.Body = '<b>Test2</b>';
+        fi2.ParentId = cg.Id;
+        fi2.Type = 'TextPost';
+        fi2.Visibility = 'AllUsers';
+        insert fi2;
+
+/*        TopicAssignment ta = new TopicAssignment();
         ta.TopicId = top.id;
         ta.EntityId = fi.id;
-        insert ta;
+        insert ta;*/
 
         brBlog_article__c ba = new brBlog_article__c();
         ba.Published_Date__c = DateTime.now();
@@ -58,14 +66,14 @@ private class brTopTrendingCtrlTest {
         System.assertEquals(1, brTopTrendingCtrl.getQuestions().size());
         System.assertEquals(1, brTopTrendingCtrl.getBlogArticles().size());
 
-        brTopTrendingCtrl.getGroupPosts('test');
+        brTopTrendingCtrl.getGroupPosts(cg.Id);
 
-        List<User> users = [SELECT id FROM User WHERE Id = '0050O000007Bckb'];
+/*        List<User> users = [SELECT id FROM User WHERE Id = '0050O000007Bckb'];
         System.runAs(users[0]) {
             List<brFeedItemModel> ad = brFeedItemService.getQuestions();
             System.debug('1111111' + ad);
         }
-        Test.stopTest();
+        Test.stopTest();*/
     }
 
 }
