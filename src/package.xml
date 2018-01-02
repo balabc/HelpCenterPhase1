@@ -188,6 +188,7 @@
         <members>brSecurityService</members>
         <members>brFeedItemTest</members>
         <members>brMenuListViewCtrlTest</members>
+        <members>brKnowledgeArticleLayoutCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
