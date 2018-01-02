@@ -15,7 +15,7 @@ private class brLeaderboardCtrlTest {
 
         Test.startTest();
         if (userMembers.size() > 0) {
-            brLeaderboardCtrl.getUserLeaderboard(userMembers[0].NetworkId);
+            brLeaderboardCtrl.getUserLeaderboard();
         }
 
         brUserService.getUserCount(userMembers[0].NetworkId);
