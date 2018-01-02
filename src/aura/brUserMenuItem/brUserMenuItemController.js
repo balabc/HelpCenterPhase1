@@ -22,11 +22,11 @@
                 menuItemFind = 'settings';
             }
             var n = location.indexOf(menuItemFind);
-            location = location.substring(0, n != -1 ? n : location.length);
+            location = location.substring(0, n !== -1 ? n : location.length);
             url = location + url;
         }
 
-        if (menuItem.url == 'profile' || menuItem.url == 'settings') {
+        if (menuItem.url === 'profile' || menuItem.url === 'settings') {
             url += '/' + cmp.get('v.userId');
         } else {
             url = menuItem.url;

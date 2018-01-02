@@ -3,7 +3,7 @@
         helper.getTypeForCurrentUser(cmp);
     },
     hasVotingCurrentUser: function(cmp, event, helper) {
-        if (event.getParam("value") != null) {
+        if (event.getParam("value") !== null) {
             helper.hasVotingCurrentUser(cmp);
         }
     },
@@ -15,7 +15,7 @@
         var reason = cmp.find('reason'),
             reasonValue = reason.get("v.value");
 
-        if (reasonValue == '--None--' || reasonValue == '' || reasonValue == undefined) {
+        if (reasonValue === '--None--' || reasonValue === '' || reasonValue === undefined) {
             reason.set("v.errors", [{message:"Please choose reason!"}]);
         } else {
             reason.set("v.errors", [{message:""}]);

@@ -66,7 +66,7 @@
 		var hasData = component.get("v.hasData"),
             icon = document.getElementById('serp__filter-trigger'),
             class_disabled = 'icon_disabled';
-        if (hasData == 'off') {
+        if (hasData === 'off') {
             if (!icon.classList.contains(class_disabled)) {
             	icon.classList.add(class_disabled);
             }
@@ -86,7 +86,7 @@
             funcFilter = function() {  
             var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
                 
-            if (has_filter == 'true') {
+            if (has_filter === 'true') {
                 var body_classes = document.body.classList,
                     class_is_mobile = 'is-mobile', 
                     class_mobile = 'mobile-search-filter-is-active';
@@ -108,7 +108,7 @@
     toggleMobileFilter: function(component, event, helper) { 
         var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
         
-        if (has_filter == 'true') {
+        if (has_filter === 'true') {
             var body_classes = document.body.classList,
                 class_is_mobile = 'is-mobile', 
                 class_mobile = 'mobile-search-filter-is-active';

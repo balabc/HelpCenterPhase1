@@ -72,13 +72,13 @@
     },
     onRadio: function(component, event) {
         /*var objFilter = component.get('v.brFilter');
-        console.log(objFilter, event);
+       //console.log(objFilter, event);
         objFilter.cm.posted_in = event.getSource().get("v.label");
         component.set("v.brFilter", objFilter);*/
     }, 
     onSelect: function(component, event) {
         /*var objFilter = component.get('v.brFilter'); 
-        console.log(objFilter, event); 
+       //console.log(objFilter, event); 
         objFilter.cm.sorting_index = event.getSource().get("v.value");
         component.set("v.brFilter", objFilter);*/
     },
@@ -95,9 +95,9 @@
             };
         	allChildOff(parent.parentElement);
         component.set("v.currentFilter", currentFilter);
-        parent.setAttribute('data-active', ((active == 'true')? false: true));
+        parent.setAttribute('data-active', ((active === 'true')? false: true));
         
-        if (has_filter == 'true') {
+        if (has_filter === 'true') {
             var body_classes = document.body.classList,
                 class_is_mobile = 'is-mobile', 
                 class_mobile = 'mobile-search-filter-is-active';

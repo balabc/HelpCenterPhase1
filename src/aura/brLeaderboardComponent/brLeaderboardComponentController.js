@@ -57,6 +57,6 @@
         helper.setClickOnUser();
     },
     onClick: function(component, event, helper) {
-        console.log('tests');
+       //console.log('tests');
     }
 })

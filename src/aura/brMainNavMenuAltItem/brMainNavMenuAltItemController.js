@@ -5,14 +5,14 @@
             prevActiveMenuId = cmp.get('v.prevActiveMenuItemId'),
             menuItemId = cmp.get('v.menuItem').id;
 
-        if (menuItemId != prevActiveMenuId) {
+        if (menuItemId !== prevActiveMenuId) {
             Id = menuItemId;
         }
 
-        if ( ((menuItemId == prevActiveMenuId) || prevActiveMenuId == undefined || prevActiveMenuId == '') && window.scrollY == 0) {
+        if ( ((menuItemId === prevActiveMenuId) || prevActiveMenuId === undefined || prevActiveMenuId === '') && window.scrollY === 0) {
             var themeHeader = document.getElementById("themeHeader");
 
-            if (menuItemId == prevActiveMenuId) {
+            if (menuItemId === prevActiveMenuId) {
                 setTimeout( function () {
                     $A.util.toggleClass(themeHeader, "header--make-sticky");
                       }, 750);

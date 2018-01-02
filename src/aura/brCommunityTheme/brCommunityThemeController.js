@@ -7,7 +7,7 @@
             isOpenUserMenu = true;
 
         for (var j = 0; j < userDropDownMenu.classList.length; j++) {
-            if (userDropDownMenu.classList[j] == 'toggle') {
+            if (userDropDownMenu.classList[j] === 'toggle') {
                 isOpenUserMenu = false;
             }
         }
@@ -28,7 +28,7 @@
             }
 
             for (var i = 0; i < allClasses.length; i++) {
-                if (allClasses[i] != className) {
+                if (allClasses[i] !== className) {
                     childExist = false;
                 }
                 else {

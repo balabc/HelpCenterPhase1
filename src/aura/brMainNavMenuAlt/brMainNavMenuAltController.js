@@ -9,11 +9,11 @@
             var header = document.getElementsByClassName(cnHeader)[0],
                 substrate = document.getElementsByClassName(cnSubstrate)[0];
 
-            if ((window.scrollY > 0 || (prevActiveMenuItem != '' && prevActiveMenuItem != undefined && window.scrollY == 0))
-                && header != undefined) {
+            if ((window.scrollY > 0 || (prevActiveMenuItem !== '' && prevActiveMenuItem !== undefined && window.scrollY === 0))
+                && header !== undefined) {
                 header.classList.add(cnHeaderSticky);
             } else {
-                if (substrate != undefined && header != undefined) {
+                if (substrate !== undefined && header !== undefined) {
                     if (!substrate.classList.contains(cnSubstrateActive)){
                         header.classList.remove(cnHeaderSticky);
                     }

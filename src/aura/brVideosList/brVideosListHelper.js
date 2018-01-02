@@ -8,10 +8,10 @@
         if (videoArticles.length <= videosPerPage) {
             cmp.set('v.isPrevious', false);
             cmp.set('v.isNext', false);
-        } else if (currentPageNumber == 1) {
+        } else if (currentPageNumber === 1) {
             cmp.set('v.isPrevious', false);
             cmp.set('v.isNext', true);
-        } else if (currentPageNumber == cmp.get('v.pageNumbers').length){
+        } else if (currentPageNumber === cmp.get('v.pageNumbers').length){
             cmp.set('v.isPrevious', true);
             cmp.set('v.isNext', false);
         } else {

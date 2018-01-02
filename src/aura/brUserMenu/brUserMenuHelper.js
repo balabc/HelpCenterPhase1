@@ -86,7 +86,7 @@
                 var menuItemsJSON = JSON.parse(menuItems);
                 cmp.set('v.menuItems', menuItemsJSON);
             } else if (state === "ERROR") {
-                console.log('callback error: setUserMenuItems in brUserMenu.js');
+               //console.log('callback error: setUserMenuItems in brUserMenu.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {

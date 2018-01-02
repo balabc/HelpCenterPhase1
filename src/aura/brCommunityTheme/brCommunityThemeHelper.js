@@ -8,7 +8,7 @@
 
             if (state === 'SUCCESS') {
                 window.CommunityDataCache.setData('userInfo', resVal);
-                console.log(window.CommunityDataCache.getData('userInfo'));
+               //console.log(window.CommunityDataCache.getData('userInfo'));
             }
         });
 

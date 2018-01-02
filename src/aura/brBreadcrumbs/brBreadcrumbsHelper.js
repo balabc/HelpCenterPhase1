@@ -48,7 +48,7 @@
             });
             $A.enqueueAction(action);
         }catch(e){
-            console.error('tryE:', e);
+           //console.error('tryE:', e);
         }
     },
     toggleCrumbs: function(component) {
@@ -67,7 +67,7 @@
             //var isOutside = (crumbList[0].classList.contains('breadcrumbs__dropdown-trigger-text--active'))?"false":"true";
             //component.set("v.isOutside", isOpen);
         }catch(e){
-            console.log('toggleCrumbs tryE:', e);
+           //console.log('toggleCrumbs tryE:', e);
         }
     },
     closeCrumbs: function(component) {
@@ -84,7 +84,7 @@
             component.set("v.isOpen", isOpen);
             component.set('v.isOutside','true');
         }catch(e){
-            console.log('mouseOutListener tryE:', e);
+           //console.log('mouseOutListener tryE:', e);
         }
     },
     mouseOutListener: function(component) {
@@ -93,15 +93,15 @@
             /*
             var crumbList = document.getElementsByClassName('crumbs-catch-me');//NOTE:possible dinamicID for elements of component
             for(var i=0;crumbList.length>i;i++){
-                console.log('crumbs Class iteration');
+               //console.log('crumbs Class iteration');
                 crumbList[i].addEventListener("mouseleave", function( event ) {
-                 console.log('crumbListCatch LEAVE');
+                //console.log('crumbListCatch LEAVE');
                 }, false);
             }
-            console.log('crumbListCatchAFTER loop');
+           //console.log('crumbListCatchAFTER loop');
             */
             var cmpThis = this;
-            if(typeof crumbs != 'undefined'){
+            if(typeof crumbs !== 'undefined'){
                 crumbs.getElement().addEventListener("mouseleave", function( event ) {
                     component.set('v.isOutside','true');
                 }, false);
@@ -109,7 +109,7 @@
                     component.set('v.isOutside','false');
                 }, false);
             }else{
-                console.log('crumbs FAILED to initListeners');
+               //console.log('crumbs FAILED to initListeners');
             }
             window.addEventListener("click", function( event ) {
                 try{
@@ -117,17 +117,17 @@
                     var isOpen = component.get('v.isOpen');
                     var isOutside = component.get('v.isOutside');
                     //console.log('crumbs Click isOpen: ', isOpen, ' isOutside:', isOutside, ' isInternalClick:', isInternalClick);
-                    if(isOpen == 'true' && isOutside == 'true' && isInternalClick == 'false'){
+                    if(isOpen === 'true' && isOutside === 'true' && isInternalClick === 'false'){
                         cmpThis.closeCrumbs(component);
                     }
                     component.set('v.isInternalClick','false');
                 }catch(e){
-                    console.log('crumbs mouseListener tryE:', e);
+                   //console.log('crumbs mouseListener tryE:', e);
                 }
             }, false);
 
         }catch(e){
-            console.log('mouseOutListener tryE:', e);
+           //console.log('mouseOutListener tryE:', e);
         }
     }
 })

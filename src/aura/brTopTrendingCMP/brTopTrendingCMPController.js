@@ -14,7 +14,7 @@
         helper.getData(component, 'v.idListGroup', 'c.getChatterGroupListId', false);
 	},
     navigateTosObject : function (component, event, helper) {
-        console.log(event);
+       //console.log(event);
         var target = event.target.closest('li'),
             id = target.getAttribute('data-id'),
             navEvt = $A.get("e.force:navigateToSObject");

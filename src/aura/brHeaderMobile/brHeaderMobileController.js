@@ -1,6 +1,6 @@
 ({
     doInit: function (cmp, event) {
-        if ($A.get("$Browser.formFactor") == 'PHONE') {
+        if ($A.get("$Browser.formFactor") === 'PHONE') {
             window.onscroll = function () {
                 var mobileHeader = cmp.find('header-mobile').getElement();
 

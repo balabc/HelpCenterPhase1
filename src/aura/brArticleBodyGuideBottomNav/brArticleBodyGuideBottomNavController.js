@@ -1,6 +1,6 @@
 ({
     doInit: function (component, event, helper) {
-        console.log(component.get('v.article'));
+       //console.log(component.get('v.article'));
         helper.getData(component, 'v.listArticles', 'c.getListArticleInCurrentCategory', {
             articleId: component.get('v.article').id
         });
@@ -29,7 +29,7 @@
         }
         component.set('v.prevArticle', prev);
         component.set('v.nextArticle', next);
-        console.log(list.length, find_i, prev, next);
+       //console.log(list.length, find_i, prev, next);
     },
     onClick: function (component, event, helper) {
         var navEvt = $A.get("e.force:navigateToSObject"),

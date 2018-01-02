@@ -24,7 +24,7 @@
                     i = 0,
                     docNavTriggersLength = docNavTriggers.length - 1;
 
-                console.log(docNavTriggersLength);
+               //console.log(docNavTriggersLength);
 
                 while (i <= docNavTriggersLength) {
                     docNavTriggers[i].addEventListener('click', events.toggleList, false);
