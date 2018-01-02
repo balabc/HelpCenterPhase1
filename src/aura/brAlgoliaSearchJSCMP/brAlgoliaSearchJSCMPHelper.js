@@ -1,6 +1,8 @@
 ({
     getApiKey: function(component) {
         var action = component.get("c.getApiKey");
+        action.setStorable();
+
         action.setCallback(this, function(response) {
             var state = response.getState(),
                 data, client

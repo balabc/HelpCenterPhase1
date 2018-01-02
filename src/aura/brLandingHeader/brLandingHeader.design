@@ -1,3 +1,4 @@
 <design:component>
     <design:attribute name="title" label="Title"/>
+    <design:attribute name="backgroundImageEnabled" label="Use background image"/>
 </design:component>
