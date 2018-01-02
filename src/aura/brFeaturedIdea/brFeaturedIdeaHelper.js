@@ -44,7 +44,7 @@
             $A.enqueueAction(action);
 
         }catch(e){
-            console.log('tryE:', e);
+           //console.log('tryE:', e);
         }
     }
 })

@@ -21,7 +21,7 @@
                 var host = window.location.host;
                 component.set('v.loginURL', 'https://' + host + communityPrefix + '/s/login/');
             }catch(ee){
-                console.log('tryE:', ee);
+               //console.log('tryE:', ee);
             }
 	        //console.log('communityPrefix:'+communityPrefix);
 	    }

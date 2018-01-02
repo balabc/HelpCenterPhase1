@@ -7,8 +7,8 @@
 
         $A.util.toggleClass(arrow, "nav-arrow--up");
 
-        if (window.scrollY == 0) {
-            if (arrow.getElement().className == 'header__nav-arrow nav-arrow') {
+        if (window.scrollY === 0) {
+            if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
                 $A.util.toggleClass(themeHeader, "header--make-sticky");
             } else {
                 setTimeout( function () {
@@ -17,7 +17,7 @@
             }
         }
 
-        if (arrow.getElement().className == 'header__nav-arrow nav-arrow') {
+        if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
             $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
             window.setTimeout(
                 $A.getCallback(function () {

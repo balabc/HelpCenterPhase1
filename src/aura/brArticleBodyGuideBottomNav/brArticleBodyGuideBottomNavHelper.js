@@ -8,7 +8,7 @@
                 data;
             if (state === "SUCCESS") {
                 data = response.getReturnValue();
-                console.log(data);
+               //console.log(data);
                 component.set(outVar, data);
             }
         });

@@ -4,7 +4,7 @@
             body_classes = document.body.classList,
             class_is_mobile = 'is-mobile', 
             class_mobile = 'mobile-menu-is-active';
-        if (isActive == 'true') {
+        if (isActive === 'true') {
             if (body_classes.contains(class_mobile)) {
                 body_classes.remove(class_mobile);
             }

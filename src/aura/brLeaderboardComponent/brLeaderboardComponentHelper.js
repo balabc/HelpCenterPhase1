@@ -8,7 +8,7 @@
                 data;
             if (state === "SUCCESS") {
                 data = response.getReturnValue();
-                console.log(data);
+               //console.log(data);
                 component.set(outVar, data);
             }
         });
@@ -62,7 +62,7 @@
         }
     },
     getDataIdFromEvent: function(el) {
-        if (el.getAttribute('data-id') != null) {
+        if (el.getAttribute('data-id') !== null) {
             return el;
         } else {
             if (!!el.parentElement) {

@@ -13,7 +13,7 @@
                     cmp.set('v.feedbackMessage', "Thanks for your feedback!");
                 }
             } else if (state === "ERROR") {
-                console.error('callback error: hasVotingCurrentUser in brArticleFeedbackHelper.js');
+               //console.error('callback error: hasVotingCurrentUser in brArticleFeedbackHelper.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {
@@ -49,7 +49,7 @@
             if (state === 'SUCCESS') {
                 cmp.set('v.reasons', reasons);
             } else if (state === "ERROR") {
-                console.log('callback error: getReasons in brArticleFeedbackHelper.js');
+               //console.log('callback error: getReasons in brArticleFeedbackHelper.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {
@@ -86,7 +86,7 @@
             if (state === 'SUCCESS') {
                cmp.set('v.feedbackMessage', "Thanks for your feedback!");
             } else if (state === "ERROR") {
-                console.log('callback error: addVoteUp in brArticleFeedbackHelper.js');
+               //console.log('callback error: addVoteUp in brArticleFeedbackHelper.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {
@@ -127,7 +127,7 @@
             if (state === 'SUCCESS') {
                 cmp.set('v.feedbackMessage', "Thanks for your feedback!");
             } else if (state === "ERROR") {
-                console.log('callback error: addVoteUp in brArticleFeedbackHelper.js');
+               //console.log('callback error: addVoteUp in brArticleFeedbackHelper.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {
@@ -163,7 +163,7 @@
             if (state === 'SUCCESS') {
                 cmp.set('v.userType', type);
             } else if (state === "ERROR") {
-                console.log('callback error: getUserType in brUserMenu.js');
+               //console.log('callback error: getUserType in brUserMenu.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {

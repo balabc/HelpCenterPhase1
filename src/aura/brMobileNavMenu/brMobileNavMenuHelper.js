@@ -19,7 +19,7 @@
         objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
         locationPage = locationPage.replace(objSfdcSite + '/s', '').replace('/login', '').replace('/profile/', '');
 
-        console.log(locationPage);
+       //console.log(locationPage);
         
         
         if (items.length > 0) {

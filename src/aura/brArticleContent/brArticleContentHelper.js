@@ -11,7 +11,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var data = response.getReturnValue();
-                console.log(data);
+               //console.log(data);
                 component.set("v.articleType", data.articleType);
                 component.set("v.dataCategory", data.dataCategory);
                 

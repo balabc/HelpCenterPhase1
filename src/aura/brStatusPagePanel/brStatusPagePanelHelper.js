@@ -31,22 +31,22 @@
               if (xmlHttp.readyState === 4) {
                 if (xmlHttp.status === 200) {
                     var messageObject = JSON.parse(xmlHttp.responseText);
-                    if(xmlHttp.status == 200){
+                    if(xmlHttp.status === 200){
                         component.set('v.statusMessage', messageObject['status']['description']);
                         component.set('v.statusIndicator', messageObject['status']['indicator']);
                         component.set('v.minutesSinceRefresh', 0);//restart count
                     }
                 } else {
-                  console.error(xmlHttp.statusText);
+                 //console.error(xmlHttp.statusText);
                 }
               }
             };
             xmlHttp.onerror = function (e) {
-              console.error(xmlHttp.statusText);
+             //console.error(xmlHttp.statusText);
             };
             xmlHttp.send( null );
         }catch(e){
-            console.error('StatusPagePanel-checkPageStatus::', e);
+           //console.error('StatusPagePanel-checkPageStatus::', e);
         }
     },
     timeInc : function(component){

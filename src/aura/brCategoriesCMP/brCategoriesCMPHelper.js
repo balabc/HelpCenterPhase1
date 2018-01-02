@@ -14,7 +14,7 @@
             var state = response.getState();
             if (component.isValid() && state === "SUCCESS") {
                 var data = response.getReturnValue();
-                console.log(data);
+               //console.log(data);
             }
         });
         $A.enqueueAction(action);
@@ -29,11 +29,11 @@
         if (!!url) {
             url = url.split('/');
             url = url[url.length - 1];
-            console.log(url);
+           //console.log(url);
         }
 
         if (!!selectId) { 
-            console.log(selectId, articleType, dataCategoryName);
+           //console.log(selectId, articleType, dataCategoryName);
             action.setParams({
                 url: url,
                 selectId : selectId,
@@ -52,10 +52,10 @@
             var state = response.getState();
             if (component.isValid() && state === "SUCCESS") {
                 var data = response.getReturnValue();
-                console.log(data);
+               //console.log(data);
                 component.set("v.items", data);
             } else {
-                console.log(response);
+               //console.log(response);
             }
         });
         $A.enqueueAction(action);

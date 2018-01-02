@@ -17,7 +17,7 @@
         var data = component.get("v.data");
         if (!!data) {
             if (data.hasOwnProperty('id')) {
-                console.log(data);
+               //console.log(data);
 
                 component.set('v.selectedArticleId', data.id);
 
@@ -38,7 +38,7 @@
                     items.item(i).classList.remove('active');
                 }
             };  
-        if (active != 'true') {
+        if (active !== 'true') {
             allChildOff(parent);
             
             parent.setAttribute('data-active', true);
@@ -47,7 +47,7 @@
             parent.setAttribute('data-active', false);
             parent.classList.remove('active');
         }
-        //parent.setAttribute('data-active', ((active == 'true')? false: true));
+        //parent.setAttribute('data-active', ((active === 'true')? false: true));
     },
     clickElement: function(component, event, helper) {    
         var parent = event.target.parentElement,
@@ -60,7 +60,7 @@
             items.item(i).classList.remove('active'); 
         }
         
-        if (active != 'true') {
+        if (active !== 'true') {
             parent.setAttribute('data-active', true);
             parent.classList.add('active');
         } else {

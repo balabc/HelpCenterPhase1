@@ -8,7 +8,7 @@
                 dropdown = cmp.find('dropdown'),
                 isOpenSubmenu = false;
 
-            if (dropdown.getElement() != null) {
+            if (dropdown.getElement() !== null) {
                 isOpenSubmenu = dropdown.getElement().classList.contains('header__dropdown-menu--active');
             }
 
@@ -16,10 +16,10 @@
                 substrate = document.getElementsByClassName(cnSubstrate)[0];
 
             if ((window.scrollY > 0 || isOpenSubmenu)
-                && header != undefined) {
+                && header !== undefined) {
                 header.classList.add(cnHeaderSticky);
             } else {
-                if (substrate != undefined && header != undefined) {
+                if (substrate !== undefined && header !== undefined) {
                     if (!substrate.classList.contains(cnSubstrateActive)){
                         header.classList.remove(cnHeaderSticky);
                     }
@@ -34,7 +34,7 @@
             //console.log('menuItems',sss);
             //var exitingURL = event.target.dataset.url;
             //if(exitingURL){
-            //    console.log('Menu Category - using exiting URL' + exitingURL);
+            //   //console.log('Menu Category - using exiting URL' + exitingURL);
             //    var urlEvent = $A.get("e.force:navigateToURL");
             //    urlEvent.setParams({
             //      "url": exitingURL
@@ -87,7 +87,7 @@
                 }
             //}
         }catch(e){
-            console.log('tryE:', e);
+           //console.log('tryE:', e);
         }
     },
     onClick : function(cmp, event) {
