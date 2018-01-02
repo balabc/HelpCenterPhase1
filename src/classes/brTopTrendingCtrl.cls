@@ -68,18 +68,31 @@ public with sharing class brTopTrendingCtrl {
     }
 
     @AuraEnabled
-    public static List<FeedItem> getGroupPosts(String id) {
+    public static List<brFeedItemModel> getGroupPosts(String id) {
         brSecurityService.performAccessCheck('read', 'FeedItem', new List<String>{'ParentId','CreatedDate'});
+        List<brFeedItemModel> feedItemModels = new List<brFeedItemModel>();
+        Pattern titlePattern = Pattern.compile('<b>(.*?)</b>');
 
         try {
-            return [
-                    SELECT Id, Body
-                    FROM FeedItem
-                    WHERE ParentId = :id
-                    ORDER BY CreatedDate
-                            DESC
-                    LIMIT 4
-            ];
+            for (FeedItem feedItem: [SELECT Id, Body, Type FROM FeedItem
+                                        WHERE ParentId = :id AND Visibility = 'AllUsers'
+                                            AND Type='TextPost' ORDER BY Type DESC LIMIT 4]) {
+                Matcher m;
+                try {
+                    m = titlePattern.matcher(feedItem.Body);
+
+                    if (m.find()) {
+                        brFeedItemModel feedItemModel = new brFeedItemModel();
+                        feedItemModel.id = feedItem.Id;
+                        feedItemModel.name = m.group(1);
+                        feedItemModels.add(feedItemModel);
+                    }
+                } catch (Exception e) {
+                    System.debug(e.getMessage());
+                    return feedItemModels;
+                }
+            }
+            return feedItemModels;
         } catch (Exception e) {
             System.debug(e.getMessage());
             return null;

@@ -64,8 +64,8 @@
                         <ul class="list-group">
                             <aura:if isTrue="{!v.isShowGroupPosts}">
                                 <aura:iteration items="{!v.listGroupPosts}" var="post">
-                                    <li id="posts" class="list-group__item" data-id="{!post.Id}" onclick="{!c.navigateTosObject}">
-                                        <a>Quisque cursus</a>
+                                    <li id="posts" class="list-group__item" data-id="{!post.id}" onclick="{!c.navigateTosObject}">
+                                        <a>{!post.name}</a>
                                     </li>
                                 </aura:iteration>
                                 <aura:set attribute="else">
