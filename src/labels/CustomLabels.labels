@@ -505,7 +505,15 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Has Answer</shortDescription>
-        <value>Has Answer</value>
+        <value>With Best Answers</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchHasNullAnswer</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch With No Best Answer</shortDescription>
+        <value>With No Best Answer</value>
     </labels>
     <labels>
         <fullName>fieldAlgoliaSearchInBeta</fullName>
@@ -538,6 +546,22 @@
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Is Merged</shortDescription>
         <value>Merged Ideas</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchIsNoFilterMerged</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch All Ideas</shortDescription>
+        <value>All Ideas</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchIsNullMerged</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Non-Merged Ideas</shortDescription>
+        <value>Non-Merged Ideas</value>
     </labels>
     <labels>
         <fullName>fieldAlgoliaSearchLatestPosts</fullName>
@@ -668,6 +692,22 @@
         <value>Videos</value>
     </labels>
     <labels>
+        <fullName>fieldAlgoliaSearchWithComments</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch With Comments</shortDescription>
+        <value>With Comments</value>
+    </labels>
+    <labels>
+        <fullName>fieldAlgoliaSearchWithoutComments</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch Without Comments</shortDescription>
+        <value>Without Comments</value>
+    </labels>
+    <labels>
         <fullName>fieldArticleName</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -777,7 +817,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Has Answer</shortDescription>
-        <value>Has Answer</value>
+        <value>Show posts</value>
     </labels>
     <labels>
         <fullName>hAlgoliaSearchIdeas</fullName>
@@ -801,7 +841,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Merged Ideas</shortDescription>
-        <value>Merged Ideas</value>
+        <value>Show</value>
     </labels>
     <labels>
         <fullName>hAlgoliaSearchPostType</fullName>
@@ -833,7 +873,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Sorting Index</shortDescription>
-        <value>Sorting Index</value>
+        <value>Sort By</value>
     </labels>
     <labels>
         <fullName>hAlgoliaSearchType</fullName>
@@ -841,7 +881,15 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>AlgoliaSearch Type</shortDescription>
-        <value>Type</value>
+        <value>Results from</value>
+    </labels>
+    <labels>
+        <fullName>hAlgoliaSearchWithStatus</fullName>
+        <categories>AlgoliaSearch</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AlgoliaSearch With status</shortDescription>
+        <value>With status</value>
     </labels>
     <labels>
         <fullName>hAllChapters</fullName>
@@ -894,6 +942,14 @@
         <protected>false</protected>
         <shortDescription>hCommonQuestions</shortDescription>
         <value>Common Questions</value>
+    </labels>
+    <labels>
+        <fullName>hCommunityFLSAccess</fullName>
+        <categories>Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hCommunityFLSAccess</shortDescription>
+        <value>You don&apos;t have access to this record. Ask your administrator for help.</value>
     </labels>
     <labels>
         <fullName>hCommunityQA</fullName>
@@ -1060,6 +1116,14 @@
         <protected>false</protected>
         <shortDescription>hSystemStatus</shortDescription>
         <value>System Status</value>
+    </labels>
+    <labels>
+        <fullName>hUnknownError</fullName>
+        <categories>Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>hUnknownError</shortDescription>
+        <value>Unknown error</value>
     </labels>
     <labels>
         <fullName>hUserDocs</fullName>
@@ -1945,22 +2009,6 @@
         <protected>false</protected>
         <shortDescription>Ideas points</shortDescription>
         <value>points</value>
-    </labels>
-	<labels>
-        <fullName>hCommunityFLSAccess</fullName>
-        <categories>Community</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hCommunityFLSAccess</shortDescription>
-        <value>You don't have access to this record. Ask your administrator for help.</value>
-    </labels>
-    <labels>
-        <fullName>hUnknownError</fullName>
-        <categories>Community</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>hUnknownError</shortDescription>
-        <value>Unknown error</value>
     </labels>
     <labels>
         <fullName>test</fullName>
