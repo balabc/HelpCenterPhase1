@@ -1,4 +1,4 @@
-public with sharing class brFeedItemServiceSelector {
+public without sharing class brFeedItemServiceSelector {
     /**
      * Returns questions with the best comment and question must exist in array ids
      *

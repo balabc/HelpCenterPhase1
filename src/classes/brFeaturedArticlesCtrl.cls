@@ -13,7 +13,7 @@ public with sharing class brFeaturedArticlesCtrl {
     @AuraEnabled
     public static List<Public__kav> getArticles(Integer countArticles) {
         brSecurityService.performAccessCheck('read', 'Public__kav', new List<String>{'ArticleNumber','ArticleTotalViewCount',
-            'KnowledgeArticleId','Title','UrlName','IsLatestVersion','PublishStatus','IsVisibleInPkb'});
+            'KnowledgeArticleId','Title','UrlName','PublishStatus'});
 
         List<Public__kav> kArticles = new List<Public__kav>();
 

@@ -14,7 +14,7 @@ public with sharing class brCommunitySpotlightService {
         brSecurityService.performAccessCheck('read', 'User', new List<String>{'Name'});
         brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{'MemberId','ReputationPoints','NetworkId'});
         brSecurityService.performAccessCheck('read', 'User', new List<String>{'FullPhotoUrl','SmallPhotoUrl','MediumPhotoUrl','Name'});
-        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','LevelNumber','Threshold','ParentId'});
+        //brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','LevelNumber','Threshold','ParentId'});
         brSecurityService.performAccessCheck('read', 'ChatterActivity', new List<String>{'PostCount','ParentId','NetworkId'});
         brSecurityService.performAccessCheck('read', 'ChatterActivity', new List<String>{'CommentCount','ParentId','NetworkId'});
         brSecurityService.performAccessCheck('read', 'ChatterActivity', new List<String>{'LikeReceivedCount','ParentId','NetworkId'});

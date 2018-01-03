@@ -63,15 +63,15 @@ public with sharing class brUserService {
         brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{
                 'MemberId', 'ReputationPoints', 'NetworkId'
         });
-        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{
+/*        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{
                 'Label', 'LevelNumber', 'Threshold', 'ParentId'
-        });
+        });*/
         brSecurityService.performAccessCheck('read', 'User', new List<String>{
                 'FullPhotoUrl', 'SmallPhotoUrl', 'MediumPhotoUrl', 'Name'
         });
-        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{
+/*        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{
                 'Label', 'LevelNumber', 'Threshold', 'ParentId'
-        });
+        });*/
 
         List<brLeaderboardModel> leaderboardModels = new List<brLeaderboardModel>();
         List<NetworkMember> userMembers = brUserServiceSelector.getUserMembers(communityId, 5);

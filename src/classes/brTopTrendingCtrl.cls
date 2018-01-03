@@ -1,4 +1,4 @@
-public with sharing class brTopTrendingCtrl {
+public without sharing class brTopTrendingCtrl {
 
     /**
      * Returns id chatter group list

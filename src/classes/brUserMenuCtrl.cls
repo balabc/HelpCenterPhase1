@@ -59,7 +59,7 @@ public with sharing class brUserMenuCtrl {
 
     @AuraEnabled
     public static String getUserReputationLevel() {
-        brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','Threshold','ParentId'});
+        //brSecurityService.performAccessCheck('read', 'ReputationLevel', new List<String>{'Label','Threshold','ParentId'});
 
         Decimal reputationPoints = brUserMenuCtrl.getUserReputationPoints();
         String reputationLevel = '';

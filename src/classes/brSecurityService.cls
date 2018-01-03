@@ -19,6 +19,7 @@ public with sharing class brSecurityService {
                 Map<String, SObjectField> fields = objectDescribe.fields.getMap();
                 for (String fieldName: fieldNames) {
                     if(!fields.get(fieldName).getDescribe().isAccessible()){
+                        System.debug(fieldName);
                         throw new AuraHandledException('access_error');
                     }
                 }
