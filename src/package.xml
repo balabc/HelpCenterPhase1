@@ -242,6 +242,7 @@
         <members>BR_Events_Zone__c</members>
         <members>BR_Participation__c</members>
         <members>BrEvents_Settings__c</members>
+        <members>Town_Hall__kav</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -296,6 +297,17 @@
     <types>
         <members>Admin</members>
         <name>Profile</name>
+    </types>
+    <types>
+        <members>Community_Customer</members>
+        <members>Community_Guest</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Guides</members>
+        <members>Public</members>
+        <members>Videos</members>
+        <name>DataCategoryGroup</name>
     </types>
     <version>41.0</version>
 </Package>
