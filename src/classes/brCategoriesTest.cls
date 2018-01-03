@@ -45,15 +45,15 @@ private class brCategoriesTest {
         brCategoriesController.getCatalog(article.id, 'Learning__kav', tempCat.DataCategoryGroupName, gdList[0].UrlName);
         brCategoriesController.getCatalog(article2.id, 'Public__kav', tempCat1.DataCategoryGroupName, pubList[0].UrlName);
         brCategoriesCatalogServiceSelector.getArticleCategories('test');
-        brCategorySeviceSelector.getCategories('Inventory_management');
-        brCategorySeviceSelector.getFirstCategories('Inventory_management');
-        brCategorySeviceSelector.getSubCategories('Inventory_management');
-        brCategorySeviceSelector.getCategories('Payments');
-        brCategorySeviceSelector.getFirstCategories('Payments');
-        brCategorySeviceSelector.getSubCategories('Payments');
-        brCategorySeviceSelector.getCategories('Live_Chat');
-        brCategorySeviceSelector.getFirstCategories('Live_Chat');
-        brCategorySeviceSelector.getSubCategories('Live_Chat');
+        brCategoryServiceSelector.getCategories('Inventory_management');
+        brCategoryServiceSelector.getFirstCategories('Inventory_management');
+        brCategoryServiceSelector.getSubCategories('Inventory_management');
+        brCategoryServiceSelector.getCategories('Payments');
+        brCategoryServiceSelector.getFirstCategories('Payments');
+        brCategoryServiceSelector.getSubCategories('Payments');
+        brCategoryServiceSelector.getCategories('Live_Chat');
+        brCategoryServiceSelector.getFirstCategories('Live_Chat');
+        brCategoryServiceSelector.getSubCategories('Live_Chat');
         Test.stopTest();
     }
 

@@ -72,6 +72,7 @@ public with sharing class brBreadcrumbsCtrl {
         String pathname = '';
         String baseURL = '';
         fullurl = fullurl.replace('#myideas', '');
+        fullurl = fullurl.replace('#list', '');
 
         if (fullurl.contains('/s/') ) {
             pathname = '/' + fullurl.substringAfter('/s/');
@@ -284,7 +285,9 @@ public with sharing class brBreadcrumbsCtrl {
     }
 
     public static String getNavigationLinkSetId(){
-        return [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId()].Id;
+        if(Test.isRunningTest()) return [SELECT Id FROM NavigationLinkSet LIMIT 1].Id;
+
+        return [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :brNetwork.getNetworkId() LIMIT 1].Id;
     }
 
 }

@@ -79,7 +79,7 @@ private class brCategoriesAssigneeCtrlTest {
 
         Integer numberAfterUpdate = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
         brIdeasCategoriesAssignment__c updatedRecord = [SELECT Categories__c
-        FROM brIdeasCategoriesAssignment__c
+        FROM brIdeasCategoriesAssignment__c WHERE User__c = :initialRecord.User__c
         LIMIT 1];
 
         controller.createUsername = 'unittest2@UserCategoriesAssignmentControllerTest.com';

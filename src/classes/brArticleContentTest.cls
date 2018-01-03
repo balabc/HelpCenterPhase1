@@ -62,7 +62,7 @@ private class brArticleContentTest {
         brArticleContentServiceSelector.getAllArticleByArticleType('test');
         brArticleContentServiceSelector.getArticleListByDataCategory('test', new List<String>());
 
-        brArticleTypeSelectorCtrl.getArticleTypeByRecordId(article.id);
+        //brArticleTypeSelectorCtrl.getArticleTypeByRecordId(article.id);
 
         Test.stopTest();
     }
