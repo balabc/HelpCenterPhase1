@@ -65,11 +65,14 @@ public with sharing class brBreadcrumbsCtrl {
      */
     @AuraEnabled
     public static BreadCrumbsData getBreadCrumbsData( String fullurl, String recordId) {
+        System.debug(recordId);
         String tmpOutput = '';
         BreadCrumbsData breadCrumbsData = new BreadCrumbsData();
 
         String pathname = '';
         String baseURL = '';
+        fullurl = fullurl.replace('#myideas', '');
+
         if (fullurl.contains('/s/') ) {
             pathname = '/' + fullurl.substringAfter('/s/');
 
