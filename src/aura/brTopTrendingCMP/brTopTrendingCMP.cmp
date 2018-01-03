@@ -50,7 +50,7 @@
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="javascript:void(0);" class="link">{!$Label.c.br_View_more}</a>
+                        <a href="javascript:void(0);" class="link" data-url="/qa" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->
@@ -79,7 +79,12 @@
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="javascript:void(0);" class="link" data-url="/blog" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
+                        <aura:if isTrue="{!v.isShowGroupPosts}">
+                            <a href="javascript:void(0);" class="link" data-id="{!v.groupId}" onclick="{!c.navigateToGroup}">{!$Label.c.br_View_more}</a>
+                            <aura:set attribute="else">
+                                <a href="javascript:void(0);" class="link" data-url="/blog" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
+                            </aura:set>
+                        </aura:if>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->

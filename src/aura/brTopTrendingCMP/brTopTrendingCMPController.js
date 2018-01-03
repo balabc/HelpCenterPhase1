@@ -43,5 +43,14 @@
         });
         navEvent.fire();
         
+    },
+    navigateToGroup : function (component, event, helper) {
+        var target = event.target,
+            id = target.getAttribute('data-id'),
+            navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+            "recordId": id
+        });
+        navEvt.fire();
     }
 })
