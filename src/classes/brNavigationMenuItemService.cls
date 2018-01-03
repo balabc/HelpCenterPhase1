@@ -130,6 +130,12 @@ public with sharing class brNavigationMenuItemService {
                         modelSub.type = item2.type;
                         modelSub.parentId = item.id;
 
+                        if (modelSub.target == 'CollaborationGroup') {
+                            modelSub.type = 'navigateToList';
+                            List<ListView> listviews = [SELECT id FROM ListView WHERE SobjectType  = :modelSub.target LIMIT 1];
+                            modelSub.id = listviews[0].id;
+                        }
+
                         for (brCommunity_Menu_Map__mdt metaDataItem : metaData) {
                             if (metaDataItem.Menu_Target__c == item2.target) {
                                 if (!String.isEmpty(metaDataItem.Data_Category_Group__c)) {

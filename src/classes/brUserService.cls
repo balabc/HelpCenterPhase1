@@ -22,6 +22,7 @@ public with sharing class brUserService {
             lbm.id = users[0].id;
             lbm.name = users[0].Name;
             lbm.photoUrl = users[0].SmallPhotoUrl;
+            lbm.logUser = (UserInfo.getUserType() == 'Guest')? false: true;
         }
         return lbm;
     }

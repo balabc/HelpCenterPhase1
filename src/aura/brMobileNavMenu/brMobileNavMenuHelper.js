@@ -44,7 +44,8 @@
             
             
             if (user) {
-                if (user.id !== '0050O000007BckbQAC') {
+                console.log('user: ',user);
+                if (user.logUser === true) {
                     items.pop();
                     items.push({
                         id: 'user', 
@@ -60,6 +61,9 @@
             
             
             if (locationPage.length > 1) {
+                if (locationPage.indexOf('CollaborationGroup') > -1) {
+                    locationPage = 'CollaborationGroup';
+                }
                 var menuItems = this.getCurrentLvl(items, locationPage, 'target');
                 //console.log(items, menuItems);
                 if (!!menuItems.obj) {
@@ -210,7 +214,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {  
                 var items = response.getReturnValue();
-                //console.log(items);
+                console.log(items);
                 this.getUserInfo(component, items);
             }
         });
