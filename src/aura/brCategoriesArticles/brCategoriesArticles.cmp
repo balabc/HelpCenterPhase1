@@ -1,0 +1,17 @@
+<aura:component description="brCategoriesArticles" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="classLi" type="String"/>
+    <aura:attribute name="classA" type="String"/>
+    <aura:attribute name="article" type="Map"/>
+    <aura:attribute name="routeInput" type="Map"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:registerEvent name="brCategoriesToggleEventHandler" type="c:brCategoriesToggleEvent"/>
+
+    <li id="{!'brCategoriesArticles_' + v.article.id}" class="{!v.classLi}" data-id="{!v.article.id}" data-active="{!v.article.active}">
+        <forceCommunity:routeLink class="{!v.classA}" title="{!v.article.title}" label="{!v.article.title}" routeInput="{!v.routeInput}" onClick="{!c.clickElement}"/>
+        <aura:if isTrue="{!v.article.articleSections != undefined}">
+            <aura:unescapedHtml value="{!v.article.articleSections}"/>
+        </aura:if>
+    </li>
+</aura:component>

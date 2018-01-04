@@ -29,6 +29,8 @@
         <members>brMainNavMenuAltItem</members>
         <members>brPrevActiveMenuItemEvent</members>
         <members>brCategoriesCMP</members>
+		<members>brCategoriesToggleEvent </members>
+		<members>brCategoriesArticles</members>
         <members>brMobileNavMenuItem</members>
         <members>brMobileNavMenuItemEvent</members>
         <members>brMobileNavMenuItemStatic</members>

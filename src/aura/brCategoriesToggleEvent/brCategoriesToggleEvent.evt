@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="brCategoriesToggleEvent">
+    <aura:attribute name="idRow" type="String" required="true" />
+</aura:event>
