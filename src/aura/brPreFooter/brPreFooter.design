@@ -1,4 +1,4 @@
-<design:component>
+<design:component label="Pre Footer">
     <design:attribute name="title" label="Title" description="title for pre footer" />
     <design:attribute name="description" label="Description" description="description for pre footer" />
     <design:attribute name="textButton" label="Text for button" description="text for button" />

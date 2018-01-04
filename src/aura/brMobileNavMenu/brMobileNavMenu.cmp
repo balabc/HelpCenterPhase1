@@ -1,4 +1,4 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" controller="brMobileNavMenuCtrl">
+<aura:component controller="brMobileNavMenuCtrl">
     <aura:attribute name="menuIds" type="List"/>
     <aura:attribute name="menuItems" type="List"/>
     <aura:attribute name="menuList" type="List"/>

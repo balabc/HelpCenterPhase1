@@ -1,4 +1,5 @@
-<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" controller="brBreadcrumbsCtrl">
+<aura:component extends="forceCommunity:navigationMenuBase" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+                controller="brBreadcrumbsCtrl" access="global">
 
     <aura:attribute name="isInternalClick" type="String" default="false"/>
     <aura:attribute name="isOutside" type="String" default="true"/>

@@ -1,4 +1,4 @@
-<design:component >
+<design:component label="Community Spotlight">
     <design:attribute name="curId" label="Id"/>
 
     <design:attribute name="currentTitle" label="Title"/>

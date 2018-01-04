@@ -1,4 +1,4 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" controller="brCategoriesController">
+<aura:component controller="brCategoriesController">
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="selectedArticleId" type="String"/>
     <aura:attribute name="items" type="List"/> 

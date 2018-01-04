@@ -1,3 +1,3 @@
-<design:component>
+<design:component label="Featured Articles">
     <design:attribute name="articlesCount" label="Number of articles" description="show limited number of featured articles" />
 </design:component>

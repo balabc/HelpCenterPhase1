@@ -1,4 +1,4 @@
-<aura:component description="brCategoriesArticles" implements="forceCommunity:availableForAllPageTypes">
+<aura:component description="brCategoriesArticles">
     <aura:attribute name="classLi" type="String"/>
     <aura:attribute name="classA" type="String"/>
     <aura:attribute name="article" type="Map"/>

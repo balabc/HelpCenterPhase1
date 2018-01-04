@@ -1,4 +1,4 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="brLiveMetricsCtrl">
+<aura:component controller="brLiveMetricsCtrl">
 
 	<aura:attribute name="members" type="Integer"/>
 	<aura:attribute name="ideas" type="Integer"/>
