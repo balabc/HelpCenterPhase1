@@ -53,6 +53,7 @@ public with sharing class brCategoriesCatalogService {
                 }         
             } catch (Exception e) {}
             am.id = String.valueOf(k.get('KnowledgeArticleId'));
+            am.article_id = String.valueOf(k.get('id'));
             Set<String> cats = new Set<String>();
             for(Integer i = 0; i < catsList.size(); i++) {
                 if(String.valueOf(catsList[i].get('ParentId')) == String.valueOf(k.get('Id'))) {

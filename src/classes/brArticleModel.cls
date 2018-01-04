@@ -7,6 +7,13 @@ public with sharing class brArticleModel {
     public String id {get;set;}
 
     /**
+     * article id
+     */
+    @AuraEnabled
+    public String article_id {get;set;}
+
+
+    /**
      *  data/elements articles
      */
     @AuraEnabled

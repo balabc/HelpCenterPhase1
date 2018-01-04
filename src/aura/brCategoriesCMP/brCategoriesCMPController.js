@@ -49,31 +49,36 @@
         }
         //parent.setAttribute('data-active', ((active === 'true')? false: true));
     },
-    clickElement: function(component, event, helper) {    
-        var parent = event.target.parentElement,
-            active = parent.getAttribute('data-active'),
-            items = document.getElementsByClassName("article"),
-            navEvt = $A.get("e.force:navigateToSObject");
+    clickElement: function(component, event, helper) {
+
+        var idRow = event.getParam("idRow");
         
-        for (var i = 0; i < items.length; i++) {
-            items.item(i).parentElement.setAttribute('data-active', false)
-            items.item(i).classList.remove('active'); 
+        if (!!idRow) {
+            var parent = document.getElementById(idRow),
+                active = parent.getAttribute('data-active'),
+                items = document.getElementsByClassName("article"),
+                navEvt = $A.get("e.force:navigateToSObject");
+
+            for (var i = 0; i < items.length; i++) {
+                items.item(i).parentElement.setAttribute('data-active', false);
+                items.item(i).classList.remove('active');
+            }
+
+            if (active !== 'true') {
+                parent.setAttribute('data-active', true);
+                parent.classList.add('active');
+            } else {
+                parent.setAttribute('data-active', false);
+                parent.classList.remove('active');
+            }
+
+            navEvt.setParams({
+                "recordId": parent.getAttribute('data-id')
+            });
+            navEvt.fire();
+
+            var toggleMenu = $A.get('e.c:brMobileNavMenuToggleEvent');
+            toggleMenu.fire();
         }
-        
-        if (active !== 'true') {
-            parent.setAttribute('data-active', true);
-            parent.classList.add('active');
-        } else {
-            parent.setAttribute('data-active', false);
-            parent.classList.remove('active');
-        }     
-        
-        navEvt.setParams({
-          "recordId": parent.getAttribute('data-id')
-        });
-        navEvt.fire();
-        
-        var toggleMenu = $A.get('e.c:brMobileNavMenuToggleEvent');
-        toggleMenu.fire();
     }
 })
