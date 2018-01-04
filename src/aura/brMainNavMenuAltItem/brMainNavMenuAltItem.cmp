@@ -4,6 +4,7 @@
     <aura:attribute name="labels" type="String[]"/>
 
     <aura:registerEvent name="prevActiveMenuItem" type="c:brPrevActiveMenuItemEvent"/>
+    <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeSubMenu}"/>
 
     <aura:if isTrue="{!v.menuItem.subMenu}">
         <li class="header__nav-item">

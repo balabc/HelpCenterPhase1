@@ -2,6 +2,10 @@
     <aura:attribute name="labels" type="String[]"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
+
+    <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeSubMenu}"/>
+    <aura:method name="closeMenu" action="{!c.closeSubMenu}" access="PUBLIC"/>
+
     <div class="header__wrap-nav clr">
         <ul class="header__nav">
             <li class="header__nav-item">

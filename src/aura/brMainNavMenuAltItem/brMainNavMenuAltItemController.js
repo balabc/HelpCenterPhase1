@@ -27,6 +27,23 @@
 
         cmpEvent.fire();
     },
+    closeSubMenu: function (cmp, event, helper) {
+        var cmpEvent = cmp.getEvent("prevActiveMenuItem"),
+            Id = '',
+            prevActiveMenuId = cmp.get('v.prevActiveMenuItemId'),
+            menuItemId = cmp.get('v.menuItem').id,
+            themeHeader = document.getElementById("themeHeader");
+
+        setTimeout( function () {
+            $A.util.removeClass(themeHeader, "header--make-sticky");
+        }, 750);
+
+        cmpEvent.setParams({
+            "Id": Id
+        });
+
+        cmpEvent.fire();
+    },
     onClick: function(component, event) {
         var id = event.target.dataset.menuItemId;
         if (id) {

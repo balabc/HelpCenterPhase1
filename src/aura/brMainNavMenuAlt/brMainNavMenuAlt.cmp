@@ -5,6 +5,11 @@
     <aura:handler name="prevActiveMenuItem" event="c:brPrevActiveMenuItemEvent" action="{!c.setMenuItemId}"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
+    <aura:handler event="c:brMobileNavMenuToggleEvent" action="{!c.closeSubMenu}"/>
+
+    <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeSubMenu}"/>
+    <aura:method name="closeMenu" action="{!c.closeSubMenu}" access="PUBLIC"/>
+
     <div class="header__wrap-nav clr">
         <ul onclick="{!c.onClick}" class="header__nav">
             <li class="header__nav-item">

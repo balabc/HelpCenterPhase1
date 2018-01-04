@@ -4,6 +4,7 @@
     <aura:attribute name="search" type="String" default="initialize"/>
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:registerEvent name="brCloseAllNavMenuEventHandler" type="c:brCloseAllNavMenuEvent"/>
     <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
@@ -20,11 +21,11 @@
         <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
 
             <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
-                <c:brThemeHeader isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" search="{!v.search}"/>
+                <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" search="{!v.search}"/>
             </aura:if>
 
             <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
-                <c:brHeaderMobile />
+                <c:brHeaderMobile aura:id="brHeaderMobile"/>
             </aura:if>
 
                 {!v.body}

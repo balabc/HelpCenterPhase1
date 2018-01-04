@@ -100,7 +100,7 @@
             case 'cm': {
                 indexName = 'FeedItem_Community';
                 if (availableIndexes.indexOf(indexName) > -1) {
-                    if (filter.values.posted_in !== 'All')
+                    if (filter.values.posted_in != 'All')
                         facetFilter.push('PostedIn:' + filter.values.posted_in);
                     
                     if (facetFilter.length > 0)
