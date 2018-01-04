@@ -11,7 +11,7 @@
             url =  menuItem.url,
             existOldUrlWithProfileOrSettings = false;
 
-        if ((location.includes('profile') || location.includes('settings')) && cmp.get('v.menuItem').new_window) {
+        if ((location.includes('article') || location.includes('profile') || location.includes('settings')) && cmp.get('v.menuItem').new_window) {
             existOldUrlWithProfileOrSettings = true;
             var menuItemFind;
 
@@ -21,12 +21,15 @@
             if (location.includes('settings')) {
                 menuItemFind = 'settings';
             }
+            if (location.includes('article')) {
+                menuItemFind = 'article';
+            }
             var n = location.indexOf(menuItemFind);
             location = location.substring(0, n !== -1 ? n : location.length);
             url = location + url;
         }
 
-        if (menuItem.url === 'profile' || menuItem.url === 'settings') {
+        if (menuItem.url === 'profile' || menuItem.url === 'settings' || menuItem.url === 'article') {
             url += '/' + cmp.get('v.userId');
         } else {
             url = menuItem.url;
