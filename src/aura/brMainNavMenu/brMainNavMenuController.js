@@ -100,5 +100,39 @@
     },
     toggleSubMenu: function (cmp, event, helper) {
         helper.toggleSubMenu(cmp);
+    },
+    closeSubMenu: function (component, event, helper) {
+        var themeHeader = document.getElementById("themeHeader"),
+            dropdownWrap = component.find('dropdownWrap'),
+            dropdown = component.find('dropdown'),
+            arrow = component.find('arrow');
+
+        $A.util.removeClass(arrow, "nav-arrow--up");
+
+        if (window.scrollY === 0) {
+            if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
+                $A.util.removeClass(themeHeader, "header--make-sticky");
+            } else {
+                setTimeout( function () {
+                    $A.util.removeClass(themeHeader, "header--make-sticky");
+                }, 600);
+            }
+        }
+
+        if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
+            $A.util.removeClass(dropdownWrap, "header__wrap-dropdown-menu--active");
+            window.setTimeout(
+                $A.getCallback(function () {
+                    $A.util.removeClass(dropdown, "header__dropdown-menu--active");
+                }), 400
+            );
+        } else {
+            $A.util.removeClass(dropdown, "header__dropdown-menu--active");
+            window.setTimeout(
+                $A.getCallback(function () {
+                    $A.util.removeClass(dropdownWrap, "header__wrap-dropdown-menu--active");
+                }), 300
+            );
+        }
     }
 })
