@@ -1,6 +1,8 @@
 <aura:component implements="forceCommunity:layout" access="global" description="One column content layout">
     <aura:attribute name="content" type="Aura.Component[]" required="false"/>
 
-    <div>{!v.content}</div>
+    <div class="container">
+            {!v.content}
+    </div>
 
 </aura:component>
