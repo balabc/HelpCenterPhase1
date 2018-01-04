@@ -15,7 +15,7 @@
         <c:brMobileNavMenu askbutton="{!v.askbutton}"/>
     </aura:if>
 
-    <c:brSearchModal />
+    <c:brSearchModal search="{!v.search}" />
 
     <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
         <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">

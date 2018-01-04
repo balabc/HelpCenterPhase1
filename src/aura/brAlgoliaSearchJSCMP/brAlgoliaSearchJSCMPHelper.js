@@ -8,6 +8,8 @@
                 data, client
             if (state === "SUCCESS") {
                 data = response.getReturnValue();
+                component.set("v.apiKey", data);
+
                 client = algoliasearch("QUTLQTIH9V", data);
                 client.listIndexes(function(err, content) {
                     var availableIndexes = [];
@@ -16,10 +18,14 @@
                             availableIndexes.push(content.items[i].name);
                         }
                     }
-                    component.set("v.availableIndexes", availableIndexes)
+                    component.set("v.availableIndexes", availableIndexes);
+                    var query = component.get("v.searchText");
+                    if (!!query) {
+                        component.searchChange();
+                    }
                 });
-                
-                component.set("v.apiKey", data);
+
+
             }else if (state === "ERROR") {
                 var errors = response.getError();
                 var error_msg = '';

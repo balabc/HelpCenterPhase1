@@ -11,6 +11,7 @@
         } else {
             document.body.classList.remove(class_modal);
         }
+
 	},
     onClickSearch: function(component, event, helper) {
 	    var target = event.target,

@@ -6,8 +6,7 @@
     <aura:attribute name="searchText" type="String"/> 
     <aura:attribute name="availableIndexes" type="List" default="[]"/> 
     
-    <aura:attribute name="filterCounts" type="Object"/> 
-    
+    <aura:attribute name="filterCounts" type="Object"/>
     
     <aura:registerEvent name="brChangeHeaderSearchBarEventHandler" type="c:brChangeHeaderSearchBarEvent"/>
     <aura:handler name="eventFromBrAlgoliaFilter" event="c:brAlgoliaFilterEvent" action="{!c.onChangeFilter}"/>
@@ -17,6 +16,8 @@
     <aura:handler name="change" value="{!v.hasData}" action="{!c.filterChangeState}"/>
     <aura:handler name="change" value="{!v.brFilter}" action="{!c.filterChange}"/>
     <aura:handler name="change" value="{!v.searchText}" action="{!c.searchChange}"/>
+
+    <aura:method name="searchChange" action="{!c.searchChange}" access="PUBLIC"/>
      
     <div class="serp-header">
         <div class="serp__filter-trigger-icon" id="serp__filter-trigger" onclick="{!c.toggleMobileFilter}"></div>

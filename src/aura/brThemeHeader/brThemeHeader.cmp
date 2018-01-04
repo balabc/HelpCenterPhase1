@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="isAltMainNav" type="Boolean" />
     <aura:attribute name="search" type="String"/>
