@@ -70,3 +70,10 @@
 .THIS .serp__filter-trigger-icon {
     z-index: 2;
 }
+
+.THIS .serp__filter-trigger-icon {
+    height: 100%;
+    top: 0;
+    width: 53px;
+    left: 0;
+}

@@ -97,7 +97,7 @@
         component.set("v.currentFilter", currentFilter);
         parent.setAttribute('data-active', ((active === 'true')? false: true));
         
-        if (has_filter === 'true') {
+        /*if (has_filter === 'true') {
             var body_classes = document.body.classList,
                 class_is_mobile = 'is-mobile', 
                 class_mobile = 'mobile-search-filter-is-active';
@@ -109,7 +109,7 @@
                     body_classes.add(class_mobile);
                 }
             }
-        }
+        }*/
 	},
     onChangeFilter: function(component, event, helper) {
         helper.toChangeFilter(component);

@@ -24,10 +24,10 @@
                 <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchAll}</h4>
             </div>    
         </li> 
-        <aura:if isTrue="{!v.boolsAvailableIndexes.Knowledge_Community}">
+        <aura:if isTrue="{!v.boolsAvailableIndexes.KnowledgeStaging}">
             <li class="{!'filter__section ' + ((v.currentFilter == 'kb')? v.classFilterActive: '')}" aura:id="filter_row_kb" data-type="kb">
                 <div class="filter__section-head">
-                    <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchKnowledgeBase}<span>{!v.filterCounts.knowledge_community}</span></h4>
+                    <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchKnowledgeBase}<span>{!v.filterCounts.knowledgestaging}</span></h4>
                     <div class="filter__section-nav-arrow nav-arrow">
                         <div class="nav-arrow__handler">
                             <span class="nav-arrow__icon"></span>

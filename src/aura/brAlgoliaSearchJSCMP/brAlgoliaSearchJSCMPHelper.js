@@ -68,7 +68,7 @@
 
         switch (filter_type) {
             case 'kb': {
-                indexName = 'Knowledge_Community';
+                indexName = 'KnowledgeStaging';
                 if (availableIndexes.indexOf(indexName) > -1) {
                     for (var key in filter.values.article_type) {
                         if (filter.values.article_type[key]) {
@@ -174,7 +174,7 @@
                     this.getOtherIndexes(
                         availableIndexes, 
                         [
-                            'Knowledge_Community',
+                            'KnowledgeStaging',
                             'Ideas_Community'
                         ], 
                         queries, 
@@ -232,7 +232,7 @@
                     this.getOtherIndexes(
                         availableIndexes, 
                         [
-                            'Knowledge_Community',
+                            'KnowledgeStaging',
                             'FeedItem_Community'
                         ], 
                         queries, 
@@ -246,7 +246,7 @@
                 this.getOtherIndexes(
                     availableIndexes, 
                     [
-                        'Knowledge_Community',
+                        'KnowledgeStaging',
                         'FeedItem_Community',
                         'Ideas_Community'
                     ], 
@@ -287,8 +287,8 @@
                 if ((hits.length > 0) && ((filter_type === category.index) || (filter_type === 'All'))) {
                     if (availableIndexes2.indexOf(category.index) > -1) {
                         switch (category.index) {
-                            case 'Knowledge_Community': {
-                                filterCounts['Knowledge_Community'.toLowerCase()] = ' (' + category.nbHits + ')';
+                            case 'KnowledgeStaging': {
+                                filterCounts['KnowledgeStaging'.toLowerCase()] = ' (' + category.nbHits + ')';
                                 name_index = $A.get('$Label.c.hAlgoliaSearchKnowledgeBase');
                                 link_index = objSfdcSite + '/s/knowledge';
                                 for (var key6 in hits) {
