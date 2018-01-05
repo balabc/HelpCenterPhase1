@@ -103,6 +103,8 @@ public with sharing class brBreadcrumbsCtrl {
             } else {
                 target = getTargetByObjectName(varObjectType);
             }
+        }else if (pathname.contains('topic') || pathname.contains('question')  ) {
+            target = '/qa';
         }else if (pathname.contains('CollaborationGroup')) {
             target = 'CollaborationGroup';
         }else if (pathname.contains('group')) {
