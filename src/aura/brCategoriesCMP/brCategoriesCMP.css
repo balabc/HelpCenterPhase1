@@ -35,6 +35,16 @@
     content: none;
 }
 
+.THIS [data-active="false"] ul {
+    display: none !important;
+}
+.THIS [data-active="true"] ul {
+    height: auto;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    z-index: 0;
+}
+
 /*
 .mobile-menu-is-active .doc-nav__link-lvl-2--numeric:before {
     top: calc(50% - 10px);

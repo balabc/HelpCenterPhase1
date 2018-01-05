@@ -29,24 +29,32 @@
         component.set("v.items", []);
     },
     clickCategory: function(component, event, helper) {    
-        var parent = event.target.parentElement,
+        var target = event.target,
+            parent = target.parentElement,
+            ul = parent.closest('ul'),
         	active = parent.getAttribute('data-active'),
             allChildOff = function(_parent) {
                 var items = _parent.getElementsByTagName('li');
+                console.log(items);
                 for (var i = 0; i < items.length; i++) {
-                    items.item(i).setAttribute('data-active', false)
+                    items.item(i).setAttribute('data-active', false);
                     items.item(i).classList.remove('active');
                 }
-            };  
-        if (active !== 'true') {
-            allChildOff(parent);
-            
-            parent.setAttribute('data-active', true);
-            parent.classList.add('active');
-        } else {
-            parent.setAttribute('data-active', false);
-            parent.classList.remove('active');
-        }
+            };
+
+        setTimeout(function(){
+            if (active !== 'true') {
+                allChildOff(ul);
+
+                parent.setAttribute('data-active', true);
+                parent.classList.add('active');
+            } else {
+                parent.setAttribute('data-active', false);
+                parent.classList.remove('active');
+            }
+        }, 100);
+
+
         //parent.setAttribute('data-active', ((active === 'true')? false: true));
     },
     clickElement: function(component, event, helper) {
