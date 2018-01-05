@@ -11,7 +11,7 @@
             url =  menuItem.url,
             existOldUrlWithProfileOrSettings = false;
 
-        if ((location.includes('article') || location.includes('profile') || location.includes('settings')) && cmp.get('v.menuItem').new_window) {
+        if ((location.includes('article') || location.includes('profile') || location.includes('settings') || (location.includes('messages'))) && cmp.get('v.menuItem').new_window) {
             existOldUrlWithProfileOrSettings = true;
             var menuItemFind;
 
@@ -24,15 +24,20 @@
             if (location.includes('article')) {
                 menuItemFind = 'article';
             }
+            if (location.includes('messages')) {
+                menuItemFind = 'messages';
+            }
             var n = location.indexOf(menuItemFind);
             location = location.substring(0, n !== -1 ? n : location.length);
             url = location + url;
         }
 
-        if (menuItem.url === 'profile' || menuItem.url === 'settings' || menuItem.url === 'article') {
+        if (menuItem.url === 'profile' || menuItem.url === 'settings') {
             url += '/' + cmp.get('v.userId');
         } else {
-            url = menuItem.url;
+            if (!existOldUrlWithProfileOrSettings) {
+                url = menuItem.url;
+            }
         }
 
         if (cmp.get('v.menuItem').new_window) {
