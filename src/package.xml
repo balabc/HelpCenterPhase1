@@ -29,8 +29,7 @@
         <members>brMainNavMenuAltItem</members>
         <members>brPrevActiveMenuItemEvent</members>
         <members>brCategoriesCMP</members>
-		<members>brCategoriesToggleEvent </members>
-		<members>brCategoriesArticles</members>
+        <members>brCategoriesArticles</members>
         <members>brMobileNavMenuItem</members>
         <members>brMobileNavMenuItemEvent</members>
         <members>brMobileNavMenuItemStatic</members>
@@ -77,7 +76,8 @@
         <members>brKnowledgeLandingLayout</members>
         <members>brLandingTiles</members>
         <members>brKnowledgeArticleConfigLayout</members>
-		<members>brCloseAllNavMenuEvent</members>
+        <members>brCategoriesToggleEvent</members>
+        <members>brCloseAllNavMenuEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -214,7 +214,6 @@
         <members>brCommunity_Menu_Map.Ideas</members>
         <members>brCommunity_Menu_Map.Learning_Guides</members>
         <members>brCommunity_Menu_Map.Town_Halls</members>
-        <members>brCommunity_Menu_Map.User_Docs</members>
         <members>brCommunity_Menu_Map.Videos</members>
         <name>CustomMetadata</name>
     </types>
@@ -267,7 +266,6 @@
         <name>EmailTemplate</name>
     </types>
     <types>
-        <members>brUser_Ideas_Categories</members>
         <members>Support_Article_Detail</members>
         <members>Support_Community</members>
         <members>Support_Ideas</members>
@@ -275,6 +273,7 @@
         <members>Support_Learning_Guides</members>
         <members>Support_QA</members>
         <members>Support_Videos</members>
+        <members>brUser_Ideas_Categories</members>
         <name>FlexiPage</name>
     </types>
     <types>
