@@ -76,6 +76,47 @@
         <name>articleContent2</name>
         <type>Region</type>
     </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+                <value>With BigCommerce you can display prices in multiple currencies to help cater to a wide range of potential customers.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>textButton</name>
+                <value>Show</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Changing the Currency on the Storefront</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>url</name>
+            </componentInstanceProperties>
+            <componentName>brPreFooter</componentName>
+        </componentInstances>
+        <name>landingFooter</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Ask a Question</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showDetails</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTopics</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:askCommunity</componentName>
+        </componentInstances>
+        <name>askButton</name>
+        <type>Region</type>
+    </flexiPageRegions>
     <masterLabel>Article Detail</masterLabel>
     <sobjectType>CaseArticle</sobjectType>
     <template>

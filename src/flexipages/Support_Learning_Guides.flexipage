@@ -26,6 +26,28 @@
         <name>landingHeader</name>
         <type>Region</type>
     </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+                <value>Select and implement a domain that reflects your brand and drives quality traffic to your business.  Select and implement a domain that reflects your brand and drives quality traffic to your business.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>textButton</name>
+                <value>Go</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Implement a domain that reflects</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>url</name>
+            </componentInstanceProperties>
+            <componentName>brPreFooter</componentName>
+        </componentInstances>
+        <name>landingFooter</name>
+        <type>Region</type>
+    </flexiPageRegions>
     <masterLabel>Learning Guides</masterLabel>
     <template>
         <name>brLandingLayout</name>

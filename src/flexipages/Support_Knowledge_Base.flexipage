@@ -7,25 +7,18 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>pageName</name>
+                <value>Knowledge</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>title</name>
-                <value>Get started with our in-depth video series</value>
+                <value>Snazzy Tagline Goes Here!</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>videoDescription</name>
-                <value>In this video you will take a quick tour of the     BigCommerce control panel, and learn all the important areas of your dashboard.</value>
+                <name>userDocsUrl</name>
+                <value>/article/Managing-Currencies</value>
             </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>videoUrl</name>
-                <value>https://www.youtube.com/embed/O_6-2Ryh5WY</value>
-            </componentInstanceProperties>
-            <componentName>brGettingStartedVideo</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>articlesCount</name>
-                <value>8</value>
-            </componentInstanceProperties>
-            <componentName>brFeaturedArticles</componentName>
+            <componentName>brLandingTiles</componentName>
         </componentInstances>
         <name>content</name>
         <type>Region</type>
@@ -53,7 +46,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>textButton</name>
-                <value>Show</value>
+                <value>Submit</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -67,9 +60,58 @@
         <name>landingFooter</name>
         <type>Region</type>
     </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Get started with our in-depth video series</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>videoDescription</name>
+                <value>In this video you will take a quick tour of the     BigCommerce control panel, and learn all the important areas of your dashboard.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>videoUrl</name>
+                <value>https://www.youtube.com/embed/O_6-2Ryh5WY</value>
+            </componentInstanceProperties>
+            <componentName>brGettingStartedVideo</componentName>
+        </componentInstances>
+        <name>gettingStartedVideo</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>articlesCount</name>
+                <value>8</value>
+            </componentInstanceProperties>
+            <componentName>brFeaturedArticles</componentName>
+        </componentInstances>
+        <name>featuredArticles</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>pageName</name>
+                <value>Knowledge</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Snazzy Tagline Goes Here!</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>userDocsUrl</name>
+                <value>/article/Managing-Currencies</value>
+            </componentInstanceProperties>
+            <componentName>brLandingTiles</componentName>
+        </componentInstances>
+        <name>landingTiles</name>
+        <type>Region</type>
+    </flexiPageRegions>
     <masterLabel>Knowledge Base</masterLabel>
     <template>
-        <name>brLandingLayout</name>
+        <name>brKnowledgeLandingLayout</name>
     </template>
     <type>CommAppPage</type>
 </FlexiPage>

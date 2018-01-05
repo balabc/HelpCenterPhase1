@@ -7,6 +7,17 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>pageName</name>
+                <value>Community</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Find answers. Stay informed. Make connections.</value>
+            </componentInstanceProperties>
+            <componentName>brLandingTiles</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>configTitleLeaderboard</name>
                 <value>Community contributors</value>
             </componentInstanceProperties>
@@ -22,8 +33,12 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>backgroundImageEnabled</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>title</name>
-                <value>Welcome to the Community</value>
+                <value>Welcome to Community</value>
             </componentInstanceProperties>
             <componentName>brLandingHeader</componentName>
         </componentInstances>
@@ -67,7 +82,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>ideaId</name>
-                <value>0870O000000XqiA</value>
+                <value>0870O000000XqiAQAS</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -76,6 +91,10 @@
             <componentName>brFeaturedIdea</componentName>
         </componentInstances>
         <name>content2</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>content3</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -94,16 +113,77 @@
             </componentInstanceProperties>
             <componentName>brGettingStartedVideo</componentName>
         </componentInstances>
+        <name>gettingStartedVideo</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>br_Trending_now</name>
+                <value>Trending now</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>idsPopular</name>
+                <value>0F90O000000XnhlSAC,0F90O000000XnFCSA0,0F90O000000XnhqSAC</value>
             </componentInstanceProperties>
             <componentName>brTopTrendingCMP</componentName>
         </componentInstances>
-        <name>content3</name>
+        <name>topTrending</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>configTitleLeaderboard</name>
+                <value>Community Leaderboard</value>
+            </componentInstanceProperties>
+            <componentName>brLeaderboardComponent</componentName>
+        </componentInstances>
+        <name>leaderboard</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>pageName</name>
+                <value>Community</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Find answers. Stay informed. Make connections.</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>userDocsUrl</name>
+            </componentInstanceProperties>
+            <componentName>brLandingTiles</componentName>
+        </componentInstances>
+        <name>landingTiles</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>curId</name>
+                <value>0050O000007BymE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>currentTitle</name>
+                <value>Community Spotlight</value>
+            </componentInstanceProperties>
+            <componentName>brCommunitySpotlight</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>ideaId</name>
+                <value>0870O000000XqiAQAS</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Featured Idea</value>
+            </componentInstanceProperties>
+            <componentName>brFeaturedIdea</componentName>
+        </componentInstances>
+        <name>spotlightAndIdea</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Community</masterLabel>
