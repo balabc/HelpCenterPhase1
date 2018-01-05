@@ -88,7 +88,7 @@ public with sharing class brBreadcrumbsCtrl {
             recordId = fullurl.substringAfter('#');
             tmpOutput += ' detected-ID:' + recordId;
         }
-
+        NavigationMenuItem parentMenuItem = null;
         String target = '';
         String varObjectType = '';
         if (String.isNotBlank(recordId)) {
@@ -105,6 +105,21 @@ public with sharing class brBreadcrumbsCtrl {
             }
         }else if (pathname.contains('CollaborationGroup')) {
             target = 'CollaborationGroup';
+        }else if (pathname.contains('group')) {
+            //target = 'group';
+            String tmpStr = pathname.substringAfter('/group/');
+            tmpOutput += '#2tmp: ' + tmpStr;
+            if(tmpStr.length() >= 18){
+                target = '/group/' + tmpStr.left(18);
+                String tmpMenuId = getMenuIdByTarget(target);//from Category Metadata (2d menu meta)
+                tmpOutput += ' #2target-' + target + ' ;menuId:' + tmpMenuId + '#';
+                if(tmpMenuId != null) {
+                    parentMenuItem = getMenuItemByID(tmpMenuId);
+                }
+            }
+            if (parentMenuItem == null) {
+                target = 'CollaborationGroup';
+            }
         }else{
             tmpOutput += ' pathname:' + pathname;
             if (pathname.contains('/s/') ) {
@@ -121,7 +136,7 @@ public with sharing class brBreadcrumbsCtrl {
         }
         tmpOutput += ' target:' + target;
 
-        NavigationMenuItem parentMenuItem = getMenuItemByTarget(target);
+        parentMenuItem = getMenuItemByTarget(target);
         if (parentMenuItem == null) {
             String menuId = getMenuIdByTarget(target);//from Category Metadata (2d menu meta)
             tmpOutput += ' #target-' + target + ' ;menuId:' + menuId + '#';
