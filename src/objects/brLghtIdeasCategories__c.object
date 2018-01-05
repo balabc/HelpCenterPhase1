@@ -47,6 +47,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>AC Ideas Custom Categories</label>
+    <label>Ideas Custom Categories</label>
     <visibility>Public</visibility>
 </CustomObject>

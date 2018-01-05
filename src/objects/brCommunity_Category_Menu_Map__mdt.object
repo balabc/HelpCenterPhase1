@@ -21,7 +21,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Community Category Menu Map</label>
-    <pluralLabel>Community Category Menu Map</pluralLabel>
+    <label>Community Landing Menu Map</label>
+    <pluralLabel>Community Landing Menu Map</pluralLabel>
     <visibility>Public</visibility>
 </CustomObject>

@@ -12,6 +12,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Algolia Profile Setting</label>
+    <label>Algolia Profile Assignments</label>
     <visibility>Public</visibility>
 </CustomObject>

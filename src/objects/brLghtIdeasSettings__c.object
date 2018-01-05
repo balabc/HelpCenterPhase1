@@ -34,6 +34,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>LghtIdeas Settings</label>
+    <label>Ideas Settings</label>
     <visibility>Public</visibility>
 </CustomObject>

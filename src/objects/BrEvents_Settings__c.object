@@ -34,6 +34,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>BrEvents Settings</label>
+    <label>Events Settings</label>
     <visibility>Public</visibility>
 </CustomObject>

@@ -33,6 +33,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>brPhone Support List</label>
+    <label>Phone Support List</label>
     <visibility>Public</visibility>
 </CustomObject>
