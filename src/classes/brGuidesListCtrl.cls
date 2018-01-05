@@ -10,13 +10,12 @@ public with sharing class brGuidesListCtrl {
      */
     @AuraEnabled
     public static List<brGuideItem__mdt> getGuideArticles() {
-        brSecurityService.performAccessCheck('read', 'brGuideItem__mdt', new List<String>{'Title__c','Sort__c','Short_Description__c',
-        'Number_of_Chapters__c','Image_Url__c','First_Chapter_Url__c','Image_Alt__c','Image_Url_2x__c'});
+        brSecurityService.performAccessCheck('read', 'brGuideItem__mdt', new List<String>{'Title__c','Sort__c','Short_Description__c','Image_Url__c','First_Chapter_Url__c','Image_Alt__c','Image_Url_2x__c'});
 
         List<brGuideItem__mdt> guides = new List<brGuideItem__mdt>();
 
         try {
-            guides = [SELECT Id, Title__c, Sort__c, Short_Description__c, Number_of_Chapters__c, Image_Url__c,First_Chapter_Url__c, Image_Alt__c, Image_Url_2x__c FROM brGuideItem__mdt ORDER BY Sort__c ASC NULLS LAST];
+            guides = [SELECT Id, Title__c, Sort__c, Short_Description__c, Image_Url__c,First_Chapter_Url__c, Image_Alt__c, Image_Url_2x__c FROM brGuideItem__mdt ORDER BY Sort__c ASC NULLS LAST];
         } catch (QueryException ex) { System.debug('brGuidesListCtrl::getGuideArticles: ' + ex.getMessage());}
 
         if (Test.isRunningTest()) {
