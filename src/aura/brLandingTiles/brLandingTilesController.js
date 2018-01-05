@@ -23,5 +23,13 @@
         if (url !== 'groups') {
             urlEvent.setParams({"url": url}).fire();
         }
+    },
+    navigateToGroup : function (component, event, helper) {
+        var id = component.get('v.groupId'),
+            navEvt = $A.get("e.force:navigateToSObject");
+        navEvt.setParams({
+            "recordId": id
+        });
+        navEvt.fire();
     }
 })

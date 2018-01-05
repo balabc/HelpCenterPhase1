@@ -2,6 +2,8 @@
     <aura:attribute name="pageName" type="String" />
     <aura:attribute name="title" type="String" access="global"/>
     <aura:attribute name="userDocsUrl" type="String" access="global"/>
+    <aura:attribute name="isShowGroupPosts" type="Boolean"/>
+    <aura:attribute name="groupId" type="String" />
 
     <aura:if isTrue="{!equals(v.pageName, 'Home')}">
         <div class="lift-content">
@@ -38,7 +40,7 @@
                             </div>
                         </div><!-- / end of .column -->
                         <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                            <div class="panel-media" id="blog" onclick="{!c.openPage}">
+                            <div class="panel-media" id="blog" onclick="{!v.isShowGroupPosts?c.navigateToGroup:c.openPage}">
                                 <div class="panel-media__wrap-icon">
                                     <div class="panel-media__icon">
                                         <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates.png'}"
@@ -159,7 +161,7 @@
                 </div>
             </div><!-- / end of .column -->
             <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                <div class="panel-media p-media" id="blog" onclick="{!c.openPage}">
+                <div class="panel-media p-media" id="blog" onclick="{!v.isShowGroupPosts?c.navigateToGroup:c.openPage}">
                     <div class="panel-media__wrap-icon">
                         <div class="panel-media__icon">
                             <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-news-updates.svg'}" alt="" />

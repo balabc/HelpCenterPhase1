@@ -2,4 +2,6 @@
     <design:attribute name="pageName" label="Page name" datasource="Home,Knowledge,Community" default="Home" />
     <design:attribute name="title" label="Title" description="title for tiles" />
     <design:attribute name="userDocsUrl" label="User Docs URL" description="label for user docs" />
+    <design:attribute name="isShowGroupPosts" label="Use group for news and updates"/>
+    <design:attribute name="groupId" label="New updates group id" />
 </design:component>
