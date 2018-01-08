@@ -1,7 +1,8 @@
-<aura:component description="brFeaturedIdea" implements="forceCommunity:availableForAllPageTypes" access="global" controller="brFeaturedIdeaCtrl">
+<aura:component description="brFeaturedIdea" implements="forceCommunity:availableForAllPageTypes" access="global"
+                controller="brFeaturedIdeaCtrl">
+    <aura:attribute name="title" type="String" default="Featured Idea" access="global"/>
+    <aura:attribute name="ideaId" type="String" access="global"/>
 
-    <aura:attribute name="title" type="String"/>
-    <aura:attribute name="ideaId" type="String"/>
     <aura:attribute name="userId" type="String"/>
     <aura:attribute name="ideaText" type="String"/>
     <aura:attribute name="ideaTitle" type="String"/>

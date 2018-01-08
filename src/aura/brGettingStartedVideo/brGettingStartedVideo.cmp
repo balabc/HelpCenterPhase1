@@ -2,7 +2,7 @@
     <aura:attribute name="title" type="String" default="Get started with our in-depth video series" access="global"/>
     <aura:attribute name="videoDescription" type="String" default="In this video you will take a quick tour of the
     BigCommerce control panel, and learn all the important areas of your dashboard." access="global" />
-    <aura:attribute name="videoUrl" type="String" access="global"/>
+    <aura:attribute name="videoUrl" type="String" access="global" default="https://www.youtube.com/embed/lc9J_49jK9Q"/>
 
 
     <div class="container clr relative z-2">

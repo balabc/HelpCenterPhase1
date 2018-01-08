@@ -1,8 +1,8 @@
 <aura:component description="brLandingTiles" controller="brLandingTilesCtrl" implements="forceCommunity:availableForAllPageTypes">
-    <aura:attribute name="pageName" type="String" />
+    <aura:attribute name="pageName" type="String" default="Home" />
     <aura:attribute name="title" type="String" access="global"/>
     <aura:attribute name="userDocsUrl" type="String" access="global"/>
-    <aura:attribute name="isShowGroupPosts" type="Boolean"/>
+    <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
     <aura:attribute name="groupId" type="String" />
 
     <aura:if isTrue="{!equals(v.pageName, 'Home')}">

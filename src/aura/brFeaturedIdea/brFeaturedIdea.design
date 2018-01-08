@@ -1,4 +1,4 @@
 <design:component label="Featured Idea">
     <design:attribute name="title" label="Title" description="Component Title" />
-    <design:attribute name="ideaId" label="idea Id" description="Idea Id to display as featured" />
+    <design:attribute name="ideaId" label="Idea ID" description="ID of featured idea" />
 </design:component>

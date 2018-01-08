@@ -1,8 +1,10 @@
 <aura:component description="brPreFooter" implements="forceCommunity:availableForAllPageTypes">
-    <aura:attribute name="title" type="String" access="global"/>
-    <aura:attribute name="description" type="String" access="global" />
-    <aura:attribute name="textButton" type="String" access="global"/>
-    <aura:attribute name="url" type="String" access="global"/>
+    <aura:attribute name="title" type="String" default="Lorem ipsum dolor sit amet consectetur" access="global"/>
+    <aura:attribute name="description" type="String" default="Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate." access="global" />
+    <aura:attribute name="textButton" type="String" default="Submit" access="global"/>
+    <aura:attribute name="url" type="String" default="https://www.bigcommerce.com/" access="global"/>
 
     <div class="pre-footer">
         <div style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/HomePage-pre-footer.png' + ');background-position-x: center;'}" class="pre-footer__wrap-img"></div>

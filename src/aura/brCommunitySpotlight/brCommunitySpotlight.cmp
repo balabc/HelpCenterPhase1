@@ -2,10 +2,11 @@
                 access="global"
                 controller="brCommunitySpotlightCtrl"
                 description="brCommunitySpotlight">
-    <aura:attribute name="user" type="Object"/>
 
-    <aura:attribute name="curId" type="String"/>
-    <aura:attribute name="currentTitle" type="String" default="Community Spotlight"/>
+    <aura:attribute name="currentTitle" type="String" default="Community Spotlight" access="global"/>
+    <aura:attribute name="curId" type="String" access="global"/>
+
+    <aura:attribute name="user" type="Object"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 

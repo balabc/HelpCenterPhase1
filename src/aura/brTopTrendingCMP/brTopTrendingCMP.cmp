@@ -6,7 +6,7 @@
 
     <aura:attribute name="idsPopular" type="String"/>
     <aura:attribute name="br_Trending_now" type="String" default="Trending now" access="global"/>
-    <aura:attribute name="isShowGroupPosts" type="Boolean"/>
+    <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
     <aura:attribute name="groupId" type="String" />
     <aura:attribute name="idListGroup" type="String" access="global"/>
 

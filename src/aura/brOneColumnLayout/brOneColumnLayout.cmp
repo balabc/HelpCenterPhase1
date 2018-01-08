@@ -1,9 +1,10 @@
 <aura:component implements="forceCommunity:layout" access="global" description="One column content layout">
+    <aura:attribute name="breadcrumbs" type="Aura.Component[]" required="false"/>
     <aura:attribute name="content" type="Aura.Component[]" required="false"/>
     <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
 
     <div class="container">
-        <c:brBreadcrumbs/>
+    {!v.breadcrumbs}
             {!v.content}
     </div>
         {!v.landingFooter}
