@@ -4,9 +4,9 @@ public with sharing class brCategoriesCatalogServiceSelector {
         List<sObject> articles;
         try {
             if (articleType == 'University__kav') {
-                articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, id, Sort_Oder_in_Category__c FROM ' + articleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
+                articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, id, Sort_Oder_in_Category__c, UrlName FROM ' + articleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
             } else {
-                articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c FROM ' + articleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
+                articles = Database.query('SELECT KnowledgeArticleId, Title, Nav_Title__c, Section_Anchors__c, id, Sort_Oder_in_Category__c, UrlName FROM ' + articleType + ' WHERE PublishStatus = \'Online\' ORDER BY Sort_Oder_in_Category__c ASC');
             }
         } catch (Exception e) {
             System.debug(e.getMessage());

@@ -44,6 +44,12 @@ public with sharing class brArticleModel {
     public String title {get;set;}
 
     /**
+     * urlName
+     */
+    @AuraEnabled
+    public String UrlName {get;set;}
+
+    /**
      * categories where this articles contains
      */
     @AuraEnabled 

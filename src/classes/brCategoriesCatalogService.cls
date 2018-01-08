@@ -20,6 +20,7 @@ public with sharing class brCategoriesCatalogService {
         List<brArticleModel> articles = new List<brArticleModel>();
         for(sObject k : articlesList) {
             brArticleModel am = new brArticleModel();
+            am.UrlName = String.valueOf(k.get('UrlName'));
             if(k.get('Nav_Title__c') != null) {
                 am.title = String.valueOf(k.get('Nav_Title__c')); 
             } else {

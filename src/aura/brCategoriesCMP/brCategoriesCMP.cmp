@@ -67,4 +67,5 @@
             </ul>
         </div>
     </aura:if>
+    <div id="bottom_fade"></div>
 </aura:component>
