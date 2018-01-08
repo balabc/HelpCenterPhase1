@@ -11,7 +11,7 @@ public with sharing class brChatterGroupService {
      */
     public static List<brChatterGroupModel> getChatterGroupByStringId(String ids) {
         List<Id> groupIds = new List<Id>();
-        if (ids != null) {
+        if (String.isNotBlank(ids)) {
             if (ids.contains(',')) {
                 List<String> splitArray = ids.split(',');
                 if (splitArray.size() > 4) {
