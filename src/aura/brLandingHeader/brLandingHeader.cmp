@@ -1,8 +1,10 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global" description="brLandingHeader">
     <aura:attribute name="title" type="String" access="global"/>
     <aura:attribute name="backgroundImageEnabled" type="Boolean" access="global" default="false"/>
+    <aura:attribute name="imageFileName" type="String" access="global"/>
 
-    <div class="{!v.backgroundImageEnabled ? 'panel-title' : 'panel-title panel-title--grad-only'}">
+    <div style="{!v.backgroundImageEnabled ? 'padding: 62px 0 70px; background: url(' + $Resource.BigcommerceCommunity + '/images/'+ v.imageFileName + ') center bottom no-repeat;' :
+        'padding: 62px 0 70px; background: linear-gradient(90deg, #536afb, #804af5);'}">
         <div class="container">
             <h1 class="h1 panel-title__text">{!v.title}</h1>
         </div>
