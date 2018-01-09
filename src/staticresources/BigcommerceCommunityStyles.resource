@@ -399,3 +399,7 @@ body .DESKTOP.uiContainerManager {
 .mobile-menu-is-active .doc-nav__link-lvl-2--numeric:before {
     top: calc(50% - 10px);
 }
+
+.popupTargetContainer.uiPopupTarget.uiMenuList.uiMenuList--default.visible{
+	display: block !important;
+}
