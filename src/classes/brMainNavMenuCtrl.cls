@@ -31,8 +31,9 @@ public with sharing class brMainNavMenuCtrl {
             return String.isBlank(label)?'':'TestIdValue';
         }
         try{
-            return (String)[SELECT Id FROM NavigationMenuItem WHERE Label = :label].Id;
+            return (String)[SELECT Id FROM NavigationMenuItem WHERE Label = :label AND NavigationLinkSetId = :getNavigationLinkSetId()].Id;
         }catch (Exception e){
+            System.debug('getMenuItemId:EXCEPTION ' + e.getMessage());
             return '';
         }
     }
@@ -52,5 +53,12 @@ public with sharing class brMainNavMenuCtrl {
     @AuraEnabled
     public static List<String> getLabels() {
         return brMainNavMenuService.getLabels();
+    }
+
+
+    public static String getNavigationLinkSetId(){
+        if(Test.isRunningTest()) return [SELECT Id FROM NavigationLinkSet LIMIT 1].Id;
+
+        return [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :brNetwork.getNetworkId() LIMIT 1].Id;
     }
 }
