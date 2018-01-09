@@ -11,25 +11,12 @@
             url =  menuItem.url,
             existOldUrlWithProfileOrSettings = false;
 
-        if ((location.includes('article') || location.includes('profile') || location.includes('settings') || (location.includes('messages'))) && cmp.get('v.menuItem').new_window) {
+        if ((location.charAt(location.length - 3) !== '/' && location.charAt(location.length - 2) !== 's' && location.charAt(location.length - 1) !== '/') && cmp.get('v.menuItem').new_window) {
             existOldUrlWithProfileOrSettings = true;
-            var menuItemFind;
 
-            if (location.includes('profile')) {
-                menuItemFind = 'profile';
-            }
-            if (location.includes('settings')) {
-                menuItemFind = 'settings';
-            }
-            if (location.includes('article')) {
-                menuItemFind = 'article';
-            }
-            if (location.includes('messages')) {
-                menuItemFind = 'messages';
-            }
-            var n = location.indexOf(menuItemFind);
+            var n = location.indexOf('/s/');
             location = location.substring(0, n !== -1 ? n : location.length);
-            url = location + url;
+            url = location + '/s/' + url;
         }
 
         if (menuItem.url === 'profile' || menuItem.url === 'settings') {
