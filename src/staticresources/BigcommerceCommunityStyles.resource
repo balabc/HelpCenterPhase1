@@ -403,3 +403,7 @@ body .DESKTOP.uiContainerManager {
 .popupTargetContainer.uiPopupTarget.uiMenuList.uiMenuList--default.visible{
 	display: block !important;
 }
+span.nav-arrow-hor-angular__icon {
+    position: absolute;
+    top: 4px;
+}

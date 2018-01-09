@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <a href="javascript:void(0);" class="h4 header__contact-body-container-link popover__body-container-link truncated">
-                            <span class="h4 header__contact-body-container-text popover__body-container-text truncated">{!$Label.c.hKnowledgeBase}</span>
+                            <span class="h4 header__contact-body-container-text popover__body-container-text truncated">{!$Label.c.hPhoneSupport}</span>
                         </a>
                     </div>
                     <div class="header__contact-body-container-content popover__body-container-content">
