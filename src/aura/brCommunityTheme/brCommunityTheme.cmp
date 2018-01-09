@@ -2,6 +2,7 @@
     <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="search" type="String" default="initialize"/>
+    <aura:attribute name="isReady" type="Boolean" default="false"/>
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:registerEvent name="brCloseAllNavMenuEventHandler" type="c:brCloseAllNavMenuEvent"/>
@@ -11,28 +12,31 @@
 
     <ltng:require styles="{!join(',', $Resource.BigcommerceCommunity + '/css/styles.css', $Resource.BigcommerceCommunityStyles)}" /><!-- TODO add Resource value provider-->
 
-    <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
-        <c:brMobileNavMenu askbutton="{!v.askbutton}"/>
-    </aura:if>
+    <div style="{!v.isReady?'display:block;':'display:none;'}">
 
-    <c:brSearchModal search="{!v.search}" />
+        <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+            <c:brMobileNavMenu askbutton="{!v.askbutton}"/>
+        </aura:if>
 
-    <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
-        <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
+        <c:brSearchModal search="{!v.search}" />
 
-            <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
-                <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" search="{!v.search}"/>
-            </aura:if>
+        <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
+            <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
 
-            <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
-                <c:brHeaderMobile aura:id="brHeaderMobile"/>
-            </aura:if>
+                <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
+                    <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" search="{!v.search}"/>
+                </aura:if>
 
-                {!v.body}
+                <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+                    <c:brHeaderMobile aura:id="brHeaderMobile"/>
+                </aura:if>
 
-            <div class="empty-block-for-sticky-footer"></div><!-- do not remove this empty element -->
-        </div><!-- / .wrapper-for-sticky-footer-structure -->
+                    {!v.body}
 
-        <c:brThemeFooter />
-    </div><!-- / .body-inner -->
+                <div class="empty-block-for-sticky-footer"></div><!-- do not remove this empty element -->
+            </div><!-- / .wrapper-for-sticky-footer-structure -->
+
+            <c:brThemeFooter />
+        </div><!-- / .body-inner -->
+    </div>
 </aura:component>

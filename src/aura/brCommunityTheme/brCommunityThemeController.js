@@ -1,5 +1,11 @@
 ({
     doInit : function(component, event, helper) {
+        window.setTimeout(
+            $A.getCallback(function() {
+                component.set('v.isReady', true);
+            }), 1000
+        );
+
         component.set('v.search', '');
     },
     closeUserMenu: function (cmp, event, helper) {
