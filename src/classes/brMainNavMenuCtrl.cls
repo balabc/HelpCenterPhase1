@@ -27,27 +27,16 @@ public with sharing class brMainNavMenuCtrl {
 
     public static String getMenuItemId( String label) {
         brSecurityService.performAccessCheck('read', 'NavigationMenuItem', new List<String>{'Id'});
-        if (Test.isRunningTest()) {
-            return String.isBlank(label)?'':'TestIdValue';
-        }
-        try{
-            return (String)[SELECT Id FROM NavigationMenuItem WHERE Label = :label AND NavigationLinkSetId = :getNavigationLinkSetId()].Id;
-        }catch (Exception e){
-            System.debug('getMenuItemId:EXCEPTION ' + e.getMessage());
-            return '';
-        }
+        if (Test.isRunningTest()) { return String.isBlank(label)?'':'TestIdValue'; }
+
+        try{ return (String)[SELECT Id FROM NavigationMenuItem WHERE Label = :label AND NavigationLinkSetId = :getNavigationLinkSetId()].Id;}
+        catch (Exception e){ System.debug('getMenuItemId:EXCEPTION ' + e.getMessage()); return ''; }
     }
 
     public static String getTargetByMenuId(String menuItemId) {
         brSecurityService.performAccessCheck('read', 'brCommunity_Category_Menu_Map__mdt', new List<String>{'Target__c','Menu_Item_Id__c'});
-        if (Test.isRunningTest()) {
-            return String.isBlank(menuItemId)?'':'/test-target';
-        }
-        try {
-            return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c;
-        } catch (Exception e) {
-            return '';
-        }
+        if (Test.isRunningTest()) { return String.isBlank(menuItemId)?'':'/test-target'; }
+        try { return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c; } catch (Exception e) { return ''; }
     }
 
     @AuraEnabled
