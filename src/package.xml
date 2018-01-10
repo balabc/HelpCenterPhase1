@@ -266,17 +266,6 @@
         <name>EmailTemplate</name>
     </types>
     <types>
-        <members>Support_Article_Detail</members>
-        <members>Support_Community</members>
-        <members>Support_Ideas</members>
-        <members>Support_Knowledge_Base</members>
-        <members>Support_Learning_Guides</members>
-        <members>Support_QA</members>
-        <members>Support_Videos</members>
-        <members>brUser_Ideas_Categories</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
         <members>Learning__kav-Learning Layout</members>
         <members>Public__kav-Public Layout</members>
         <members>University__kav-Public BCU Layout</members>
@@ -297,19 +286,9 @@
         <name>StaticResource</name>
     </types>
     <types>
-        <members>Admin</members>
-        <name>Profile</name>
-    </types>
-    <types>
         <members>Community_Customer</members>
         <members>Community_Guest</members>
         <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>Guides</members>
-        <members>Public</members>
-        <members>Videos</members>
-        <name>DataCategoryGroup</name>
     </types>
     <version>41.0</version>
 </Package>
