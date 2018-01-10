@@ -38,7 +38,7 @@
                 label: $A.get('$Label.c.lnkLogIn'),
                 type: 4, 
                 has_picture: true,
-                picture: '<span class="header-mobile__menu-shape"><img alt="Avatar" src="/support/resource/1512485120000/BigcommerceCommunity/images/group-4.png" srcset="/support/resource/1512485120000/BigcommerceCommunity/images/group-4-2x.png 2x"></span>',
+                picture: '<span class="header-mobile__menu-shape"><img alt="Avatar" src="' + $A.get('$Resource.BigcommerceCommunity') + '/images/group-4.png' + '" srcset="' + $A.get('$Resource.BigcommerceCommunity') + '/images/group-4-2x.png 2x' + '"></span>',
                 target: '/s/login/'
             });	 
             
