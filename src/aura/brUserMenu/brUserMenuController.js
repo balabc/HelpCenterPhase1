@@ -3,6 +3,7 @@
         helper.getTypeForCurrentUser(cmp, function(type){
             if (type === 'Guest') {
                 cmp.set('v.type', 'Guest');
+                document.getElementsByClassName('header__right')[0].style.paddingRight = '40px';
             } else {
                 helper.showCurrentUser(cmp);
                 cmp.set('v.type', 'Standard');
