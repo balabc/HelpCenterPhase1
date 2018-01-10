@@ -36,13 +36,13 @@
                                 <div class="dropdown__body breadcrumbs__dropdown-body">
                                     <ul class="breadcrumbs__dropdown-list crumbs-catch-me"  aura:id="crumbsSubMenu">
                                         <aura:iteration items="{!v.breadCrumbSubItems}" var="breadcrumb">
-                                            <li class="{!(breadcrumb.active == 'true')? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
-                                                <a href="javascript:void(0);" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" class="breadcrumbs__dropdown-link truncated" onclick="{!c.onClick}">
+                                            <li style="display: flex;align-items: center;padding: 7px 20px 6px 16px;" class="{!(breadcrumb.active == 'true')? 'breadcrumbs__dropdown-item breadcrumbs__dropdown-item--active' : 'breadcrumbs__dropdown-item'}">
+                                                <a style="padding: 0;" href="javascript:void(0);" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" class="breadcrumbs__dropdown-link truncated" onclick="{!c.onClick}">
                                                 {!breadcrumb.label}
-                                                    <aura:if isTrue="{!breadcrumb.itemtype == 'ExternalLink'}">
-                                                        &nbsp;<span class="icon-svg-docs-sm"></span>
-                                                    </aura:if>
                                                 </a>
+                                                <aura:if isTrue="{!breadcrumb.itemtype == 'ExternalLink'}">
+                                                   <span style="cursor: pointer;margin-left: 3px" class="icon-svg-docs-sm" data-value="{!breadcrumb.url}" data-listviewid="{!breadcrumb.listViewId}" data-type="{!breadcrumb.itemtype}" onclick="{!c.onClick}" ></span>
+                                                </aura:if>
                                             </li>
                                         </aura:iteration>
                                     </ul>
