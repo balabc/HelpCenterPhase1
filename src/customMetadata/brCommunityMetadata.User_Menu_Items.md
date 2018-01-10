@@ -9,8 +9,8 @@
 {&quot;title&quot;: &quot;Messages&quot;, &quot;url&quot;: &quot;messages/Home&quot;, &quot;new_window&quot;: true},
 {&quot;title&quot;: &quot;My Ideas&quot;, &quot;url&quot;: &quot;ideas#myideas&quot;, &quot;new_window&quot;: false},
 {&quot;title&quot;: &quot;My Feed&quot;, &quot;url&quot;: &quot;feed&quot;, &quot;new_window&quot;: false},
-{&quot;title&quot;: &quot;My Cases&quot;, &quot;url&quot;: &quot;case&quot;, &quot;new_window&quot;: false},
-{&quot;title&quot;: &quot;My Files&quot;, &quot;url&quot;: &quot;/MyFeed&quot;, &quot;new_window&quot;: false},
+{&quot;title&quot;: &quot;My Cases&quot;, &quot;url&quot;: &quot;cases&quot;, &quot;new_window&quot;: false},
+{&quot;title&quot;: &quot;My Files&quot;, &quot;url&quot;: &quot;files&quot;, &quot;new_window&quot;: false},
 {&quot;title&quot;: &quot;Settings&quot;, &quot;url&quot;: &quot;settings&quot;, &quot;new_window&quot;: false}
 ]</value>
     </values>
