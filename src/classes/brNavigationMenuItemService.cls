@@ -21,8 +21,8 @@ public with sharing class brNavigationMenuItemService {
         Map<String, Schema.SObjectType> gd = Schema.getGlobalDescribe();
         Set<String> keySet = gd.keySet();
         for (String key : keySet) {
-            Schema.SObjectType objectType = gd.get(key);
-            if (key.endsWith('kav')) {
+            if (key == 'Public__kav' || key == 'Learning__kav' || key == 'University__kav') {
+                Schema.SObjectType objectType = gd.get(key);
                 describeList.add(objectType.getDescribe().getName() + ' (Id, urlName, ArticleType WHERE (PublishStatus = \'Online\') AND (urlName = \'' + url + '\'))');
             }
         }
