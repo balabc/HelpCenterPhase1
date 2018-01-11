@@ -17,6 +17,8 @@
                 if(resVal === 'Public__kav' || resVal === 'Learning__kav' || resVal === 'University__kav') {
                     cmp.set('v.articleType', resVal);
                     cmp.set('v.isKnowledgeBaseArticle', true);
+                } else {
+                    cmp.set('v.isShowArticleContent', true);
                 }
                 cmp.set('v.isContentVisible', true);
             } else if (state === "ERROR") {

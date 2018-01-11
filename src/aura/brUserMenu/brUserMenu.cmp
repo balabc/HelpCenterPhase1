@@ -4,20 +4,25 @@
     <aura:attribute name="menuItems" type="Object[]"/>
     <aura:attribute name="reputationPoints" type="Integer"/>
     <aura:attribute name="reputationLevel" type="String"/>
+    <aura:attribute name="isReady" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <div class="wrap-userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}" id="wrapUserPic">
-        <div class="header__userpic">
-            <aura:if isTrue="{!and(notequals(v.type, 'Guest'), notequals(v.user, null))}">
-                <img class="userHeaderAvatar" src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
-                <aura:set attribute="else">
-                    <img class="userHeaderAvatar" src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
-                         srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
-                </aura:set>
-            </aura:if>
+        <div class="wrap-userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}" id="wrapUserPic">
+            <div class="header__userpic">
+                <aura:if isTrue="{!notequals(v.type, 'Guest')}">
+                    <aura:if isTrue="{!notequals(v.user, null)}">
+                        <img class="userHeaderAvatar" src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
+                    </aura:if>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.isReady}">
+                        <img class="userHeaderAvatar" src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
+                             srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </div>
         </div>
-    </div>
     <div class="header__profile-dropdown" id="userDropDownMenu">
         <div class="wrap-arrow" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
             <div class="header__profile-dropdown-trigger nav-arrow" id="arrow">

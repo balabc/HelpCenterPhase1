@@ -12,6 +12,7 @@
                 helper.getReputationLevel(cmp);
             }
         });
+        cmp.set('v.isReady', true);
     },
 
     toggleDropdownMenu: function () {
