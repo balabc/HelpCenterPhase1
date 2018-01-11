@@ -39,3 +39,13 @@
    left: 0;
    min-height:110%;
 }
+.THIS .panel-media-small__text.header__contact-body-panel-text.grey{
+    color:#D5D7DD;
+    padding-top:10px;
+}
+.THIS .cLiveAgentChatButton .disabled {
+    background-color: transparent !important;
+}
+.THIS .cLiveAgentChatButton{
+    width: 100% !important;
+}

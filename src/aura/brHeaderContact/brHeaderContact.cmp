@@ -7,6 +7,7 @@
     <aura:attribute name="phoneList" type="Object[]"/>
     <aura:attribute name="phoneCount" type="Integer" default="0"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="liveChat" type="Aura.Component[]" required="false"/>
 
     <aura:method name="showMe" description="Show Header Contact" />
     <aura:method name="hideMe" description="Hide Header Contact" />
@@ -34,6 +35,7 @@
                                 <p class="panel-media-small__text header__contact-body-panel-text">Get answers from business owners and experts</p>
                         </div>
                     </div>
+<!-- OLD VARIANT
                     <div class="panel-media-small" onclick="{!c.openLiveChat}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="ponny panel-media-small__icon">
@@ -45,6 +47,31 @@
                             <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="javascript:void(0);">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
                         </div>
                     </div>
+-->
+<!-- CLIENTS VARIANT (LOOKS LIKE MISSING BUTTON id)
+                    <c:LiveAgentChatButton
+                        organizationId="00D30000001FDCG"
+                        deploymentUrl="https://c.la4-c2-dfw.salesforceliveagent.com/content/g/js/41.0/deployment.js"
+                        endpoint="https://d.la4-c2-dfw.salesforceliveagent.com/chat"
+                        deploymentId="572a0000000H7DJ"
+                        chatButtontId=""
+                        onlineText="ONline"
+                        offlineText="OFFline"
+                        userSessionData=""
+                    />
+-->
+                    <c:LiveAgentChatButton
+                            organizationId="00D0O000000ZRmX"
+                            deploymentUrl="https://d.la1-c2-frf.salesforceliveagent.com/content/g/js/41.0/deployment.js"
+                            endpoint="https://d.la1-c2-frf.salesforceliveagent.com/chat"
+                            deploymentId="5720O000000kD2r"
+                            chatButtontId="5730O000000kCvb"
+                            onlineText="ONline"
+                            offlineText="Live Chat is currently unavailable"
+                            userSessionData=""
+                    />
+
+
                     <div class="panel-media-small" onclick="{!c.openPhoneSupport}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="ponny panel-media-small__icon">
