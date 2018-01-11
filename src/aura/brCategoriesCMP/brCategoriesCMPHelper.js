@@ -1,5 +1,6 @@
 ({
     getCatalogList: function(component) {
+        console.log('[DEBUG] [Helper] brCategoriesCMP:getCatalogList');
         var action = component.get("c.getCatalogList"), 
             articleType = component.get('v.data.objectName'),
             dataCategoryName = component.get('v.data.dataCategory');
@@ -22,6 +23,7 @@
         $A.enqueueAction(action);
     },
     getResponse: function(component) {
+        console.log('[DEBUG] [Helper] brCategoriesCMP:getResponse');
         var action = component.get("c.getCatalog"), 
             selectId = component.get('v.selectedArticleId'),
             articleType = component.get('v.data.objectName'),

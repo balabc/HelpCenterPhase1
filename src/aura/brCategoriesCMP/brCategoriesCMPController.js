@@ -1,34 +1,29 @@
 ({
 	doInit: function(component, event, helper) {
+        console.log('[DEBUG] [Controller] brCategoriesCMP:doInit');
         component.set("v.items", []);
         component.set("v.data", {});
-        
-        var data = component.get("v.data");
+        /*var data = component.get("v.data");
         if (!!data) {
             if (data.hasOwnProperty('id')) {
         		component.set('v.selectedArticleId', data.id);
             }
-        
         	component.set("v.data", data);
         	helper.getResponse(component);
-        }
+        }*/
 	},
     changeData: function(component, event, helper) {
+        console.log('[DEBUG] [Controller] brCategoriesCMP:changeData');
         var data = component.get("v.data");
-        if (!!data) {
-            if (data.hasOwnProperty('id')) {
-               //console.log(data);
-
+        if (!!data && data.hasOwnProperty('id')) {
                 component.set('v.selectedArticleId', data.id);
-
                 helper.getResponse(component);
-            }
         }
     },
     nullData: function(component, event, helper) {
         component.set("v.items", []);
     },
-    clickCategory: function(component, event, helper) {    
+    clickCategory: function(component, event, helper) {
         var target = event.target,
             parent = target.parentElement,
             ul = parent.closest('ul'),

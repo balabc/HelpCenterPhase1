@@ -10,7 +10,6 @@
     <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/>
     <aura:method name="nullData" action="{!c.nullData}" access="PUBLIC"/>
 
-
     <aura:if isTrue="{!v.items.length > 0}">
         <div class="doc-nav__inner" aura:id="brCategories_wrap">
             <ul class="doc-nav__list doc-nav__list-lvl-1" id="menu-articles">
