@@ -1,19 +1,18 @@
 ({
+    openModal: function(component, event, helper) {
+        console.log('[DEBUG] [Controller] brSearchModal:closeModal');
+        helper.openModal(component, event);
+    },
+    closeModal: function(component, event, helper) {
+        console.log('[DEBUG] [Controller] brSearchModal:closeModal');
+        helper.closeModal(component, event);
+    },
 	toggleSearchModal: function(component, event, helper) {
-        var state = !component.get('v.stateSearchModal'),
-            body_classes = document.body.classList,
-            class_modal = 'is-modal';  
-		component.set('v.stateSearchModal', state);
-        
-        if (state) { 
-            if (!document.body.classList.contains(class_modal))
-            	document.body.classList.add(class_modal);
-        } else {
-            document.body.classList.remove(class_modal);
-        }
-
+        console.log('[DEBUG] [Controller] brSearchModal:toggleSearchModal');
+        helper.toggleModal(component, event);
 	},
     onClickSearch: function(component, event, helper) {
+        console.log('[DEBUG] [Controller] brSearchModal:onClickSearch');
 	    var target = event.target,
             flag = true,
             classes = [
@@ -38,7 +37,7 @@
                         }
                     }
                 }
-    
+
                 if (flag) {
                     var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
                     toggleSearchModal.fire();

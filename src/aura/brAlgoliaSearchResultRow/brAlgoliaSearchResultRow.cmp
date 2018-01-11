@@ -1,6 +1,5 @@
 <aura:component description="brAlgoliaSearchResultRow">
     <aura:attribute name="item" type="Object" />
-
     <div class="serp__item">
         <div class="serp__item-left">
             <div class="serp__item-left-inner">

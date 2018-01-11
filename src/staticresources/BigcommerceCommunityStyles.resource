@@ -407,3 +407,10 @@ span.nav-arrow-hor-angular__icon {
     position: absolute;
     top: 4px;
 }
+.cBrSearchModal.modal-overlay.open, .cBrSearchModal.wrap-modal.open {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+    display: block;
+}
