@@ -79,6 +79,8 @@
         <members>brKnowledgeArticleConfigLayout</members>
         <members>brCategoriesToggleEvent</members>
         <members>brCloseAllNavMenuEvent</members>
+        <members>LiveAgentChatButton</members>
+        <members>ScriptWrapper</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -194,6 +196,8 @@
         <members>brMenuListViewCtrlTest</members>
         <members>brKnowledgeArticleLayoutCtrlTest</members>
         <members>brNetwork</members>
+		<members>LiveAgentChatButton</members>
+		<members>LiveAgentChatButtonTest</members>
         <name>ApexClass</name>
     </types>
     <types>

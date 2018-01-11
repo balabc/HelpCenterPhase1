@@ -1,5 +1,4 @@
 ({
-	// Your renderer method overrides go here
 	afterRender : function(cmp, helper) {
 		var ret = this.superAfterRender();
 		var isValid = helper.validateComponent(cmp);

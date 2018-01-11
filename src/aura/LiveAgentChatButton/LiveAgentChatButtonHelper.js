@@ -51,7 +51,6 @@
                 component.set("v.previousIsLiveAgentOnline",component.get("v.isLiveAgentOnline"));
             }
 
-
             updateLiveAgentButton(component);
         });
 

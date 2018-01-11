@@ -1,6 +1,5 @@
 ({
     init : function(component, event, helper) {
-
         function liveAgentStart(){
             //timeout to initiate liveAgent
             window.setTimeout(
@@ -21,27 +20,22 @@
                             self.data = data;
 
                             if ((typeof liveagent == "object") && (document.getElementById('btONline') != null )){
-                                console.log('CTRL  init live agent');
                                 clearInterval(interV);
-                                try{
-                                    helper.bindLiveAgent(component,data);
-                                }catch(e){
-                                     console.error('bindLiveAgent tryE:', e);
-                                }
+                                helper.bindLiveAgent(component,data);
                             }else{
-                                console.log('CTRL  timeout to init live agent');
+                                //console.log('CTRL  timeout to init live agent');
                             }
                         }
                         //setInterval to initiate liveAgent when liveagent object
                         // is available
                         interV = setInterval(initLiveAgent,500,data);
                     }else{
-                        console.log('CTRL  component is not valid');
+                        //console.log('CTRL  component is not valid');
                     }
                 }), 100
             );
         }
-try{
+
         var isValid = helper.validateComponent(component);
         component.set("v.isInvalidInput", !isValid);
         if ( isValid){
@@ -73,13 +67,10 @@ try{
                     , document.getElementById('btOFFline'));
             });
         }
-}catch(e){
-    console.error('liveChat tryE:', e);
-}
+
     },
 
     startChat : function(component, event, helper) {
-        console.log('startChat');
         liveagent.startChat(component.get("v.chatButtontId"));
     }
 })
