@@ -14,3 +14,7 @@
 	-webkit-transition: opacity 0.5s;
 	transition: opacity 0.5s;
 }
+
+.THIS .modal__inner {
+    height: 100%;
+}
