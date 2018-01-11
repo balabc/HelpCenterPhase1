@@ -1743,7 +1743,10 @@ textarea::placeholder {
     margin: 0;
     text-align: center;
     color: #ffffff; }
-
+.cBrLandingTiles .panel-media:hover {
+    transition: all 0.3s ease;
+    box-shadow: 0 9px 10px 0 rgba(35, 46, 105, 0.1);
+}
 .panel-media {
   position: relative;
   min-height: 80px;
