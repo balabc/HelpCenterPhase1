@@ -4,13 +4,11 @@ public with sharing class LiveAgentChatButton {
     public static Contact getContact(Id contactId) {
         Contact c = null;
         try {
-            User usr = [Select ContactId from User where Id = :UserInfo.getUserId()];
+            User usr = [SELECT ContactId
+            FROM User
+            WHERE Id = :UserInfo.getUserId()];
             if (usr.ContactId != null) {
-                c = [
-                        SELECT Id, Name, Email, Phone
-                        FROM Contact
-                        WHERE Id = :usr.ContactId
-                ];
+                c = [ SELECT Id, Name, Email, Phone FROM Contact WHERE Id = :usr.ContactId ];
             } else {
                 c = new Contact(FirstName = 'she');
             }

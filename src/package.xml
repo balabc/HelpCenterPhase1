@@ -182,6 +182,7 @@
         <members>brUtils</members>
         <members>brUtilsTest</members>
         <members>brBlogArticleWrapper</members>
+        <members>brBlogArticleWrapperTest</members>
         <members>brBreadcrumbsCtrlTest</members>
         <members>brMenuListViewCtrl</members>
         <members>brLandingTilesCtrl</members>
