@@ -521,7 +521,7 @@ a {
 .wrap-bg-white-skew-area {
   position: relative; }
 .container.relative.z-2.cBrTopTrendingCMP {
-    margin-top: -90px;
+    top: -90px;
 }
 .bg-white-skew {
   position: absolute;
@@ -1279,7 +1279,9 @@ input::placeholder,
 textarea::placeholder {
   color: #a0a0a0;
   opacity: 1; }
-
+.slds-input:focus,.slds-input:active {
+   box-shadow: 0 0 0px rgba(0,0,0,0);
+}
 .row:after {
   content: "";
   display: table;
@@ -1885,7 +1887,7 @@ textarea::placeholder {
   max-width: 650px;
   height: 0;
   max-height: 366px;
-  padding-top: 25px;
+  padding-top: 14px;
   padding-bottom: 56.25%;
   /* 16:9 */
   border-radius: 5px;
@@ -3375,11 +3377,11 @@ header.header {
     color: #abb0b9; }
   .header__dropdown-menu-title-link {
     margin: 0;
-    font-family: 'source_sans_probold', Arial, sans-serif;
-    font-size: 0.6875rem;
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    font-size: 0.875rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #abb0b9; }
+    color: #6d6e7a; }
     .header__dropdown-menu-title-link:hover {
       color: #969ca8; }
     .header__dropdown-menu-title-link:active {
@@ -3764,9 +3766,15 @@ header.header {
       background-size: 874px 729px;
       -webkit-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%); }
-
+.content-wrap {
+    background: #8f4af5;
+    background: -moz-linear-gradient(257deg, #8f4af5 0%,#5074fb 112%);
+    background: -webkit-linear-gradient(257deg, #8f4af5 0%,#5074fb 112%);
+    background: linear-gradient(257deg, #8f4af5 0%,#5074fb 112%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f4af5 ', endColorstr='#5074fb ',GradientType=1 );
+}
 .header__contact {
-  right: -433px;
+  right: -443px;
   transition: all 0.3s ease;
   z-index: 4; }
   .header__contact--active {
@@ -4297,16 +4305,16 @@ header.header {
 
 .skew-lg--top {
   position: absolute;
-  top: -100px;
+  top: -210px;
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 400px;
   -webkit-transform: skew(0, -3deg);
           transform: skew(0, -3deg); }
 
 .skew-lg--bottom {
   position: absolute;
-  bottom: -100px;
+  bottom: 20px;
   left: 0;
   width: 100%;
   height: 200px;
@@ -4319,18 +4327,22 @@ header.header {
   .lift-content__inner {
     position: relative;
     top: -150px; }
-
+.container.relative.z-2.cBrFeaturedArticles {
+    top: -130px;
+}
 .area-bg {
   position: relative;
   padding-top: 100px;
-  background: #f6f7f9; }
+  background: #ffffff; }
 
 .area-bg-second {
-  padding-top: 132px;
-  padding-bottom: 116px; }
+  padding-top: 0px;
+  top: 140px;
+  padding-bottom: 225px;
+  background: #f6f7f9;  }
 
 .area-video {
-  padding-top: 195px; }
+  padding-top: 85px; }
   .area-video__left {
     float: left;
     width: 38%;
@@ -4346,13 +4358,24 @@ header.header {
 	.lift-content {
     border-top: 40px solid #fff;
 }
+.container.relative.z-2.cBrFeaturedArticles {
+    top: 0px;
+}
+.area-bg-second {
+    top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: -130px;
+}
   .lift-content__inner {
     top: -100px; }
   .area-bg {
-    padding-top: 30px; }
+    padding-top: 130px;
+    background: #f6f7f9;
+	top: -190px;}
   .area-video {
     position: relative;
-    padding: 60px 0; }
+    padding: 60px 0 0 0;
+    top: -130px;}
     .area-video:after {
       position: absolute;
       bottom: 0;
@@ -4379,11 +4402,11 @@ header.header {
   top: -100px; }
 
 .is-mobile .area-bg {
-  padding-top: 30px; }
+  padding-top: 130px; }
 
 .is-mobile .area-video {
   position: relative;
-  padding: 60px 0; }
+  padding: 60px 0 0 0; }
   .is-mobile .area-video:after {
     position: absolute;
     bottom: 0;
@@ -5409,7 +5432,7 @@ a.doc-nav__link.doc-nav__link-lvl-2 {
   right: 11px;
   content: '';
   border: 5px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;.skew-lg--bottom
   -webkit-transform-origin: 0 25%;
           transform-origin: 0 25%; }
 
@@ -5424,7 +5447,7 @@ a.doc-nav__link.doc-nav__link-lvl-2 {
   -webkit-transform-origin: 0 25%;
           transform-origin: 0 25%; }
 #bottom_fade {
-    width: 250px;
+    width: auto;
     height: 50px;
     position: sticky;
     bottom: 0px;
