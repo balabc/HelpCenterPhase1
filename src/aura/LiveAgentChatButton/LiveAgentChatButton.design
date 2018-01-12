@@ -1,4 +1,5 @@
 <design:component label="Live Agent Chat Button">
+
     <design:attribute name="organizationId" label="Organization ID" description="The organization ID for Live Agent." />
     <design:attribute name="deploymentUrl" label="Live Agent Deployment URL" description="Copy the first URL in the deployment code snippet." />
     <design:attribute name="endpoint"   label="Live Agent API Endpoint" description="Copy the second URL in the deployment code snippet." />
@@ -7,4 +8,5 @@
     <design:attribute name="onlineText" label="Online Text" description="Button text shown when chat is available." />
     <design:attribute name="offlineText" label="Offline Text" description="Button text shown when no chat is available." />
     <design:attribute name="userSessionData" label="Set User Information" description="For users logged in to the community, automatically set contact information on chat." />
+
 </design:component>

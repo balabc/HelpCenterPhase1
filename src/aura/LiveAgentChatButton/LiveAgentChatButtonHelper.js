@@ -1,18 +1,14 @@
 ({
-    helperMethod : function(component) {
-
-    },
 
     validateComponent : function(component) {
-        var valid = true;
-
+         var valid = true;
          if (component.isValid()) {
-            valid =  ( component.get("v.chatButtontId") != undefined && component.get("v.chatButtontId") != '')
-                        || ( component.get("v.endpoint") != undefined && component.get("v.endpoint") != '')
-                        || ( component.get("v.deploymentId") != undefined && component.get("v.deploymentId") != '')
-                        || ( component.get("v.deploymentUrl") != undefined && component.get("v.deploymentUrl") != '')
-                        || ( component.get("v.organizationId") != undefined && component.get("v.organizationId") != '') ;
-        }
+             valid =  ( component.get("v.chatButtontId") != undefined && component.get("v.chatButtontId") != '')
+                || ( component.get("v.endpoint") != undefined && component.get("v.endpoint") != '')
+                || ( component.get("v.deploymentId") != undefined && component.get("v.deploymentId") != '')
+                || ( component.get("v.deploymentUrl") != undefined && component.get("v.deploymentUrl") != '')
+                || ( component.get("v.organizationId") != undefined && component.get("v.organizationId") != '');
+         }
          return valid;
     },
     bindLiveAgent : function (component,data){
@@ -68,4 +64,5 @@
         }
         liveagent.init( data.LA_chatServerURL, data.LA_deploymentId,  data.organizationId);
     }
+
 })
