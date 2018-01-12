@@ -31,7 +31,7 @@
                             </a>
                         </aura:if>
                         <aura:if isTrue="{!v.showDetails}">
-                            <a href="#list" onclick="{!c.toggleIdea}"><ui:outputText class="idea-name-output" value="{!v.item.Title}" /></a>
+                            <a href="{!'#' + v.item.Id}" onclick="{!c.toggleIdea}"><ui:outputText class="idea-name-output" value="{!v.item.Title}" /></a>
                         </aura:if>
                         <aura:if isTrue="{!not(empty(v.item.ParentIdeaId))}"> ({!$Label.c.Merged})</aura:if>
                         <aura:if isTrue="{!not(empty(v.Categories))}">
@@ -81,7 +81,7 @@
                         </ul>
                         <div class="{!v.activeTab == 'tabIdeaComments' ? v.visibleTabClass : v.hiddenTabClass}"
                              role="tabpanel" aria-labelledby="tabIdeaComments">
-                            <c:brLghtIdeasCommentsList  ideaId="{!v.item.Id}" commonVars="{!v.commonVars}"
+                            <c:brLghtIdeasCommentsList ideaId="{!v.item.Id}" commonVars="{!v.commonVars}"
                                                            allowPostComment="{!empty(v.item.ParentIdeaId)}" />
                         </div>
                         <div class="{!v.activeTab == 'tabIdeaVotes' ? v.visibleTabClass : v.hiddenTabClass}"
@@ -134,7 +134,7 @@
                         </aura:if>
 
                         <div class="points">
-                            <span class="number"><ui:outputText  value="{!v.voteTotal}" /></span>
+                            <span class="number"><ui:outputText value="{!v.voteTotal}" /></span>
                             <span class="label">{!$Label.c.points}</span>
                         </div>
 
