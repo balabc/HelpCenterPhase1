@@ -35,9 +35,9 @@
                         </div>
                     </div>
                     <!-- TODO: this breaks app for all unauthenticated users aka guest -->
-<!--                
+
                     <c:LiveAgentChatButton  organizationId="00D30000001FDCG" deploymentUrl="https://c.la4-c2-dfw.salesforceliveagent.com/content/g/js/41.0/deployment.js" endpoint="https://d.la4-c2-dfw.salesforceliveagent.com/chat" deploymentId="572a0000000H7DJ" chatButtontId="573a00000008j2D" onlineText="" offlineText="" userSessionData="" />
--->
+
                     <div class="panel-media-small" onclick="{!c.openPhoneSupport}">
                         <div class="panel-media-small__wrap-icon">
                             <div class="ponny panel-media-small__icon">
