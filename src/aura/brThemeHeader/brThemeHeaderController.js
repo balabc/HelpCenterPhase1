@@ -1,5 +1,7 @@
 ({
     doInit : function(component, event, helper) {
+        //console.log('[DEBUG] [Controller] brThemeHeader:doInit');
+        helper.retrieveInitData(component);
         /*document.addEventListener('DOMContentLoaded', function(){
             var funcResizeMobile = function() {  
                 var body_classes = document.body.classList,

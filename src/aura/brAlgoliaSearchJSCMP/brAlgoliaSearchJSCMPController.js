@@ -10,7 +10,9 @@
     searchChange: function(component, event, helper) {
         var query = component.get("v.searchText"),
             changeSearch = $A.get("e.c:brChangeHeaderSearchBarEvent");
-        
+
+        document.cookie = "searchTerm=" + escape(query) + "" + "; path=/";//BIG-71 fix
+
         if (query.length >= 1) {
             helper.getSearchResult(component);
         } else {
