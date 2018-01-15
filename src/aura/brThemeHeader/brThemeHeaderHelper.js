@@ -8,7 +8,12 @@
             }
             var valTerm = getCookieValue('searchTerm');
             if(valTerm !== 'underfined'){
-                component.set('v.search', decodeURIComponent(valTerm));
+				setTimeout(
+                    function(){
+                        component.set('v.search', decodeURIComponent(valTerm));
+                    }
+                    ,200
+                );				
             }
         }catch(e){
             //console.error(e.message);
