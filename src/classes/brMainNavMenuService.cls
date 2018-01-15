@@ -6,7 +6,7 @@ public with sharing class brMainNavMenuService {
         String navId = null;
 
         try {
-            navId = [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId()].Id; List<String> labels = new List<String>();
+            navId = [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId() LIMIT 1].Id; List<String> labels = new List<String>();
         } catch (QueryException ex) {
             System.debug('brMainNavMenuService::getLabels: ' + ex.getMessage());
         }
