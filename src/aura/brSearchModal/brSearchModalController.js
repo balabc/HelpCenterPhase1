@@ -12,7 +12,7 @@
         helper.toggleModal(component, event);
 	},
     onClickSearch: function(component, event, helper) {
-        console.log('[DEBUG] [Controller] brSearchModal:onClickSearch');
+        //console.log('[DEBUG] [Controller] brSearchModal:onClickSearch');
 	    var target = event.target,
             flag = true,
             classes = [
