@@ -1,14 +1,14 @@
 ({
     openModal: function(component, event, helper) {
-        console.log('[DEBUG] [Controller] brSearchModal:closeModal');
+        //console.log('[DEBUG] [Controller] brSearchModal:closeModal');
         helper.openModal(component, event);
     },
     closeModal: function(component, event, helper) {
-        console.log('[DEBUG] [Controller] brSearchModal:closeModal');
+        //console.log('[DEBUG] [Controller] brSearchModal:closeModal');
         helper.closeModal(component, event);
     },
 	toggleSearchModal: function(component, event, helper) {
-        console.log('[DEBUG] [Controller] brSearchModal:toggleSearchModal');
+        //console.log('[DEBUG] [Controller] brSearchModal:toggleSearchModal');
         helper.toggleModal(component, event);
 	},
     onClickSearch: function(component, event, helper) {

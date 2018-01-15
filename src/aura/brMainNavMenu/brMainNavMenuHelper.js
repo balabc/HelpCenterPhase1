@@ -41,7 +41,7 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var labels = response.getReturnValue();
-                    console.log(labels);
+                    //console.log(labels);
                     cmp.set('v.labels', labels);
                 } else if (state === "ERROR") {
                     var errors = response.getError();

@@ -1,6 +1,6 @@
 ({
 	doInit: function(component, event, helper) {
-        console.log('[DEBUG] [Controller] brCategoriesCMP:doInit');
+        //console.log('[DEBUG] [Controller] brCategoriesCMP:doInit');
         component.set("v.items", []);
         component.set("v.data", {});
         /*var data = component.get("v.data");
@@ -13,7 +13,7 @@
         }*/
 	},
     changeData: function(component, event, helper) {
-        console.log('[DEBUG] [Controller] brCategoriesCMP:changeData');
+        //console.log('[DEBUG] [Controller] brCategoriesCMP:changeData');
         var data = component.get("v.data");
         if (!!data && data.hasOwnProperty('id')) {
                 component.set('v.selectedArticleId', data.id);
@@ -30,7 +30,7 @@
         	active = parent.getAttribute('data-active'),
             allChildOff = function(_parent) {
                 var items = _parent.getElementsByTagName('li');
-                console.log(items);
+                //console.log(items);
                 for (var i = 0; i < items.length; i++) {
                     items.item(i).setAttribute('data-active', false);
                     items.item(i).classList.remove('active');
