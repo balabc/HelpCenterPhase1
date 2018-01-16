@@ -35,8 +35,7 @@
 
                 <div class="empty-block-for-sticky-footer"></div><!-- do not remove this empty element -->
             </div><!-- / .wrapper-for-sticky-footer-structure -->
-
-            <c:brThemeFooter />
         </div><!-- / .body-inner -->
+        <c:brThemeFooter aura:id="themeFooter"/>
     </div>
 </aura:component>

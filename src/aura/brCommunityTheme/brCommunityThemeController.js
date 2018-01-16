@@ -3,6 +3,8 @@
         window.setTimeout(
             $A.getCallback(function() {
                 component.set('v.isReady', true);
+                var childCmp = component.find("themeFooter")
+                childCmp.setValue();
             }), 1000
         );
 
