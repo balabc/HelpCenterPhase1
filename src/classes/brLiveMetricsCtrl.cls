@@ -52,6 +52,41 @@ public with sharing class brLiveMetricsCtrl {
 	@AuraEnabled
 	public static Id getCommunityId() {
 		return Network.getNetworkId();
-	}  
-      
+	}
+
+    /**
+     *
+     *
+     * @return user type
+     */
+    @AuraEnabled
+	public static String getUserType() {
+		if (Test.isRunningTest()) {
+			return 'Standard';
+		}
+		return UserInfo.getUserType();
+	}
+
+    /**
+     *
+     *
+     * @return user name
+     */
+    @AuraEnabled
+    public static String getCurrentUserName() {
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'Name'});
+
+        String userName = null;
+
+        try {
+            userName = [SELECT Name FROM User WHERE Id = :userInfo.getUserId() LIMIT 1].Name;
+        } catch (QueryException ex) {
+            System.debug('brLiveMetricsCtrl::getCurrentUserName: ' + ex.getMessage());
+        }
+
+        if (Test.isRunningTest()) {
+            return 'Test';
+        }
+        return userName;
+    }
 }

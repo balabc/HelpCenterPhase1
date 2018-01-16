@@ -25,4 +25,19 @@ private class brLiveMetricsCtrlTest {
         Test.stopTest();
     }
 
+    static testMethod void testGetUserType() {
+        Test.startTest();
+        String userType = brLiveMetricsCtrl.getUserType();
+        Test.stopTest();
+
+        System.assertEquals('Standard', userType, 'wrong user type');
+    }
+
+    static testMethod void testGetCurrentUserName() {
+        Test.startTest();
+        String userName = brLiveMetricsCtrl.getCurrentUserName();
+        Test.stopTest();
+
+        System.assertEquals('Test', userName, 'result without current user');
+    }
 }

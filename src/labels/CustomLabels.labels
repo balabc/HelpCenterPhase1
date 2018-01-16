@@ -1056,12 +1056,20 @@
         <value>Live Chat</value>
     </labels>
     <labels>
-        <fullName>hLiveMetricsTitle</fullName>
+        <fullName>hLiveMetricsTitleHelp</fullName>
         <categories>Live Metrics Component</categories>
         <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Live Metrics Title</shortDescription>
-        <value>Welcome! How can we help?</value>
+        <protected>false</protected>
+        <shortDescription>second part of live metrics title</shortDescription>
+        <value>How can we help?</value>
+    </labels>
+    <labels>
+        <fullName>hLiveMetricsTitleWelcome</fullName>
+        <categories>Live Metrics Component</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>first part of live metrics title</shortDescription>
+        <value>Welcome</value>
     </labels>
     <labels>
         <fullName>hNewArticle</fullName>
