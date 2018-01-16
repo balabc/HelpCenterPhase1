@@ -1,8 +1,10 @@
 <aura:component description="brThemeFooter">
     <aura:attribute name="isReady" type="Boolean" default="false"/>
     <aura:method name="setValue" action="{!c.setIsReady}" access="PUBLIC" />
+    <aura:attribute name="isPhone" type="Boolean"/>
+    <aura:attribute name="isResize" type="Boolean" default="false"/>
 
-    <footer class="footer" style="{!if(not(v.isReady), 'bottom: 0;left: 0;position: absolute;right: 0;')}">
+    <footer class="footer" style="{!if(and(not(v.isReady),and(not(v.isPhone), not(v.isResize))), 'bottom: 0;left: 0;position: absolute;right: 0;')}">
         <div class="footer__top">
             <div class="container">
                 <div class="footer__wrap-menu clr">

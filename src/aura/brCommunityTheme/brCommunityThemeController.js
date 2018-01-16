@@ -3,7 +3,22 @@
         window.setTimeout(
             $A.getCallback(function() {
                 component.set('v.isReady', true);
-                var childCmp = component.find("themeFooter")
+                if (window.innerWidth < 1000) {
+                    var isSmallDevice = true;
+                    component.set('v.isSmallDevice', isSmallDevice);
+                }
+                window.addEventListener('resize', function(event){
+                    var isSmallDevice;
+                    if (window.innerWidth < 1000) {
+                        isSmallDevice = true;
+                    } else {
+                        isSmallDevice = false;
+                    }
+                    component.set('v.isResize', true);
+                    component.set('v.isSmallDevice', isSmallDevice);
+                });
+
+                var childCmp = component.find("themeFooter");
                 childCmp.setValue();
             }), 1000
         );
