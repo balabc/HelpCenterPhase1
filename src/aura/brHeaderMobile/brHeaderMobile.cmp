@@ -21,4 +21,5 @@
             </div><!-- / end of .header-mobile__right -->
         </div><!-- / end of .container -->
     </div><!-- enf of / .header-mobile -->
+    <div class="header-plugs" onclick="{!c.toggleMobileMenu}" aura:id="header-plugs"></div><!-- / end of .header-plugs -->
 </aura:component>
