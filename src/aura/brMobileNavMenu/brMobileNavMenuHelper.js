@@ -44,7 +44,7 @@
             
             
             if (user) {
-                console.log('user: ',user);
+                //console.log('user: ',user);
                 if (user.logUser === true) {
                     items.pop();
                     items.push({
@@ -214,7 +214,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {  
                 var items = response.getReturnValue();
-                console.log(items);
+                //console.log(items);
                 this.getUserInfo(component, items);
             }
         });

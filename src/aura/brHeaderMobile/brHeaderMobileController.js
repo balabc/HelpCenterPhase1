@@ -22,7 +22,7 @@
         urlEvent.fire();
     },
     toggleSearch: function(component, event, helper) {
-        console.log('[DEBUG] brHeaderMobile:toggleSearch');
+        //console.log('[DEBUG] brHeaderMobile:toggleSearch');
         var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
         toggleSearchModal.fire();
 	},
