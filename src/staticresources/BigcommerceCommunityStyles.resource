@@ -301,7 +301,7 @@ body .DESKTOP.uiContainerManager {
 }
 
 .cBrAlgoliaSearchJSCMP .searchbox__input-text input {
-    color: #4c4b58;
+    color: #4c4b58 !important;
 }
 .serp__item-left-text {
     font-family: 'source_sans_proregular', Arial, sans-serif;
