@@ -13,7 +13,7 @@
             <img src="{!$Resource.BigcommerceCommunity + '/images/bg-index.png'}" alt=""/>
         </div>
         <div class="jumbotron__content">
-            <h1 class="h1 jumbotron__title">{!equals(v.type,'Guest')?$Label.c.hLiveMetricsTitleWelcome + ' ' + $Label.c.hLiveMetricsTitleHelp:
+            <h1 class="h1 jumbotron__title">{!equals(v.type,'Guest')?$Label.c.hLiveMetricsTitleWelcome + '! ' + $Label.c.hLiveMetricsTitleHelp:
                     $Label.c.hLiveMetricsTitleWelcome + ' ' + v.name + '! ' + $Label.c.hLiveMetricsTitleHelp} </h1>
             <div class="jumbotron__row">
                 <div class="jumbotron__col">
