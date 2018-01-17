@@ -24,14 +24,13 @@
         <div class="wrap-searchbox">
             <div class="searchbox searchbox-uniq">
                 <lightning:input type="text" aura:id="algolia-search-input" class="searchbox__input-text" placeholder="{!$Label.c.fieldAlgoliaSearchSearch}" name="input-name" label="" value="{!v.searchText}" onchange="{!c.searchChange}"/>
-                
                 <input type="reset" class="searchbox__input-reset" value="{!$Label.c.fieldAlgoliaSearchClear}" onclick="{!c.clearSearch}"/>
             </div>
         </div>
     </div> 
     <div class="serp clr">
         <div class="serp__filter-section" data-active="{!v.hasData != 'off'}">
-            <div class="serp__panel">
+            <div class="serp__panel"  onclick="{!c.toggleMobileFilter}">
                 <div class="serp__filter-section-panel-inner">
                     <h3 class="h3 serp__title">{!$Label.c.hAlgoliaSearchRefine}</h3>
                     <c:brAlgoliaFilterJSCMP filterCounts="{!v.filterCounts}" aura:id="algolia_search_filter" availableIndexes="{!v.availableIndexes}"/>
