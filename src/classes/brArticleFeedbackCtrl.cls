@@ -1,4 +1,12 @@
+/**
+ * This class is controller for brArticleFeedback aura component
+ */
 public with sharing class brArticleFeedbackCtrl {
+    /**
+     *
+     *
+     * @return user type
+     */
     @AuraEnabled
     public static String getUserType() {
         if (!Test.isRunningTest()) { return UserInfo.getUserType();}
@@ -7,6 +15,13 @@ public with sharing class brArticleFeedbackCtrl {
         }
     }
 
+    /**
+     *
+     *
+     * @param articleId article id
+     *
+     * @return has a voice or not
+     */
     @AuraEnabled
     public static Boolean hasVoteForArticle(String articleId) {
         brSecurityService.performAccessCheck('read', 'Vote', new List<String>{'CreatedById','ParentId'});
@@ -20,6 +35,11 @@ public with sharing class brArticleFeedbackCtrl {
         return hasVote;
     }
 
+    /**
+     *
+     *
+     * @return feedback reason
+     */
     @AuraEnabled
     public static List<String> getFeedbackReasons () {
         brSecurityService.performAccessCheck('read', 'brArticleFeedback__c', new List<String>{'Reason__c'});
@@ -37,6 +57,11 @@ public with sharing class brArticleFeedbackCtrl {
         return reasons;
     }
 
+    /**
+     *
+     * insert vote up
+     * @param articleId article id
+     */
     @AuraEnabled
     public static void addVoteUpForArticle(String articleId) {
         brSecurityService.performAccessCheck('create', 'Vote', new List<String>{'Type','ParentId'});
@@ -47,6 +72,12 @@ public with sharing class brArticleFeedbackCtrl {
         }
     }
 
+    /**
+     *
+     * insert vote down and feedback object which include reason and article number
+     * @param articleId article id
+     * @param reason reason
+     */
     @AuraEnabled
     public static void addVoteDownAndSaveReasonForArticle(String articleId, String reason) {
         brSecurityService.performAccessCheck('create', 'Vote', new List<String>{'Type','ParentId'});
