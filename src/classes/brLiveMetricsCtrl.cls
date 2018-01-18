@@ -74,12 +74,12 @@ public with sharing class brLiveMetricsCtrl {
      */
     @AuraEnabled
     public static String getCurrentUserName() {
-        brSecurityService.performAccessCheck('read', 'User', new List<String>{'Name'});
+        brSecurityService.performAccessCheck('read', 'User', new List<String>{'FirstName','LastName'});
 
-        String userName = null;
+		User user = null;
 
         try {
-            userName = [SELECT Name FROM User WHERE Id = :userInfo.getUserId() LIMIT 1].Name;
+             user = [SELECT FirstName, LastName FROM User WHERE Id = :userInfo.getUserId() LIMIT 1];
         } catch (QueryException ex) {
             System.debug('brLiveMetricsCtrl::getCurrentUserName: ' + ex.getMessage());
         }
@@ -87,6 +87,6 @@ public with sharing class brLiveMetricsCtrl {
         if (Test.isRunningTest()) {
             return 'Test';
         }
-        return userName;
+        return user.FirstName != null?user.FirstName:user.LastName;
     }
 }
