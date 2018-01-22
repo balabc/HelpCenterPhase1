@@ -121,20 +121,16 @@
             elems[i].addEventListener('click', funcFilter, false);
         }*/
     },
-    toggleMobileFilter: function(component, event, helper) { 
-        var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
-        
-        if (has_filter === 'true') {
-            var body_classes = document.body.classList,
-                class_is_mobile = 'is-mobile', 
-                class_mobile = 'mobile-search-filter-is-active';
-            
-            if (body_classes.contains(class_is_mobile)) {
-                if (body_classes.contains(class_mobile)) {
-                    body_classes.remove(class_mobile);
-                } else {
-                    body_classes.add(class_mobile);
-                }
+    toggleMobileFilter: function(component, event, helper) {
+        helper.toggleMobileFilter(component);
+    },
+    filterClose: function(component, event, helper) {
+        helper.toggleMobileFilter(component);
+        //set class "filter_ask_to_skip" that will be used by other function to ignore on click action
+        var closediv = component.find("close_filter").getElement();
+        if (!!closediv && (typeof closediv.classList !== "undefined")) {
+            if (! closediv.classList.contains("filter_ask_to_skip") ) {
+                closediv.classList.add("filter_ask_to_skip");
             }
         }
     }

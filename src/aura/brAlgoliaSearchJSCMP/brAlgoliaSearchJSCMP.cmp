@@ -31,13 +31,15 @@
     </div> 
     <div class="serp clr">
         <div class="serp__filter-section" data-active="{!v.hasData != 'off'}">
-            <div class="serp__panel"  onclick="{!c.toggleMobileFilter}">
+            <div class="serp__panel">
                 <div class="serp__filter-section-panel-inner">
                     <h3 class="h3 serp__title">{!$Label.c.hAlgoliaSearchRefine}</h3>
                     <c:brAlgoliaFilterJSCMP filterCounts="{!v.filterCounts}" aura:id="algolia_search_filter" availableIndexes="{!v.availableIndexes}"/>
                 </div>    
             </div>    
-        </div>    
+        </div>
+        <div class="serp__filter-closearea" aura:id="close_filter" onclick="{!c.filterClose}">
+        </div>
         <aura:if isTrue="{!v.hasData == true}">
             <div class="serp__results-section">
                 <div class="serp__panel">

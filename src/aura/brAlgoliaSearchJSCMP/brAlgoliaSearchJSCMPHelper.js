@@ -65,7 +65,6 @@
             filter_type = filter.type;
 
         //console.log(filter);
-
         switch (filter_type) {
             case 'kb': {
                 indexName = 'KnowledgeStaging';
@@ -469,6 +468,26 @@
                         attributesToRetrieve: '*'
                     }
                 });
+            }
+        }
+    },
+    toggleMobileFilter: function(component) {
+        var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active');
+        if (has_filter === 'true') {
+            var body_classes = document.body.classList,
+                class_is_mobile = 'is-mobile',
+                class_mobile = 'mobile-search-filter-is-active';
+
+            var closediv = component.find("close_filter").getElement();
+
+            if (body_classes.contains(class_is_mobile)) {
+                if (body_classes.contains(class_mobile)) {
+                    body_classes.remove(class_mobile);
+                    closediv.classList.remove("show");
+                } else {
+                    body_classes.add(class_mobile);
+                    closediv.classList.add("show");
+                }
             }
         }
     }

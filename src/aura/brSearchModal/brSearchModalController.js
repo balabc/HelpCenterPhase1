@@ -11,8 +11,8 @@
         //console.log('[DEBUG] [Controller] brSearchModal:toggleSearchModal');
         helper.toggleModal(component, event);
 	},
-    onClickSearch: function(component, event, helper) {
-        //console.log('[DEBUG] [Controller] brSearchModal:onClickSearch');
+    onClickSearch: function(component, event, helper) {console.log('search click');
+        //console.log(component.find('header-mobile__container'))
 	    var target = event.target,
             flag = true,
             classes = [
@@ -37,6 +37,17 @@
                         }
                     }
                 }
+
+try{        //ignore further execution if element contains class "filter_ask_to_skip"
+            var skip_me = document.getElementsByClassName('serp__filter-closearea')[0];
+            if (!!skip_me && (typeof skip_me.classList !== "undefined")) {
+                if( skip_me.classList.contains("filter_ask_to_skip") ){
+                    skip_me.classList.remove("filter_ask_to_skip");
+                    return false;
+                }
+            }
+}catch(eeee){}
+
 
                 if (flag) {
                     var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
