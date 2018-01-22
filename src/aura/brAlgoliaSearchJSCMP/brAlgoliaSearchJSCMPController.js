@@ -23,6 +23,7 @@
         changeSearch.fire();
     },
     onClickViewMore: function(component, event, helper) {
+        component.set('v.countClickViewMore', component.get('v.countClickViewMore') + 1);
         var target = event.target,
             objSfdcSite = $A.get('$SfdcSite'),
             url = target.dataset.link,
@@ -53,11 +54,23 @@
         /*var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
         toggleSearchModal.fire();*/
     },
-    filterChange: function(component, event, helper) { 
+    filterChange: function(component, event, helper) {
+        if (component.get('v.countClickViewMore') === 1) {
+            var query = component.get("v.searchText");
+            if(!!query && (query.length > 0)) {
+                if(query.length >= 1) {
+                    helper.getSearchResult(component);
+                }
+            }
+        } else {
+            component.set('v.countClickViewMore', 1);
+        }
+    },
+    onChangeCountViewMore: function(component, event, helper) {
         var query = component.get("v.searchText");
         if(!!query && (query.length > 0)) {
             if(query.length >= 1) {
-        		helper.getSearchResult(component);
+                helper.getSearchResult(component);
             }
         }
     },

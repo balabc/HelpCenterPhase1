@@ -84,7 +84,8 @@
                     queries_params = {
                             attributesToRetrieve: "*",
                             facets: ["type__c"],
-                            facetFilters: facetFilters
+                            facetFilters: facetFilters,
+                            hitsPerPage: component.get('v.countClickViewMore')*20
                         };
                     queries.push({
                         indexName: indexName, 
@@ -137,7 +138,8 @@
                     queries_params = {
                             attributesToRetrieve: '*',
                             facets: ['RecordType', 'PostedIn', 'IsAnswered'],
-                            facetFilters: facetFilters
+                            facetFilters: facetFilters,
+                            hitsPerPage: component.get('v.countClickViewMore')*20
                         };
                     
                     if (indexName === 'FeedItem_Community_Recent_Activity') {
@@ -217,7 +219,8 @@
                     queries_params = {
                             attributesToRetrieve: '*',
                             facets: ['RecordType', 'IsMerged', 'Status'],
-                            facetFilters: facetFilters
+                            facetFilters: facetFilters,
+                            hitsPerPage: component.get('v.countClickViewMore')*20
                         };
                     
                     if (indexName === 'Ideas_Community_Trending') {
@@ -438,7 +441,8 @@
                     objData.push({
                         name: name_index,
                         items: tmpListData,
-                        link: link_index
+                        link: link_index,
+                        nbHits: category.nbHits
                     });
                     component.set('v.availableIndexes', availableIndexes2); 
                     
