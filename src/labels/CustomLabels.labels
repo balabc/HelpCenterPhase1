@@ -944,6 +944,13 @@
         <value>Common Questions</value>
     </labels>
     <labels>
+        <fullName>hCommunity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>header for Community</shortDescription>
+        <value>Community</value>
+    </labels>
+    <labels>
         <fullName>hCommunityFLSAccess</fullName>
         <categories>Community</categories>
         <language>en_US</language>
@@ -1841,6 +1848,13 @@
         <protected>false</protected>
         <shortDescription>avatar</shortDescription>
         <value>Avatar</value>
+    </labels>
+    <labels>
+        <fullName>msgCommunity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>description for Community</shortDescription>
+        <value>Ask questions, find answers and make connections in our community of business owners and experts.</value>
     </labels>
     <labels>
         <fullName>msgCommunityQA</fullName>
