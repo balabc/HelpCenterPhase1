@@ -1718,7 +1718,8 @@ textarea::placeholder {
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between; }
+            justify-content: space-between;
+    padding: 0 30px; }
   .jumbotron__subtitle {
     margin: 2.8125rem 0 -0.9375rem;
     font-family: 'source_sans_proextralight', Arial, sans-serif;
@@ -4361,6 +4362,9 @@ header.header {
 .container.relative.z-2.cBrFeaturedArticles {
     top: 0px;
 }
+.container.relative.z-2.cBrTopTrendingCMP {
+    top: -30px;
+}
 .area-bg-second {
     top: 0px;
 	padding-bottom: 0px;
@@ -4383,7 +4387,7 @@ header.header {
       width: 100%;
       height: 75px;
       content: "";
-      background: #f6f7f9; }
+      background: #ffffff; }
     .area-video__left {
       float: none;
       width: 100%;
@@ -4402,7 +4406,7 @@ header.header {
   top: -100px; }
 
 .is-mobile .area-bg {
-  padding-top: 130px; }
+  padding-top: 190px; }
 
 .is-mobile .area-video {
   position: relative;
@@ -4414,7 +4418,7 @@ header.header {
     width: 100%;
     height: 75px;
     content: "";
-    background: #f6f7f9; }
+    background: #ffffff; }
   .is-mobile .area-video__left {
     float: none;
     width: 100%;
@@ -5875,13 +5879,14 @@ a.doc-nav__link.doc-nav__link-lvl-2 {
   padding-bottom: 60px; }
 
 .p-bottom-65 {
-  padding-bottom: 65px; }
+  padding-bottom: 0px; }
 
 .p-bottom-70 {
   padding-bottom: 70px; }
 
 .p-bottom-100 {
-  padding-bottom: 100px; }
+  padding-bottom: 100px;
+  padding-top: 70px;  }
 
 .p-bottom-125 {
   padding-bottom: 125px; }
@@ -5900,7 +5905,7 @@ a.doc-nav__link.doc-nav__link-lvl-2 {
   padding-top: 105px; }
 
 .p-top-120 {
-  padding-top: 120px; }
+  padding-top: 215px; }
 
 .m-top-30 {
   margin-top: 30px; }
@@ -5921,6 +5926,12 @@ a.doc-nav__link.doc-nav__link-lvl-2 {
   margin-bottom: 3.25rem; }
 
 @media only screen and (max-width: 992px) {
+  .p-bottom-70 {
+    padding-bottom: 0px;
+}
+.area-video.p-top-105.p-top-60--media-md.p-bottom-60--media-md {
+    top: -30px;
+}
   .m-bottom-0--media-md {
     margin-bottom: 0; }
   .p-top-60--media-md {

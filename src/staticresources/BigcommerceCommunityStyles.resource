@@ -243,7 +243,7 @@ ul {
 }
 
 ol {
-   list-style-type: decimal;
+    list-style-type: decimal;
 }
 
 .onePanelManager .uiPanel.open.active {
@@ -337,7 +337,7 @@ body .DESKTOP.uiContainerManager {
     display: inherit;
 }
 .modal-overlay {
-    background: rgba(215, 214, 217, 0.8);
+    background: rgba(255, 255, 255, 0.9);
 }
 .mobile-search-filter-is-active .serp__filter-trigger-icon:before {
     background-position: -778px -648px;
@@ -401,7 +401,7 @@ body .DESKTOP.uiContainerManager {
 }
 
 .popupTargetContainer.uiPopupTarget.uiMenuList.uiMenuList--default.visible{
-	display: block !important;
+    display: block !important;
 }
 span.nav-arrow-hor-angular__icon {
     position: absolute;
