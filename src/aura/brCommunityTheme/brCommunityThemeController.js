@@ -21,7 +21,7 @@
                 }
             }
 
-            if (isOpenUserMenu) {
+            if (isOpenUserMenu && event.target.classList !== undefined) {
                 var className = event.target.getAttribute('class');
                 var userDropDownMenuChildren = userDropDownMenu.getElementsByTagName("*"),
                     wrapUserPicClasses = document.getElementById('wrapUserPic').getElementsByTagName("*"),
