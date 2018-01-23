@@ -6,7 +6,9 @@
     <aura:attribute name="textButton" type="String" default="Submit" access="global"/>
     <aura:attribute name="url" type="String" default="https://www.bigcommerce.com/" access="global"/>
 
-    <div class="pre-footer">
+    <aura:handler name="render" value="{!this}" action="{!c.doneRendering}"/>
+
+    <div aura:id="prefooter" class="pre-footer">
         <div style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/HomePage-pre-footer.png' + ');background-position-x: center;'}" class="pre-footer__wrap-img"></div>
         <div class="pre-footer__wrap-caption">
             <div class="pre-footer__caption">

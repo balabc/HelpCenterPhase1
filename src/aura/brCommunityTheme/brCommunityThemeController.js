@@ -3,26 +3,11 @@
         window.setTimeout(
             $A.getCallback(function() {
                 component.set('v.isReady', true);
-                if (window.innerWidth < 1000) {
-                    var isSmallDevice = true;
-                    component.set('v.isSmallDevice', isSmallDevice);
-                }
-                window.addEventListener('resize', function(event){
-                    var isSmallDevice;
-                    if (window.innerWidth < 1000) {
-                        isSmallDevice = true;
-                    } else {
-                        isSmallDevice = false;
-                    }
-                    component.set('v.isResize', true);
-                    component.set('v.isSmallDevice', isSmallDevice);
-                });
-
-                var childCmp = component.find("themeFooter");
-                childCmp.setValue();
             }), 1000
         );
 
+        var windowHeight = document.documentElement.clientHeight - 347;
+        component.set('v.windowHeight', windowHeight);
         component.set('v.search', '');
     },
     closeUserMenu: function (cmp, event, helper) {

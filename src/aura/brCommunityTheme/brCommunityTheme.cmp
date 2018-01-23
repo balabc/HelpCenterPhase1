@@ -3,9 +3,7 @@
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="search" type="String" default="initialize"/>
     <aura:attribute name="isReady" type="Boolean" default="false"/>
-    <aura:attribute name="isPhone" type="Boolean" default="false"/>
-    <aura:attribute name="isSmallDevice" type="Boolean" default="false"/>
-    <aura:attribute name="isResize" type="Boolean" default="false"/>
+    <aura:attribute name="windowHeight" type="Integer" />
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:registerEvent name="brCloseAllNavMenuEventHandler" type="c:brCloseAllNavMenuEvent"/>
@@ -33,17 +31,13 @@
                 <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
                     <c:brHeaderMobile aura:id="brHeaderMobile"/>
                 </aura:if>
-
+                <div style="{!'min-height: ' + v.windowHeight + 'px;position:relative;'}">
                     {!v.body}
+                </div>
 
                 <div class="empty-block-for-sticky-footer"></div><!-- do not remove this empty element -->
             </div><!-- / .wrapper-for-sticky-footer-structure -->
-            <aura:if isTrue="{!or($Browser.formFactor == 'PHONE',v.isSmallDevice)}">
-                <c:brThemeFooter aura:id="themeFooterMobile" isPhone="{!true}" isResize="{!v.isResize}"  />
-            </aura:if>
+                <c:brThemeFooter />
         </div><!-- / .body-inner -->
-        <aura:if isTrue="{!and(or($Browser.formFactor == 'DESKTOP',$Browser.formFactor == 'TABLET'),not(v.isSmallDevice))}">
-            <c:brThemeFooter aura:id="themeFooter" isPhone="{!false}" isResize="{!v.isResize}"/>
-        </aura:if>
     </div>
 </aura:component>
