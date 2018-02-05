@@ -130,6 +130,10 @@ public with sharing class brNavigationMenuItemService {
                         modelSub.type = item2.type;
                         modelSub.parentId = item.id;
 
+                        if (item2.type == 'ExternalLink') {
+                            modelSub.icon = 'icon-svg-docs-sm';
+                        }
+
                         if (modelSub.target == 'CollaborationGroup') {
                             modelSub.type = 'navigateToList';
                             List<ListView> listviews = [SELECT id FROM ListView WHERE SobjectType  = :modelSub.target LIMIT 1];

@@ -60,4 +60,10 @@ public with sharing class brNavigationMenuItemModel {
     @AuraEnabled
     public List<brNavigationMenuItemModel> subMenu { get; set; }
 
+    /**
+     * icon
+     */
+    @AuraEnabled
+    public String icon { get; set; }
+
 }

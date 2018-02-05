@@ -35,7 +35,7 @@
            data-toggle-menu="true"
            onclick="{!c.onClick}">
             <aura:unescapedHtml value="{!((!!v.item.has_picture)? v.item.picture: '')}" />
-            <span class="header-mobile__menu-text truncated">{!v.item.label}<i class="{!v.item.icon}"></i></span>
+            <span class="header-mobile__menu-text truncated">{!v.item.label + ' '}<i class="{!v.item.icon}"></i></span>
         </a>
     </li>
 </aura:component>
