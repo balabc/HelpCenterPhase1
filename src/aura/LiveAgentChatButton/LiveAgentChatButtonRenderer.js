@@ -13,8 +13,9 @@
 					&& onlineBtn && offlineBtn ){
                 	$A.util.removeClass(onlineBtn, "toggle");
 	                $A.util.addClass(offlineBtn, "toggle");
-            }
-        }
+	                //console.log('afterRender second if true');
+            }//else{console.log('afterRender second if false');}
+        }//else{console.log('afterRender isNotValid');}
 
 	    return ret;
 

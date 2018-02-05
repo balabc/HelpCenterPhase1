@@ -1,5 +1,5 @@
 ({
-    init : function(component, event, helper) {
+    init : function(component, event, helper) {//console.log('live init component');
         function liveAgentStart(){
             //timeout to initiate liveAgent
             window.setTimeout(
@@ -22,24 +22,20 @@
                             if ((typeof liveagent == "object") && (document.getElementById('btONline') != null )){
                                 clearInterval(interV);
                                 helper.bindLiveAgent(component,data);
-                            }else{
-                                //console.log('CTRL  timeout to init live agent');
-                            }
+                            }//else{console.log('CTRL  timeout to init live agent');}
                         }
                         //setInterval to initiate liveAgent when liveagent object
                         // is available
                         interV = setInterval(initLiveAgent,500,data);
-                    }else{
-                        //console.log('CTRL  component is not valid');
-                    }
-                }), 100
+                    }//else{console.log('CTRL  component is not valid');}
+                }), 500
             );
         }
 
         var isValid = helper.validateComponent(component);
         component.set("v.isInvalidInput", !isValid);
         if ( isValid){
-            if ( component.get("v.userSessionData") == true){
+            if ( component.get("v.userSessionData") == true){//console.log('ask Contact');
                 //retrieve logged user Contact Details
         		var action = component.get("c.getContact");
         		action.setCallback(this, function(a) {
@@ -47,7 +43,7 @@
                     liveAgentStart();
         		});
         		$A.enqueueAction(action);
-            }else {
+            }else {//console.log('dont ask contact');
                 liveAgentStart();
             }
 
@@ -56,17 +52,17 @@
             if (!window._laq) { window._laq = []; }
             window._laq.push(function(){
                 liveagent.showWhenOnline(
-                    (function (chatBtn) {
+                    (function (chatBtn) {//console.log('showWhenOnline');
                             return chatBtn;
                         })(chatBtn)
                     , document.getElementById('btONline'));
                 liveagent.showWhenOffline(
-                    (function (chatBtn) {
+                    (function (chatBtn) {//console.log('showWhenOffline');
                             return chatBtn;
                         })(chatBtn)
                     , document.getElementById('btOFFline'));
             });
-        }
+        }//else{console.log('on init is Not Valid');}
 
     },
 

@@ -1,4 +1,3 @@
-
 .THIS .laBtn{
   padding: 14px !important;
   height: auto !important;
@@ -23,10 +22,6 @@
   pointer-events: none;
 }
 
-.THIS .toggle {
+.THIS.toggle.uiButton {
     display: none !important;
-}
-
-.THIS .communityLiveChat{
-
 }
