@@ -26,7 +26,7 @@
                             </div>
                         </div><!-- / end of .column -->
                         <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
-                            <div class="panel-media" id="qa" onclick="{!c.openPage}">
+                            <div class="panel-media" id="community" onclick="{!c.openPage}">
                                 <div class="panel-media__wrap-icon">
                                     <div class="panel-media__icon">
                                         <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Community.png'}"
