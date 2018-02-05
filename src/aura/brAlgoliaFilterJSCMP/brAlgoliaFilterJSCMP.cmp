@@ -20,14 +20,14 @@
     
     <ul class="filter">
         <li class="{!'filter__section ' + ((v.currentFilter == 'all')? v.classFilterActive: '')}" data-active="true" data-type="all">
-            <div class="filter__section-head">
-                <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchAll}</h4>
+            <div class="filter__section-head" onclick="{!c.onClickFilterRow}">
+                <h4 class="h4 filter__section-title">{!$Label.c.hAlgoliaSearchAll}</h4>
             </div>    
         </li> 
         <aura:if isTrue="{!v.boolsAvailableIndexes.KnowledgeStaging}">
             <li class="{!'filter__section ' + ((v.currentFilter == 'kb')? v.classFilterActive: '')}" aura:id="filter_row_kb" data-type="kb">
-                <div class="filter__section-head">
-                    <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchKnowledgeBase}<span>{!v.filterCounts.knowledgestaging}</span></h4>
+                <div class="filter__section-head" onclick="{!c.onClickFilterRow}">
+                    <h4 class="h4 filter__section-title">{!$Label.c.hAlgoliaSearchKnowledgeBase}<span>{!v.filterCounts.knowledgestaging}</span></h4>
                     <div class="filter__section-nav-arrow nav-arrow">
                         <div class="nav-arrow__handler">
                             <span class="nav-arrow__icon"></span>
@@ -46,8 +46,8 @@
         </aura:if> 
         <aura:if isTrue="{!v.boolsAvailableIndexes.FeedItem_Community}">
             <li class="{!'filter__section ' + ((v.currentFilter == 'cm')? v.classFilterActive: '')}" aura:id="filter_row_cm" data-type="cm">
-                <div class="filter__section-head">
-                    <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchCommunity}<span>{!v.filterCounts.feeditem_community}</span></h4>
+                <div class="filter__section-head" onclick="{!c.onClickFilterRow}">
+                    <h4 class="h4 filter__section-title">{!$Label.c.hAlgoliaSearchCommunity}<span>{!v.filterCounts.feeditem_community}</span></h4>
                     <div class="filter__section-nav-arrow nav-arrow">
                         <div class="nav-arrow__handler">
                             <span class="nav-arrow__icon"></span>
@@ -105,8 +105,8 @@
         </aura:if> 
         <aura:if isTrue="{!v.boolsAvailableIndexes.Ideas_Community}">
             <li class="{!'filter__section ' + ((v.currentFilter == 'ideas')? v.classFilterActive: '')}" aura:id="filter_row_ideas" data-type="ideas">
-                <div class="filter__section-head">
-                    <h4 class="h4 filter__section-title" onclick="{!c.onClickFilterRow}">{!$Label.c.hAlgoliaSearchIdeas}<span>{!v.filterCounts.ideas_community}</span></h4>
+                <div class="filter__section-head" onclick="{!c.onClickFilterRow}">
+                    <h4 class="h4 filter__section-title">{!$Label.c.hAlgoliaSearchIdeas}<span>{!v.filterCounts.ideas_community}</span></h4>
                     <div class="filter__section-nav-arrow nav-arrow">
                         <div class="nav-arrow__handler">
                             <span class="nav-arrow__icon"></span>
