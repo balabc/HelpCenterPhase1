@@ -337,7 +337,7 @@ body .DESKTOP.uiContainerManager {
     display: inherit;
 }
 .modal-overlay {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
 }
 .mobile-search-filter-is-active .serp__filter-trigger-icon:before {
     background-position: -778px -648px;
@@ -413,4 +413,7 @@ span.nav-arrow-hor-angular__icon {
     -webkit-transition: opacity .5s;
     transition: opacity .5s;
     display: block;
+}
+.cBrAlgoliaSearchJSCMP .serp__item-description.truncated {
+    white-space: inherit;
 }

@@ -1,7 +1,4 @@
 .THIS {}
-.THIS .serp__item-description.truncated {
-    white-space: nowrap;
-}
 .THIS .serp__item {
     overflow: hidden;
 }
