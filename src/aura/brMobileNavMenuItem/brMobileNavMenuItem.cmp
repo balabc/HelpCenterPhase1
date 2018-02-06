@@ -3,6 +3,7 @@
     
     <aura:registerEvent name="eventMobileNavMenuToggle" type="c:brMobileNavMenuToggleEvent"/>
     <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
+    <aura:registerEvent name="eventCloseAllNavMenut" type="c:brCloseAllNavMenuEvent"/>
 
     <li class="header-mobile__menu-item can-hide"
         data-is-show="{!(!!v.item.hasSubMenu)}"
