@@ -97,12 +97,11 @@
 
         if (id) {
             cmp.getSuper().navigate(id);
-        }
-
-        if (window.location.href.indexOf('/login') !== -1) {
-            var url = window.location.href;
-            url = url.replace('/login', '');
-            window.location.href = url;
+            if (window.location.href.indexOf('/login') !== -1) {
+                var url = window.location.href;
+                url = url.replace('/login', '');
+                window.location.href = url;
+            }
         }
     },
     toggleSubMenu: function (cmp, event, helper) {
