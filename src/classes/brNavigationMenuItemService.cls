@@ -122,17 +122,9 @@ public with sharing class brNavigationMenuItemService {
                 for (NavigationMenuItem item2 : items) {
 
                     if (item2.ParentId != null && item2.ParentId == item.id) {
-                        brNavigationMenuItemModel modelSub = new brNavigationMenuItemModel();
-                        modelSub.id = item2.id;
-                        modelSub.label = item2.label;
-                        modelSub.position = item2.position;
-                        modelSub.target = item2.target;
-                        modelSub.type = item2.type;
-                        modelSub.parentId = item.id;
+                        brNavigationMenuItemModel modelSub = new brNavigationMenuItemModel(); modelSub.id = item2.id; modelSub.label = item2.label; modelSub.position = item2.position; modelSub.target = item2.target; modelSub.type = item2.type; modelSub.parentId = item.id;
 
-                        if (item2.type == 'ExternalLink') {
-                            modelSub.icon = 'icon-svg-docs-sm';
-                        }
+                        if (item2.type == 'ExternalLink') { modelSub.icon = 'icon-svg-docs-sm'; }
 
                         if (modelSub.target == 'CollaborationGroup') {
                             modelSub.type = 'navigateToList';
@@ -142,11 +134,7 @@ public with sharing class brNavigationMenuItemService {
 
                         for (brCommunity_Menu_Map__mdt metaDataItem : metaData) {
                             if (metaDataItem.Menu_Target__c == item2.target) {
-                                if (!String.isEmpty(metaDataItem.Data_Category_Group__c)) {
-                                    modelSub.objectName = metaDataItem.Object_Name__c;
-                                    modelSub.dataCategory = metaDataItem.Data_Category_Group__c;
-                                    modelSub.hasSubMenu = true;
-                                }
+                                if (!String.isEmpty(metaDataItem.Data_Category_Group__c)) { modelSub.objectName = metaDataItem.Object_Name__c; modelSub.dataCategory = metaDataItem.Data_Category_Group__c; modelSub.hasSubMenu = true; }
                                 break;
                             }
                         }
