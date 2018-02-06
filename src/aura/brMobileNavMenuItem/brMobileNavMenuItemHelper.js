@@ -1,7 +1,6 @@
 ({
 	changeMobileMenuLvl: function(component, data) {
 		var itemAction = component.getEvent('eventMobileNavMenuItem');
-        
         itemAction.setParams({
             data: data
         });
@@ -48,6 +47,18 @@
                 }
                 break;
             }
+			case 'navigateToList': {
+                if (data) {
+                    urlEvent = $A.get("e.force:navigateToList");
+                    urlEvent.setParams({
+                        "listViewId": id,
+                        "listViewName": null,
+                        "scope": data
+                    });
+                    urlEvent.fire();
+                }
+                break;
+            }			
             // no default
         }
     }
