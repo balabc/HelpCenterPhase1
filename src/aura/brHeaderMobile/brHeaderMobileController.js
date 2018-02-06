@@ -1,12 +1,17 @@
 ({
     doInit: function (cmp, event) {
+        console.log('init');
+        var device = $A.get("$Browser.formFactor");
+        console.log('device: ' + device);
         if ($A.get("$Browser.formFactor") === 'PHONE') {
             window.onscroll = function () {
-                var mobileHeader = cmp.find('header-mobile').getElement();
-
+                var mobileHeader = document.getElementsByClassName('header-mobile')[0];
+                    console.log('mobileHeader: ' + mobileHeader);
                 if (window.scrollY > 0) {
+                    console.log('greater');
                     $A.util.addClass(mobileHeader, "header-mobile--make-sticky");
                 } else {
+                    console.log('less');
                     $A.util.removeClass(mobileHeader, "header-mobile--make-sticky");
                 }
             };
