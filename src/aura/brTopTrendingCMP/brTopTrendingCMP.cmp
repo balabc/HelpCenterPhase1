@@ -9,6 +9,8 @@
     <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
     <aura:attribute name="groupId" type="String" />
     <aura:attribute name="idListGroup" type="String" access="global"/>
+    <aura:attribute name="routeInput" type="Map"/>
+    <aura:attribute name="prefix" type="String"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     
@@ -22,15 +24,13 @@
                     </div>
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
-                            <aura:iteration items="{!v.listPopular}" var="item">
-                                <li class="list-group__item" data-id="{!item.id}" onclick="{!c.navigateTosObject}">
-                                    <a>{!item.name}</a>
-                                </li>
+                            <aura:iteration items="{!v.listPopular}" var="group">
+                               <c:brMostPopularGroups group="{!group}" />
                             </aura:iteration>
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="javascript:void(0);" class="link" data-id="{!v.idListGroup}" onclick="{!c.navigateToListGroup}">{!$Label.c.br_View_more}</a>
+                        <a href="{!v.prefix + '/s/group/' + v.idListGroup}" class="link" data-id="{!v.idListGroup}" onclick="{!c.navigateToListGroup}">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->
@@ -43,14 +43,12 @@
                     <div class="panel-info__body p-bottom-0">
                         <ul class="list-group">
                             <aura:iteration items="{!v.listQuestions}" var="question">
-                                <li class="list-group__item" data-id="{!question.id}" onclick="{!c.navigateTosObject}">
-                                    <a>{!question.name}</a>
-                                </li>
+                                <c:brRecentQuestionsItem question="{!question}"/>
                             </aura:iteration>
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="javascript:void(0);" class="link" data-url="/qa" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
+                        <a href="{!v.prefix + '/s/qa'}" class="link" data-url="/qa" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->
@@ -64,15 +62,11 @@
                         <ul class="list-group">
                             <aura:if isTrue="{!v.isShowGroupPosts}">
                                 <aura:iteration items="{!v.listGroupPosts}" var="post">
-                                    <li id="posts" class="list-group__item" data-id="{!post.id}" onclick="{!c.navigateTosObject}">
-                                        <a>{!post.name}</a>
-                                    </li>
+                                    <c:brRecentGroupPosts post="{!post}" />
                                 </aura:iteration>
                                 <aura:set attribute="else">
                                     <aura:iteration items="{!v.listNews}" var="news">
-                                        <li class="list-group__item" data-id="{!news.item.Id}" onclick="{!c.navigateTosObject}">
-                                            <a>{!news.item.Name}</a>
-                                        </li>
+                                        <c:brRecentNewsItem news="{!news}"/>
                                     </aura:iteration>
                                 </aura:set>
                             </aura:if>
@@ -80,9 +74,11 @@
                     </div>
                     <div class="panel-info__footer">
                         <aura:if isTrue="{!v.isShowGroupPosts}">
-                            <a href="javascript:void(0);" class="link" data-id="{!v.groupId}" onclick="{!c.navigateToGroup}">{!$Label.c.br_View_more}</a>
+                            <li style="list-style: none" data-id="{!v.groupId}">
+                                <forceCommunity:routeLink class="link" label="{!$Label.c.br_View_more}" routeInput="{!v.routeInput}" onclick="{!c.navigateToGroup}"/>
+                            </li>
                             <aura:set attribute="else">
-                                <a href="javascript:void(0);" class="link" data-url="/blog" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
+                                <a href="{!v.prefix + '/s/blog'}" class="link" data-url="/blog" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
                             </aura:set>
                         </aura:if>
                     </div>

@@ -1,5 +1,12 @@
 ({
+    doInit : function(component, event, helper) {
+        component.set('v.routeInputForGroup', {recordId: component.get('v.groupId')});
+    },
     openPage: function (cmp, event, helper) {
+        if (event.target.hasAttribute("href")) {
+            event.target.removeAttribute("href");
+        }
+
         var urlEvent = $A.get("e.force:navigateToURL"),
             findClass = event.target;
 

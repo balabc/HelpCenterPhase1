@@ -49,7 +49,7 @@
                                 <span class="panel-cont-point__stat-title">{!v.ideaPoints}</span>
                                 <span class="panel-cont-point__stat-text">{!$Label.c.points}</span>
                             </div>
-                            <a href="javascript:void(0);" class="button button--hollow-primary button--sm" onclick="{!c.viewIdeaClick}">{!$Label.c.hViewIdea}</a>
+                            <a href="{!$SfdcSite.pathPrefix + '/s/ideas#' + v.ideaId}" class="button button--hollow-primary button--sm" onclick="{!c.viewIdeaClick}">{!$Label.c.hViewIdea}</a>
                         </div>
                     </div>
                 </div>

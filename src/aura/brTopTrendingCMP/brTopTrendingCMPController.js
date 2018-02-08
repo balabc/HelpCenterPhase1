@@ -1,5 +1,6 @@
 ({
 	doInit : function(component, event, helper) {
+        component.set('v.routeInput', {recordId: component.get('v.groupId')});
         var data;
         data = {'ids': component.get('v.idsPopular')};
         helper.getData(component, 'v.listPopular', 'c.getChatterGroupByStringId', data);
@@ -12,17 +13,9 @@
         
         //00B0O000009JuTYUA0
         helper.getData(component, 'v.idListGroup', 'c.getChatterGroupListId', false);
+        var prefix = $A.get('$SfdcSite').pathPrefix;
+        component.set('v.prefix', prefix);
 	},
-    navigateTosObject : function (component, event, helper) {
-       //console.log(event);
-        var target = event.target.closest('li'),
-            id = target.getAttribute('data-id'),
-            navEvt = $A.get("e.force:navigateToSObject");
-        navEvt.setParams({
-            "recordId": id
-        });
-        navEvt.fire();
-    },
     navigateToListGroup : function (component, event, helper) {
         var target = event.target,
             id = target.getAttribute('data-id'),
@@ -35,14 +28,16 @@
         navEvent.fire();
     },
    	navigateToUrl : function (component, event, helper) {
+        event.target.getElement().removeAttribute("href");
+
         var target = event.target,
             url = target.getAttribute('data-url'),
             navEvent = $A.get("e.force:navigateToURL");
         navEvent.setParams({
           "url": url
         });
+
         navEvent.fire();
-        
     },
     navigateToGroup : function (component, event, helper) {
         var target = event.target,

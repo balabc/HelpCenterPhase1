@@ -4,3 +4,11 @@
 .THIS .panel-media {
     cursor: pointer;
 }
+.THIS a {
+    font-family: 'source_sans_proregular', Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5625rem;
+    letter-spacing: 0;
+    font-weight: normal;
+    color: #34313f;
+}

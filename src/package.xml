@@ -5,7 +5,7 @@
         <members>brAlgoliaFilterEvent</members>
         <members>brAlgoliaFilterJSCMP</members>
         <members>brAlgoliaSearchJSCMP</members>
-		<members>brCloseSearchModalEvent</members>
+        <members>brCloseSearchModalEvent</members>
         <members>brFeaturedIdea</members>
         <members>brToggleSearchModalEvent</members>
         <members>brThemeHeader</members>
@@ -81,6 +81,10 @@
         <members>brCloseAllNavMenuEvent</members>
         <members>LiveAgentChatButton</members>
         <members>ScriptWrapper</members>
+        <members>brRecentQuestionsItem</members>
+        <members>brRecentNewsItem</members>
+        <members>brRecentGroupPosts</members>
+        <members>brMostPopularGroups</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -197,8 +201,8 @@
         <members>brMenuListViewCtrlTest</members>
         <members>brKnowledgeArticleLayoutCtrlTest</members>
         <members>brNetwork</members>
-		<members>LiveAgentChatButton</members>
-		<members>LiveAgentChatButtonTest</members>
+        <members>LiveAgentChatButton</members>
+        <members>LiveAgentChatButtonTest</members>
         <name>ApexClass</name>
     </types>
     <types>

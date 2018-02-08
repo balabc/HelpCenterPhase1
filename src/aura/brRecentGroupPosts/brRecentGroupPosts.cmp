@@ -1,0 +1,10 @@
+<aura:component description="brRecentGroupPosts">
+    <aura:attribute name="routeInputForGroupPosts" type="Map"/>
+    <aura:attribute name="post" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <li class="list-group__item" onclick="{!c.navigateTosObject}">
+        <forceCommunity:routeLink label="{!v.post.name}" routeInput="{!v.routeInputForGroupPosts}" />
+    </li>
+</aura:component>

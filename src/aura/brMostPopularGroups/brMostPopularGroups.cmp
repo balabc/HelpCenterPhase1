@@ -1,0 +1,10 @@
+<aura:component description="brMostPopularGroups">
+    <aura:attribute name="routeInputForPopularGroups" type="Map"/>
+    <aura:attribute name="group" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <li class="list-group__item" onclick="{!c.navigateTosObject}">
+        <forceCommunity:routeLink label="{!v.group.name}" routeInput="{!v.routeInputForPopularGroups}" />
+    </li>
+</aura:component>

@@ -4,6 +4,9 @@
     <aura:attribute name="userDocsUrl" type="String" access="global"/>
     <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
     <aura:attribute name="groupId" type="String" />
+    <aura:attribute name="routeInputForGroup" type="Map"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <aura:if isTrue="{!equals(v.pageName, 'Home')}">
         <div class="lift-content">
@@ -20,7 +23,9 @@
                                     </div>
                                 </div>
                                 <div class="panel-media__wrap-content">
-                                    <h4 class="h4 panel-media__title">{!$Label.c.hUserDocs}</h4>
+                                    <h4 class="h4 panel-media__title">
+                                        <a href="{!$SfdcSite.pathPrefix + '/s'+ v.userDocsUrl}">{!$Label.c.hUserDocs}</a>
+                                    </h4>
                                     <p class="panel-media__text type--sm">{!$Label.c.msgArticles}</p>
                                 </div>
                             </div>
@@ -34,7 +39,9 @@
                                     </div>
                                 </div>
                                 <div class="panel-media__wrap-content">
-                                    <h4 class="h4 panel-media__title">{!$Label.c.hCommunity}</h4>
+                                    <h4 class="h4 panel-media__title">
+                                        <a href="{!$SfdcSite.pathPrefix + '/s/community'}">{!$Label.c.hCommunity}</a>
+                                    </h4>
                                     <p class="panel-media__text type--sm">{!$Label.c.msgCommunity}</p>
                                 </div>
                             </div>
@@ -48,7 +55,14 @@
                                     </div>
                                 </div>
                                 <div class="panel-media__wrap-content">
-                                    <h4 class="h4 panel-media__title">{!$Label.c.hNewsAndUpdates}</h4>
+                                    <h4 class="h4 panel-media__title">
+                                        <aura:if isTrue="{!v.isShowGroupPosts}">
+                                            <forceCommunity:routeLink label="{!$Label.c.hNewsAndUpdates}" routeInput="{!v.routeInputForGroup}" />
+                                            <aura:set attribute="else">
+                                                <a href="{!$SfdcSite.pathPrefix + '/s/blog'}">{!$Label.c.hNewsAndUpdates}</a>
+                                            </aura:set>
+                                        </aura:if>
+                                    </h4>
                                     <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
                                 </div>
                             </div>
@@ -62,7 +76,9 @@
                                     </div>
                                 </div>
                                 <div class="panel-media__wrap-content">
-                                    <h4 class="h4 panel-media__title">{!$Label.c.hIdeas}</h4>
+                                    <h4 class="h4 panel-media__title">
+                                        <a href="{!$SfdcSite.pathPrefix + '/s/ideas'}">{!$Label.c.hIdeas}</a>
+                                    </h4>
                                     <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}</p>
                                 </div>
                             </div>
@@ -84,7 +100,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hUserDocs}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s'+ v.userDocsUrl}">{!$Label.c.hUserDocs}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgUserDocs}</p>
                     </div>
                 </div>
@@ -97,7 +115,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hGuides}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/guides'}">{!$Label.c.hGuides}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgGuides}</p>
                     </div>
                 </div>
@@ -110,7 +130,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hVideos}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/videos'}">{!$Label.c.hVideos}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgVideos}</p>
                     </div>
                 </div>
@@ -123,7 +145,11 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hDevDocs + ' '}<span class="icon-svg-docs-sm"></span></h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="https://developer.bigcommerce.com" target="_blank">
+                                {!$Label.c.hDevDocs + ' '}<span class="icon-svg-docs-sm"></span>
+                            </a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgDevDocs}</p>
                     </div>
                 </div>
@@ -142,7 +168,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hCommunityQA}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/qa'}">{!$Label.c.hCommunityQA}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgCommunityQA}</p>
                     </div>
                 </div>
@@ -155,7 +183,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hGroups}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <forceCommunity:routeLink label="{!$Label.c.hGroups}" routeInput="{!v.routeInputForGroup}" />
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgGroups}</p>
                     </div>
                 </div>
@@ -168,7 +198,14 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hNewsAndUpdates}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <aura:if isTrue="{!v.isShowGroupPosts}">
+                                <forceCommunity:routeLink label="{!$Label.c.hNewsAndUpdates}" routeInput="{!v.routeInputForGroup}" />
+                                <aura:set attribute="else">
+                                    <a href="{!$SfdcSite.pathPrefix + '/s/blog'}">{!$Label.c.hNewsAndUpdates}</a>
+                                </aura:set>
+                            </aura:if>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
                     </div>
                 </div>
@@ -181,7 +218,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hIdeas}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/ideas'}">{!$Label.c.hIdeas}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}.</p>
                     </div>
                 </div>
@@ -194,7 +233,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hEvents}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/events'}">{!$Label.c.hEvents}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgEvents}</p>
                     </div>
                 </div>
@@ -207,7 +248,9 @@
                         </div>
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
-                        <h4 class="h4 panel-media__title">{!$Label.c.hAskMe}</h4>
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/community'}">{!$Label.c.hAskMe}</a>
+                        </h4>
                         <p class="panel-media__text type--sm">{!$Label.c.msgAskMe}</p>
                     </div>
                 </div>

@@ -17,7 +17,7 @@
             <div class="pre-footer__caption">
                 <h2 class="h2 pre-footer__title">{!v.title}</h2>
                 <p class="pre-footer__text">{!v.description}</p>
-                <a class="button button--default button--sm" onclick="{!c.showNewPage}">{!v.textButton}</a>
+                <a href="{!v.url}" class="button button--default button--sm" target="_blank">{!v.textButton}</a>
             </div>
         </div>
     </div><!-- / end of .pre-footer -->
