@@ -16,16 +16,17 @@ input.header__searchbox-input-text::placeholder {
     color: #ffffff;
 }
 .uiPanel--notificationsPanel.open.active {
-    top: 65px !important;
     z-index: 36 !important;
 }
 .uiPanel--notificationsPanel.open.active > .container {
     position: relative !important;
-    padding: 0;
     border-radius: 5px;
     background: #ffffff;
-    box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1);
 }
+.uiPanel .container {
+    padding: 0px;
+}
+
 .uiPanel--notificationsPanel > .container > .panel-content {
     margin-bottom: 0;
 }
@@ -39,6 +40,7 @@ input.header__searchbox-input-text::placeholder {
     height: 0;
     border-width: 9px 4px 4px 9px;
     border-color: transparent transparent #ffffff transparent;
+    box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.2);
 }
 .unsNotificationsListRow {
     border-top: none !important;
@@ -50,7 +52,7 @@ input.header__searchbox-input-text::placeholder {
     padding: 0;
     padding: 0 !important;
     border-radius: 5px 5px 0 0;
-    border-bottom: 2px solid #d1d7e0 !important;
+    border-bottom: 1px solid #d1d7e0 !important;
 }
 span.titleName {
     display: table-cell;
@@ -164,7 +166,7 @@ a.notification-link {
     width: 365px !important;
 }
 .visible {
-    display: none !important;
+    display: none;
 }
 body.mobile-menu-is-active .header-mobile__nav[data-active="true"] {
     display: block;
@@ -248,6 +250,7 @@ ol {
 
 .onePanelManager .uiPanel.open.active {
     z-index: 10 !important;
+    box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.2);
 }
 .onePanelManager .forceModal.open.active {
     z-index: 10 !important;
