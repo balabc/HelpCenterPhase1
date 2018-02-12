@@ -13,8 +13,6 @@
         
         //00B0O000009JuTYUA0
         helper.getData(component, 'v.idListGroup', 'c.getChatterGroupListId', false);
-        var prefix = $A.get('$SfdcSite').pathPrefix;
-        component.set('v.prefix', prefix);
 	},
     navigateToListGroup : function (component, event, helper) {
         var target = event.target,

@@ -4,11 +4,11 @@
     <aura:attribute name="listNews" type="List"/>
     <aura:attribute name="listGroupPosts" type="List"/>
 
-    <aura:attribute name="idsPopular" type="String"/>
+    <aura:attribute name="idsPopular" type="String" access="global"/>
     <aura:attribute name="br_Trending_now" type="String" default="Trending now" access="global"/>
-    <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
-    <aura:attribute name="groupId" type="String" />
-    <aura:attribute name="idListGroup" type="String" access="global"/>
+    <aura:attribute name="isShowGroupPosts" type="Boolean" access="global" default="true"/>
+    <aura:attribute name="groupId" type="String" access="global"/>
+    <aura:attribute name="idListGroup" type="String"/>
     <aura:attribute name="routeInput" type="Map"/>
     <aura:attribute name="prefix" type="String"/>
 
@@ -30,7 +30,7 @@
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="{!v.prefix + '/s/group/' + v.idListGroup}" class="link" data-id="{!v.idListGroup}" onclick="{!c.navigateToListGroup}">{!$Label.c.br_View_more}</a>
+                        <a href="{!$SfdcSite.pathPrefix + '/s/group/' + v.idListGroup}" class="link" data-id="{!v.idListGroup}" onclick="{!c.navigateToListGroup}">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->
@@ -48,7 +48,7 @@
                         </ul>
                     </div>
                     <div class="panel-info__footer">
-                        <a href="{!v.prefix + '/s/qa'}" class="link" data-url="/qa" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
+                        <a href="{!$SfdcSite.pathPrefix + '/s/qa'}" class="link" data-url="/qa" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
                     </div>
                 </div>
             </div><!-- / end of .column-flex -->
@@ -78,7 +78,7 @@
                                 <forceCommunity:routeLink class="link" label="{!$Label.c.br_View_more}" routeInput="{!v.routeInput}" onclick="{!c.navigateToGroup}"/>
                             </li>
                             <aura:set attribute="else">
-                                <a href="{!v.prefix + '/s/blog'}" class="link" data-url="/blog" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
+                                <a href="{!$SfdcSite.pathPrefix + '/s/blog'}" class="link" data-url="/blog" onclick="{!c.navigateToUrl}">{!$Label.c.br_View_more}</a>
                             </aura:set>
                         </aura:if>
                     </div>
