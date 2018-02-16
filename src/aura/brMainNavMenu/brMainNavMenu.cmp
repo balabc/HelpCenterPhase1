@@ -1,9 +1,13 @@
 <aura:component extends="forceCommunity:navigationMenuBase" description="brMainNavMenu" controller="brMainNavMenuCtrl">
     <aura:attribute name="labels" type="String[]"/>
+    <aura:attribute name="menu" type="List"/>
+    <aura:attribute name="itemLabels" type="List"/>
+    <aura:attribute name="endDoInit" type="Boolean" default="false"/>
+
+    <aura:handler name="change" value="{!v.endDoInit}" action="{!c.addLabels}"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-
-
     <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeSubMenu}"/>
+
     <aura:method name="closeMenu" action="{!c.closeSubMenu}" access="PUBLIC"/>
 
     <div class="header__wrap-nav clr">
@@ -26,9 +30,13 @@
                                     <ul class="header__dropdown-menu-submenu" onclick="{!c.onClick}">
                                         <aura:iteration items="{!v.menuItems}" var="item" >
                                             <aura:if isTrue="{!not(item.subMenu)}">
-                                                <li class="header__dropdown-menu-item">
-                                                    <a onclick="{!c.toggleSubMenu}" class="header__dropdown-menu-link" data-menu-item-id="{!item.id}" href="">{!item.label}</a>
-                                                </li>
+                                                <aura:iteration items="{!v.menu}" var="menuItem">
+                                                    <aura:if isTrue="{!equals(item.label, menuItem.label)}">
+                                                        <li class="header__dropdown-menu-item">
+                                                            <a onclick="{!c.toggleSubMenu}" class="header__dropdown-menu-link" data-menu-item-id="{!menuItem.id}" href="{!menuItem.target}">{!menuItem.label}</a>
+                                                        </li>
+                                                    </aura:if>
+                                                </aura:iteration>
                                             </aura:if>
                                         </aura:iteration>
                                     </ul>
@@ -37,20 +45,28 @@
                                 <aura:iteration items="{!v.menuItems}" var="i" indexVar="index">
                                     <aura:if isTrue="{!i.subMenu}">
                                         <div class="{!'header__dropdown-menu-section header__dropdown-menu-section--' + index}" style="{!equals(index,v.menuItems.length-1)?'width: 31%;':'width: 28%;'}">
-                                            <p class="header__dropdown-menu-title">
-                                                <span class="header__dropdown-menu-title-link" data-label="{!i.label}" onclick="{!c.onCategoryClick}">{!i.label}</span>
-                                            </p>
-                                            <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu" style="{!equals(index,v.menuItems.length-1)?'columns:3':'columns:2'}">
+                                            <aura:iteration items="{!v.menu}" var="menuItem">
+                                                <aura:if isTrue="{!equals(i.label, menuItem.label)}">
+                                                    <p class="header__dropdown-menu-title">
+                                                        <span class="header__dropdown-menu-title-link" data-label="{!menuItem.label}" href="{!menuItem.target}" onclick="{!c.onCategoryClick}">{!menuItem.label}</span>
+                                                    </p>
+                                                </aura:if>
+                                            </aura:iteration>
+                                            <ul onclick="{!c.onClick}" class="header__dropdown-menu-submenu" style="{!equals(index,v.menu.length-1)?'columns:3':'columns:2'}">
                                                 <aura:iteration items="{!i.subMenu}" var="subItem">
-                                                    <li class="header__dropdown-menu-item">
-                                                        <a onclick="{!c.toggleSubMenu}" class="header__dropdown-menu-link" data-menu-item-id="{!subItem.id}" href="">{!subItem.label + ' '}
-                                                            <aura:iteration items="{!v.labels}" var="label">
-                                                                <aura:if isTrue="{!equals(label, subItem.label)}">
-                                                                    <span data-menu-item-id="{!subItem.id}" class="icon-svg-docs-sm"></span>
-                                                                </aura:if>
-                                                            </aura:iteration>
-                                                        </a>
-                                                    </li>
+                                                    <aura:iteration items="{!v.menu}" var="menuItem">
+                                                        <aura:if isTrue="{!equals(subItem.label, menuItem.label)}">
+                                                            <li class="header__dropdown-menu-item">
+                                                                <a onclick="{!c.toggleSubMenu}" class="header__dropdown-menu-link" href="{!menuItem.target}" data-menu-item-id="{!menuItem.id}">{!menuItem.label + ' '}
+                                                                    <aura:iteration items="{!v.labels}" var="label">
+                                                                        <aura:if isTrue="{!equals(label, menuItem.label)}">
+                                                                            <span data-menu-item-id="{!menuItem.id}" class="icon-svg-docs-sm"></span>
+                                                                        </aura:if>
+                                                                    </aura:iteration>
+                                                                </a>
+                                                            </li>
+                                                        </aura:if>
+                                                    </aura:iteration>
                                                 </aura:iteration>
                                             </ul>
                                         </div>

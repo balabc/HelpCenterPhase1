@@ -50,4 +50,16 @@ public with sharing class brMainNavMenuCtrl {
 
         return [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :brNetwork.getNetworkId() LIMIT 1].Id;
     }
+
+    @AuraEnabled
+    public static List<NavigationMenuItem> getMenuItems(){
+
+        String commId = Network.getNetworkId();
+        List<NavigationMenuItem> menuItems = [  SELECT DefaultListViewId, Type, TargetPrefs, Label, Target
+                                                FROM NavigationMenuItem
+                                                WHERE  NavigationLinkSet.NetworkId = :commId
+                                                ORDER BY Position ASC ];
+
+        return menuItems;
+    }
 }

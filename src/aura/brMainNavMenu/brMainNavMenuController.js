@@ -1,5 +1,7 @@
 ({
     doInit: function (cmp, event, helper) {
+        helper.fetchMenuItems(cmp);
+
         window.onscroll = function () {
             var cnHeader = 'header',
                 cnHeaderSticky = 'header--make-sticky',
@@ -27,6 +29,14 @@
             }
         };
         helper.getNavigationMenuItemExternalLabels(cmp);
+    },
+    addLabels : function(component, event, helper) {
+        var itemLabels = component.get('v.itemLabels'),
+            oldMenuItems = component.get('v.menu');
+
+        for (var i in itemLabels) {
+            helper.addLabels(component, itemLabels[i], oldMenuItems);
+        }
     },
     onCategoryClick : function(component, event, helper) {
         try {
