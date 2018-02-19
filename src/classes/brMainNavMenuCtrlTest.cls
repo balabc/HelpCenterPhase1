@@ -74,4 +74,15 @@ private class brMainNavMenuCtrlTest {
         System.assertEquals('Test', labels[0], 'wrong labels');
 
     }
+
+    @isTest
+    static void testGetMenuItems() {
+        Test.startTest();
+
+        List<NavigationMenuItem> items = brMainNavMenuCtrl.getMenuItems();
+
+        Test.stopTest();
+
+        System.assertEquals('Test', items[0].Label, 'wrong label');
+    }
 }

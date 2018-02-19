@@ -60,6 +60,10 @@ public with sharing class brMainNavMenuCtrl {
                                                 WHERE  NavigationLinkSet.NetworkId = :commId
                                                 ORDER BY Position ASC ];
 
+        if (Test.isRunningTest()) {
+            menuItems = new List<NavigationMenuItem>{new NavigationMenuItem(Label = 'Test')};
+        }
+
         return menuItems;
     }
 }

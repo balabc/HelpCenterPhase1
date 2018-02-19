@@ -39,6 +39,9 @@
         }
     },
     onCategoryClick : function(component, event, helper) {
+        if (event.target.hasAttribute('href')) {
+            event.target.removeAttribute('href');
+        }
         try {
             //var sss = component.get('v.menuItems');
             //console.log('menuItems',sss);

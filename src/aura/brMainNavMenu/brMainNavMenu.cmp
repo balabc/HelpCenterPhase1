@@ -48,7 +48,7 @@
                                             <aura:iteration items="{!v.menu}" var="menuItem">
                                                 <aura:if isTrue="{!equals(i.label, menuItem.label)}">
                                                     <p class="header__dropdown-menu-title">
-                                                        <span class="header__dropdown-menu-title-link" data-label="{!menuItem.label}" href="{!menuItem.target}" onclick="{!c.onCategoryClick}">{!menuItem.label}</span>
+                                                        <a class="header__dropdown-menu-title-link" data-label="{!menuItem.label}" href="{!menuItem.target}" onclick="{!c.onCategoryClick}">{!menuItem.label}</a>
                                                     </p>
                                                 </aura:if>
                                             </aura:iteration>
