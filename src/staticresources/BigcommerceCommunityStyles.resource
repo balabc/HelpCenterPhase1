@@ -121,12 +121,15 @@ span.titleOptions {
     padding-left: 45px;
 }
 .unsNotificationsListRow .notification-icon {
-    position: absolute;
+    position: absolute !important;
     top: 22px;
     left: 24px;
     width: 34px !important;
     height: 34px !important;
     border-radius: 50% !important;
+}
+.uiTooltipAdvanced.advanced-wrapper.tooltip {
+   display: none;
 }
 span.notification-text-title.uiOutputText {
     display: block;
