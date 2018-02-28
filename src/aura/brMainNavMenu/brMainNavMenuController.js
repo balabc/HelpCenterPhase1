@@ -106,8 +106,11 @@
         }
     },
     onClick : function(cmp, event) {
-        var id = event.target.dataset.menuItemId;
+        if (event.target.hasAttribute('href')) {
+            event.target.removeAttribute('href');
+        }
 
+        var id = event.target.dataset.menuItemId;
         if (id) {
             cmp.getSuper().navigate(id);
             if (window.location.href.indexOf('/login') !== -1) {

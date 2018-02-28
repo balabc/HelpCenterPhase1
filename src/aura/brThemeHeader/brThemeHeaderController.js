@@ -26,6 +26,12 @@
         });
 
         urlEvent.fire();
+
+        if (window.location.href.indexOf('/login') !== -1) {
+            var url = window.location.href;
+            url = url.replace('/login', '');
+            window.location.href = url;
+        }
     },
     toggleHeaderContact : function(component, event, helper) {
         var childCmp = component.find("childHeaderContact");

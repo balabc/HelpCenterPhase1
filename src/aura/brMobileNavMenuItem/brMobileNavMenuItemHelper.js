@@ -25,6 +25,7 @@
                     });
                     urlEvent.fire();
                 }
+                this.changeLocationForLoginPage(component);
                 break;
             }
             case 'InternalLink': {
@@ -35,6 +36,7 @@
                     });
                     urlEvent.fire();
                 }
+                this.changeLocationForLoginPage(component);
                 break;
             }
             case 'SalesforceObject': {
@@ -45,6 +47,7 @@
                     });
                     urlEvent.fire();
                 }
+                this.changeLocationForLoginPage(component);
                 break;
             }
 			case 'navigateToList': {
@@ -57,9 +60,17 @@
                     });
                     urlEvent.fire();
                 }
+                this.changeLocationForLoginPage(component);
                 break;
             }			
             // no default
+        }
+    },
+    changeLocationForLoginPage: function(component) {
+        if (window.location.href.indexOf('/login') !== -1) {
+            var url = window.location.href;
+            url = url.replace('/login', '');
+            window.location.href = url;
         }
     }
 })

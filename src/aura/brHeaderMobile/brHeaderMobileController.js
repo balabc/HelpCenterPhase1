@@ -18,6 +18,12 @@
             "url": '/'
         });
         urlEvent.fire();
+
+        if (window.location.href.indexOf('/login') !== -1) {
+            var url = window.location.href;
+            url = url.replace('/login', '');
+            window.location.href = url;
+        }
     },
     toggleSearch: function(component, event, helper) {
         //console.log('[DEBUG] brHeaderMobile:toggleSearch');
