@@ -1,4 +1,5 @@
-<aura:component controller="LiveAgentChatButton" implements="forceCommunity:availableForAllPageTypes" access="global">
+
+<aura:component controller="brLiveAgentChatButton" implements="forceCommunity:availableForAllPageTypes" access="global">
 
     <aura:attribute name="organizationId" type="String" required="false"/>
     <aura:attribute name="deploymentUrl" type="String"  required="false" />
@@ -20,11 +21,11 @@
 
     <aura:if isTrue="{!v.isInvalidInput}">
         <ui:message title="Warning" severity="warning" closable="false">
-           Live Agent Chat Button configuration data is empty.
+            Live Agent Chat Button configuration data is empty.
         </ui:message>
     </aura:if>
 
-    <c:ScriptWrapper paramURL="{!v.deploymentUrl}" />
+    <c:brScriptWrapper paramURL="{!v.deploymentUrl}" />
 
     <div  aura:id ="btONline" id="btONline" class="communityLiveChat uiButton contactSupport laBtn toggle panel-media-small" onclick="{!c.startChat}">
         <div class="panel-media-small__wrap-icon">

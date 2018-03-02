@@ -1,3 +1,4 @@
+
 ({
     init : function(component, event, helper) {//console.log('live init component');
         function liveAgentStart(){

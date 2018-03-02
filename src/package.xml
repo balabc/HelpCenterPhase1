@@ -79,12 +79,12 @@
         <members>brKnowledgeArticleConfigLayout</members>
         <members>brCategoriesToggleEvent</members>
         <members>brCloseAllNavMenuEvent</members>
-        <members>LiveAgentChatButton</members>
-        <members>ScriptWrapper</members>
         <members>brRecentQuestionsItem</members>
         <members>brRecentNewsItem</members>
         <members>brRecentGroupPosts</members>
         <members>brMostPopularGroups</members>
+        <members>brScriptWrapper</members>
+        <members>brLiveAgentChatButton</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
@@ -203,6 +203,8 @@
         <members>brNetwork</members>
         <members>LiveAgentChatButton</members>
         <members>LiveAgentChatButtonTest</members>
+        <members>brLiveAgentChatButton</members>
+        <members>brLiveAgentChatButtonTest</members>
         <name>ApexClass</name>
     </types>
     <types>

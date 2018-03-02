@@ -1,3 +1,4 @@
+
 ({
 
     validateComponent : function(component) {
