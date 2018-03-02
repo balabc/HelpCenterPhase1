@@ -201,8 +201,6 @@
         <members>brMenuListViewCtrlTest</members>
         <members>brKnowledgeArticleLayoutCtrlTest</members>
         <members>brNetwork</members>
-        <members>LiveAgentChatButton</members>
-        <members>LiveAgentChatButtonTest</members>
         <members>brLiveAgentChatButton</members>
         <members>brLiveAgentChatButtonTest</members>
         <name>ApexClass</name>
