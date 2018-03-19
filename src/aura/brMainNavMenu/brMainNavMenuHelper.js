@@ -25,7 +25,7 @@
                     }
 
                     if (itemType == 'ExternalLink') {
-                        trg = 'https://developer.bigcommerce.com';
+                        trg = fmenuitems[index].Target;
                     }
 
                     if (itemType == 'MenuLabel') {

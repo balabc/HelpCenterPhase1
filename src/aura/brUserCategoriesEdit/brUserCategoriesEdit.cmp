@@ -1,6 +1,6 @@
 <aura:component description="Edit User Categories Assignment" controller="brUserCategoriesAssignmentController"
                 implements="flexipage:availableForAllPageTypes" access="global">
-    <aura:attribute name="records" type="IdeasCategoriesAssignment__c[]" />
+    <aura:attribute name="records" type="brIdeasCategoriesAssignment__c[]" />
     <aura:attribute name="categoryOptions" type="String[]" />
     <aura:attribute name="createUsername" type="String" default="" />
     <aura:attribute name="createCategories" type="String" default="" />
