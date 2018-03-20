@@ -22,7 +22,7 @@
         } else if (url === 'userDocs') {
             url = cmp.get('v.userDocsUrl');
         } else if (url === 'devDocs') {
-            url = 'https://developer.bigcommerce.com';
+            url = cmp.get('v.devDocsUrl');
         } else {
             url = '/' + url;
         }

@@ -2,6 +2,7 @@
     <design:attribute name="pageName" label="Community Page" datasource="Home,Knowledge,Community" />
     <design:attribute name="title" label="Title" description="title for tiles" />
     <design:attribute name="userDocsUrl" label="User Docs URL" description="e.g. /article/Managing-Currencies" />
+    <design:attribute name="devDocsUrl" label="Dev Docs URL" description="url for docs" />
     <design:attribute name="isShowGroupPosts" label="Use group for news and updates"/>
     <design:attribute name="groupId" label="News and updates group ID" />
 </design:component>
