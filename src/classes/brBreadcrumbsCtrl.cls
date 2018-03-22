@@ -65,7 +65,7 @@ public with sharing class brBreadcrumbsCtrl {
      */
     @AuraEnabled
     public static BreadCrumbsData getBreadCrumbsData( String fullurl, String recordId) {
-        System.debug(recordId);
+
         String tmpOutput = '';
         BreadCrumbsData breadCrumbsData = new BreadCrumbsData();
 
@@ -76,12 +76,6 @@ public with sharing class brBreadcrumbsCtrl {
 
         if (fullurl.contains('/s/') ) {
             pathname = '/' + fullurl.substringAfter('/s/');
-
-            breadCrumbsData.homeCrumb.label = Label.hbrCommunityHome;
-            breadCrumbsData.homeCrumb.url = fullurl.substringBefore('/s/') + '/s/';
-            breadCrumbsData.homeCrumb.active = 'true';
-
-            baseURL = fullurl.substringBefore('/s/') + '/s';
         }
 
         if (String.isBlank(recordId) && fullurl.contains('#') ) {
@@ -115,9 +109,7 @@ public with sharing class brBreadcrumbsCtrl {
                 target = '/group/' + tmpStr.left(18);
                 String tmpMenuId = getMenuIdByTarget(target);//from Category Metadata (2d menu meta)
                 tmpOutput += ' #2target-' + target + ' ;menuId:' + tmpMenuId + '#';
-                if(tmpMenuId != null) {
-                    parentMenuItem = getMenuItemByID(tmpMenuId);
-                }
+                parentMenuItem = getMenuItemByID(tmpMenuId);
             }
             if (parentMenuItem == null) {
                 target = 'CollaborationGroup';
@@ -142,9 +134,26 @@ public with sharing class brBreadcrumbsCtrl {
         if (parentMenuItem == null) {
             String menuId = getMenuIdByTarget(target);//from Category Metadata (2d menu meta)
             tmpOutput += ' #target-' + target + ' ;menuId:' + menuId + '#';
-            if(menuId != null){
-                parentMenuItem = getMenuItemByID(menuId);
-            }
+            parentMenuItem = getMenuItemByID(menuId);
+        }
+
+        breadCrumbsData = generateCrumbsObj(parentMenuItem, fullurl);
+        breadCrumbsData.debug = tmpOutput + breadCrumbsData.debug;
+
+        return breadCrumbsData;
+    }
+
+    public static BreadCrumbsData generateCrumbsObj(NavigationMenuItem parentMenuItem, String fullurl){
+        BreadCrumbsData breadCrumbsData = new BreadCrumbsData();
+        String tmpOutput = '';
+        String baseURL = '';
+
+        if (fullurl.contains('/s/') ) {
+            breadCrumbsData.homeCrumb.label = Label.hbrCommunityHome;
+            breadCrumbsData.homeCrumb.url = fullurl.substringBefore('/s/') + '/s/';
+            breadCrumbsData.homeCrumb.active = 'true';
+
+            baseURL = fullurl.substringBefore('/s/') + '/s';
         }
 
         if (parentMenuItem != null) {
@@ -189,11 +198,10 @@ public with sharing class brBreadcrumbsCtrl {
                 breadCrumbsData.subItems.add(itemSubMenu);
             }
         }
-        //tmpOutput += ' NetworkID: ' + System.Network.getNetworkId();//current network ID
         breadCrumbsData.debug = tmpOutput;
-
         return breadCrumbsData;
     }
+
     /**
      * brCommunity_Menu_Map__mdt stores mapping between object type and menu item target
      *
@@ -203,12 +211,9 @@ public with sharing class brBreadcrumbsCtrl {
      */
     public static String getTargetByObjectName(String objectName){
         brSecurityService.performAccessCheck('read','brCommunity_Menu_Map__mdt', new List<String>{'Menu_Target__c','Object_Name__c'});
-
         try{
             return [SELECT Menu_Target__c FROM brCommunity_Menu_Map__mdt WHERE Object_Name__c = :objectName].Menu_Target__c;
-        }catch (Exception e){
-            return null;
-        }
+        }catch (Exception e){ return null; }
     }
     /**
      * brCommunity_Category_Menu_Map__mdt stores mapping between menu category (which is not clickable) and target (page target url)
@@ -235,12 +240,9 @@ public with sharing class brBreadcrumbsCtrl {
      */
     public static String getTargetByMenuId(String menuItemId){
         brSecurityService.performAccessCheck('read','brCommunity_Category_Menu_Map__mdt', new List<String>{'Target__c','Menu_Item_Id__c'});
-
-        try{
+        try {
             return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c;
-        }catch (Exception e){
-            return null;
-        }
+        } catch (Exception e){ return null; }
     }
     /**
      * Get any available list view of current object
@@ -249,14 +251,11 @@ public with sharing class brBreadcrumbsCtrl {
      *
      * @return   Id of object listveiw
      */
-    public static String getObjectListViewId(String sObjectName){
+    public static String getObjectListViewId(String sObjectName) {
         brSecurityService.performAccessCheck('read','ListView', new List<String>{'SobjectType'});
-
         try{
             return [SELECT Id FROM ListView WHERE SobjectType  = :sObjectName LIMIT 1].Id;
-        }catch (Exception e){
-            return null;
-        }
+        } catch (Exception e){ return null; }
     }
     /**
      * Get single menu item data from NavigationMenuItem based on Id match
@@ -267,9 +266,14 @@ public with sharing class brBreadcrumbsCtrl {
      */
     public static NavigationMenuItem getMenuItemByID(String menuID){
         brSecurityService.performAccessCheck('read','NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','ParentId','Target','Type'});
-
-        List<NavigationMenuItem> items = [SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type
-                                            FROM NavigationMenuItem WHERE Id = :menuID AND NavigationLinkSetId = :getNavigationLinkSetId()];
+        List<NavigationMenuItem> items = new List<NavigationMenuItem>();
+        if (menuID != null) {
+            items = [
+                SELECT Id,Label,NavigationLinkSetId,ParentId,Parent.Label,Parent.Target,Parent.Type,Target,Type
+                FROM NavigationMenuItem
+                WHERE Id = :menuID AND NavigationLinkSetId = :getNavigationLinkSetId()
+            ];
+        }
         return (items.size()>0)?items.get(0):null;
     }
     /**
