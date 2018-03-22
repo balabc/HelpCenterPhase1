@@ -15,9 +15,10 @@
 
                 for (var index in fmenuitems) {
                     var item = {};
-                    item.label = fmenuitems[index].Label;
                     var itemType = fmenuitems[index].Type;
                     var trg = baseURL + fmenuitems[index].Target;
+                    item.label = fmenuitems[index].Label;
+                    item.external = false;
 
 
                     if (itemType == 'SalesforceObject' && fmenuitems[index].Target == 'CollaborationGroup') {
@@ -26,6 +27,7 @@
 
                     if (itemType == 'ExternalLink') {
                         trg = fmenuitems[index].Target;
+                        item.external = true;
                     }
 
                     if (itemType == 'MenuLabel') {
@@ -35,7 +37,7 @@
                         menuitems.push(item);
                     }
                 }
-
+                console.log(menuitems);
                 component.set('v.itemLabels', itemLabels);
                 component.set('v.menu', menuitems);
                 component.set('v.endDoInit', true);
@@ -102,43 +104,5 @@
                 }), 300
             );
         }
-    },
-    getNavigationMenuItemExternalLabels: function (cmp) {
-        var action = cmp.get("c.getLabels");
-        action.setStorable();
-
-            action.setCallback(this, function(response){
-                var state = response.getState();
-                if (state === "SUCCESS") {
-                    var labels = response.getReturnValue();
-                    //console.log(labels);
-                    cmp.set('v.labels', labels);
-                } else if (state === "ERROR") {
-                    var errors = response.getError();
-                    var error_msg = '';
-                    if (errors) {
-                        if (errors[0] && errors[0].message) {
-                            if (errors[0].message === 'access_error') {
-                                error_msg = $A.get("$Label.c.hCommunityFLSAccess");
-                            } else {
-                                error_msg = errors[0].message;
-                            }
-                        }
-                    }
-                    if (error_msg.length === 0) {
-                        error_msg = $A.get("$Label.c.hUnknownError");
-                    }
-                    var toastEvent = $A.get("e.force:showToast");
-                    toastEvent.setParams({
-                        mode: "sticky",
-                        message: error_msg
-                    });
-                    toastEvent.fire();
-                }
-            });
-            $A.enqueueAction(action);
-    },
-    getMenuLabelUrl: function (component, itemLabel) {
-
     }
 })

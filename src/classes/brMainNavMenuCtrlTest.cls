@@ -1,7 +1,7 @@
 @IsTest
 private class brMainNavMenuCtrlTest {
 
-    @isTest
+    @IsTest
     static void testGetURLByMenuLabel_Negative() {
         String inputLabel = 'testLabel';
         String fullurl = 'https://something.dot/test-page';
@@ -10,7 +10,7 @@ private class brMainNavMenuCtrlTest {
         Test.stopTest();
         System.assertEquals('', output);
     }
-    @isTest
+    @IsTest
     static void testGetURLByMenuLabel_Positive() {
         String inputLabel = 'testLabel';
         String fullurl = 'https://something.dot/s/communityname/test-page';
@@ -20,7 +20,7 @@ private class brMainNavMenuCtrlTest {
         System.assertEquals('https://something.dot/s/test-target', output);
     }
 
-    @isTest
+    @IsTest
     static void testDetectTargetByMenuLabel() {
         String inputLabel = 'testLabel';
         Test.startTest();
@@ -29,7 +29,7 @@ private class brMainNavMenuCtrlTest {
         System.assertEquals('/test-target', output);
     }
 
-    @isTest
+    @IsTest
     static void testGetMenuItemId_Negative() {
         String inputLabel = '';
         Test.startTest();
@@ -37,7 +37,7 @@ private class brMainNavMenuCtrlTest {
         Test.stopTest();
         System.assertEquals('', output);
     }
-    @isTest
+    @IsTest
     static void testGetMenuItemId_Positive() {
         String inputLabel = 'SomethingLikeLabel';
         Test.startTest();
@@ -46,7 +46,7 @@ private class brMainNavMenuCtrlTest {
         System.assertEquals('TestIdValue', output);
     }
 
-    @isTest
+    @IsTest
     static void testGetTargetByMenuId_Negative() {
         String inputMenuId = '';
         Test.startTest();
@@ -54,7 +54,7 @@ private class brMainNavMenuCtrlTest {
         Test.stopTest();
         System.assertEquals('', output);
     }
-    @isTest
+    @IsTest
     static void testGetTargetByMenuId_Positive() {
         String inputMenuId = 'SomethingLikeMenuId';
         Test.startTest();
@@ -63,19 +63,7 @@ private class brMainNavMenuCtrlTest {
         System.assertEquals('/test-target', output);
     }
 
-    @isTest
-    static void testGetLabels() {
-        Test.startTest();
-
-        List<String> labels = brMainNavMenuCtrl.getLabels();
-
-        Test.stopTest();
-
-        System.assertEquals('Test', labels[0], 'wrong labels');
-
-    }
-
-    @isTest
+    @IsTest
     static void testGetMenuItems() {
         Test.startTest();
 

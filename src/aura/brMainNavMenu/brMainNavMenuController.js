@@ -28,7 +28,6 @@
                 }
             }
         };
-        helper.getNavigationMenuItemExternalLabels(cmp);
     },
     addLabels : function(component, event, helper) {
         var itemLabels = component.get('v.itemLabels'),
@@ -43,17 +42,6 @@
             event.target.removeAttribute('href');
         }
         try {
-            //var sss = component.get('v.menuItems');
-            //console.log('menuItems',sss);
-            //var exitingURL = event.target.dataset.url;
-            //if(exitingURL){
-            //   //console.log('Menu Category - using exiting URL' + exitingURL);
-            //    var urlEvent = $A.get("e.force:navigateToURL");
-            //    urlEvent.setParams({
-            //      "url": exitingURL
-            //    });
-            //    urlEvent.fire();
-            //}else{
             helper.toggleSubMenu(component);
                 var action = component.get("c.getURLByMenuLabel");
                 var itemLabel = event.target.dataset.label;

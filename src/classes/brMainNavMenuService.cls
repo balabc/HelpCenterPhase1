@@ -3,19 +3,11 @@ public with sharing class brMainNavMenuService {
         brSecurityService.performAccessCheck('read', 'NavigationLinkSet', new List<String>{'NetworkId'});
         brSecurityService.performAccessCheck('read', 'NavigationMenuItem', new List<String>{'Label','NavigationLinkSetId','Type'});
 
-        String navId = null;
-
-        try {
-            navId = [SELECT Id FROM NavigationLinkSet WHERE NetworkId = :Network.getNetworkId() LIMIT 1].Id; List<String> labels = new List<String>();
-        } catch (QueryException ex) {
-            System.debug('brMainNavMenuService::getLabels: ' + ex.getMessage());
-        }
-
         List<NavigationMenuItem> navigationMenuItems = new List<NavigationMenuItem>();
         List<String> labels = new List<String>();
 
         try {
-            navigationMenuItems = [SELECT Label FROM NavigationMenuItem WHERE NavigationLinkSetId = :navId AND Type = 'ExternalLink'];
+            navigationMenuItems = [SELECT Label FROM NavigationMenuItem WHERE NavigationLinkSet.NetworkId = :brNetwork.getNetworkId() AND Type = 'ExternalLink'];
         } catch (QueryException ex) {
             System.debug('brMainNavMenuService::getLabels: ' + ex.getMessage());
         }

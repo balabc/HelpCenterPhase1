@@ -39,11 +39,6 @@ public with sharing class brMainNavMenuCtrl {
         try { return [SELECT Target__c FROM brCommunity_Category_Menu_Map__mdt WHERE Menu_Item_Id__c = :menuItemId].Target__c; } catch (Exception e) { return ''; }
     }
 
-    @AuraEnabled
-    public static List<String> getLabels() {
-        return brMainNavMenuService.getLabels();
-    }
-
 
     public static String getNavigationLinkSetId(){
         if(Test.isRunningTest()) return [SELECT Id FROM NavigationLinkSet LIMIT 1].Id;
