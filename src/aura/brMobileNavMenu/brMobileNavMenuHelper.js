@@ -74,21 +74,35 @@
               			component.set('v.menuList', items);
                     }
                 } else {
-                    locationPage = locationPage.split('/');
-                    locationPage = locationPage.pop();
+                    if (locationPage.indexOf('topic') > -1) {
+                        locationPage = 'topic';
+                    } else if (locationPage.indexOf('group') > -1) {
+                        locationPage = 'group';
+                    }
+                    else {
+                        locationPage = locationPage.split('/');
+                        locationPage = locationPage.pop();
+                    }
                     this.getArticleByUrl(component, locationPage, items);
                 }
             } else {
               	component.set('v.menuList', items);
             }  
             component.set('v.menuItems', items);
-        }  
+        }
     },
     setItemsMenu: function(component, _menuItems, update) {
         update = (update !== 'undefined' ? update : false);
         var menuItems = _menuItems;
         menuItems.parents.push(0);
-        component.set('v.currentObj', menuItems.obj);
+
+        if (menuItems.par === undefined || (!!menuItems.obj && !!menuItems.obj.objectName && !!menuItems.obj.isComponent)) {
+            //console.log('menuItems.objectName: ' + menuItems.obj.objectName);
+            component.set('v.currentObj', menuItems.obj);
+        } else {
+            component.set('v.currentObj', menuItems.par[menuItems.par.length - 1]);
+        }
+
         if (!!menuItems.obj) {
             if (!!menuItems.obj.isComponent) {
             	menuItems.items = [];
@@ -118,13 +132,15 @@
                                 isComponent: (!!menu[i].dataCategory || !!menu[i].objectName)
                             },
                             items: (menu[i].hasOwnProperty('subMenu')? menu[i].subMenu: menu),
-                            parents: [menu[i].id]
+                            parents: [menu[i].id],
+                            par: [menu[i]]
                         };
                     } else {
                         if (menu[i].hasOwnProperty('subMenu')) {
                             res = this.getCurrentLvl(menu[i].subMenu, value, attr);
                             if (Array.isArray(res.parents)) {
                             	res.parents.push(menu[i].id);
+                                res.par.push(menu[i]);
                             }
                         }
                     }	    
@@ -155,33 +171,42 @@
         $A.enqueueAction(action);
     },
     getArticleByUrl: function(component, url, items) {
-        //console.log(url);
-        var action = component.get("c.getArticle"),
-            action_meta = component.get("c.getMetaDataMenuByArticleType");
-        action.setParams({ 
-            url: url
-        });
-        action.setStorable();
-        action.setCallback(this, function(response){
-            var state = response.getState();
-            if (state === "SUCCESS") {  
-                var data = response.getReturnValue(), 
-                    obj, i, j;
-                for (i in data) {
-                    if (data[i].length > 0) {
-                        for (j in data[i]) {
-                            obj = data[i][j];
-                            break;
+        var obj = new Object();
+        if (url === 'topic') {
+            obj.ArticleType = 'Topic';
+            this.getMetaDataMenuByArticleType(component, obj, items);
+        } else if (url === 'group') {
+            obj.ArticleType = 'CollaborationGroup';
+            this.getMetaDataMenuByArticleType(component, obj, items);
+        } else {
+            var action = component.get("c.getArticle"),
+
+                action_meta = component.get("c.getMetaDataMenuByArticleType");
+            action.setParams({
+                url: url
+            });
+            action.setStorable();
+            action.setCallback(this, function (response) {
+                var state = response.getState();
+                if (state === "SUCCESS") {
+                    var data = response.getReturnValue(),
+                        obj, i, j;
+                    for (i in data) {
+                        if (data[i].length > 0) {
+                            for (j in data[i]) {
+                                obj = data[i][j];
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (!!obj) {
-                    this.getMetaDataMenuByArticleType(component, obj, items);
+                    if (!!obj) {
+                        this.getMetaDataMenuByArticleType(component, obj, items);
+                    }
                 }
-            }
-        });
-        $A.enqueueAction(action);
+            });
+            $A.enqueueAction(action);
+        }
     },
     getMetaDataMenuByArticleType: function(component, obj, items) {
         var action = component.get("c.getMetaDataMenuByArticleType");
@@ -191,14 +216,18 @@
         action.setStorable();
         action.setCallback(this, function(response){
             var state = response.getState();
-            if (state === "SUCCESS") {      
+            if (state === "SUCCESS") {
                 var data = response.getReturnValue();
                 if (data.length > 0) {
                     data = data[0];
                     var menuItems = this.getCurrentLvl(items, data.Menu_Target__c, 'target');
                     if (!!menuItems.obj) {
                         this.setItemsMenu(component, menuItems, false);
-                        menuItems.obj.id = obj.Id;
+                        if ((obj.ArticleType === 'Topic') || (obj.ArticleType === 'CollaborationGroup')) {
+                            menuItems.obj = menuItems.par[menuItems.par.length - 1];
+                        } else {
+                            menuItems.obj.id = obj.Id;
+                        }
                         component.set('v.currentObj', menuItems.obj);
                         component.find('brCategoriesCMP').changeData();
                     }

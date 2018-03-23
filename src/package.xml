@@ -85,6 +85,7 @@
         <members>brMostPopularGroups</members>
         <members>brScriptWrapper</members>
         <members>brLiveAgentChatButton</members>
+        <members>brNavigationMenuInitEvent</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

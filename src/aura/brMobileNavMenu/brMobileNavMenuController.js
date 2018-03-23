@@ -28,7 +28,12 @@
             default: {
         		component.find('brCategoriesCMP').nullData();
                 currentId = menuIds.pop();
-                currentId = menuIds[menuIds.length - 1];
+
+                if (menuIds.length === 1) {
+                    currentId = menuIds[menuIds.length - 1];
+                } else if (menuIds.length === 2) {
+                    currentId = menuIds[menuIds.length - 2];
+                }
                 break;
             }
         }

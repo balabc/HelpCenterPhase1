@@ -30,11 +30,15 @@
             }
             case 'InternalLink': {
                 if (data) {
-                    urlEvent = $A.get('e.force:navigateToURL');
-                    urlEvent.setParams({
-                        'url': data
-                    });
-                    urlEvent.fire();
+                    if (data.indexOf('ideas') > -1) {
+                        window.location.href = $A.get('$SfdcSite').pathPrefix + '/s' + data;
+                    } else {
+                        urlEvent = $A.get('e.force:navigateToURL');
+                        urlEvent.setParams({
+                            'url': data
+                        });
+                        urlEvent.fire();
+                    }
                 }
                 this.changeLocationForLoginPage(component);
                 break;

@@ -60,7 +60,7 @@
             var parent = document.getElementById(idRow),
                 active = parent.getAttribute('data-active'),
                 items = document.getElementsByClassName("article"),
-                navEvt = $A.get("e.force:navigateToSObject");
+                navEvt = $A.get("e.force:navigateToURL");
 
             for (var i = 0; i < items.length; i++) {
                 items.item(i).parentElement.setAttribute('data-active', false);
@@ -76,7 +76,7 @@
             }
 
             navEvt.setParams({
-                "recordId": parent.getAttribute('data-id')
+                "url": '/article/' + parent.getAttribute('data-id')
             });
             navEvt.fire();
 

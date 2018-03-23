@@ -13,6 +13,7 @@ public with sharing class brNavigationMenuItemServiceSelector {
     public static List<List<SObject>> getArticle(String url, String acticleTypes) {
         try {
             List<List<SObject>> articles = search.query('FIND \'' + url + '\' RETURNING ' + acticleTypes + '');
+            System.debug('articles: ' + articles);
             return articles;
         } catch (Exception e) {
             System.debug(e.getMessage());
@@ -110,6 +111,7 @@ public with sharing class brNavigationMenuItemServiceSelector {
         try {
             List<brCommunity_Menu_Map__mdt> itemList = new List<brCommunity_Menu_Map__mdt>();
             itemList = [SELECT MasterLabel, Data_Category_Group__c, Menu_Target__c, Object_Name__c FROM brCommunity_Menu_Map__mdt WHERE Object_Name__c = :articleType];
+            System.debug('itemList: ' + itemList);
             return itemList;
         } catch (Exception e) {
             System.debug(e.getMessage());

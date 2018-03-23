@@ -13,17 +13,16 @@
         }
     },
     showHomePage: function(component, event, helper) {
-        var urlEvent = $A.get("e.force:navigateToURL");
-        urlEvent.setParams({
-            "url": '/'
-        });
-        urlEvent.fire();
+        window.location.href = $A.get('$SfdcSite').pathPrefix + '/s/';
 
         if (window.location.href.indexOf('/login') !== -1) {
             var url = window.location.href;
             url = url.replace('/login', '');
             window.location.href = url;
         }
+
+        var navigationMenuInit = $A.get("e.c:brNavigationMenuInitEvent");
+        navigationMenuInit.fire();
     },
     toggleSearch: function(component, event, helper) {
         //console.log('[DEBUG] brHeaderMobile:toggleSearch');
@@ -39,5 +38,6 @@
     },
     toggleMobileMenuExternal: function(component, event, helper) {
         document.body.classList.remove('mobile-menu-is-active');
+        helper.hidePlugs(component);
     }
 })

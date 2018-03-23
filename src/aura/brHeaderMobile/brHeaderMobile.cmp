@@ -1,5 +1,6 @@
 <aura:component description="brHeaderMobile">
 	<aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:registerEvent name="brNavigationMenuInitEventHandler" type="c:brNavigationMenuInitEvent"/>
 
     <aura:handler event="c:brMobileNavMenuToggleEvent" action="{!c.toggleMobileMenuExternal}"/>
     <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeMenu}"/>

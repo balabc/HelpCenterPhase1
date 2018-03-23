@@ -196,6 +196,10 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
 .videoDescription {
     width: 336px;
 }
+.forceCommunityTopicCatalog a {
+    display: block;
+    margin: 0.75em 0;
+}
 
 @media only screen and (max-width: 992px) {
 
