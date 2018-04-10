@@ -7,6 +7,7 @@
                 $A.getCallback(function() {
                     if (component.isValid()) {
                         var data = {};
+                        var interV = 0;
                         data.LA_chatServerURL =component.get("v.endpoint");
                         data.LA_deploymentId =component.get("v.deploymentId");
                         data.organizationId =component.get("v.organizationId");
