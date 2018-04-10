@@ -2,7 +2,7 @@
     <aura:attribute name="pageName" type="String" default="Home" />
     <aura:attribute name="title" type="String" access="global"/>
     <aura:attribute name="userDocsUrl" type="String" access="global"/>
-    <aura:attribute name="devDocsUrl" type="String" access="global"/>
+    <aura:attribute name="devDocsUrl" type="String" default="https://developer.bigcommerce.com" access="global"/>
     <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
     <aura:attribute name="groupId" type="String" />
     <aura:attribute name="routeInputForGroup" type="Map"/>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="panel-media__wrap-content wrap-content">
                         <h4 class="h4 panel-media__title">
-                            <a href="https://developer.bigcommerce.com" target="_blank">
+                            <a href="{!v.devDocsUrl}" target="_blank">
                                 {!$Label.c.hDevDocs + ' '}<span class="icon-svg-docs-sm"></span>
                             </a>
                         </h4>
