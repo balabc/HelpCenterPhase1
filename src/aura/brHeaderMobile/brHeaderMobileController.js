@@ -13,7 +13,13 @@
         }
     },
     showHomePage: function(component, event, helper) {
-        window.location.href = $A.get('$SfdcSite').pathPrefix + '/s/';
+        var urlEvent = $A.get("e.force:navigateToURL");
+
+        urlEvent.setParams({
+            "url": '/'
+        });
+
+        urlEvent.fire();
 
         if (window.location.href.indexOf('/login') !== -1) {
             var url = window.location.href;
