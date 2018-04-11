@@ -1,13 +1,20 @@
 ({
-    doneRendering: function(component, event, helper) {
+    doInit: function (component, event, helper) {
+
         if ($A.get("$Browser.formFactor") !== 'PHONE') {
+            window.setTimeout(
+                $A.getCallback(function () {
+                    component.set('v.isReady', true);
+                }), 3000
+            );
             var documentHeight = document.body.scrollHeight,
                 windowHeight = window.innerHeight,
                 target = component.find('prefooter');
             if ((documentHeight > windowHeight) && component.get('v.defineLargeContentSize')) {
                 return;
             }
-            if (window.location.href.includes('profile')) {
+
+            if (window.location.href.includes('profile') && target !== undefined) {
                 if (documentHeight > windowHeight) {
                     target.getElement().style.display = 'block';
                 } else {
@@ -24,7 +31,8 @@
                     component.set('v.defineLargeContentSize', true);
                 }
             }
+        } else {
+            component.set('v.isReady', true);
         }
-
     }
 })
