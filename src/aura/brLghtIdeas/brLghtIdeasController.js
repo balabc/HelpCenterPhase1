@@ -43,9 +43,11 @@
 
 		helper.initFilterData(cmp);
 		helper.updateOrderByLabel(cmp);
-        helper.retrieveItems(cmp, function(){
-            helper.retrievePagesTotal(cmp);
-        });
+        if ($A.util.isEmpty(urlVars.id)) {
+            helper.retrieveItems(cmp, function () {
+                helper.retrievePagesTotal(cmp);
+            });
+        }
 	},
 
 	openCreateDialog: function(cmp) {
