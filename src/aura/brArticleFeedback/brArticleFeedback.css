@@ -46,7 +46,7 @@
 }
 .THIS .submit {
     cursor: pointer;
-    color: #fff;
+    color: #fff !important;
     background-color: #4b71fc;
     border-color: #4b71fc;
     white-space: nowrap;
@@ -60,6 +60,16 @@
 .THIS .submit:hover, .THIS .submit:focus {
     background-color: #3e5ed6;
     border-color: #3e5ed6;
+}
+.THIS .feedback-other-details {
+    display: none;
+}
+.THIS .feedback-other-details > p{
+    font-size: 15px;
+}
+.THIS .slds-textarea {
+    margin-top: 30px;
+    height: 140px;
 }
 @media (min-width: 768px) {
     .THIS .modal-content {

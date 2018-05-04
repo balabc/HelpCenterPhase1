@@ -232,7 +232,6 @@
         <members>Learning__kav</members>
         <members>Public__kav</members>
         <members>University__kav</members>
-        <members>brArticleFeedback__c</members>
         <members>brPhoneSupportList__c</members>
         <members>brAlgolia_Profile_Setting__c</members>
         <members>brCommunity_Category_Menu_Map__mdt</members>
@@ -256,6 +255,7 @@
         <members>BR_Participation__c</members>
         <members>BrEvents_Settings__c</members>
         <members>Town_Hall__kav</members>
+        <members>PKB_Article_Feedback_Deflection__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -280,11 +280,11 @@
         <members>Learning__kav-Learning Layout</members>
         <members>Public__kav-Public Layout</members>
         <members>University__kav-Public BCU Layout</members>
-        <members>brArticleFeedback__c-brArticleFeedback Layout</members>
         <members>brCommunity_Category_Menu_Map__mdt-Community Category Menu Map Layout</members>
         <members>brCommunity_Menu_Map__mdt-Community Menu Map Layout</members>
         <members>brCommunityMetadata__mdt-Community Settings Layout</members>
         <members>brGuideItem__mdt-brGuideItem Layout</members>
+        <members>PKB_Article_Feedback_Deflection__c-PKB Article Deflection Layout</members>
         <name>Layout</name>
     </types>
     <types>

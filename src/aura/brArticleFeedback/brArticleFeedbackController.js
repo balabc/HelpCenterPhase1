@@ -1,17 +1,12 @@
 ({
     doInit: function (cmp,event, helper) {
-        helper.getTypeForCurrentUser(cmp);
-    },
-    hasVotingCurrentUser: function(cmp, event, helper) {
-        if (event.getParam("value") !== null) {
-            helper.hasVotingCurrentUser(cmp);
-        }
+        helper.doInit(cmp);
     },
     openModal: function (cmp,event, helper) {
         cmp.set('v.isModalOpen', true);
         helper.getReasons(cmp);
     },
-    saveReason: function (cmp,event, helper) {
+    saveNegativeFeedback: function (cmp,event, helper) {
         var reason = cmp.find('reason'),
             reasonValue = reason.get("v.value");
 
@@ -19,15 +14,25 @@
             reason.set("v.errors", [{message:"Please choose reason!"}]);
         } else {
             reason.set("v.errors", [{message:""}]);
-            helper.addVoteDownAndReason(cmp);
+            helper.addNegativeFeedback(cmp);
             cmp.set('v.isModalOpen', false);
         }
     },
-    addVoteUp: function (cmp,event, helper) {
-        helper.addVoteUp(cmp);
+    addPositiveFeedBack: function (cmp,event, helper) {
+        helper.addPositiveFeedBack(cmp);
         cmp.set('v.isModalOpen', false);
     },
     hideModal: function (cmp,event, helper) {
         cmp.set('v.isModalOpen', false);
+    },
+    onSelectReason: function (cmp, event, helper) {
+        var option = cmp.find('reason').get("v.value");
+
+        if (option === 'Other (please specify)') {
+            cmp.find('feedbackComment').getElement().style.display = 'block';
+        } else {
+            cmp.set('v.comment', '');
+            cmp.find('feedbackComment').getElement().style.display = 'none';
+        }
     }
 })

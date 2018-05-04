@@ -73,6 +73,6 @@
 
         </aura:if>
 
-    <c:brArticleFeedback articleId="{!v.article.item.KnowledgeArticleId}"/>
+    <c:brArticleFeedback article="{!v.article.item}"/>
 
 </aura:component>

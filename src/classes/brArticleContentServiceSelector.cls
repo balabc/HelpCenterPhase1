@@ -42,7 +42,10 @@ public with sharing class brArticleContentServiceSelector {
                 queryFields = ',Description__c,Additional_Resources__c,Next_Video_URL__c,Next_Video_Link_Text__c,Prev_Video_URL__c,Prev_Video_Link_Text__c,Video_URL__c';
             }
 
-            String q = 'SELECT KnowledgeArticleId, Title' + queryFields + ' FROM ' + articleType + ' WHERE Id = \'' + articleId + '\' LIMIT 1';
+            String q = 'SELECT  KnowledgeArticleId,Title,ArticleNumber,ArticleCreatedById,Author__c,' +
+                                'LastPublishedDate,LastModifiedById,' +
+                                'IsVisibleInApp,IsVisibleInPkb,ArticleCaseAttachCount' +
+                                + queryFields + ' FROM ' + articleType + ' WHERE Id = \'' + articleId + '\' LIMIT 1';
 
 
     	    return (sObject) Database.query(q);

@@ -1,36 +1,32 @@
 <aura:component description="brArticleFeedback" controller="brArticleFeedbackCtrl">
-    <aura:attribute name="articleId" type="String" />
+    <aura:attribute name="article" type="Object" />
+    <aura:attribute name="comment" type="String" />
     <aura:attribute name="isModalOpen" type="Boolean" default="false" />
     <aura:attribute name="reasons" type="String[]"/>
-    <aura:attribute name="userType" type="String"/>
     <aura:attribute name="feedbackMessage" type="String"/>
+    <aura:attribute name="showVoting" type="Boolean" default="false"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:handler name="change" value="{!v.articleId}" action="{!c.hasVotingCurrentUser}"/>
 
-    <aura:if isTrue="{!notequals(v.articleId, null)}">
+    <aura:if isTrue="{!v.showVoting}">
         <div class="article-area__voting">
-            <aura:if isTrue="{!equals(v.feedbackMessage,null)}">
-                <div class="article-area__voting-inner">
-                    <span class="article-area__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
-                    <div class="article-area__voting-wrap-buttons">
-                        <div class="article-area__voting-buttons">
-                            <aura:if isTrue="{!equals(v.userType,'Guest')}">
-                                <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteYes}</a>
-                                <a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="button button--sm button--hollow-primary">{!$Label.c.lnkVoteNo}</a>
-                                <aura:set attribute="else">
-                                    <a class="button button--sm button--hollow-primary" onclick="{!c.addVoteUp}">{!$Label.c.lnkVoteYes}</a>
-                                    <a class="button button--sm button--hollow-primary" onclick="{!c.openModal}">{!$Label.c.lnkVoteNo}</a>
-                                </aura:set>
-                            </aura:if>
-                        </div>
+            <div class="article-area__voting-inner">
+                <span class="article-area__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
+                <div class="article-area__voting-wrap-buttons">
+                    <div class="article-area__voting-buttons">
+                        <a class="button button--sm button--hollow-primary" onclick="{!c.addPositiveFeedBack}">
+                                {!$Label.c.lnkVoteYes}
+                        </a>
+                        <a class="button button--sm button--hollow-primary" onclick="{!c.openModal}">
+                                {!$Label.c.lnkVoteNo}
+                        </a>
                     </div>
                 </div>
-                <aura:set attribute="else">
-                    <p>{!v.feedbackMessage}</p>
-                </aura:set>
-            </aura:if>
+            </div>
         </div>
+        <aura:set attribute="else">
+            <p>{!v.feedbackMessage}</p>
+        </aura:set>
     </aura:if>
     <aura:if isTrue="{!v.isModalOpen}">
         <div role="dialog" tabindex="-1" aura:id="modalbox" aria-labelledby="header43" class="{!v.isModalOpen ? 'slds-modal slds-fade-in-open' : 'slds-modal'}">
@@ -47,11 +43,15 @@
                     <p>{!$Label.c.lblFeedbackReason}</p>
                     <ui:inputSelect class="slds-select spear-select select"
                                     aura:id="reason"
-                                    updateOn="change" required="true">
+                                    updateOn="change" required="true" change="{!c.onSelectReason}">
                         <aura:iteration items="{!v.reasons}" var="reason">
                             <ui:inputSelectOption text="{!reason}" label="{!reason}"/>
                         </aura:iteration>
                     </ui:inputSelect>
+                    <div class="feedback-other-details" aura:id="feedbackComment">
+                        <lightning:textarea name="comment" value="{!v.comment}" maxlength="255" />
+                        <p>{!$Label.c.msgCharactersRemaining + ' '} {!255 - (v.comment.length==undefined?0:v.comment.length)}</p>
+                    </div>
                 </div>
                 <div class="slds-modal__footer">
                     <lightning:button variant="base" class="slds-button cancel"
@@ -59,7 +59,7 @@
                                       onclick="{!c.hideModal}" />
                     <lightning:button class="slds-button submit"
                                       aura:id="saveButton" label="{!$Label.c.btnSubmit}"
-                                      onclick="{!c.saveReason}" />
+                                      onclick="{!c.saveNegativeFeedback}" />
                 </div>
             </div>
         </div>
