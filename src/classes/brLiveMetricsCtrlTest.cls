@@ -12,11 +12,10 @@ private class brLiveMetricsCtrlTest {
         insert fi;
 
         Test.startTest();
-        brLiveMetricsCtrl.getCommunityId();
         brLiveMetricsCtrl.getIdeaCount();
-        brIdeaService.getIdeaCount(null);
+        brIdeaService.getIdeaCount();
         brIdeaServiceSelector.getIdeaList(null);
-        brIdeaServiceSelector.getZoneList(null);
+        brIdeaServiceSelector.getZoneList();
         brLiveMetricsCtrl.getFeedItemCount();
         List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember];
         if (userMembers.size() > 0) {
@@ -25,19 +24,11 @@ private class brLiveMetricsCtrlTest {
         Test.stopTest();
     }
 
-    static testMethod void testGetUserType() {
-        Test.startTest();
-        String userType = brLiveMetricsCtrl.getUserType();
-        Test.stopTest();
-
-        System.assertEquals('Standard', userType, 'wrong user type');
-    }
-
     static testMethod void testGetCurrentUserName() {
         Test.startTest();
         String userName = brLiveMetricsCtrl.getCurrentUserName();
         Test.stopTest();
 
-        System.assertEquals('Test', userName, 'result without current user');
+        System.assertEquals(' ' + UserInfo.getFirstName(), userName, 'result without current user');
     }
 }

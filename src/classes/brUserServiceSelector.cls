@@ -5,12 +5,12 @@ public with sharing class brUserServiceSelector {
      *
      * {@inheritDoc}
      *
-     * @param       communityId     Id
+     * @param       communityId     String
      * @param       limitSql        Integer
      * @return      user members
      * @see         List<NetworkMember>
      */
-    public static List<NetworkMember> getUserMembers(Id communityId, Integer limitSql) {
+    public static List<NetworkMember> getUserMembers(String communityId, Integer limitSql) {
 
         try {
             List<NetworkMember> userMembers = [

@@ -32,11 +32,10 @@ public with sharing class brUserService {
      *
      * {@inheritDoc}
      *
-     * @param       communityId     Id
      * @return      count users
      * @see         Integer
      */
-    public static Integer getUserCount(Id communityId) {
+    public static Integer getUserCount() {
         brSecurityService.performAccessCheck('read', 'User', new List<String>{
                 'Name'
         });
@@ -44,7 +43,7 @@ public with sharing class brUserService {
                 'MemberId', 'ReputationPoints', 'NetworkId'
         });
 
-        return brUserServiceSelector.getUserMembers(communityId, 50000).size();
+        return brUserServiceSelector.getUserMembers(brNetwork.getNetworkId(), 50000).size();
 
     }
 
