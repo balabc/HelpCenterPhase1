@@ -1850,6 +1850,14 @@
         <value>Avatar</value>
     </labels>
     <labels>
+        <fullName>msgCharactersRemaining</fullName>
+        <categories>FeedBack</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>label for characters remaining  feedback comment</shortDescription>
+        <value>Characters Remaining:</value>
+    </labels>
+    <labels>
         <fullName>msgCommunity</fullName>
         <language>en_US</language>
         <protected>true</protected>

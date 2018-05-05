@@ -12,41 +12,29 @@ private class brArticleFeedbackCtrlTest {
     }
 
     @isTest
-    static void testGetUserType() {
-        Test.startTest();
-
-        String userType = brArticleFeedbackCtrl.getUserType();
-
-        Test.stopTest();
-
-        System.assertEquals('Standard', userType, 'result without type of user');
-    }
-
-    @isTest
     static void testHasVoteForArticle() {
-        String articleId = [SELECT KnowledgeArticleId FROM KnowledgeArticleVersion].KnowledgeArticleId;
-        insert new Vote(ParentId = articleId, Type = 'Up');
+        insert new PKB_Article_Feedback_Deflection__c(Session_ID__c = 'vahhso8g-l24e-rwhz-91xt-dyc3uv89du');
 
         Test.startTest();
 
-        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle(articleId);
+        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle('vahhso8g-l24e-rwhz-91xt-dyc3uv89du');
 
         Test.stopTest();
 
-        System.assertEquals(true, hasVote, 'vote not exist for current user');
+        System.assertEquals(true, hasVote, 'vote not exist for current session');
     }
 
     @isTest
     static void testHasNotVoteForArticle() {
-        String articleId = [SELECT KnowledgeArticleId FROM KnowledgeArticleVersion].KnowledgeArticleId;
+        insert new PKB_Article_Feedback_Deflection__c(Session_ID__c = 'vahhso8g-l24e-rwhz-91xt-dyc3uv89du');
 
         Test.startTest();
 
-        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle(articleId);
+        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle('vahhso8g-l24e-rwhz-91xt-dyc3uv89aa');
 
         Test.stopTest();
 
-        System.assertEquals(false, hasVote, 'vote exist for current user');
+        System.assertEquals(false, hasVote, 'vote exist for current session');
     }
 
     @isTest
@@ -61,32 +49,74 @@ private class brArticleFeedbackCtrlTest {
     }
 
     @isTest
-    static void testAddVoteUpForArticle() {
-        String articleId = [SELECT KnowledgeArticleId FROM KnowledgeArticleVersion].KnowledgeArticleId;
+    static void testAddPositiveFeedBackForArticle() {
+        KnowledgeArticleVersion knowledgeArticle = [
+                SELECT KnowledgeArticleId, Title, ArticleNumber
+                FROM KnowledgeArticleVersion
+                LIMIT 1
+        ];
+
+        Map<String,String> articleFields = new Map<String, String> {
+                'articleId' => knowledgeArticle.KnowledgeArticleId,
+                'articleTitle' => knowledgeArticle.Title,
+                'articleNumber'=> knowledgeArticle.ArticleNumber,
+                'author'=> null,
+                'articleCreatedById'=> null,
+                'lastPublishedDate'=> '2017-12-26T16:35:56.000Z',
+                'lastModifiedById'=> null,
+                'isVisibleInApp'=> 'true',
+                'isVisibleInPkb'=>'false',
+                'articleCaseAttachCount'=> '3'
+        };
 
         Test.startTest();
 
-        brArticleFeedbackCtrl.addVoteUpForArticle(articleId);
+        brArticleFeedbackCtrl.addPositiveFeedBackForArticle(articleFields,'vahhso8g-abcd-abcd-91xt-dyc3uv89du');
 
         Test.stopTest();
 
-        List<Vote> votes = [SELECT Id FROM Vote WHERE ParentId = :articleId AND Type = 'Up'];
+        List<PKB_Article_Feedback_Deflection__c> afdAfterInsert = [
+                SELECT Id
+                FROM PKB_Article_Feedback_Deflection__c
+                WHERE Session_ID__c = :'vahhso8g-abcd-abcd-91xt-dyc3uv89du'
+        ];
 
-        System.assertEquals(1, votes.size(), 'vote did not save');
+        System.assertEquals(1, afdAfterInsert.size(), 'article feedback deflection did not save');
     }
 
     @isTest
-    static void testAddVoteDownAndSaveReasonForArticle() {
-        String articleId = [SELECT KnowledgeArticleId FROM KnowledgeArticleVersion].KnowledgeArticleId;
+    static void testAddNegativeFeedbackForArticle() {
+        KnowledgeArticleVersion knowledgeArticle = [
+                SELECT KnowledgeArticleId, Title, ArticleNumber
+                FROM KnowledgeArticleVersion
+                LIMIT 1
+        ];
+
+        Map<String,String> articleFields = new Map<String, String> {
+                'articleId' => knowledgeArticle.KnowledgeArticleId,
+                'articleTitle' => knowledgeArticle.Title,
+                'articleNumber'=> knowledgeArticle.ArticleNumber,
+                'author'=> null,
+                'articleCreatedById'=> null,
+                'lastPublishedDate'=> '2017-12-26T16:35:56.000Z',
+                'lastModifiedById'=> null,
+                'isVisibleInApp'=> 'true',
+                'isVisibleInPkb'=>'false',
+                'articleCaseAttachCount'=> '3'
+        };
 
         Test.startTest();
 
-        brArticleFeedbackCtrl.addVoteDownAndSaveReasonForArticle(articleId, 'Test');
+        brArticleFeedbackCtrl.addNegativeFeedbackForArticle(articleFields, 'Test comment', '', 'vahhso8g-test-test-91xt-dyc3uv89du');
 
         Test.stopTest();
 
-        List<Vote> votes = [SELECT Id FROM Vote WHERE ParentId = :articleId AND Type = 'Down'];
+        List<PKB_Article_Feedback_Deflection__c> afdAfterInsert = [
+                SELECT Id
+                FROM PKB_Article_Feedback_Deflection__c
+                WHERE Session_ID__c = :'vahhso8g-test-test-91xt-dyc3uv89du'
+        ];
 
-        System.assertEquals(1, votes.size(), 'vote did not save');
+        System.assertEquals(1, afdAfterInsert.size(), 'article feedback deflection did not save');
     }
 }
