@@ -204,6 +204,8 @@
         <members>brNetwork</members>
         <members>brLiveAgentChatButton</members>
         <members>brLiveAgentChatButtonTest</members>
+        <members>brCommunityThemeCtrl</members>
+        <members>brCommunityThemeCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -226,6 +228,7 @@
         <members>brCommunity_Menu_Map.Learning_Guides</members>
         <members>brCommunity_Menu_Map.Town_Halls</members>
         <members>brCommunity_Menu_Map.Videos</members>
+        <members>brCommunityMetadata.Portal_Notice</members>
         <name>CustomMetadata</name>
     </types>
     <types>

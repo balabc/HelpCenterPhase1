@@ -1,9 +1,11 @@
-<aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
+<aura:component implements="forceCommunity:themeLayout" controller="brCommunityThemeCtrl" access="global" description="Custom Theme Layout for Community pages">
     <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="search" type="String" default="initialize"/>
     <aura:attribute name="isReady" type="Boolean" default="false"/>
     <aura:attribute name="windowHeight" type="Integer" />
+    <aura:attribute name="announcementMessage" type="String" />
+    <aura:attribute name="showNotification" type="Boolean" />
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:registerEvent name="brCloseAllNavMenuEventHandler" type="c:brCloseAllNavMenuEvent"/>
@@ -22,6 +24,19 @@
         <c:brSearchModal search="{!v.search}" />
 
         <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
+            <aura:if isTrue="{!v.showNotification}">
+                <div class="announcement-block" aura:id="announcementBlock">
+                    <div class="announcement-icon">
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/icon-alert-warning.png'}" />
+                    </div>
+                    <div class="announcement-message">
+                        <aura:unescapedHtml value="{!v.announcementMessage}"/>
+                    </div>
+                    <div class="announcement-close-button">
+                        <lightning:buttonIcon iconName="utility:close" variant="bare" onclick="{!c.closeAnnouncementBlock}" alternativeText="Close window." />
+                    </div>
+                </div>
+            </aura:if>
             <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
 
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">

@@ -20,12 +20,14 @@
             if ((window.scrollY > 0 || isOpenSubmenu)
                 && header !== undefined) {
                 header.classList.add(cnHeaderSticky);
+                document.getElementsByClassName('announcement-block')[0].style.display = 'none';
             } else {
                 if (substrate !== undefined && header !== undefined) {
                     if (!substrate.classList.contains(cnSubstrateActive)){
                         header.classList.remove(cnHeaderSticky);
                     }
                 }
+                document.getElementsByClassName('announcement-block')[0].style.display = 'flex';
             }
         };
     },
@@ -115,34 +117,24 @@
         var themeHeader = document.getElementById("themeHeader"),
             dropdownWrap = component.find('dropdownWrap'),
             dropdown = component.find('dropdown'),
-            arrow = component.find('arrow');
+            arrow = document.getElementsByClassName('header__nav-arrow')[0];
 
-        $A.util.removeClass(arrow, "nav-arrow--up");
+        arrow.classList.remove("nav-arrow--up");
 
         if (window.scrollY === 0) {
-            if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
+            if (arrow.className === 'header__nav-arrow nav-arrow') {
                 $A.util.removeClass(themeHeader, "header--make-sticky");
             } else {
-                setTimeout( function () {
-                    $A.util.removeClass(themeHeader, "header--make-sticky");
-                }, 600);
+                $A.util.removeClass(themeHeader, "header--make-sticky");
             }
         }
 
-        if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
+        if (arrow.className === 'header__nav-arrow nav-arrow') {
             $A.util.removeClass(dropdownWrap, "header__wrap-dropdown-menu--active");
-            window.setTimeout(
-                $A.getCallback(function () {
-                    $A.util.removeClass(dropdown, "header__dropdown-menu--active");
-                }), 400
-            );
+            $A.util.removeClass(dropdown, "header__dropdown-menu--active");
         } else {
             $A.util.removeClass(dropdown, "header__dropdown-menu--active");
-            window.setTimeout(
-                $A.getCallback(function () {
-                    $A.util.removeClass(dropdownWrap, "header__wrap-dropdown-menu--active");
-                }), 300
-            );
+            $A.util.removeClass(dropdownWrap, "header__wrap-dropdown-menu--active");
         }
     }
 })

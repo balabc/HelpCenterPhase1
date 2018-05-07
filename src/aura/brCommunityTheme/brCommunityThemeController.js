@@ -9,6 +9,7 @@
         var windowHeight = document.documentElement.clientHeight - 347;
         component.set('v.windowHeight', windowHeight);
         component.set('v.search', '');
+        helper.showAnnouncement(component);
     },
     closeUserMenu: function (cmp, event, helper) {
         var userDropDownMenu = document.getElementById('userDropDownMenu'),
@@ -20,7 +21,6 @@
                     isOpenUserMenu = false;
                 }
             }
-
             if (isOpenUserMenu && event.target.classList !== undefined) {
                 var className = event.target.getAttribute('class');
                 var userDropDownMenuChildren = userDropDownMenu.getElementsByTagName("*"),
@@ -89,5 +89,8 @@
         component.set('v.search', search);
     },
     onClickMenu: function(component, event, helper) {
+    },
+    closeAnnouncementBlock: function (component) {
+        component.set('v.showNotification', false);
     }
 })

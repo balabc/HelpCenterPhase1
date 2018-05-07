@@ -37,7 +37,6 @@
                         menuitems.push(item);
                     }
                 }
-                console.log(menuitems);
                 component.set('v.itemLabels', itemLabels);
                 component.set('v.menu', menuitems);
                 component.set('v.endDoInit', true);
@@ -75,34 +74,25 @@
         var themeHeader = document.getElementById("themeHeader"),
             dropdownWrap = cmp.find('dropdownWrap'),
             dropdown = cmp.find('dropdown'),
-            arrow = cmp.find('arrow');
+            arrow = document.getElementsByClassName('header__nav-arrow')[0];
 
         $A.util.toggleClass(arrow, "nav-arrow--up");
 
         if (window.scrollY === 0) {
-            if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
+            if (arrow.className === 'header__nav-arrow nav-arrow') {
                 $A.util.toggleClass(themeHeader, "header--make-sticky");
             } else {
-                setTimeout( function () {
-                    $A.util.toggleClass(themeHeader, "header--make-sticky");
-                }, 600);
+                $A.util.toggleClass(themeHeader, "header--make-sticky");
             }
         }
 
-        if (arrow.getElement().className === 'header__nav-arrow nav-arrow') {
+        if (arrow.className === 'header__nav-arrow nav-arrow') {
             $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
-            window.setTimeout(
-                $A.getCallback(function () {
-                    $A.util.toggleClass(dropdown, "header__dropdown-menu--active");
-                }), 400
-            );
+            $A.util.toggleClass(dropdown, "header__dropdown-menu--active");
+
         } else {
             $A.util.toggleClass(dropdown, "header__dropdown-menu--active");
-            window.setTimeout(
-                $A.getCallback(function () {
-                    $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
-                }), 300
-            );
+            $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
         }
     }
 })

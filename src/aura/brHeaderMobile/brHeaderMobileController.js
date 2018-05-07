@@ -6,8 +6,10 @@
                 var mobileHeader = document.getElementsByClassName('header-mobile')[0];
                 if (window.scrollY > 0) {
                     $A.util.addClass(mobileHeader, "header-mobile--make-sticky");
+                    document.getElementsByClassName('announcement-block')[0].style.display = 'none';
                 } else {
                     $A.util.removeClass(mobileHeader, "header-mobile--make-sticky");
+                    document.getElementsByClassName('announcement-block')[0].style.display = 'flex';
                 }
             };
         }
