@@ -5,18 +5,17 @@ public with sharing class brIdeaServiceSelector {
      *
      * {@inheritDoc}
      *
-     * @param       networkId     String
      * @return      zones
      * @see         List<Community>
      */
-    public static List<Community> getZoneList(String networkId) {
+    public static List<Community> getZoneList() {
 
         List<Community> zoneList = new List<Community>();
         try {
             zoneList = [
                     SELECT id, NetworkId
                     FROM Community
-                    WHERE NetworkId = :networkId
+                    WHERE NetworkId = :brNetwork.getNetworkId()
             ];
         } catch (Exception e) {
             System.debug(e.getMessage());

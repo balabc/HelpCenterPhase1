@@ -52,24 +52,5 @@
         });
 
         $A.enqueueAction(action);
-    },
-
-    getTypeForCurrentUser: function (component, callback) {
-        var action = component.get('c.getUserType');
-        action.setStorable();
-        action.setCallback(this, function (response) {
-            var state = response.getState(),
-                type = response.getReturnValue();
-
-            if (state === 'SUCCESS') {
-                if (typeof callback === 'function') {
-                    callback(type);
-                }
-            } else if (state === "ERROR") {
-                console.log('error: brLiveMetricsHelper -> getTypeForCurrentUser')
-            }
-        });
-
-        $A.enqueueAction(action);
     }
 })

@@ -1208,11 +1208,11 @@ a.link--xsm,
     .link--xsm.link--white:active {
       color: #e6e6e6; }
 
-a,
+/*a,
 a.link,
 .link {
   font-size: 1.0625rem;
-  line-height: 1.6875rem; }
+  line-height: 1.6875rem; }*/
 
 a.link--sm,
 .link--sm {
@@ -1951,8 +1951,8 @@ textarea::placeholder {
     border-top: 1px solid #edeff3;
     text-align: center; }
   .panel-person__link {
-    font-family: 'source_sans_probold', Arial, sans-serif;
-    font-size: 0.6875rem;
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    font-size: 0.75rem;
     text-transform: uppercase;
     color: #7977f9; }
 

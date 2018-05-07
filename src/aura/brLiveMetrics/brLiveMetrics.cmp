@@ -10,23 +10,22 @@
 
     <div class="jumbotron">
         <div class="jumbotron__wrap-img">
-            <img src="{!$Resource.BigcommerceCommunity + '/images/bg-index.png'}" alt=""/>
+            <img src="{#$Resource.BigcommerceCommunity + '/images/bg-index.png'}" alt=""/>
         </div>
         <div class="jumbotron__content">
-            <h1 class="h1 jumbotron__title">{!equals(v.type,'Guest')?$Label.c.hLiveMetricsTitleWelcome + '! ' + $Label.c.hLiveMetricsTitleHelp:
-                    $Label.c.hLiveMetricsTitleWelcome + ' ' + v.name + '! ' + $Label.c.hLiveMetricsTitleHelp} </h1>
+            <h1 class="h1 jumbotron__title">{!$Label.c.hLiveMetricsTitleWelcome + v.name + '! ' + $Label.c.hLiveMetricsTitleHelp}</h1>
             <div class="jumbotron__row">
                 <div class="jumbotron__col">
                     <p class="jumbotron__subtitle">{!v.members}</p>
-                    <p class="jumbotron__text">{!$Label.c.fieldMembers}</p>
+                    <p class="jumbotron__text">{#$Label.c.fieldMembers}</p>
                 </div>
                 <div class="jumbotron__col">
                     <p class="jumbotron__subtitle">{!v.ideas}</p>
-                    <p class="jumbotron__text">{!$Label.c.fieldIdeas}</p>
+                    <p class="jumbotron__text">{#$Label.c.fieldIdeas}</p>
                 </div>
                 <div class="jumbotron__col">
                     <p class="jumbotron__subtitle">{!v.solutions}</p>
-                    <p class="jumbotron__text">{!$Label.c.fieldSolutions}</p>
+                    <p class="jumbotron__text">{#$Label.c.fieldSolutions}</p>
                 </div>
             </div>
         </div>

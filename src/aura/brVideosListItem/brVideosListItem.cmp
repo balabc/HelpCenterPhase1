@@ -9,7 +9,10 @@
             <div class="panel-preview__head">
                 <div class="panel-preview__wrap-media">
                     <div class="panel-preview__wrap-video">
-                       <img src="{!v.videoArticleForCurrentPage.Thumbnail_Image_URL__c}" style="width: 100%"/>
+                        <a class="read-guide" href="{!v.routeInput.recordId}" data-url="{!v.routeInput.recordId}"
+                           title="{!$Label.c.lnkWatchVideo}" onClick="{!c.onClick}">
+                            <img src="{!v.videoArticleForCurrentPage.Thumbnail_Image_URL__c}" style="width: 100%"/>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -21,7 +24,10 @@
                 <div class="panel-preview__wrap-text">
                     <p>{!v.videoArticleForCurrentPage.Short_Description__c}</p>
                 </div>
-                <forceCommunity:routeLink title="{!$Label.c.lnkWatchVideo}" label="{!$Label.c.lnkWatchVideo}" routeInput="{!v.routeInput}" onClick="{!c.onClick}"/>
+                <a class="read-guide" href="{!v.routeInput.recordId}" data-url="{!v.routeInput.recordId}"
+                   title="{!$Label.c.lnkWatchVideo}" onClick="{!c.onClick}">
+                    {!$Label.c.lnkWatchVideo}
+                </a>
             </div>
         </div>
     </div><!-- / end of column -->

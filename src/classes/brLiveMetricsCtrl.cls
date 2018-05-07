@@ -5,13 +5,12 @@ public with sharing class brLiveMetricsCtrl {
      *
      * {@inheritDoc}
      *
-     * @param       networkId	String  community id
      * @return      users count
      * @see         Integer
      */
 	@AuraEnabled
 	public static Integer getUserCount() {
-		return brUserService.getUserCount(brLiveMetricsCtrl.getCommunityId());
+		return brUserService.getUserCount();
 	}
 	
     /**
@@ -19,13 +18,12 @@ public with sharing class brLiveMetricsCtrl {
      *
      * {@inheritDoc}
      *
-     * @param       networkId	String  community id
      * @return      users count
      * @see         Integer
      */
 	@AuraEnabled
 	public static Integer getIdeaCount() {
-		return brIdeaService.getIdeaCount(brLiveMetricsCtrl.getCommunityId());
+		return brIdeaService.getIdeaCount();
 	}	
 	
     /**
@@ -39,32 +37,6 @@ public with sharing class brLiveMetricsCtrl {
 	@AuraEnabled
 	public static Integer getFeedItemCount() {
 		return brFeedItemService.getFeedItemCount();
-	}	
-	
-    /**
-     * Returns community id
-     *
-     * {@inheritDoc}
-     *
-     * @return      community id
-     * @see         Id
-     */
-	@AuraEnabled
-	public static Id getCommunityId() {
-		return Network.getNetworkId();
-	}
-
-    /**
-     *
-     *
-     * @return user type
-     */
-    @AuraEnabled
-	public static String getUserType() {
-		if (Test.isRunningTest()) {
-			return 'Standard';
-		}
-		return UserInfo.getUserType();
 	}
 
     /**
@@ -74,19 +46,15 @@ public with sharing class brLiveMetricsCtrl {
      */
     @AuraEnabled
     public static String getCurrentUserName() {
-        brSecurityService.performAccessCheck('read', 'User', new List<String>{'FirstName','LastName'});
+        String userName = '';
 
-		User user = null;
+		if(UserInfo.getUserType() == 'Guest') {
+            return userName;
 
-        try {
-             user = [SELECT FirstName, LastName FROM User WHERE Id = :userInfo.getUserId() LIMIT 1];
-        } catch (QueryException ex) {
-            System.debug('brLiveMetricsCtrl::getCurrentUserName: ' + ex.getMessage());
+        } else {
+            userName = String.isNotBlank(UserInfo.getFirstName()) ? UserInfo.getFirstName() : UserInfo.getLastName();
+
+            return ' ' + userName;
         }
-
-        if (Test.isRunningTest()) {
-            return 'Test';
-        }
-        return user.FirstName != null?user.FirstName:user.LastName;
     }
 }
