@@ -1,7 +1,7 @@
 public with sharing class brCommunityThemeCtrl {
     @AuraEnabled
     public static String getAnnouncement() {
-        brSecurityService.performAccessCheck('read', 'brCommunityMetadata__mdt', new List<String>{'Value__c'});
+        brSecurityService.performAccessCheck('read', 'brCommunityMetadata__mdt', new List<String>{'Value__c','Active__c'});
         String message = null;
 
         try {
