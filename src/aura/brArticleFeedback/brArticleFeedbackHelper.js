@@ -1,5 +1,5 @@
 ({
-    doInit: function (cmp, event) {
+    onRender: function (cmp, event) {
         if (document.cookie.split(';').filter(function(item) {
                 return item.indexOf('PKB2SessionId') >= 0
             }).length) {
@@ -17,7 +17,10 @@
         var action = cmp.get('c.hasVoteForArticle'),
             sessionId = this.getSessionId(cmp);
 
-        action.setParams({"sessionId": sessionId});
+        action.setParams({
+            "sessionId": sessionId,
+            "articleId": cmp.get('v.article.KnowledgeArticleId')
+        });
 
         action.setCallback(this, function (response) {
             var state = response.getState(),

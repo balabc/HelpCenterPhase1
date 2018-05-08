@@ -6,7 +6,7 @@
     <aura:attribute name="feedbackMessage" type="String"/>
     <aura:attribute name="showVoting" type="Boolean" default="false"/>
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
 
     <aura:if isTrue="{!v.showVoting}">
         <div class="article-area__voting">

@@ -1,6 +1,6 @@
 ({
-    doInit: function (cmp,event, helper) {
-        helper.doInit(cmp);
+    onRender: function (cmp,event, helper) {
+        helper.onRender(cmp);
     },
     openModal: function (cmp,event, helper) {
         cmp.set('v.isModalOpen', true);

@@ -10,14 +10,16 @@ public with sharing class brArticleFeedbackCtrl {
      * @return the existence of record for the current session or not
      */
     @AuraEnabled
-    public static Boolean hasVoteForArticle(String sessionId) {
-        brSecurityService.performAccessCheck('read', 'PKB_Article_Feedback_Deflection__c', new List<String>{'Id','Session_ID__c'});
+    public static Boolean hasVoteForArticle(String sessionId, String articleId) {
+        brSecurityService.performAccessCheck('read', 'PKB_Article_Feedback_Deflection__c', new List<String>{'Id','Session_ID__c','Article_ID__c'});
         Boolean hasArticleWithCurrentSession = false;
 
         try {
-            hasArticleWithCurrentSession = [SELECT Id
-                                            FROM PKB_Article_Feedback_Deflection__c
-                                            WHERE Session_ID__c = :sessionId].isEmpty() ? false : true;
+            hasArticleWithCurrentSession = [
+                    SELECT Id
+                    FROM PKB_Article_Feedback_Deflection__c
+                    WHERE Session_ID__c = :sessionId
+                    AND Article_ID__c = :articleId].isEmpty() ? false : true;
         } catch (QueryException ex) {
             System.debug(ex.getMessage());
         }

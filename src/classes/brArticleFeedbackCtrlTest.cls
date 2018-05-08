@@ -13,11 +13,18 @@ private class brArticleFeedbackCtrlTest {
 
     @isTest
     static void testHasVoteForArticle() {
-        insert new PKB_Article_Feedback_Deflection__c(Session_ID__c = 'vahhso8g-l24e-rwhz-91xt-dyc3uv89du');
+        KnowledgeArticleVersion knowledgeArticle = [
+                SELECT KnowledgeArticleId
+                FROM KnowledgeArticleVersion
+                LIMIT 1
+        ];
+
+        insert new PKB_Article_Feedback_Deflection__c(Session_ID__c = 'vahhso8g-l24e-rwhz-91xt-dyc3uv89du',
+        Article_ID__c = knowledgeArticle.KnowledgeArticleId);
 
         Test.startTest();
 
-        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle('vahhso8g-l24e-rwhz-91xt-dyc3uv89du');
+        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle('vahhso8g-l24e-rwhz-91xt-dyc3uv89du', knowledgeArticle.KnowledgeArticleId);
 
         Test.stopTest();
 
@@ -26,11 +33,18 @@ private class brArticleFeedbackCtrlTest {
 
     @isTest
     static void testHasNotVoteForArticle() {
-        insert new PKB_Article_Feedback_Deflection__c(Session_ID__c = 'vahhso8g-l24e-rwhz-91xt-dyc3uv89du');
+        KnowledgeArticleVersion knowledgeArticle = [
+                SELECT KnowledgeArticleId
+                FROM KnowledgeArticleVersion
+                LIMIT 1
+        ];
+
+        insert new PKB_Article_Feedback_Deflection__c(Session_ID__c = 'vahhso8g-l24e-rwhz-91xt-dyc3uv89du',
+        Article_ID__c = knowledgeArticle.KnowledgeArticleId);
 
         Test.startTest();
 
-        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle('vahhso8g-l24e-rwhz-91xt-dyc3uv89aa');
+        Boolean hasVote = brArticleFeedbackCtrl.hasVoteForArticle('vahhso8g-l24e-rwhz-91xt-dyc3uv89aa', null);
 
         Test.stopTest();
 
