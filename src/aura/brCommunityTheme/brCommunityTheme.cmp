@@ -4,7 +4,7 @@
     <aura:attribute name="search" type="String" default="initialize"/>
     <aura:attribute name="isReady" type="Boolean" default="false"/>
     <aura:attribute name="windowHeight" type="Integer" />
-    <aura:attribute name="announcementMessage" type="String" />
+    <aura:attribute name="notice" type="Object" />
     <aura:attribute name="showNotification" type="Boolean" />
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
@@ -25,12 +25,12 @@
 
         <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
             <aura:if isTrue="{!v.showNotification}">
-                <div class="announcement-block" aura:id="announcementBlock">
+                <div class="{!'announcement-block ' + v.notice.QualifiedApiName}" aura:id="announcementBlock">
                     <div class="announcement-icon">
-                        <img src="{!$Resource.BigcommerceCommunity + '/images/icon-alert-warning.png'}" />
+                        <img src="{!$Resource.BigcommerceCommunity + '/images/' + v.notice.QualifiedApiName + '.svg'}" />
                     </div>
                     <div class="announcement-message">
-                        <aura:unescapedHtml value="{!v.announcementMessage}"/>
+                        <aura:unescapedHtml value="{!v.notice.Value__c}"/>
                     </div>
                     <div class="announcement-close-button">
                         <lightning:buttonIcon iconName="utility:close" variant="bare" onclick="{!c.closeAnnouncementBlock}" alternativeText="Close window." />

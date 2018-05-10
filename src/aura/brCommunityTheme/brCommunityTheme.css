@@ -16,16 +16,32 @@
     display: flex;
     background: #ffffff;
 }
+
+.THIS .announcement-block.portal_notice_success {
+    background: #e8f7e1;
+}
+
+.THIS .announcement-block.portal_notice_info {
+    background: #e4f3fb;
+}
+
+.THIS .announcement-block.portal_notice_warning {
+    background: #f8f3d5;
+}
+
+.THIS .announcement-block.portal_notice_error {
+    background: #f7e8e7;
+}
+
 .THIS .announcement-icon {
     padding: 30px 0 0 77px;
 }
 .THIS .announcement-message {
     flex-grow: 6;
-    margin: 30px 27px 30px 30px;
+    margin: 25px 27px 30px 30px;
 }
 .THIS .announcement-message * {
     font-size: 15px;
-    font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
@@ -49,7 +65,7 @@
         flex-basis: 250px;
     }
     .THIS .announcement-message {
-        margin: 30px 5px 30px 5px;
+        margin: 25px 5px 30px 5px;
     }
     .THIS .announcement-close-button {
         margin: 10px 15px 0 0;
