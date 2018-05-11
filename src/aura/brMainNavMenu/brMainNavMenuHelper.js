@@ -74,6 +74,7 @@
         var themeHeader = document.getElementById("themeHeader"),
             dropdownWrap = cmp.find('dropdownWrap'),
             dropdown = cmp.find('dropdown'),
+            announcementBlockElement = document.getElementsByClassName('announcement-block')[0],
             arrow = document.getElementsByClassName('header__nav-arrow')[0];
 
         arrow.classList.toggle("nav-arrow--up");
@@ -82,6 +83,10 @@
             if (arrow.className === 'header__nav-arrow nav-arrow nav-arrow--up') {
                 $A.util.toggleClass(themeHeader, "header--make-sticky");
             } else {
+                if (announcementBlockElement !== undefined) {
+                    announcementBlockElement.style.position = 'relative';
+                    announcementBlockElement.style.zIndex = '0';
+                }
                 window.setTimeout(
                     $A.getCallback(function () {
                         $A.util.toggleClass(themeHeader, "header--make-sticky");
@@ -90,6 +95,10 @@
         }
 
         if (arrow.className === 'header__nav-arrow nav-arrow nav-arrow--up') {
+            if (announcementBlockElement !== undefined) {
+                document.getElementsByClassName('header--make-sticky')[0].style.top = announcementBlockElement.clientHeight + 'px';
+                document.getElementsByClassName('header__wrap-dropdown-menu')[0].style.top = 70 + announcementBlockElement.clientHeight + 'px';
+            }
             $A.util.toggleClass(dropdownWrap, "header__wrap-dropdown-menu--active");
             window.setTimeout(
                 $A.getCallback(function () {

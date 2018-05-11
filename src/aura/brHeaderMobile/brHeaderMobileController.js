@@ -3,13 +3,26 @@
         var device = $A.get("$Browser.formFactor");
         if ($A.get("$Browser.formFactor") === 'PHONE') {
             window.onscroll = function () {
-                var mobileHeader = document.getElementsByClassName('header-mobile')[0];
+                var mobileHeader = document.getElementsByClassName('header-mobile')[0],
+                    announcementBlockElement = document.getElementsByClassName('announcement-block')[0],
+                    cnHeaderStickyElement = document.getElementsByClassName('header-mobile--make-sticky')[0];
                 if (window.scrollY > 0) {
                     $A.util.addClass(mobileHeader, "header-mobile--make-sticky");
-                    document.getElementsByClassName('announcement-block')[0].style.display = 'none';
+                    if (announcementBlockElement !== undefined) {
+                        var announcementBlockHeight = announcementBlockElement.clientHeight - 1;
+                        cnHeaderStickyElement.style.top = announcementBlockHeight + 'px';
+                        announcementBlockElement.style.position = 'fixed';
+                        announcementBlockElement.style.zIndex = '4';
+                    } else {
+                        cnHeaderStickyElement.style.top = '0';
+                        announcementBlockElement.style.position = 'relative';
+                        announcementBlockElement.style.zIndex = '0';
+                    }
                 } else {
                     $A.util.removeClass(mobileHeader, "header-mobile--make-sticky");
-                    document.getElementsByClassName('announcement-block')[0].style.display = 'flex';
+                    cnHeaderStickyElement.style.top = '0';
+                    announcementBlockElement.style.position = 'relative';
+                    announcementBlockElement.style.zIndex = '0';
                 }
             };
         }

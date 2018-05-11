@@ -229,6 +229,10 @@
         <members>brCommunity_Menu_Map.Town_Halls</members>
         <members>brCommunity_Menu_Map.Videos</members>
         <members>brCommunityMetadata.Portal_Notice</members>
+        <members>brCommunityMetadata.Portal_Notice_Error</members>
+        <members>brCommunityMetadata.Portal_Notice_Info</members>
+        <members>brCommunityMetadata.Portal_Notice_Success</members>
+        <members>brCommunityMetadata.Portal_Notice_Warning</members>
         <name>CustomMetadata</name>
     </types>
     <types>
