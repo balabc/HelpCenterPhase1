@@ -44,7 +44,7 @@ private class brArticleContentTest {
 
         Test.startTest();
 
-        Map<String, String> m = brArticleContentController.getDataForArticle(article.id);
+        String m = brArticleContentController.getArticleType(article.id);
         brArticleModel m1 = brArticleContentController.getArticleContent(article1.id);
         brArticleModel m3 = brArticleContentController.getArticleContent(article2.id);
         brArticleModel m4 = brArticleContentController.getArticleContent(article3.id);

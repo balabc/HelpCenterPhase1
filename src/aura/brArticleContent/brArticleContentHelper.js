@@ -1,9 +1,10 @@
 ({
-	getDataForArticle: function(component) {
-		var action = component.get("c.getDataForArticle"),
+    getArticleType: function(component) {
+		var action = component.get("c.getArticleType"),
             articleId = component.get('v.recordId');
 
 		action.setStorable();
+		action.setBackground();
 
         action.setParams({
             'articleId': articleId
@@ -14,15 +15,13 @@
             if (state === "SUCCESS") {
                 var data = response.getReturnValue();
                //console.log(data);
-                component.set("v.articleType", data.articleType);
-                component.set("v.dataCategory", data.dataCategory);
+                component.set("v.articleType", data);
                 
                 var brCategoriesCMP = component.find('brCategoriesCMP');
                 if (!!brCategoriesCMP) {
                     brCategoriesCMP.set('v.data', {
                         id: articleId,
-                        objectName: data.articleType,
-                        dataCategory: data.dataCategory
+                        objectName: data
                     });
                     brCategoriesCMP.changeData();
                 }

@@ -8,6 +8,7 @@
             	recordId : recordId
             });
 
+            action.setBackground();
             action.setStorable();
 
             action.setCallback(this, function(response){

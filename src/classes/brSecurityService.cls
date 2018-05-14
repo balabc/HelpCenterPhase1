@@ -4,8 +4,6 @@ public with sharing class brSecurityService {
 
         if(objectName == 'KnowledgeArticleVersion'){
             objectDescribe = KnowledgeArticleVersion.sObjectType.getDescribe();
-        } else if (objectName == 'KnowledgeArticle') {
-            objectDescribe = KnowledgeArticle.sObjectType.getDescribe();
         } else {
             objectDescribe = Schema.getGlobalDescribe().get(objectName).getDescribe();
         }

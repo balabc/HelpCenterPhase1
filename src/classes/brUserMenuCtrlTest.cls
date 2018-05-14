@@ -6,7 +6,7 @@ private class brUserMenuCtrlTest {
         Test.startTest();
 
         brUserService.getUserInfo();
-        brUserService.getUserCount(null);
+        brUserService.getUserCount();
         brUserService.getUserLeaderboard(null);
         brUserService.brUserReputationWrap dsa = new brUserService.brUserReputationWrap();
         dsa.label = '';

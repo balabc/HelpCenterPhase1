@@ -54,6 +54,7 @@
                 label: label
             });
 
+            action.setBackground();
             action.setStorable();
             action.setCallback(this, function (response) {
                 var state = response.getState();

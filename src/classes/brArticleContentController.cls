@@ -1,7 +1,7 @@
 public with sharing class brArticleContentController {
 
     /**
-     * Returns data category and article type
+     * Returns article type of article
      *
      * {@inheritDoc}
      *
@@ -10,8 +10,8 @@ public with sharing class brArticleContentController {
      * @see         Map<String, String>
      */
 	@AuraEnabled 
-    public static Map<String, String> getDataForArticle(String articleId) { 
-        return brArticleContentService.getDataForArticle(articleId);
+    public static String getArticleType(String articleId) {
+        return brArticleContentService.getArticleType(articleId);
     }
 
     /**

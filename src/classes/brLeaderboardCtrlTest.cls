@@ -18,7 +18,7 @@ private class brLeaderboardCtrlTest {
             brLeaderboardCtrl.getUserLeaderboard();
         }
 
-        brUserService.getUserCount(userMembers[0].NetworkId);
+        brUserService.getUserCount();
         brUserService.getUserInfo();
         brUserService.brUserReputationWrap asd = new brUserService.brUserReputationWrap();
 

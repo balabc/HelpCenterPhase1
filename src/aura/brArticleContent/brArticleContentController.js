@@ -1,6 +1,6 @@
 ({
 	doInit : function(component, event, helper) {
-		helper.getDataForArticle(component);
+		helper.getArticleType(component);
 		helper.getArticle(component);
 	}
 })

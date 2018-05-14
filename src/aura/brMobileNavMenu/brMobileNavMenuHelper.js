@@ -171,6 +171,7 @@
         $A.enqueueAction(action);
     },
     getArticleByUrl: function(component, url, items) {
+        console.log(url);
         var obj = new Object();
         if (url === 'topic') {
             obj.ArticleType = 'Topic';

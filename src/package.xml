@@ -139,7 +139,6 @@
         <members>brCategoriesCatalogServiceSelector</members>
         <members>brCategoriesController</members>
         <members>brCategoriesTest</members>
-        <members>brCategoryModel</members>
         <members>brCategoryService</members>
         <members>brCategoryServiceSelector</members>
         <members>brGuidesListCtrl</members>

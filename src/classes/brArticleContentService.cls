@@ -9,19 +9,8 @@ public with sharing class brArticleContentService {
      * @return      map with data category and article type
      * @see         Map<String, String>
      */
-    public static Map<String, String> getDataForArticle(String articleId) {
-        Map<String, String> result = new Map<String, String>();
-        String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
-
-        brSecurityService.performAccessCheck('read',articleType.replace('__kav','') + '__DataCategorySelection',
-        new List<String>{'ParentId','DataCategoryGroupName','DataCategoryName'});
-
-        String dataCategory = brArticleContentServiceSelector.getDataCategoryByArticleTypeAndId(articleType, articleId);
-        
-        result.put('articleType', articleType);
-        result.put('dataCategory', dataCategory);
-        
-        return result;
+    public static String getArticleType(String articleId) {
+        return Id.valueOf(articleId).getSobjectType().getDescribe().getName();
     }
 
     /**

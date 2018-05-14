@@ -27,7 +27,7 @@ public with sharing class brUserMenuCtrl {
         String value = null;
 
         try {
-            value = [SELECT Value__c FROM brCommunityMetadata__mdt WHERE DeveloperName = 'User_Menu_Items'].Value__c;
+            value = [SELECT Value__c FROM brCommunityMetadata__mdt WHERE QualifiedApiName = 'User_Menu_Items'].Value__c;
         } catch (QueryException ex) {
             System.debug('brUserMenuCtrl::getUserMenuItems: ' + ex.getMessage());
         }

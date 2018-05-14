@@ -42,10 +42,10 @@ private class brCategoriesTest {
         Test.startTest();
         List<Public__kav> pubList = [SELECT KnowledgeArticleId, UrlName FROM Public__kav WHERE Id = :article2.Id];
         List<Learning__kav> gdList = [SELECT KnowledgeArticleId, UrlName FROM Learning__kav WHERE Id = :article1.Id];
-        brCategoriesController.getCatalog(article.id, 'Learning__kav', tempCat.DataCategoryGroupName, gdList[0].UrlName);
-        brCategoriesController.getCatalog(article2.id, 'Public__kav', tempCat1.DataCategoryGroupName, pubList[0].UrlName);
-        brCategoriesCatalogServiceSelector.getArticleCategories('test');
-        brCategoryServiceSelector.getCategories('Inventory_management');
+        brCategoriesController.getCatalog('Learning__kav');
+        brCategoriesController.getCatalog('Public__kav');
+        brCategoriesController.getArticleSectionsByArticle(article2.Id);
+/*        brCategoryServiceSelector.getCategories('Inventory_management');
         brCategoryServiceSelector.getFirstCategories('Inventory_management');
         brCategoryServiceSelector.getSubCategories('Inventory_management');
         brCategoryServiceSelector.getCategories('Payments');
@@ -53,7 +53,7 @@ private class brCategoriesTest {
         brCategoryServiceSelector.getSubCategories('Payments');
         brCategoryServiceSelector.getCategories('Live_Chat');
         brCategoryServiceSelector.getFirstCategories('Live_Chat');
-        brCategoryServiceSelector.getSubCategories('Live_Chat');
+        brCategoryServiceSelector.getSubCategories('Live_Chat');*/
         Test.stopTest();
     }
 

@@ -4,7 +4,7 @@ private class brFeaturedArticlesCtrlTest {
     static void testGetArticles() {
         List<Public__kav> featuredArticles = new List<Public__kav>();
 
-        for (Integer i = 0; i < 10; i++) {
+        for (Integer i = 0; i < 5; i++) {
             featuredArticles.add(new Public__kav(Title = 'Test' + i, IsVisibleInPkb = true, UrlName = 'TestUrl' + i));
         }
 
@@ -22,10 +22,10 @@ private class brFeaturedArticlesCtrlTest {
 
         Test.startTest();
 
-        List<Public__kav> featuredItems = brFeaturedArticlesCtrl.getArticles(8);
+        List<Public__kav> featuredItems = brFeaturedArticlesCtrl.getArticles(3);
 
         Test.stopTest();
 
-        System.assertEquals(8, featuredItems.size(), 'wrong number of featured articles');
+        System.assertEquals(3, featuredItems.size(), 'wrong number of featured articles');
     }
 }
