@@ -3,6 +3,8 @@
         var cmpEvent = cmp.getEvent("prevActiveMenuItem"),
             Id = '',
             prevActiveMenuId = cmp.get('v.prevActiveMenuItemId'),
+            announcementBlockElement = document.getElementsByClassName('announcement-block')[0],
+            dropdownWrap = cmp.find('dropdownWrap'),
             menuItemId = cmp.get('v.menuItem').id;
 
         if (menuItemId !== prevActiveMenuId) {
@@ -16,9 +18,20 @@
                 setTimeout( function () {
                     $A.util.toggleClass(themeHeader, "header--make-sticky");
                       }, 750);
+                if (announcementBlockElement !== undefined) {
+                    announcementBlockElement.style.position = 'relative';
+                    announcementBlockElement.style.zIndex = '0';
+                }
             } else {
                 $A.util.toggleClass(themeHeader, "header--make-sticky");
             }
+        }
+
+        if (announcementBlockElement !== undefined) {
+            document.getElementsByClassName('header--make-sticky')[0].style.top = announcementBlockElement.clientHeight + 'px';
+            cmp.set('v.top', 70 + announcementBlockElement.clientHeight + 'px')
+        } else {
+            cmp.set('v.top', '70px');
         }
 
         cmpEvent.setParams({

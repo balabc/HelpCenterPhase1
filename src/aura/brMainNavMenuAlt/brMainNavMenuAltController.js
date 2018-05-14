@@ -5,6 +5,9 @@
                 cnHeaderSticky = 'header--make-sticky',
                 cnSubstrate = 'header__dropdown-menu-substrate',
                 cnSubstrateActive = 'header__dropdown-menu-substrate--active',
+                announcementBlock = 'announcement-block',
+                announcementBlockElement = document.getElementsByClassName(announcementBlock)[0],
+                cnHeaderStickyElement = document.getElementsByClassName(cnHeaderSticky)[0],
                 prevActiveMenuItem = component.get('v.prevActiveMenuItemId');
             var header = document.getElementsByClassName(cnHeader)[0],
                 substrate = document.getElementsByClassName(cnSubstrate)[0];
@@ -12,14 +15,24 @@
             if ((window.scrollY > 0 || (prevActiveMenuItem !== '' && prevActiveMenuItem !== undefined && window.scrollY === 0))
                 && header !== undefined) {
                 header.classList.add(cnHeaderSticky);
-                document.getElementsByClassName('announcement-block')[0].style.display = 'none';
+                if (announcementBlockElement !== undefined) {
+                    var announcementBlockHeight = announcementBlockElement.clientHeight;
+                    cnHeaderStickyElement.style.top = announcementBlockHeight + 'px';
+                    announcementBlockElement.style.position = 'fixed';
+                    announcementBlockElement.style.zIndex = '4';
+                } else {
+                    cnHeaderStickyElement.style.top = '0';
+                    announcementBlockElement.style.position = 'relative';
+                    announcementBlockElement.style.zIndex = '0';
+                }
             } else {
                 if (substrate !== undefined && header !== undefined) {
                     if (!substrate.classList.contains(cnSubstrateActive)){
                         header.classList.remove(cnHeaderSticky);
                     }
                 }
-                document.getElementsByClassName('announcement-block')[0].style.display = 'flex';
+                announcementBlockElement.style.position = 'relative';
+                announcementBlockElement.style.zIndex = '0';
             }
         };
 
