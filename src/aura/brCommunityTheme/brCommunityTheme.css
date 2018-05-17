@@ -12,34 +12,39 @@
 .THIS .header__nav {
     margin: 16px 0;
 }
-.THIS .announcement-block {
+.THIS .announcement-block, .THIS .announcement-block-contact {
     display: flex;
     background: #ffffff;
     width: 100%;
 }
 
-.THIS .announcement-block.portal_notice_success {
+.THIS .announcement-block.portal_notice_success, .THIS .announcement-block-contact.portal_notice_success{
     background: #e8f7e1;
 }
 
-.THIS .announcement-block.portal_notice_info {
+.THIS .announcement-block.portal_notice_info, .THIS .announcement-block-contact.portal_notice_info {
     background: #e4f3fb;
 }
 
-.THIS .announcement-block.portal_notice_warning {
+.THIS .announcement-block.portal_notice_warning, .THIS .announcement-block-contact.portal_notice_warning {
     background: #f8f3d5;
 }
 
-.THIS .announcement-block.portal_notice_error {
+.THIS .announcement-block.portal_notice_error, .THIS .announcement-block-contact.portal_notice_error {
     background: #f7e8e7;
 }
 
 .THIS .announcement-icon {
     padding: 30px 0 0 77px;
 }
+.THIS .wrap-announcement-message {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
 .THIS .announcement-message {
     flex-grow: 6;
-    margin: 25px 27px 30px 30px;
+    margin: 25px 0 30px 30px;
 }
 .THIS .announcement-message * {
     font-size: 15px;

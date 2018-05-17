@@ -24,23 +24,19 @@
         <c:brSearchModal search="{!v.search}" />
 
         <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
-            <aura:if isTrue="{!v.showNotification}">
-                <div class="{!'announcement-block ' + v.notice.QualifiedApiName}" aura:id="announcementBlock">
-                    <div class="announcement-icon">
-                        <img src="{!$Resource.BigcommerceCommunity + '/images/' + v.notice.QualifiedApiName + '.svg'}" />
-                    </div>
-                    <div class="announcement-message">
-                        <aura:unescapedHtml value="{!v.notice.Value__c}"/>
-                    </div>
-                    <div class="announcement-close-button">
-                        <lightning:buttonIcon iconName="utility:close" variant="bare" onclick="{!c.closeAnnouncementBlock}" alternativeText="Close window." />
-                    </div>
-                </div>
-            </aura:if>
+
+            <c:brAnnouncementBlock  showNotification="{!v.showNotification}"
+                                    notice="{!v.notice}"
+                                    showCloseButton="true"/>
+
             <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
 
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
-                    <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}" askbutton="{!v.askbutton}" search="{!v.search}"/>
+                    <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}"
+                                                             askbutton="{!v.askbutton}"
+                                                             search="{!v.search}"
+                                                             showNotification="{!v.showNotification}"
+                                                             notice="{!v.notice}"/>
                 </aura:if>
 
                 <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">

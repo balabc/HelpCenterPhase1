@@ -86,6 +86,7 @@
         <members>brScriptWrapper</members>
         <members>brLiveAgentChatButton</members>
         <members>brNavigationMenuInitEvent</members>
+        <members>brAnnouncementBlock</members>
         <name>AuraDefinitionBundle</name>
     </types>
     <types>

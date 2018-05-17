@@ -89,18 +89,5 @@
         component.set('v.search', search);
     },
     onClickMenu: function(component, event, helper) {
-    },
-    closeAnnouncementBlock: function (component) {
-        component.set('v.showNotification', false);
-        var dropDownMenu = document.getElementsByClassName('header__wrap-dropdown-menu')[0],
-            header = document.getElementsByClassName('header')[0],
-            headerMobile = document.getElementsByClassName('header-mobile')[0];
-
-        if (headerMobile !== undefined) {
-            headerMobile.style.top = '0';
-        } else if (header != undefined) {
-            header.style.top = '0';
-            dropDownMenu.style.top = '70px';
-        }
     }
 })

@@ -2974,13 +2974,9 @@ textarea::placeholder {
               transform: translate(0, -50%);
       cursor: pointer; }
   .popover__body {
-    overflow: hidden;
-    height: calc( 100% - 70px);
     background: #ffffff; }
   .popover__body-inner {
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
     height: 100%; }
   .popover__body-container {
     position: absolute;

@@ -49,3 +49,8 @@
 .THIS .cLiveAgentChatButton{
     width: 100% !important;
 }
+.THIS .contact_wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc( 100% - 70px);
+}

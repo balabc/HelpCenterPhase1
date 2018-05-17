@@ -1,0 +1,23 @@
+<aura:component description="brAnnouncementBlock">
+    <aura:attribute name="showNotification" type="Boolean" />
+    <aura:attribute name="showCloseButton" type="Boolean" />
+    <aura:attribute name="notice" type="Object" />
+
+    <aura:if isTrue="{!v.showNotification}">
+        <div class="{!v.showCloseButton?'announcement-block ' + v.notice.QualifiedApiName:'announcement-block-contact ' + v.notice.QualifiedApiName}" aura:id="announcementBlock">
+            <div class="wrap-announcement-message">
+                <div style="{!if(v.showCloseButton, false, 'padding: 30px 0 0 40px;flex-basis: 250px;')}" class="announcement-icon">
+                    <img src="{!$Resource.BigcommerceCommunity + '/images/' + v.notice.QualifiedApiName + '.svg'}" />
+                </div>
+                <div style="{!if(v.showCloseButton, false, 'margin: 30px 27px 30px 0;')}" class="announcement-message">
+                    <aura:unescapedHtml value="{!v.notice.Value__c}"/>
+                </div>
+            </div>
+            <aura:if isTrue="{!v.showCloseButton}">
+                <div class="announcement-close-button">
+                    <lightning:buttonIcon iconName="utility:close" variant="bare" onclick="{!c.closeAnnouncementBlock}" alternativeText="Close window." />
+                </div>
+            </aura:if>
+        </div>
+    </aura:if>
+</aura:component>
