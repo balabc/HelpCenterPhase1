@@ -4134,7 +4134,8 @@ header.header {
       box-shadow: 6px 12px 14px 0 rgba(35, 46, 105, 0.12); } }
 
 .pre-footer {
-  position: relative; 
+  position: relative;
+  min-height: 374px;
     background: #8f4af5;
     background: -moz-linear-gradient(257deg, #8f4af5 0%,#5074fb 100%);
     background: -webkit-linear-gradient(257deg, #8f4af5 0%,#5074fb 100%);
@@ -4143,7 +4144,6 @@ header.header {
   .pre-footer__wrap-img {
     position: relative;
     overflow: hidden;
-    height: 374px;
 	background-repeat: no-repeat; }
   .pre-footer img {
     display: block;

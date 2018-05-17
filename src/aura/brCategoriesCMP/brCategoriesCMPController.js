@@ -6,12 +6,13 @@
         component.set("v.items", []);
         component.set("v.data", {});
 
+
         var navDocScrollEv = function () {
             var cnNavFixed = 'doc-nav--fixed',
                 nav = document.getElementsByClassName('doc-nav')[0],
                 header = document.getElementsByClassName('header-pad')[0],
                 breadcrumbs = document.getElementsByClassName('breadcrumbs')[0],
-                preFooter = document.getElementsByClassName('pre-footer')[0],
+                footer = document.getElementsByClassName('footer')[0],
                 headerHeight = header.offsetHeight,
                 breadcrumbsHeight = breadcrumbs.offsetHeight,
                 docNavDecorMarginBottom = 20,
@@ -19,8 +20,8 @@
             if (window.scrollY > breadcrumbsHeight) {
                 nav.classList.add(cnNavFixed);
 
-                if (( nav.offsetHeight + headerHeight ) > ( preFooter.getBoundingClientRect().top - docNavDecorMarginBottom )) {
-                    nav.style.top = -( nav.offsetHeight - preFooter.getBoundingClientRect().top + docNavDecorMarginBottom ) + 'px';
+                if (( nav.offsetHeight + headerHeight ) > ( footer.getBoundingClientRect().top - docNavDecorMarginBottom - 374 )) {
+                    nav.style.top = -( nav.offsetHeight - footer.getBoundingClientRect().top + docNavDecorMarginBottom + 374 ) + 'px';
                 } else {
                     nav.style.top = docNavInitPosTop;
                 }
@@ -30,6 +31,7 @@
         };
 
         window.addEventListener('scroll', navDocScrollEv, false);
+
 
 
 /*
