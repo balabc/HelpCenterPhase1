@@ -6,6 +6,32 @@
         component.set("v.items", []);
         component.set("v.data", {});
 
+        var navDocScrollEv = function () {
+            var cnNavFixed = 'doc-nav--fixed',
+                nav = document.getElementsByClassName('doc-nav')[0],
+                header = document.getElementsByClassName('header-pad')[0],
+                breadcrumbs = document.getElementsByClassName('breadcrumbs')[0],
+                preFooter = document.getElementsByClassName('pre-footer')[0],
+                headerHeight = header.offsetHeight,
+                breadcrumbsHeight = breadcrumbs.offsetHeight,
+                docNavDecorMarginBottom = 20,
+                docNavInitPosTop = '70px';
+            if (window.scrollY > breadcrumbsHeight) {
+                nav.classList.add(cnNavFixed);
+
+                if (( nav.offsetHeight + headerHeight ) > ( preFooter.getBoundingClientRect().top - docNavDecorMarginBottom )) {
+                    nav.style.top = -( nav.offsetHeight - preFooter.getBoundingClientRect().top + docNavDecorMarginBottom ) + 'px';
+                } else {
+                    nav.style.top = docNavInitPosTop;
+                }
+            } else {
+                nav.classList.remove(cnNavFixed);
+            }
+        };
+
+        window.addEventListener('scroll', navDocScrollEv, false);
+
+
 /*
         if(!!selectedArticleId) {
             helper.changeData(component);

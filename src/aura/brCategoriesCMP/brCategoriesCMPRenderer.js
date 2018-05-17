@@ -32,7 +32,7 @@
                 }
             }() );
 
-            ( function docNavPositionAnimate() {
+           /* ( function docNavPositionAnimate() {
                 var cnNavFixed = 'doc-nav--fixed',
                     nav = document.getElementsByClassName('doc-nav')[0],
                     header = document.getElementsByClassName('header-pad')[0],
@@ -57,7 +57,7 @@
                     };
 
                 window.addEventListener('scroll', navDocScrollEv, false);
-            }() );
+            }() );*/
         }
     }
 })
