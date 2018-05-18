@@ -2,8 +2,6 @@
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="isAltMainNav" type="Boolean" />
     <aura:attribute name="search" type="String"/>
-    <aura:attribute name="showNotification" type="Boolean" />
-    <aura:attribute name="notice" type="Object" />
 
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:method name="closeMenu" action="{!c.closeMenu}" access="PUBLIC"/>
@@ -33,9 +31,7 @@
         </div><!-- end of .container -->
         <div class="header__dropdown-menu-substrate"></div>
 
-        <c:brHeaderContact aura:id="childHeaderContact"    askbutton="{!v.askbutton}"
-                                                           showNotification="{!v.showNotification}"
-                                                           notice="{!v.notice}"/>
+        <c:brHeaderContact aura:id="childHeaderContact" askbutton="{!v.askbutton}"/>
     </header>
     <div class="header-pad"></div>
 </aura:component>

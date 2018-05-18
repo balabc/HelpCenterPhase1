@@ -1,11 +1,9 @@
-<aura:component implements="forceCommunity:themeLayout" controller="brCommunityThemeCtrl" access="global" description="Custom Theme Layout for Community pages">
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
     <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
     <aura:attribute name="search" type="String" default="initialize"/>
     <aura:attribute name="isReady" type="Boolean" default="false"/>
     <aura:attribute name="windowHeight" type="Integer" />
-    <aura:attribute name="notice" type="Object" />
-    <aura:attribute name="showNotification" type="Boolean" />
 
     <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
     <aura:registerEvent name="brCloseAllNavMenuEventHandler" type="c:brCloseAllNavMenuEvent"/>
@@ -25,18 +23,14 @@
 
         <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
 
-            <c:brAnnouncementBlock  showNotification="{!v.showNotification}"
-                                    notice="{!v.notice}"
-                                    showCloseButton="true"/>
+            <c:brAnnouncementBlock showCloseButton="true"/>
 
             <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
 
                 <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
                     <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}"
                                                              askbutton="{!v.askbutton}"
-                                                             search="{!v.search}"
-                                                             showNotification="{!v.showNotification}"
-                                                             notice="{!v.notice}"/>
+                                                             search="{!v.search}"/>
                 </aura:if>
 
                 <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">

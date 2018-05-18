@@ -1,25 +1,22 @@
-public with sharing class brCommunityThemeCtrl {
+public with sharing class brAnnouncementBlockCtrl {
     @AuraEnabled
     public static brCommunityMetadata__mdt getAnnouncement() {
         brSecurityService.performAccessCheck('read', 'brCommunityMetadata__mdt', new List<String>{'Value__c','Active__c'});
+        brCommunityMetadata__mdt portalNotice = null;
 
         try {
-            List<brCommunityMetadata__mdt> portalNotice = [
+             portalNotice = [
                     SELECT Value__c, QualifiedApiName
                     FROM brCommunityMetadata__mdt
                     WHERE QualifiedApiName IN ('Portal_Notice_Info','Portal_Notice_Warning','Portal_Notice_Error','Portal_Notice_Success') AND Active__c = TRUE
                     LIMIT 1];
 
-            if(portalNotice.size() > 0) {
-                return portalNotice[0];
-            }
-
-        } catch (QueryException ex) {  System.debug('brCommunityThemeCtrl::getAnnouncement: ' + ex.getMessage()); }
+        } catch (QueryException ex) {  System.debug('brAnnouncementBlockCtrl::getAnnouncement: ' + ex.getMessage()); }
 
         if (Test.isRunningTest()) {
-            //message = 'test portal notice';
+            return new brCommunityMetadata__mdt();
         }
 
-        return null;
+        return portalNotice;
     }
 }

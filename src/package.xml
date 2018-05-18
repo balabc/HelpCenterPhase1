@@ -204,8 +204,8 @@
         <members>brNetwork</members>
         <members>brLiveAgentChatButton</members>
         <members>brLiveAgentChatButtonTest</members>
-        <members>brCommunityThemeCtrl</members>
-        <members>brCommunityThemeCtrlTest</members>
+        <members>brAnnouncementBlockCtrl</members>
+        <members>brAnnouncementBlockCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>

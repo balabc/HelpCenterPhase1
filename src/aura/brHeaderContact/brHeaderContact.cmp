@@ -7,8 +7,6 @@
     <aura:attribute name="phoneList" type="Object[]"/>
     <aura:attribute name="phoneCount" type="Integer" default="0"/>
     <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
-    <aura:attribute name="showNotification" type="Boolean" />
-    <aura:attribute name="notice" type="Object" />
 
     <aura:method name="showMe" description="Show Header Contact" />
     <aura:method name="hideMe" description="Hide Header Contact" />
@@ -20,8 +18,7 @@
         </div>
         <div class="contact_wrapper">
 
-        <c:brAnnouncementBlock showNotification="{!v.showNotification}"
-                               notice="{!v.notice}"/>
+        <c:brAnnouncementBlock showCloseButton="false"/>
 
         <div class="header__contact-body popover__body">
             <div class="header__contact-body-inner popover__body-inner">

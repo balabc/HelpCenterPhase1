@@ -9,7 +9,6 @@
         var windowHeight = document.documentElement.clientHeight - 347;
         component.set('v.windowHeight', windowHeight);
         component.set('v.search', '');
-        helper.showAnnouncement(component);
     },
     closeUserMenu: function (cmp, event, helper) {
         var userDropDownMenu = document.getElementById('userDropDownMenu'),
