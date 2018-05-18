@@ -2973,8 +2973,6 @@ textarea::placeholder {
       -webkit-transform: translate(0, -50%);
               transform: translate(0, -50%);
       cursor: pointer; }
-  .popover__body {
-    background: #ffffff; }
   .popover__body-inner {
     position: relative;
     height: 100%; }
