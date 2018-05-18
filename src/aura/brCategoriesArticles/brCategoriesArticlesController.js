@@ -13,6 +13,25 @@
         }
     },
 
+    changeHeader: function(component, event, helper) {
+        if (location.href.indexOf("#") != -1) {
+            var header = document.getElementsByClassName('header')[0],
+                announcementBlock = document.getElementsByClassName('announcement-block')[0];
+
+            if (announcementBlock != undefined) {
+                if (announcementBlock.style.position = 'relative') {
+                    announcementBlock.style.position = 'fixed';
+                    announcementBlock.style.zIndex = '4';
+                }
+            }
+
+            window.setTimeout(
+                $A.getCallback(function () {
+                    header.className += ' header--make-sticky';
+                }), 300);
+        }
+    },
+
     clickElement: function(component, event, helper) {
         var toggleEvent = component.getEvent("brCategoriesToggleEventHandler"),
             art = component.get('v.article');

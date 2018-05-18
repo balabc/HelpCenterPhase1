@@ -8,6 +8,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:registerEvent name="brCategoriesToggleEventHandler" type="c:brCategoriesToggleEvent"/>
+    <aura:handler event="aura:locationChange" action="{!c.changeHeader}"/>
 
     <li id="{!'brCategoriesArticles_' + v.article.id}" class="{!v.classLi}" data-id="{!v.article.id}" data-active="{!v.article.active}">
         <forceCommunity:routeLink class="{!v.classA}" title="{!v.article.title}" label="{!v.article.title}" routeInput="{!v.routeInput}" onClick="{!c.clickElement}"/>

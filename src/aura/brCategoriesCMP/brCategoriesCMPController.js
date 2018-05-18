@@ -30,7 +30,7 @@
             }
         };
 
-        window.addEventListener('scroll', navDocScrollEv, false);
+        //window.addEventListener('scroll', navDocScrollEv, false);
 
 
 

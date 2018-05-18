@@ -3229,6 +3229,7 @@ textarea::placeholder {
   text-align: center; }
 
 header.header {
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -3720,7 +3721,7 @@ header.header {
   margin-right: 54px; }
 
 .header.header--make-sticky {
-  position: fixed;
+    position: sticky;
   background: #ffffff;
   box-shadow: 0 2px 7px 0 rgba(35, 46, 105, 0.2); }
   .header.header--make-sticky .header__link, .header.header--make-sticky .header__nav-label {
