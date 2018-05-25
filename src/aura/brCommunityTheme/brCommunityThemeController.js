@@ -14,7 +14,7 @@
         var userDropDownMenu = document.getElementById('userDropDownMenu'),
             isOpenUserMenu = true;
 
-        if (!!userDropDownMenu) {
+        if (!$A.util.isUndefinedOrNull(userDropDownMenu) && !$A.util.isEmpty(userDropDownMenu)) {
             for (var j = 0; j < userDropDownMenu.classList.length; j++) {
                 if (userDropDownMenu.classList[j] === 'toggle') {
                     isOpenUserMenu = false;
@@ -62,13 +62,13 @@
                 'header-mobile__menu-icon'
             ];
 
-        if (!!target && (typeof target.closest !== "undefined")) {
-            for (var i in classes) {
-                var clos = target.closest('.' + classes[i]);
+        if (!$A.util.isUndefinedOrNull(target) && !$A.util.isEmpty(target) && (typeof target.closest !== "undefined")) {
+            for (var c in classes) {
+                var clos = target.closest('.' + classes[c]);
 
-                if (!!clos) {
+                if (!$A.util.isUndefinedOrNull(clos) && !$A.util.isEmpty(clos)) {
                     flag = false;
-                } else if (target.className.indexOf(classes[i]) > -1) {
+                } else if (target.className.indexOf(classes[c]) > -1) {
                     flag = false;
                 }
             }

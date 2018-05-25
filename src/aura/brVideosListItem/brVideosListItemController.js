@@ -2,7 +2,7 @@
     doInit : function(component) {
         var objSfdcSite = $A.get('$SfdcSite');
 
-        objSfdcSite = (!!objSfdcSite ? objSfdcSite.pathPrefix : '');
+        objSfdcSite = (!$A.util.isUndefinedOrNull(objSfdcSite) ? objSfdcSite.pathPrefix : '');
         component.set('v.routeInput', {recordId: objSfdcSite + '/s/article/' + component.get('v.videoArticleForCurrentPage').UrlName});
     },
 

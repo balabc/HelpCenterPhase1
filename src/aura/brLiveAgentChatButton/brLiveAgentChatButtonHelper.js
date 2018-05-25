@@ -4,45 +4,36 @@
     validateComponent : function(component) {
          var valid = true;
          if (component.isValid()) {
-             valid =  ( component.get("v.chatButtontId") != undefined && component.get("v.chatButtontId") != '')
-                || ( component.get("v.endpoint") != undefined && component.get("v.endpoint") != '')
-                || ( component.get("v.deploymentId") != undefined && component.get("v.deploymentId") != '')
-                || ( component.get("v.deploymentUrl") != undefined && component.get("v.deploymentUrl") != '')
-                || ( component.get("v.organizationId") != undefined && component.get("v.organizationId") != '');
+             valid =  ( component.get("v.chatButtontId") !== undefined && component.get("v.chatButtontId") !== '')
+                || ( component.get("v.endpoint") !== undefined && component.get("v.endpoint") !== '')
+                || ( component.get("v.deploymentId") !== undefined && component.get("v.deploymentId") !== '')
+                || ( component.get("v.deploymentUrl") !== undefined && component.get("v.deploymentUrl") !== '')
+                || ( component.get("v.organizationId") !== undefined && component.get("v.organizationId") !== '');
          }
          return valid;
     },
-    bindLiveAgent : function (component,data){
-        //custom handler for online/offline update
-        function updateLiveAgentButton(component) {
-            //console.log('updateLiveAgentButton');
-            if (component.isValid()) {
-                var onlineBtn = document.getElementById('btONline');//component.find("btONline");
-                var offlineBtn = document.getElementById('btOFFline');//component.find("btOFFline");
 
-                 if( (  typeof onlineBtn != "undefined"  ) &&
-                     (  typeof offlineBtn != "undefined"  )){
+    initLiveAgent : function (component, data, interV, helper){
+        var self = this;
+        self.data = data;
 
-                     if ( component.get("v.isLiveAgentOnline")== true){
-                          $A.util.removeClass(onlineBtn, "toggle");
-                          $A.util.addClass(offlineBtn, "toggle");
-                          //console.log('updateLiveAgentButton-is ON');
-                     }else{
-                         $A.util.removeClass(offlineBtn, "toggle");
-                         $A.util.addClass(onlineBtn, "toggle");
-                         //console.log('updateLiveAgentButton-is OFF');
-                     }
-                }
-            }
+        if ((typeof liveagent == "object") && (document.getElementById('btONline') != null )){
+            clearInterval(interV);
+            helper.bindLiveAgent(component,data);
         }
+    },
+
+    bindLiveAgent : function (component,data, helper){
+        //custom handler for online/offline update
+        helper.updateLiveAgentButton(component);
 
         component.set("v.isLiveAgentOnline",false);
         var chatBtn    = data.chatButtontId;
         liveagent.addButtonEventHandler(chatBtn, function(e) {
             //console.log('addButtonEventHandler');
-            if (e == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE) {
+            if (e === liveagent.BUTTON_EVENT.BUTTON_AVAILABLE) {
                 component.set("v.isLiveAgentOnline",true);
-            } else if (e == liveagent.BUTTON_EVENT.BUTTON_UNAVAILABLE) {
+            } else if (e === liveagent.BUTTON_EVENT.BUTTON_UNAVAILABLE) {
                 component.set("v.isLiveAgentOnline",false);
             }
             if (component.get("v.previousIsLiveAgentOnline") == null){
@@ -53,9 +44,9 @@
             updateLiveAgentButton(component);
         });
 
-        if (data.userSessionData && typeof data.contactId != undefined){
+        if (data.userSessionData && typeof data.contactId !== undefined){
             var contactId = data.contactId;
-            if (contactId != undefined){
+            if (contactId !== undefined){
                 liveagent.addCustomDetail('Contact Id', contactId, false);
                 // An auto query that searches contacts whose id exactly matches based on
                 //the community user's contact. The guid for the contact will be hidden from the agent.
@@ -66,6 +57,27 @@
             }
         }
         liveagent.init( data.LA_chatServerURL, data.LA_deploymentId,  data.organizationId);
+    },
+
+    updateLiveAgentButton : function (component){
+        if (component.isValid()) {
+            var onlineBtn = document.getElementById('btONline');//component.find("btONline");
+            var offlineBtn = document.getElementById('btOFFline');//component.find("btOFFline");
+
+            if( (  typeof onlineBtn != "undefined"  ) &&
+                (  typeof offlineBtn != "undefined"  )){
+
+                if ( component.get("v.isLiveAgentOnline")){
+                    $A.util.removeClass(onlineBtn, "toggle");
+                    $A.util.addClass(offlineBtn, "toggle");
+                    //console.log('updateLiveAgentButton-is ON');
+                }else{
+                    $A.util.removeClass(offlineBtn, "toggle");
+                    $A.util.addClass(onlineBtn, "toggle");
+                    //console.log('updateLiveAgentButton-is OFF');
+                }
+            }
+        }
     }
 
 })

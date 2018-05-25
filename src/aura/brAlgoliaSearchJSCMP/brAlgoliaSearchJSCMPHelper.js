@@ -20,7 +20,7 @@
                     }
                     component.set("v.availableIndexes", availableIndexes);
                     var query = component.get("v.searchText");
-                    if (!!query) {
+                    if (!$A.util.isUndefinedOrNull(query) && !$A.util.isEmpty(query)) {
                         component.searchChange();
                     }
                 });
@@ -106,7 +106,7 @@
             case 'cm': {
                 indexName = 'FeedItem_Community';
                 if (availableIndexes.indexOf(indexName) > -1) {
-                    if (filter.values.posted_in != 'All')
+                    if (filter.values.posted_in !== 'All')
                         facetFilter.push('PostedIn:' + filter.values.posted_in);
                     
                     if (facetFilter.length > 0)
@@ -276,7 +276,7 @@
                 objSfdcSite = $A.get('$SfdcSite'),
             	availableIndexes2 = component.get("v.availableIndexes");
 
-            objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
+            objSfdcSite = (!$A.util.isUndefinedOrNull(objSfdcSite)? objSfdcSite.pathPrefix: '');
 
             for (var i = 0; i < categories.length; ++i) {
                 var category = categories[i], 
@@ -305,7 +305,7 @@
                                         section_content = item.source._snippetResult.Section_Content.value,
                                         hlr = item.source._highlightResult;
 
-                                    if (!!hlr) {
+                                    if (!$A.util.isUndefinedOrNull(hlr) && !$A.util.isEmpty(hlr)) {
 
                                         for (var ih in hlr) {
                                             if (hlr.hasOwnProperty(ih)) {
@@ -327,14 +327,14 @@
                                         section_content = section_content.replace('<em>', '<span class="serp__highlight-text">').replace('</em>', '</span>');
                                     }
 
-                                    if (!!item.source.Data_Category)
+                                    if (!$A.util.isUndefinedOrNull(item.source.Data_Category) && !$A.util.isEmpty(item.source.Data_Category))
                                         item.left = '<p class="serp__item-left-text">' + item.source.Data_Category[0] + '</p>';
                                     item.right = [
                                         '<p class="serp__item-category truncated">' + item.source.type__c + '</p>',
                                         '<p class="serp__item-title truncated">' +
-                                        ((!!item.source.chapter__c)? item.source.chapter__c + ' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ': '') +
+                                        ((!$A.util.isUndefinedOrNull(item.source.chapter__c) && !$A.util.isEmpty(item.source.chapter__c))? item.source.chapter__c + ' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ': '') +
                                         title +
-                                        ((!!item.source.Section)?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + section: '') +
+                                        ((!$A.util.isUndefinedOrNull(item.source.Section) && !$A.util.isEmpty(item.source.Section))?' <span class="serp__item-title-chevron icon-svg-arrow-angular-sm-right-grey"></span> ' + section: '') +
                                         '</p>',
                                         '<p class="serp__item-description truncated">' + section_content + '</p>'
                                     ];
@@ -400,7 +400,7 @@
                                         body5 = item.source._snippetResult.Body.value,
                                         hlr5 = item.source._highlightResult;
 
-                                    if (!!hlr5) {
+                                    if (!$A.util.isUndefinedOrNull(hlr5) && !$A.util.isEmpty(hlr5)) {
 
                                         for (var ih5 in hlr5) {
                                             if (hlr5.hasOwnProperty(ih5)) {

@@ -32,7 +32,7 @@
 
         if (headerMobile !== undefined) {
             headerMobile.style.top = '0';
-        } else if (header != undefined) {
+        } else if (header !== undefined) {
             header.style.top = '0';
             dropDownMenu.style.top = '70px';
         }

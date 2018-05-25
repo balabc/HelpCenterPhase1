@@ -14,11 +14,11 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var data = response.getReturnValue();
-               //console.log(data);
                 component.set("v.articleType", data);
                 
                 var brCategoriesCMP = component.find('brCategoriesCMP');
-                if (!!brCategoriesCMP) {
+
+                if (!$A.util.isUndefined(brCategoriesCMP)) {
                     brCategoriesCMP.set('v.data', {
                         id: articleId,
                         objectName: data

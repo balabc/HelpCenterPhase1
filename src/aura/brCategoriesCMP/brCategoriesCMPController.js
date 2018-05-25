@@ -93,7 +93,7 @@
 
         var idRow = event.getParam("idRow");
         
-        if (!!idRow) {
+        if (!$A.util.isUndefinedOrNull(idRow) && !$A.util.isEmpty(idRow)) {
             var parent = document.getElementById(idRow),
                 active = parent.getAttribute('data-active'),
                 items = document.getElementsByClassName("doc-nav__item-view active"),

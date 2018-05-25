@@ -10,7 +10,7 @@ public with sharing class brCommunitySpotlightService {
      * @return      user information
      * @see         brCommunitySpotlightModel
      */
-    public static brCommunitySpotlightModel getUserInfo(Id userId, Id communityId) {
+    public static brCommunitySpotlightModel getUserInfo(String userId, Id communityId) {
         brSecurityService.performAccessCheck('read', 'User', new List<String>{'Name'});
         brSecurityService.performAccessCheck('read', 'NetworkMember', new List<String>{'MemberId','ReputationPoints','NetworkId'});
         brSecurityService.performAccessCheck('read', 'User', new List<String>{'FullPhotoUrl','SmallPhotoUrl','MediumPhotoUrl','Name'});

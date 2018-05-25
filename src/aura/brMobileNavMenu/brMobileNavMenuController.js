@@ -9,8 +9,9 @@
         helper.fillPhoneList(component);
     },
     onChangeLvl: function(component, event, helper) {
-        var data = (!!event.getParam)? event.getParam("data"): { where: 'prev' },
-            isClick = (!!data.isClick)? true: false,
+        var param = event.getParam,
+            data = (!$A.util.isUndefinedOrNull(param) && !$A.util.isEmpty(param))? param("data"): { where: 'prev' },
+            isClick = (!$A.util.isUndefinedOrNull(data.isClick) && !$A.util.isEmpty(data.isClick))? true: false,
 
             menuItems = component.get('v.menuItems'),
 			menuIds = component.get('v.menuIds'),     
@@ -40,11 +41,13 @@
 
         menuItems = helper.getCurrentLvl(menuItems, currentId);
 
-        if (!!menuItems.obj) {
-            menuItems.obj.isClick = isClick;
-            if (menuItems.obj.isClick) {
-                menuItems.obj.id = ' ';
-                menuItems.obj.target = ' ';
+        var obj = menuItems.obj;
+
+        if (!$A.util.isUndefinedOrNull(obj) && !$A.util.isEmpty(obj)) {
+            obj.isClick = isClick;
+            if (obj.isClick) {
+                obj.id = ' ';
+                obj.target = ' ';
             }
         }
         helper.setItemsMenu(component, menuItems, true);

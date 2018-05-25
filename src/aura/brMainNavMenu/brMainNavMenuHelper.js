@@ -21,16 +21,16 @@
                     item.external = false;
 
 
-                    if (itemType == 'SalesforceObject' && fmenuitems[index].Target == 'CollaborationGroup') {
+                    if (itemType === 'SalesforceObject' && fmenuitems[index].Target === 'CollaborationGroup') {
                         trg = baseURL + '/group/' + fmenuitems[index].Target + '/' + fmenuitems[index].DefaultListViewId;
                     }
 
-                    if (itemType == 'ExternalLink') {
+                    if (itemType === 'ExternalLink') {
                         trg = fmenuitems[index].Target;
                         item.external = true;
                     }
 
-                    if (itemType == 'MenuLabel') {
+                    if (itemType === 'MenuLabel') {
                            itemLabels.push(item.label);
                     } else {
                         item.target = trg;

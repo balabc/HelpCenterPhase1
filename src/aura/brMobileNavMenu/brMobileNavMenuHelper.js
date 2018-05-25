@@ -16,7 +16,7 @@
             objSfdcSite = $A.get('$SfdcSite'),
             locationPage = window.location.pathname;
 
-        objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
+        objSfdcSite = (!$A.util.isUndefinedOrNull(objSfdcSite)? objSfdcSite.pathPrefix: '');
         locationPage = locationPage.replace(objSfdcSite + '/s', '').replace('/login', '').replace('/profile/', '');
 
        //console.log(locationPage);
@@ -66,7 +66,7 @@
                 }
                 var menuItems = this.getCurrentLvl(items, locationPage, 'target');
                 //console.log(items, menuItems);
-                if (!!menuItems.obj) {
+                if (!$A.util.isUndefinedOrNull(menuItems.obj) && !$A.util.isEmpty(menuItems.obj)) {
                     if (menuItems.items.length > 0) {
                         menuItems.parents.pop();
                     	this.setItemsMenu(component, menuItems, true);
@@ -103,8 +103,8 @@
             component.set('v.currentObj', menuItems.par[menuItems.par.length - 1]);
         }
 
-        if (!!menuItems.obj) {
-            if (!!menuItems.obj.isComponent) {
+        if (!$A.util.isUndefinedOrNull(menuItems.obj) && !$A.util.isEmpty(menuItems.obj)) {
+            if (menuItems.obj.isComponent) {
             	menuItems.items = [];
             	if (update) {
                     component.find('brCategoriesCMP').changeData();
@@ -117,7 +117,8 @@
     getCurrentLvl: function (menu, value, attr) {
         attr = (attr === undefined)? 'id': attr;
         var res = false;
-        if (!!value) { 
+
+        if (value !== 0) {
             for (var i in menu) {
                 if (menu.hasOwnProperty(i)) {
                     if (menu[i][attr] === value) {
@@ -171,8 +172,7 @@
         $A.enqueueAction(action);
     },
     getArticleByUrl: function(component, url, items) {
-        console.log(url);
-        var obj = new Object();
+        var obj = {};
         if (url === 'topic') {
             obj.ArticleType = 'Topic';
             this.getMetaDataMenuByArticleType(component, obj, items);
@@ -191,18 +191,18 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var data = response.getReturnValue(),
-                        obj, i, j;
+                        objResult, i, j;
                     for (i in data) {
                         if (data[i].length > 0) {
                             for (j in data[i]) {
-                                obj = data[i][j];
+                                objResult = data[i][j];
                                 break;
                             }
                         }
                     }
 
-                    if (!!obj) {
-                        this.getMetaDataMenuByArticleType(component, obj, items);
+                    if (!$A.util.isUndefinedOrNull(objResult) && !$A.util.isEmpty(objResult)) {
+                        this.getMetaDataMenuByArticleType(component, objResult, items);
                     }
                 }
             });
@@ -222,7 +222,7 @@
                 if (data.length > 0) {
                     data = data[0];
                     var menuItems = this.getCurrentLvl(items, data.Menu_Target__c, 'target');
-                    if (!!menuItems.obj) {
+                    if (!$A.util.isUndefinedOrNull(menuItems.obj) && !$A.util.isEmpty(menuItems.obj)) {
                         this.setItemsMenu(component, menuItems, false);
                         if ((obj.ArticleType === 'Topic') || (obj.ArticleType === 'CollaborationGroup')) {
                             menuItems.obj = menuItems.par[menuItems.par.length - 1];

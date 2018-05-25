@@ -1,6 +1,5 @@
 ({
     doInit: function (component, event, helper) {
-       //console.log(component.get('v.article'));
         helper.getData(component, 'v.listArticles', 'c.getListArticleInCurrentCategory', {
             articleId: component.get('v.article').id
         });
@@ -11,7 +10,7 @@
             list = component.get('v.listArticles'),
             articleId = component.get('v.article').id,
             find_i = false;
-        if (!!list) {
+        if (!$A.util.isEmpty(list)) {
             if (list.length > 1) {
                 for (var i in list) {
                     if (list[i].Id === articleId) {
@@ -29,7 +28,6 @@
         }
         component.set('v.prevArticle', prev);
         component.set('v.nextArticle', next);
-       //console.log(list.length, find_i, prev, next);
     },
     onClick: function (component, event, helper) {
         var navEvt = $A.get("e.force:navigateToSObject"),

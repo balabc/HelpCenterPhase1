@@ -10,7 +10,7 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @return      list user member
      * @see         List<NetworkMember>
      */
-    public static List<NetworkMember> getUserMember(Id userId, Id communityId) {
+    public static List<NetworkMember> getUserMember(String userId, Id communityId) {
         try {
             if (userId != null) {
                 List<NetworkMember> userMember = [
@@ -44,7 +44,7 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @return      count posts
      * @see         Integer
      */
-    public static Integer getUserCountPosts(Id userId, Id communityId) {
+    public static Integer getUserCountPosts(String userId, Id communityId) {
         try {
             if (userId != null) {
                 List<AggregateResult> countPosts = [
@@ -75,7 +75,7 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @return      count comments
      * @see         Integer
      */
-    public static Integer getUserCountComments(Id userId, Id communityId) {
+    public static Integer getUserCountComments(String userId, Id communityId) {
         try {
             if (userId != null) {
                 List<AggregateResult> countPosts = [
@@ -106,7 +106,7 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @return      count likes
      * @see         Integer
      */
-    public static Integer getUserCountLikes(Id userId, Id communityId) {
+    public static Integer getUserCountLikes(String userId, Id communityId) {
         try {
             if (userId != null) {
                 List<AggregateResult> countPosts = [
@@ -136,7 +136,7 @@ public with sharing class brCommunitySpotlightServiceSelector {
      * @return      list user photos
      * @see         List<User>
      */
-    public static List<User> getUserMemberPhotoUrl(Id userId) {
+    public static List<User> getUserMemberPhotoUrl(String userId) {
         try {
             if (userId != null) {
                 List<User> userMember = [

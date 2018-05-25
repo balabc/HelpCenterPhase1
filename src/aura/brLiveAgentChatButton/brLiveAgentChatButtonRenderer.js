@@ -10,7 +10,7 @@
 			var offlineBtn = document.getElementById('btOFFline');//cmp.find("btOFFline");
 
             if( (  cmp.get("v.previousIsLiveAgentOnline")  != null ) &&
-                    (cmp.get("v.previousIsLiveAgentOnline")== true)
+                    (cmp.get("v.previousIsLiveAgentOnline"))
 					&& onlineBtn && offlineBtn ){
                 	$A.util.removeClass(onlineBtn, "toggle");
 	                $A.util.addClass(offlineBtn, "toggle");

@@ -2,7 +2,7 @@
     onClick : function(component, event, helper) {
         var li = event.target.closest('.header-mobile__menu-link');
         helper.changeLocation(component, li); 
-        if (!!li.getAttribute('data-toggle-menu'))
+        if (!$A.util.isUndefinedOrNull(li.getAttribute('data-toggle-menu')))
         	helper.changeMobileMenuToggle();
         var closeMenu = $A.get("e.c:brMobileNavMenuToggleEvent");
         closeMenu.fire();

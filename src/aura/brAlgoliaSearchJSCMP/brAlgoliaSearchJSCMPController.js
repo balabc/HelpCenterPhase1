@@ -30,7 +30,7 @@
             filter = component.find('algolia_search_filter'),
             elem;
         
-        objSfdcSite = (!!objSfdcSite? objSfdcSite.pathPrefix: '');
+        objSfdcSite = (!$A.util.isUndefinedOrNull(objSfdcSite)? objSfdcSite.pathPrefix: '');
         
         switch (url) {
             case (objSfdcSite + '/s/knowledge'): {
@@ -48,7 +48,7 @@
             // no default
         }
         
-        if (!!elem) {
+        if (!$A.util.isUndefinedOrNull(elem) && !$A.util.isEmpty(elem)) {
             elem.getElementsByClassName('filter__section-title')[0].click();
         }
         /*var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");

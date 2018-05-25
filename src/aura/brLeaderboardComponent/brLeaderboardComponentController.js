@@ -8,7 +8,7 @@
         helper.getData(component, 'v.userLeaderboard', 'c.getUserLeaderboard', false);
         
         window.addEventListener('resize', function() {
-            if (!!window.mySwiper) {
+            if (!$A.util.isUndefinedOrNull(window.mySwiper)) {
                 var slidesPerView = 6;
                 
                 if (window.innerWidth > 992) {

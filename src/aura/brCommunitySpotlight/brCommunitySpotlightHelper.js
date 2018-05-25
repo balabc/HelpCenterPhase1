@@ -3,7 +3,7 @@
         var action = component.get('c.getUserInfo'),
             currentId = component.get('v.curId');
 
-        if (!!currentId) {
+        if (!$A.util.isUndefinedOrNull(currentId) && !$A.util.isEmpty(currentId)) {
             action.setParams({
                 'userId': currentId
             });

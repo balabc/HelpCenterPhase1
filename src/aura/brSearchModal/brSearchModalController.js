@@ -11,7 +11,7 @@
         //console.log('[DEBUG] [Controller] brSearchModal:toggleSearchModal');
         helper.toggleModal(component, event);
 	},
-    onClickSearch: function(component, event, helper) {console.log('search click');
+    onClickSearch: function(component, event, helper) {
         //console.log(component.find('header-mobile__container'))
 	    var target = event.target,
             flag = true,
@@ -23,16 +23,16 @@
                 'serp__filter-trigger-icon'
             ];
 
-        if (!!target && (typeof target.closest !== "undefined")) {
+        if (!$A.util.isUndefinedOrNull(target) && !$A.util.isEmpty(target) && (typeof target.closest !== "undefined")) {
             var clos_modal = target.closest('.modal');
-            if (!!clos_modal) {
+            if (!$A.util.isUndefinedOrNull(clos_modal) && !$A.util.isEmpty(clos_modal)) {
                 for (var i in classes) {
                     var clos = target.closest('.' + classes[i]);
     
                     if (target.className.indexOf(classes[i]) > -1) {
                         flag = false;
                     } else {
-                        if (!!clos) {
+                        if (!$A.util.isUndefinedOrNull(clos) && !$A.util.isEmpty(clos)) {
                             flag = false;
                         }
                     }

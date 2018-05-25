@@ -2,7 +2,7 @@
     doInit : function(component, event, helper) {
         var art = component.get('v.article'),
             selectedArticleId = component.get('v.selectedArticleId');
-        if (!!art) {
+        if (!art.length) {
             component.set('v.routeInput', {
                 recordId: art.article_id
             });
@@ -14,12 +14,12 @@
     },
 
     changeHeader: function(component, event, helper) {
-        if (location.href.indexOf("#") != -1) {
+        if (location.href.indexOf("#") !== -1) {
             var header = document.getElementsByClassName('header')[0],
                 announcementBlock = document.getElementsByClassName('announcement-block')[0];
 
-            if (announcementBlock != undefined) {
-                if (announcementBlock.style.position = 'relative') {
+            if (announcementBlock !== undefined) {
+                if (announcementBlock.style.position === 'relative') {
                     announcementBlock.style.position = 'fixed';
                     announcementBlock.style.zIndex = '4';
                 }
@@ -35,7 +35,8 @@
     clickElement: function(component, event, helper) {
         var toggleEvent = component.getEvent("brCategoriesToggleEventHandler"),
             art = component.get('v.article');
-        if (!!art) {
+
+        if (!$A.util.isEmpty(art)) {
             helper.retrieveArticleSections(component, art.article_id);
             toggleEvent.setParams({
                 "idRow": 'brCategoriesArticles_' + component.get('v.article').id

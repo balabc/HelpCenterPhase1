@@ -20,7 +20,7 @@
     initSlider: function() {
         var slidesPerView = 6;
         
-        if (!!window.mySwiper)
+        if (!$A.util.isUndefinedOrNull(window.mySwiper))
             window.mySwiper.destroy(true, true);
         
         if (window.innerWidth > 992) {
@@ -68,7 +68,7 @@
         if (el.getAttribute('data-id') !== null) {
             return el;
         } else {
-            if (!!el.parentElement) {
+            if (!$A.util.isUndefinedOrNull(el.parentElement) && !$A.util.isEmpty(el.parentElement)) {
                 return this.getDataIdFromEvent(el.parentElement);
             } else {
                 return false;
