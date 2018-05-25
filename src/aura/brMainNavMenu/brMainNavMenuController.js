@@ -24,13 +24,17 @@
                 header.classList.add(cnHeaderSticky);
                 if (announcementBlockElement !== undefined) {
                     var announcementBlockHeight = announcementBlockElement.clientHeight;
-                    cnHeaderStickyElement.style.top = announcementBlockHeight + 'px';
+
+                    if (cnHeaderStickyElement !== undefined) {
+                        cnHeaderStickyElement.style.top = announcementBlockHeight + 'px';
+                    }
+
                     announcementBlockElement.style.position = 'fixed';
                     announcementBlockElement.style.zIndex = '4';
                 } else {
-                    cnHeaderStickyElement.style.top = '0';
-                    announcementBlockElement.style.position = 'relative';
-                    announcementBlockElement.style.zIndex = '0';
+                    if (cnHeaderStickyElement !== undefined) {
+                        cnHeaderStickyElement.style.top = '0';
+                    }
                 }
             } else {
                 if (substrate !== undefined && header !== undefined) {
@@ -38,8 +42,11 @@
                         header.classList.remove(cnHeaderSticky);
                     }
                 }
-                announcementBlockElement.style.position = 'relative';
-                announcementBlockElement.style.zIndex = '0';
+
+                if (announcementBlockElement !== undefined) {
+                    announcementBlockElement.style.position = 'relative';
+                    announcementBlockElement.style.zIndex = '0';
+                }
             }
         };
     },
