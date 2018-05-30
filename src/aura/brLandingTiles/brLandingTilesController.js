@@ -15,7 +15,6 @@
         }
 
         var url = findClass.getAttribute('id');
-       //console.log('url: ' + url);
 
         if (url === 'groups') {
             helper.gotoList(cmp);

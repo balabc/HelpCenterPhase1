@@ -14,7 +14,6 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var componentData = response.getReturnValue();
-                    //console.log('componentData[FeaturedIdea]:', componentData);
                     component.set("v.userId", componentData.userId);
                     component.set("v.ideaText", componentData.itemText);
                     component.set("v.ideaTitle", componentData.itemTitle);
@@ -46,7 +45,6 @@
             $A.enqueueAction(action);
 
         }catch(e){
-           //console.log('tryE:', e);
         }
     }
 })

@@ -7,14 +7,12 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var articlesList = response.getReturnValue();
-                    //console.log('response:', articlesList);
                     component.set("v.articlesList", articlesList);
                     component.set("v.articlesCount", articlesList.length);
                 }else if (state === "ERROR") {
                     var errors = response.getError();
                     if (errors) {
                         if (errors[0] && errors[0].message) {
-                           //console.log("Error message: " + errors[0].message);
                         }
                     } else if (state === "ERROR") {
                         errors = response.getError();
@@ -43,7 +41,6 @@
             $A.enqueueAction(action);
 
         }catch(e){
-           //console.log('tryE:', e);
         }
 
     }

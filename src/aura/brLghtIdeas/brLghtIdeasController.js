@@ -23,9 +23,6 @@
 				cmp.set('v.filters.idea_theme', urlVars.idea_theme);
 			}
 
-			/*helper.retrieveItems(cmp, function(){
-					helper.retrievePagesTotal(cmp);
-				});*/
 		}
 
 		var selectedIdeasFilter = '';

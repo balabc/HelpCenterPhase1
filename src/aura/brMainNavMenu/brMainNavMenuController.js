@@ -109,9 +109,7 @@
                     });
                     $A.enqueueAction(action);
                 }
-            //}
         }catch(e){
-           //console.log('tryE:', e);
         }
     },
     onClick : function(cmp, event) {

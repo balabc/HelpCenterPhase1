@@ -10,7 +10,6 @@
 
             if (state === 'SUCCESS') {
                 component.set('v.categoriesCount', categoriesCount);
-                //console.log(categoriesCount);
                 this.getGuideArticles(component);
             } else if (state === "ERROR") {
                 var errors = response.getError();
@@ -46,10 +45,8 @@
                 guideArticles = response.getReturnValue();
 
             if (state === 'SUCCESS') {
-                //console.log(guideArticles);
                 component.set('v.guideArticles', guideArticles);
             } else if (state === "ERROR") {
-                //console.log('callback error: doInit in brGuidesListController.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {

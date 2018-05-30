@@ -19,7 +19,6 @@
             for (var ck1 in c1) {
                 if (c1[ck1].articles.length > 0) {
                     for (var i1 in c1[ck1].articles) {
-                        //console.log(c1[ck1].articles[i1]);
                         if ((c1[ck1].articles[i1].article_id === id)) {
                             flag_selected = true;
                             c1[ck1].articles[i1].active = true;
@@ -31,7 +30,6 @@
                 for (var ck2 in c2) {
                     if (c2[ck2].articles.length > 0) {
                         for (var i2 in c2[ck2].articles) {
-                            //console.log(c2[ck2].articles[i2]);
                             if ((c2[ck2].articles[i2].article_id === id)) {
                                 flag_selected = true;
                                 c2[ck2].articles[i2].active = true;
@@ -43,7 +41,6 @@
                     for (var ck3 in c3) {
                         if (c3[ck3].articles.length > 0) {
                             for (var i3 in c3[ck3].articles) {
-                                //console.log(c3[ck3].articles[i3]);
                                 if ((c3[ck3].articles[i3].article_id === id)) {
                                     flag_selected = true;
                                     c3[ck3].articles[i3].active = true;
@@ -79,8 +76,6 @@
                 fSelectCategory(selectId, data);
                 component.set("v.items", data);
 
-            } else {
-               //console.log(response);
             }
         });
         $A.enqueueAction(action);

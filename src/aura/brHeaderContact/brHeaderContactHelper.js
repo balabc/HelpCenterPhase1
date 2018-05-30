@@ -13,7 +13,6 @@
                 var state = response.getState();
                 if (state === "SUCCESS") {
                     var itemsList = response.getReturnValue();
-                    //console.log('response:', itemsList);
                     component.set("v.phoneList", itemsList);
                     component.set("v.phoneCount", itemsList.length);
                 } else if (state === "ERROR") {
@@ -42,7 +41,6 @@
             $A.enqueueAction(action);
 
         }catch(e){
-           //console.log('tryE:', e);
         }
     }
 })

@@ -46,12 +46,10 @@
         navigationMenuInit.fire();
     },
     toggleSearch: function(component, event, helper) {
-        //console.log('[DEBUG] brHeaderMobile:toggleSearch');
         var toggleSearchModal = $A.get("e.c:brToggleSearchModalEvent");
         toggleSearchModal.fire();
 	},
     toggleMobileMenu: function(component, event, helper) {
-        // var menu_btn = event.target.closest('.header-mobile__menu-button');
         helper.toggleMobileMenu(component, event);
     },
     closeMenu: function(component, event, helper) {

@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!--DebugInfo:(isOpen: {!v.isOpen} | isOutside: {!v.isOutside} | isInternalClick: {!v.isInternalClick})-->
+                </div>
             </aura:if>
         </div>
     </aura:if>

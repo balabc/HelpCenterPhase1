@@ -1,6 +1,6 @@
 
 ({
-    init : function(component, event, helper) {//console.log('live init component');
+    init : function(component, event, helper) {
         function liveAgentStart(){
             //timeout to initiate liveAgent
             window.setTimeout(
@@ -21,7 +21,7 @@
                         helper.initLiveAgent(component, data, interV);
 
                         setInterval(helper.initLiveAgent(component, data, interV),500);
-                    }//else{console.log('CTRL  component is not valid');}
+                    }
                 }), 500
             );
         }
@@ -29,7 +29,7 @@
         var isValid = helper.validateComponent(component);
         component.set("v.isInvalidInput", !isValid);
         if ( isValid){
-            if ( component.get("v.userSessionData")){//console.log('ask Contact');
+            if ( component.get("v.userSessionData")){
                 //retrieve logged user Contact Details
         		var action = component.get("c.getContact");
         		action.setCallback(this, function(a) {
@@ -37,7 +37,7 @@
                     liveAgentStart();
         		});
         		$A.enqueueAction(action);
-            }else {//console.log('dont ask contact');
+            }else {
                 liveAgentStart();
             }
 
@@ -46,17 +46,17 @@
             if (!window._laq) { window._laq = []; }
             window._laq.push(function(){
                 liveagent.showWhenOnline(
-                    (function (chatBtn) {//console.log('showWhenOnline');
+                    (function (chatBtn) {
                             return chatBtn;
                         })(chatBtn)
                     , document.getElementById('btONline'));
                 liveagent.showWhenOffline(
-                    (function (chatBtn) {//console.log('showWhenOffline');
+                    (function (chatBtn) {
                             return chatBtn;
                         })(chatBtn)
                     , document.getElementById('btOFFline'));
             });
-        }//else{console.log('on init is Not Valid');}
+        }
 
     },
 

@@ -1,7 +1,5 @@
 <aura:component description="brHeaderContact" controller="brHeaderContactCtrl">
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-
     <aura:attribute name="openCounter" type="Integer" default="0"/>
 
     <aura:attribute name="phoneList" type="Object[]"/>
@@ -27,7 +25,7 @@
 
                     <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hGetHelp}</h4>
 
-                    <div class="panel-media-small" onclick="{!c.openAskCommunity}">
+                    <div class="panel-media-small">
                         <div class="panel-media-small__wrap-icon">
                             <div class="ponny panel-media-small__icon">
                                 <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Community.svg'}" alt="" />

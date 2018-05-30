@@ -19,7 +19,6 @@
         objSfdcSite = (!$A.util.isUndefinedOrNull(objSfdcSite)? objSfdcSite.pathPrefix: '');
         locationPage = locationPage.replace(objSfdcSite + '/s', '').replace('/login', '').replace('/profile/', '');
 
-       //console.log(locationPage);
         
         
         if (items.length > 0) {
@@ -27,10 +26,6 @@
                 {id: 'ask', label: 'Ask'},
                 {id: 'email_support', label: $A.get('$Label.c.hEmailSupport'),type: 'ExternalLink', target: 'https://support.bigcommerce.com/SubmitCase'},
                 {id: 'live_chat', label: $A.get('$Label.c.hLiveChat'),type: 'ExternalLink', target: 'https://support.bigcommerce.com/apex/SupportLiveAgentPreChatPage'},
-                //{id: 'articles', label: $A.get('$Label.c.lnkArticles')},
-                //{id: 'learning_guides', label: 'Learning Guides'},
-                //{id: 'videos', label: $A.get('$Label.c.lnkVideos')},
-                //{id: 'developer_docs', label: $A.get('$Label.c.lnkDeveloperDocs'), icon: 'icon-svg-docs-sm'},
                 {id: 'phone_support', label: $A.get('$Label.c.lnkPhoneSupport'), hasSubMenu: true, subMenu: []}
             ]});
             items.push({
@@ -44,7 +39,6 @@
             
             
             if (user) {
-                //console.log('user: ',user);
                 if (user.logUser === true) {
                     items.pop();
                     items.push({
@@ -65,7 +59,6 @@
                     locationPage = 'CollaborationGroup';
                 }
                 var menuItems = this.getCurrentLvl(items, locationPage, 'target');
-                //console.log(items, menuItems);
                 if (!$A.util.isUndefinedOrNull(menuItems.obj) && !$A.util.isEmpty(menuItems.obj)) {
                     if (menuItems.items.length > 0) {
                         menuItems.parents.pop();
@@ -97,7 +90,6 @@
         menuItems.parents.push(0);
 
         if (menuItems.par === undefined || (!!menuItems.obj && !!menuItems.obj.objectName && !!menuItems.obj.isComponent)) {
-            //console.log('menuItems.objectName: ' + menuItems.obj.objectName);
             component.set('v.currentObj', menuItems.obj);
         } else {
             component.set('v.currentObj', menuItems.par[menuItems.par.length - 1]);
@@ -244,7 +236,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {  
                 var items = response.getReturnValue();
-                //console.log(items);
                 this.getUserInfo(component, items);
             }
         });

@@ -62,17 +62,8 @@
                                               name="cm_posted"
                                               label=" "
                                               options="{!v.filter_lists.cm.posted_in}"
-                                              value="{!v.brFilter.cm.posted_in}"
-                                              onchange="{!c.onRadio}"/>
-                        
-                        
-                        <!--<div class="line-radio">
-                        <ui:inputRadio label="All" name="cm_posted" aura:id="cm_posted_in_all" change="{!c.onRadio}" value="true" />
-                        <ui:inputRadio label="Q&amp;A" name="cm_posted" aura:id="cm_posted_in_q_a" change="{!c.onRadio}" value="false" />
-                    </div>
-                    <div class="line-radio">
-                        <ui:inputRadio label="Groups" name="cm_posted" aura:id="cm_posted_in_groups" change="{!c.onRadio}" value="false" />
-                    </div>-->
+                                              value="{!v.brFilter.cm.posted_in}"/>
+
                     </div>
                     
                     <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchHasAnswer}</h5>
@@ -121,8 +112,7 @@
                                               name="ideas_record_type"
                                               label=" "
                                               options="{!v.filter_lists.ideas.record_type}"
-                                              value="{!v.brFilter.ideas.record_type}"
-                                              onchange="{!c.onRadio}"/>
+                                              value="{!v.brFilter.ideas.record_type}"/>
                     </div>
                     
                     <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchMergedIdeas}</h5>
@@ -131,8 +121,7 @@
                                               name="ideas_merged_type"
                                               label=" "
                                               options="{!v.filter_lists.ideas.merged_type}"
-                                              value="{!v.brFilter.ideas.merged_type}"
-                                              onchange="{!c.onRadio}"/>
+                                              value="{!v.brFilter.ideas.merged_type}"/>
                     </div>
                     
                     <h5 class="filter__sub-title">{!$Label.c.hAlgoliaSearchWithStatus}</h5>

@@ -70,18 +70,6 @@
         
         component.set("v.brFilter", objFilter);
     },
-    onRadio: function(component, event) {
-        /*var objFilter = component.get('v.brFilter');
-       //console.log(objFilter, event);
-        objFilter.cm.posted_in = event.getSource().get("v.label");
-        component.set("v.brFilter", objFilter);*/
-    }, 
-    onSelect: function(component, event) {
-        /*var objFilter = component.get('v.brFilter'); 
-       //console.log(objFilter, event); 
-        objFilter.cm.sorting_index = event.getSource().get("v.value");
-        component.set("v.brFilter", objFilter);*/
-    },
 	onClickFilterRow : function(component, event, helper) {
         var has_filter = document.getElementsByClassName('serp__filter-section')[0].getAttribute('data-active'),
             parent = event.target.closest('.filter__section-head').parentElement,
@@ -96,20 +84,6 @@
         	allChildOff(parent.parentElement);
         component.set("v.currentFilter", currentFilter);
         parent.setAttribute('data-active', ((active === 'true')? false: true));
-        
-        /*if (has_filter === 'true') {
-            var body_classes = document.body.classList,
-                class_is_mobile = 'is-mobile', 
-                class_mobile = 'mobile-search-filter-is-active';
-            
-            if (body_classes.contains(class_is_mobile)) {
-                if (body_classes.contains(class_mobile)) {
-                    body_classes.remove(class_mobile);
-                } else {
-                    body_classes.add(class_mobile);
-                }
-            }
-        }*/
 	},
     onChangeFilter: function(component, event, helper) {
         helper.toChangeFilter(component);

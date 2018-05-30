@@ -1,4 +1,0 @@
-({
-	doInit: function () {
-	}
-})

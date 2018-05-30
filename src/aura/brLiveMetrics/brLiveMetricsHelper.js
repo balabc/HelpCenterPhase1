@@ -11,7 +11,6 @@
                 data;
             if (state === "SUCCESS") {
                 data = response.getReturnValue();
-               //console.log(method, data);
                 component.set(outVar, data);
             }
         });

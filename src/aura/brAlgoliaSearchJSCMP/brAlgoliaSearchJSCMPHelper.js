@@ -64,7 +64,6 @@
             indexName = '',
             filter_type = filter.type;
 
-        //console.log(filter);
         switch (filter_type) {
             case 'kb': {
                 indexName = 'KnowledgeStaging';
@@ -204,7 +203,7 @@
                     if (facetFilter.length > 0)
                         facetFilters.push(facetFilter);
                     facetFilter = [];
-                   //console.log(filter.values.merged_type);
+
                     if (filter.values.merged_type !== 'All')
                         facetFilter.push('IsMerged:' + filter.values.merged_type);
 
@@ -261,8 +260,7 @@
         }
 
         filter_type = indexName;
-        
-        //index.search({ query: query }, function searchDone(err, content) {
+
         client.search(queries, function searchDone(err, content) {    
 
             var objData = [],
@@ -285,7 +283,7 @@
                 tmpListData = [];
 
                 filterCounts[category.index.toLowerCase()] = ' (' + category.nbHits + ')';
-                //console.log(hits);
+
                 if ((hits.length > 0) && ((filter_type === category.index) || (filter_type === 'All'))) {
                     if (availableIndexes2.indexOf(category.index) > -1) {
                         switch (category.index) {
@@ -434,7 +432,6 @@
                                 }
                                 break;
                             }
-                            // no default            
                         }
                     }
                     objData.push({

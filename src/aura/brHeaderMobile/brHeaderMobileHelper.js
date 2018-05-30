@@ -27,11 +27,9 @@
         }
 	},
     showPlugs: function(component, event) {
-        //console.log('[DEBUG] [Helper] brHeaderMobile:showPlugs');
         $A.util.addClass(component.find('header-plugs'), 'show');
     },
     hidePlugs: function(component, event) {
-        //console.log('[DEBUG] [Helper] brHeaderMobile:hidePlugs');
         $A.util.removeClass(component.find('header-plugs'), 'show');
     }
 })

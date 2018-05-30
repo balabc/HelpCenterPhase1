@@ -86,7 +86,5 @@
     changeSearch : function(component, event, helper) {
         var search = event.getParam("search");
         component.set('v.search', search);
-    },
-    onClickMenu: function(component, event, helper) {
     }
 })

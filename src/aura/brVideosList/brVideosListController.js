@@ -23,7 +23,6 @@
                 cmp.set('v.currentPageNumber', 1);
                 helper.setVideoArticlesForCurrentPage(cmp);
             } else if (state === "ERROR") {
-                //console.log('callback error: doInit in brVideosListController.js');
                 var errors = response.getError();
                 var error_msg = '';
                 if (errors) {

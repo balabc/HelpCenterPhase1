@@ -16,7 +16,6 @@
             if (state === "SUCCESS") {
                 var user = response.getReturnValue();
                 component.set("v.user", user);
-               //console.log(user);
             } else if (state === "ERROR") {
                 var errors = response.getError();
                 var error_msg = '';
@@ -76,7 +75,6 @@
                 }
                 break;
             }
-            // no default
         }
     }
 })

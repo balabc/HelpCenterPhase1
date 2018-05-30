@@ -6,8 +6,7 @@
     <ltng:require scripts="{!$Resource.brJsSlider + '/swiper.min.js'}" 
                   styles="{!$Resource.brJsSlider + '/swiper.min.css'}"
                   afterScriptsLoaded="{!c.jsLoaded}" />
-    
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
     <aura:handler name="change" value="{!v.userLeaderboard}" action="{!c.userLeaderboardChange}"/>
         
         <div class="container relative z-2">

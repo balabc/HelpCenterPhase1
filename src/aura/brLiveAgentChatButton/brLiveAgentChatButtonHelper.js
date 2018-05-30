@@ -30,7 +30,6 @@
         component.set("v.isLiveAgentOnline",false);
         var chatBtn    = data.chatButtontId;
         liveagent.addButtonEventHandler(chatBtn, function(e) {
-            //console.log('addButtonEventHandler');
             if (e === liveagent.BUTTON_EVENT.BUTTON_AVAILABLE) {
                 component.set("v.isLiveAgentOnline",true);
             } else if (e === liveagent.BUTTON_EVENT.BUTTON_UNAVAILABLE) {
@@ -70,11 +69,9 @@
                 if ( component.get("v.isLiveAgentOnline")){
                     $A.util.removeClass(onlineBtn, "toggle");
                     $A.util.addClass(offlineBtn, "toggle");
-                    //console.log('updateLiveAgentButton-is ON');
                 }else{
                     $A.util.removeClass(offlineBtn, "toggle");
                     $A.util.addClass(onlineBtn, "toggle");
-                    //console.log('updateLiveAgentButton-is OFF');
                 }
             }
         }

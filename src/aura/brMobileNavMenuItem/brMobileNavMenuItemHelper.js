@@ -66,8 +66,7 @@
                 }
                 this.changeLocationForLoginPage(component);
                 break;
-            }			
-            // no default
+            }
         }
     },
     changeLocationForLoginPage: function(component) {

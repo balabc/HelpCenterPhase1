@@ -1,8 +1,4 @@
 ({
-	doInit: function(component, event, helper) {
-        
-	},
-    
     jsLoaded: function(component, event, helper) {
         helper.initSlider();
         helper.getData(component, 'v.userLeaderboard', 'c.getUserLeaderboard', false);
@@ -29,7 +25,6 @@
                 }
             }
         });
-        //window.mySwiper.current = window.innerWidth;
     },
     userLeaderboardChange: function(component, event, helper) {
         var data = component.get('v.userLeaderboard');
@@ -55,8 +50,5 @@
         window.mySwiper.destroy(false, true);
         window.mySwiper.init();
         helper.setClickOnUser();
-    },
-    onClick: function(component, event, helper) {
-       //console.log('tests');
     }
 })

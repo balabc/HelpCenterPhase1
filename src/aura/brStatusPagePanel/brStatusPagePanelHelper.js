@@ -6,9 +6,6 @@
           case statusRAW.includes('none'):
             newStatusClass = 'bg--success';
             break;
-          //case statusRAW.includes('none'):
-          //  newStatusClass = 'bg--default';
-          //  break;
           case statusRAW.includes('minor'):
             newStatusClass = 'bg--warning';
             break;
@@ -18,7 +15,6 @@
           case statusRAW.includes('critical'):
             newStatusClass = 'bg--danger';
             break;
-          // no default
         }
         component.set('v.statusClass', newStatusClass);
     },
@@ -37,17 +33,13 @@
                         component.set('v.statusIndicator', messageObject['status']['indicator']);
                         component.set('v.minutesSinceRefresh', 0);//restart count
                     }
-                } else {
-                 //console.error(xmlHttp.statusText);
                 }
               }
             };
             xmlHttp.onerror = function (e) {
-             //console.error(xmlHttp.statusText);
             };
             xmlHttp.send( null );
         }catch(e){
-           //console.error('StatusPagePanel-checkPageStatus::', e);
         }
     },
     timeInc : function(component){
