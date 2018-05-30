@@ -4,7 +4,6 @@
     <aura:attribute name="search" type="String"/>
 
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:method name="closeMenu" action="{!c.closeMenu}" access="PUBLIC"/>
 
     <header class="{!if(not(v.isAltMainNav), 'header', 'header header--upd')}" id="themeHeader">
         <div class="header__container container clr">

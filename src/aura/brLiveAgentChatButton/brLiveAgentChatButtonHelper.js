@@ -60,8 +60,8 @@
 
     updateLiveAgentButton : function (component){
         if (component.isValid()) {
-            var onlineBtn = document.getElementById('btONline');//component.find("btONline");
-            var offlineBtn = document.getElementById('btOFFline');//component.find("btOFFline");
+            var onlineBtn = document.getElementById('btONline');
+            var offlineBtn = document.getElementById('btOFFline');
 
             if( (  typeof onlineBtn != "undefined"  ) &&
                 (  typeof offlineBtn != "undefined"  )){

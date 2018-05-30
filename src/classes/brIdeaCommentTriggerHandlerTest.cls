@@ -33,7 +33,6 @@ private class brIdeaCommentTriggerHandlerTest {
         insert communitySettings;
 
         //TODO: set brLghtIdeasHelper methods with global access
-        //String cId = brLghtIdeasHelper.getCommunityId('');
         Community community = [SELECT Id FROM Community WHERE Name = 'TestPublic' LIMIT 1];
         String cId = community.Id;
 
@@ -115,14 +114,6 @@ private class brIdeaCommentTriggerHandlerTest {
 
             insert testUserComments;
         }
-
-        /*System.runAs(testCommUser){
-            List<IdeaComment> testCommUserComments = new List<IdeaComment>();
-            testCommUserComments.add(new IdeaComment(CommentBody='Comment by community user', IdeaId=testIdea1.Id));
-            testCommUserComments.add(new IdeaComment(CommentBody='Comment by community user', IdeaId=testIdea2.Id));
-
-            insert testCommUserComments;
-        }*/
 
         Test.stopTest();
 

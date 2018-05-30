@@ -64,8 +64,6 @@ public without sharing class brIdeaDataSelector {
         }
 
         for (brIdeaSubscription__c subscr : subscrs) {
-            //if (communityUsers.get(subscr.Idea__r.CommunityId) == NULL) continue;
-            //if (!communityUsers.get(subscr.Idea__r.CommunityId).contains(subscr.User__c)) continue;
 
             if (emailsMap.get(subscr.Idea__c) != NULL) {
                 emailsMap.get(subscr.Idea__c).add(subscr.User__r.Email);

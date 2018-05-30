@@ -44,15 +44,3 @@
     opacity: 1;
     z-index: 0;
 }
-
-/*
-.mobile-menu-is-active .doc-nav__link-lvl-2--numeric:before {
-    top: calc(50% - 10px);
-}
-*/
-
-
-/*need transfer to parent component "class mobile"
-.THIS .doc-nav__item-lvl-1 .doc-nav__list-lvl-2 .doc-nav__link-lvl-2.doc-nav__link-lvl-2--numeric.hide-nav-arrow {
-    padding: 15px 25px 14px 35px;
-}*/

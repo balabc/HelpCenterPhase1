@@ -102,7 +102,6 @@ public with sharing class brBreadcrumbsCtrl {
         }else if (pathname.contains('CollaborationGroup')) {
             target = 'CollaborationGroup';
         }else if (pathname.contains('group')) {
-            //target = 'group';
             String tmpStr = pathname.substringAfter('/group/');
             tmpOutput += '#2tmp: ' + tmpStr;
             if(tmpStr.length() >= 18){

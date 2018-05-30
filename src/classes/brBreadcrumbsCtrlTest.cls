@@ -12,7 +12,6 @@ private class brBreadcrumbsCtrlTest {
             crumbsData = brBreadcrumbsCtrl.getBreadCrumbsData(fullurl, recordId);
         Test.stopTest();
 
-        //System.debug(output);
         System.assertNotEquals(null, crumbsData);
         System.assertNotEquals(crumbsDataBlank, crumbsData);
     }
@@ -33,7 +32,6 @@ private class brBreadcrumbsCtrlTest {
             crumbsData = brBreadcrumbsCtrl.getBreadCrumbsData(fullurl, recordId);
         Test.stopTest();
 
-        //System.debug(output);
         System.assertNotEquals(null, crumbsData);
         System.assertNotEquals(crumbsDataBlank, crumbsData);
     }

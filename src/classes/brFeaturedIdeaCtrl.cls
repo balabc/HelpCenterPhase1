@@ -26,8 +26,6 @@ public with sharing class brFeaturedIdeaCtrl {
             fData.userId = UserInfo.getUserId();//UserType
             if(fData.userId != null && ideaId != null){
                 fData.debugString += 'if-ok|';
-                //String communityId = Network.getNetworkId();
-                //fData.debugString += 'communityId:'+communityId+'|';
                 Idea item = getIdeaData(ideaId);//communityId
                 if(item != null){
                     fData.debugString += 'if2-ok|';
@@ -61,7 +59,6 @@ public with sharing class brFeaturedIdeaCtrl {
         try {
             ideaItem = [SELECT Body,CreatorName,IsHtml,Title,VoteScore,VoteTotal FROM Idea WHERE Id = :ideaId];//AND CommunityId = :communityId
         }catch (Exception e){
-            //ooops
         }
         return ideaItem;
     }

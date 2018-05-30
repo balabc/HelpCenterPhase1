@@ -71,7 +71,6 @@ private class brIdeaDataSelectorTest {
         User usr2 = [SELECT Id FROM User WHERE Username = 'unittest2@acideas.com' LIMIT 1];
 
         //TODO: set LghtIdeasHelper methods with global access
-        //String cId = bedrock.LghtIdeasHelper.getCommunityId('');
         Community community = [SELECT Id FROM Community WHERE Name = 'TestPublic' LIMIT 1];
         String cId = community.Id;
 

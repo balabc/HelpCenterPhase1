@@ -44,11 +44,6 @@ private class brTopTrendingCtrlTest {
         fi2.Visibility = 'AllUsers';
         insert fi2;
 
-/*        TopicAssignment ta = new TopicAssignment();
-        ta.TopicId = top.id;
-        ta.EntityId = fi.id;
-        insert ta;*/
-
         brBlog_article__c ba = new brBlog_article__c();
         ba.Published_Date__c = DateTime.now();
         ba.Published__c = true;
@@ -68,12 +63,6 @@ private class brTopTrendingCtrlTest {
 
         brTopTrendingCtrl.getGroupPosts(cg.Id);
 
-/*        List<User> users = [SELECT id FROM User WHERE Id = '0050O000007Bckb'];
-        System.runAs(users[0]) {
-            List<brFeedItemModel> ad = brFeedItemService.getQuestions();
-            System.debug('1111111' + ad);
-        }
-        Test.stopTest();*/
     }
 
 }

@@ -17,7 +17,6 @@ private class brIdeaTriggerHandlerTest {
         insert testUser;
 
         //TODO: set brLghtIdeasHelper methods with global access
-        //String cId = bedrock.brLghtIdeasHelper.getCommunityId('');
         Community community = [SELECT Id FROM Community WHERE Name = 'TestPublic' LIMIT 1];
         String cId = community.Id;
 

@@ -45,15 +45,6 @@ private class brCategoriesTest {
         brCategoriesController.getCatalog('Learning__kav');
         brCategoriesController.getCatalog('Public__kav');
         brCategoriesController.getArticleSectionsByArticle(article2.Id);
-/*        brCategoryServiceSelector.getCategories('Inventory_management');
-        brCategoryServiceSelector.getFirstCategories('Inventory_management');
-        brCategoryServiceSelector.getSubCategories('Inventory_management');
-        brCategoryServiceSelector.getCategories('Payments');
-        brCategoryServiceSelector.getFirstCategories('Payments');
-        brCategoryServiceSelector.getSubCategories('Payments');
-        brCategoryServiceSelector.getCategories('Live_Chat');
-        brCategoryServiceSelector.getFirstCategories('Live_Chat');
-        brCategoryServiceSelector.getSubCategories('Live_Chat');*/
         Test.stopTest();
     }
 

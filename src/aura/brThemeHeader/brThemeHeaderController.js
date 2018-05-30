@@ -28,18 +28,5 @@
     changeSearch : function(component, event, helper) {
         var search = event.getParam("search");
         component.set('v.search', search);
-    },
-    closeMenu: function(component, event, helper) {
-        /*
-        var toggleSearchModal = $A.get("e.c:brCloseAllNavMenuEvent");
-        toggleSearchModal.fire();
-        var m1 = component.find('brMainNavMenu'),
-            m2 = component.find('brMainNavMenuAlt');
-        if (!!m1) {
-            m1.closeMenu();
-        }
-        if (!!m2) {
-            m2.closeMenu();
-        }*/
     }
 })
