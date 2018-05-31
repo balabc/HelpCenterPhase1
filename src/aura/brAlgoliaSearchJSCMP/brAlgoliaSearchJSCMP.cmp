@@ -11,7 +11,7 @@
     <aura:registerEvent name="brChangeHeaderSearchBarEventHandler" type="c:brChangeHeaderSearchBarEvent"/>
     <aura:handler name="eventFromBrAlgoliaFilter" event="c:brAlgoliaFilterEvent" action="{!c.onChangeFilter}"/>
     
-    <ltng:require scripts='/resource/instantsearch/algoliasearch.min.js' afterScriptsLoaded="{!c.jsLoaded}" />
+    <ltng:require scripts="{!$Resource.instantsearch + '/algoliasearch.min.js'}" afterScriptsLoaded="{!c.jsLoaded}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.hasData}" action="{!c.filterChangeState}"/>
     <aura:handler name="change" value="{!v.brFilter}" action="{!c.filterChange}"/>
