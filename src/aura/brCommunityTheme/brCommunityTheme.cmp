@@ -11,7 +11,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-    <ltng:require styles="{!join(',', $Resource.BigcommerceCommunity + '/css/styles.css', $Resource.BigcommerceCommunityStyles)}" /><!-- TODO add Resource value provider-->
+    <ltng:require styles="{!$Resource.BigcommerceCommunity + '/css/styles.min.css'}" /><!-- TODO add Resource value provider-->
 
     <div style="{!v.isReady?'display:block;':'display:none;'}">
 
