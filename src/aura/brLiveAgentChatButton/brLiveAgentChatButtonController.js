@@ -7,20 +7,21 @@
                 $A.getCallback(function() {
                     if (component.isValid()) {
                         var data = {};
-                        var interV = 0;
                         data.LA_chatServerURL =component.get("v.endpoint");
                         data.LA_deploymentId =component.get("v.deploymentId");
                         data.organizationId =component.get("v.organizationId");
                         data.chatButtontId =component.get("v.chatButtontId");
                         data.userSessionData =component.get("v.userSessionData");
-                        if (component.get("v.contact") != null){
+                        if (component.get("v.contact") !== null){
                             data.contactId =component.get("v.contact").Id;
                             data.contactName =component.get("v.contact").Name;
                         }
 
-                        helper.initLiveAgent(component, data, interV);
-
-                        setInterval(helper.initLiveAgent(component, data, interV),500);
+                        window.setInterval(
+                            $A.getCallback(function() {
+                                helper.initLiveAgent(component, data);
+                            }), 500
+                        )
                     }
                 }), 500
             );
