@@ -22,7 +22,7 @@
     border: none;
     font-size: 0.9375rem;
     font-family: 'source_sans_prosemibold', Arial, sans-serif;
-    color: #afb4be;
+    color: #4c4b58;
     background: rgba(255, 255, 255, 0);
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -85,4 +85,8 @@
 }
 .THIS .serp__filter-closearea.show {
     display: block;
+}
+
+.THIS .serp__item-description.truncated {
+    white-space: inherit;
 }
