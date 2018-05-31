@@ -13,13 +13,12 @@
          return valid;
     },
 
-    initLiveAgent : function (component, data, interV, helper){
+    initLiveAgent : function (component, data){
         var self = this;
         self.data = data;
 
         if ((typeof liveagent == "object") && (document.getElementById('btONline') != null )){
-            clearInterval(interV);
-            helper.bindLiveAgent(component,data);
+            this.bindLiveAgent(component,data);
         }
     },
 
