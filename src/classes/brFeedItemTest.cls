@@ -1,24 +1,31 @@
 @isTest
 public with sharing class brFeedItemTest {
 
-    static testMethod void brFeedItemTest() {
+    @isTest
+    static void brFeedItemTest() {
 
-        FeedItem fi = new FeedItem();
-        fi.Title = 'Test';
-        fi.Body = 'Test';
-        fi.ParentId = UserInfo.getUserId();
-        fi.Type = 'QuestionPost';
-        fi.Visibility = 'AllUsers';
-        insert fi;
+        User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        Test.startTest();
+        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
 
-        brFeedItemServiceSelector.getQuestionBestComment(0);
-        brFeedItemServiceSelector.getQuestion(0);
+        System.runAs(testUser) {
+            FeedItem fi = new FeedItem();
+            fi.Title = 'Test';
+            fi.Body = 'Test';
+            fi.ParentId = UserInfo.getUserId();
+            fi.Type = 'QuestionPost';
+            fi.Visibility = 'AllUsers';
+            insert fi;
+
+            Test.startTest();
+
+            brFeedItemServiceSelector.getQuestionBestComment(0);
+            brFeedItemServiceSelector.getQuestion(0);
 
 
-        brFeedItemService.getFeedItemCount();
-        brFeedItemService.getQuestions();
+            brFeedItemService.getFeedItemCount();
+            brFeedItemService.getQuestions();
+        }
 
         Test.stopTest();
 
