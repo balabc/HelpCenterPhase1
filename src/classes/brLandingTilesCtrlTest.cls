@@ -2,18 +2,24 @@
 private class brLandingTilesCtrlTest {
     @IsTest
     static void testGetListViews() {
-        CollaborationGroup newGroup = new CollaborationGroup(Name='Active Groups');
-        newGroup.CollaborationType = 'public';
-        insert newGroup;
-
         Test.startTest();
 
-        ListView view = brLandingTilesCtrl.getListViews();
+        User user = brTestDataFactory.createTestStandardProfileUser();
+
+        System.assertEquals('sysUserBaker@test.com', user.UserName, 'wrong username');
+
+        System.runAs(user) {
+            CollaborationGroup newGroup = new CollaborationGroup(Name = 'Active Groups');
+            newGroup.CollaborationType = 'public';
+            insert newGroup;
+
+            ListView view = brLandingTilesCtrl.getListViews();
+
+            System.assertEquals(String.valueOf(newGroup.getSObjectType()), view.SObjectType, 'wrong object type');
+
+            System.assertNotEquals(null, view.Id, 'wrong id');
+        }
 
         Test.stopTest();
-
-        System.assertEquals(String.valueOf(newGroup.getSObjectType()), view.SObjectType, 'wrong object type');
-
-        System.assertNotEquals(null, view.Id, 'wrong id');
     }
 }

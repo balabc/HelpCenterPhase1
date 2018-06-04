@@ -1,9 +1,18 @@
 @isTest
 private class brAlgoliaSearchTest {
 
-    static testMethod void tMethod() {
+    @isTest
+    static void tMethod() {
         Test.startTest();
-        brAlgoliaSearchCtrl.getApiKey();
+
+        User testUser = brTestDataFactory.createTestStandardProfileUser();
+
+        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+
+        System.runAs(testUser) {
+            brAlgoliaSearchCtrl.getApiKey();
+        }
+
         Test.stopTest();
     }
 

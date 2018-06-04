@@ -3,6 +3,8 @@ private class brCommunityCtrlTest {
 
     @isTest
     private static void testGetUserDisplayName(){
+        Test.startTest();
+
         Profile stdUserProfile = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
 
         User testUser = new User(Alias = 'testusr', Email='testusr@testorg.com', FirstName='Test',
@@ -12,13 +14,18 @@ private class brCommunityCtrlTest {
 
         insert testUser;
 
-        String uName = brCommunityCtrl.getUserDisplayName(testUser.Id);
+        System.runAs(testUser) {
 
-        brCommunityCtrl.showUserNickname = true;
+            String uName = brCommunityCtrl.getUserDisplayName(testUser.Id);
 
-        String uName2 = brCommunityCtrl.getUserDisplayName(testUser.Id);
+            brCommunityCtrl.showUserNickname = true;
 
-        System.assertEquals('Test Testing', uName);
-        System.assertEquals('testnickname', uName2);
+            String uName2 = brCommunityCtrl.getUserDisplayName(testUser.Id);
+
+            System.assertEquals('Test Testing', uName);
+            System.assertEquals('testnickname', uName2);
+        }
+
+        Test.stopTest();
     }
 }

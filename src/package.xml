@@ -206,6 +206,7 @@
         <members>brLiveAgentChatButtonTest</members>
         <members>brAnnouncementBlockCtrl</members>
         <members>brAnnouncementBlockCtrlTest</members>
+        <members>brTestDataFactory</members>
         <name>ApexClass</name>
     </types>
     <types>

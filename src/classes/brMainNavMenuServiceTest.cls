@@ -4,11 +4,15 @@ private class brMainNavMenuServiceTest {
     static void testGetLabels() {
         Test.startTest();
 
-        List<String> labels = brMainNavMenuService.getLabels();
+        User user = brTestDataFactory.createTestStandardProfileUser();
+
+        System.assertEquals('sysUserBaker@test.com', user.UserName, 'wrong username');
+
+        System.runAs(user) {
+            List<String> labels = brMainNavMenuService.getLabels();
+            System.assertEquals('Test', labels[0], 'wrong labels');
+        }
 
         Test.stopTest();
-
-        System.assertEquals('Test', labels[0], 'wrong labels');
-
     }
 }

@@ -5,103 +5,136 @@ private class brUserCategoriesAssignmentControllerTest {
     private static void setup(){
         Test.startTest();
 
-        Profile stdUserProfile = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
-        List<User> users = new List<User>();
+        User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        users.add(new User(
-                Username = 'unittest1@UserCategoriesAssignmentControllerTest.com',
-                Email = 'unittest1@UserCategoriesAssignmentControllerTest.com',
-                Alias = 'test1', EmailEncodingKey='UTF-8', LastName='Testing1', LanguageLocaleKey='en_US',
-                LocaleSidKey='en_US', ProfileId = stdUserProfile.Id, TimeZoneSidKey='America/Los_Angeles'
-        ));
-        users.add(new User(
-                Username = 'unittest2@UserCategoriesAssignmentControllerTest.com',
-                Email = 'unittest2@UserCategoriesAssignmentControllerTest.com',
-                Alias = 'test2', EmailEncodingKey='UTF-8', LastName='Testing2', LanguageLocaleKey='en_US',
-                LocaleSidKey='en_US', ProfileId = stdUserProfile.Id, TimeZoneSidKey='America/Los_Angeles'
-        ));
+        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
 
-        insert users;
+        System.runAs(testUser) {
 
-        brIdeasCategoriesAssignment__c assignment = new brIdeasCategoriesAssignment__c(
-                User__c = users[0].Id,
-                Categories__c = 'Category 1'
-        );
+            Profile stdUserProfile = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
+            List<User> users = new List<User>();
 
-        insert assignment;
+            users.add(new User(
+                    Username = 'unittest1@UserCategoriesAssignmentControllerTest.com',
+                    Email = 'unittest1@UserCategoriesAssignmentControllerTest.com',
+                    Alias = 'test1', EmailEncodingKey = 'UTF-8', LastName = 'Testing1', LanguageLocaleKey = 'en_US',
+                    LocaleSidKey = 'en_US', ProfileId = stdUserProfile.Id, TimeZoneSidKey = 'America/Los_Angeles'
+            ));
+            users.add(new User(
+                    Username = 'unittest2@UserCategoriesAssignmentControllerTest.com',
+                    Email = 'unittest2@UserCategoriesAssignmentControllerTest.com',
+                    Alias = 'test2', EmailEncodingKey = 'UTF-8', LastName = 'Testing2', LanguageLocaleKey = 'en_US',
+                    LocaleSidKey = 'en_US', ProfileId = stdUserProfile.Id, TimeZoneSidKey = 'America/Los_Angeles'
+            ));
+
+            insert users;
+
+            brIdeasCategoriesAssignment__c assignment = new brIdeasCategoriesAssignment__c(
+                    User__c = users[0].Id,
+                    Categories__c = 'Category 1'
+            );
+
+            insert assignment;
+
+
+            Integer recordsNumber = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+
+            System.assertEquals(1, recordsNumber);
+        }
 
         Test.stopTest();
-
-        Integer recordsNumber = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
-
-        System.assertEquals(1, recordsNumber);
     }
 
     @isTest
     private static void testGetCategoriesOptions(){
+        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+
         Test.startTest();
-        List<String> options = brUserCategoriesAssignmentController.getCategoriesOptions();
+
+        System.runAs(testUser) {
+            List<String> options = brUserCategoriesAssignmentController.getCategoriesOptions();
+            System.assert(true);
+        }
         Test.stopTest();
 
-        System.assert(true);
     }
 
     @isTest
     private static void testGetAssignments(){
-        Test.startTest();
-        List<brIdeasCategoriesAssignment__c> records = brUserCategoriesAssignmentController.getAssignments();
-        Test.stopTest();
+        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
 
-        System.assertEquals(1, records.size());
+        Test.startTest();
+
+        System.runAs(testUser) {
+            List<brIdeasCategoriesAssignment__c> records = brUserCategoriesAssignmentController.getAssignments();
+            System.assertEquals(1, records.size());
+        }
+
+        Test.stopTest();
     }
 
     @isTest
     private static void testSaveAssignment(){
+        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+
         Test.startTest();
 
-        brIdeasCategoriesAssignment__c initialRecord = [SELECT User__r.Username, Categories__c
-        FROM brIdeasCategoriesAssignment__c LIMIT 1];
+        System.runAs(testUser) {
 
-        Map<String, String> failInsertRes = brUserCategoriesAssignmentController.saveAssignment('notexisting@user.com', 'Somecat');
+            brIdeasCategoriesAssignment__c initialRecord = [
+                    SELECT User__r.Username, Categories__c
+                    FROM brIdeasCategoriesAssignment__c
+                    LIMIT 1
+            ];
 
-        Integer numberAfterFailInsert = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+            Map<String, String> failInsertRes = brUserCategoriesAssignmentController.saveAssignment('notexisting@user.com', 'Somecat');
 
-        Map<String, String> updateRes = brUserCategoriesAssignmentController.saveAssignment(initialRecord.User__r.Username,
-                'Updated category');
+            Integer numberAfterFailInsert = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
 
-        Integer numberAfterUpdate = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
-        brIdeasCategoriesAssignment__c updatedRecord = [SELECT Categories__c
-        FROM brIdeasCategoriesAssignment__c
-        LIMIT 1];
+            Map<String, String> updateRes = brUserCategoriesAssignmentController.saveAssignment(initialRecord.User__r.Username,
+                    'Updated category');
 
-        Map<String, String> successInsertRes = brUserCategoriesAssignmentController.saveAssignment('unittest2@UserCategoriesAssignmentControllerTest.com', 'Inserted category');
+            Integer numberAfterUpdate = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+            brIdeasCategoriesAssignment__c updatedRecord = [
+                    SELECT Categories__c
+                    FROM brIdeasCategoriesAssignment__c
+                    LIMIT 1
+            ];
 
-        Integer numberSuccessInsert = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+            Map<String, String> successInsertRes = brUserCategoriesAssignmentController.saveAssignment('unittest2@UserCategoriesAssignmentControllerTest.com', 'Inserted category');
+
+            Integer numberSuccessInsert = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+
+            System.assertEquals(1, numberAfterFailInsert);
+            System.assertEquals('1', failInsertRes.get('error'));
+            System.assertEquals(1, numberAfterUpdate);
+            System.assertEquals(NULL, updateRes.get('error'));
+            System.assertEquals('Updated category', updatedRecord.Categories__c);
+            System.assertEquals(2, numberSuccessInsert);
+            System.assertEquals(NULL, successInsertRes.get('error'));
+        }
 
         Test.stopTest();
-
-        System.assertEquals(1, numberAfterFailInsert);
-        System.assertEquals('1', failInsertRes.get('error'));
-        System.assertEquals(1, numberAfterUpdate);
-        System.assertEquals(NULL,  updateRes.get('error'));
-        System.assertEquals('Updated category', updatedRecord.Categories__c);
-        System.assertEquals(2, numberSuccessInsert);
-        System.assertEquals(NULL,  successInsertRes.get('error'));
     }
 
     @isTest
     private static void testDeleteAssignment(){
+        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+
         Test.startTest();
 
-        List<brIdeasCategoriesAssignment__c> initialRecords = [SELECT Id FROM brIdeasCategoriesAssignment__c];
+        System.runAs(testUser) {
 
-        brUserCategoriesAssignmentController.deleteAssignment(initialRecords[0].Id);
+            List<brIdeasCategoriesAssignment__c> initialRecords = [SELECT Id FROM brIdeasCategoriesAssignment__c];
 
-        Integer numberAfterDelete = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+            brUserCategoriesAssignmentController.deleteAssignment(initialRecords[0].Id);
+
+            Integer numberAfterDelete = [SELECT COUNT() FROM brIdeasCategoriesAssignment__c];
+
+            System.assertEquals(1, initialRecords.size());
+            System.assertEquals(0, numberAfterDelete);
+        }
 
         Test.stopTest();
-
-        System.assertEquals(1, initialRecords.size());
-        System.assertEquals(0, numberAfterDelete);
     }
 }
