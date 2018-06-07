@@ -222,23 +222,6 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>brCommunityMetadata.User_Menu_Items</members>
-        <members>brCommunity_Menu_Map.Groups</members>
-        <members>brCommunity_Menu_Map.Events</members>
-        <members>brCommunity_Menu_Map.Ideas</members>
-        <members>brCommunity_Menu_Map.Learning_Guides</members>
-        <members>brCommunity_Menu_Map.Town_Halls</members>
-        <members>brCommunity_Menu_Map.Videos</members>
-        <members>brCommunityMetadata.Portal_Notice_Error</members>
-        <members>brCommunityMetadata.Portal_Notice_Info</members>
-        <members>brCommunityMetadata.Portal_Notice_Success</members>
-        <members>brCommunityMetadata.Portal_Notice_Warning</members>
-        <name>CustomMetadata</name>
-    </types>
-    <types>
-        <members>Learning__kav</members>
-        <members>Public__kav</members>
-        <members>University__kav</members>
         <members>brPhoneSupportList__c</members>
         <members>brAlgolia_Profile_Setting__c</members>
         <members>brCommunity_Category_Menu_Map__mdt</members>
@@ -256,13 +239,6 @@
         <members>brBlog_article__c</members>
         <members>brCategory_assignment__c</members>
         <members>brCommunityMetadata__mdt</members>
-        <members>brCommunitySettings__c</members>
-        <members>BR_Event__c</members>
-        <members>BR_Events_Zone__c</members>
-        <members>BR_Participation__c</members>
-        <members>BrEvents_Settings__c</members>
-        <members>Town_Hall__kav</members>
-        <members>PKB_Article_Feedback_Deflection__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -270,7 +246,6 @@
         <members>brIdeasCategoriesAssignment__c</members>
         <members>brIdeas_Settings</members>
         <members>brUser_Ideas_Categories</members>
-        <members>brArticleFeedback__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -300,12 +275,100 @@
         <members>BigcommerceCommunityImages</members>
         <members>LghtIdeas</members>
         <members>instantsearch</members>
+        <members>siteAsset_7c6cd59fd7d644e3b74dacbcf8f5f8ca</members>
         <name>StaticResource</name>
     </types>
     <types>
         <members>Community_Customer</members>
         <members>Community_Guest</members>
         <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>brUser_Ideas_Categories</members>
+        <members>BigCommerce_Community_Template_Article_Detail</members>
+        <members>BigCommerce_Community_Template_Canvasapp_Page</members>
+        <members>BigCommerce_Community_Template_Cases</members>
+        <members>BigCommerce_Community_Template_Check_Password</members>
+        <members>BigCommerce_Community_Template_Community</members>
+        <members>BigCommerce_Community_Template_Contact_Support</members>
+        <members>BigCommerce_Community_Template_Create_Record</members>
+        <members>BigCommerce_Community_Template_Dashboard_Detail</members>
+        <members>BigCommerce_Community_Template_Dashboard_List</members>
+        <members>BigCommerce_Community_Template_Error</members>
+        <members>BigCommerce_Community_Template_Events</members>
+        <members>BigCommerce_Community_Template_Feed_Detail</members>
+        <members>BigCommerce_Community_Template_Files</members>
+        <members>BigCommerce_Community_Template_Forgot_Password</members>
+        <members>BigCommerce_Community_Template_Group_Detail</members>
+        <members>BigCommerce_Community_Template_Group_List</members>
+        <members>BigCommerce_Community_Template_Group_Related_List</members>
+        <members>BigCommerce_Community_Template_Guides</members>
+        <members>BigCommerce_Community_Template_Home</members>
+        <members>BigCommerce_Community_Template_Ideas</members>
+        <members>BigCommerce_Community_Template_Insiders_Program</members>
+        <members>BigCommerce_Community_Template_Knowledge</members>
+        <members>BigCommerce_Community_Template_Login</members>
+        <members>BigCommerce_Community_Template_Login_Error</members>
+        <members>BigCommerce_Community_Template_Member_Directory</members>
+        <members>BigCommerce_Community_Template_Messages</members>
+        <members>BigCommerce_Community_Template_My_Feed</members>
+        <members>BigCommerce_Community_Template_Onboarding</members>
+        <members>BigCommerce_Community_Template_QA</members>
+        <members>BigCommerce_Community_Template_Question_Detail</members>
+        <members>BigCommerce_Community_Template_Record_Detail</members>
+        <members>BigCommerce_Community_Template_Record_List</members>
+        <members>BigCommerce_Community_Template_Register</members>
+        <members>BigCommerce_Community_Template_Related_Record_List</members>
+        <members>BigCommerce_Community_Template_Report_Detail</members>
+        <members>BigCommerce_Community_Template_Report_List</members>
+        <members>BigCommerce_Community_Template_Sfdc_Page</members>
+        <members>BigCommerce_Community_Template_Stream_Detail</members>
+        <members>BigCommerce_Community_Template_Stream_List</members>
+        <members>BigCommerce_Community_Template_Stream_Related_List</members>
+        <members>BigCommerce_Community_Template_Top_Articles</members>
+        <members>BigCommerce_Community_Template_Topic_Catalog</members>
+        <members>BigCommerce_Community_Template_Topic_Detail</members>
+        <members>BigCommerce_Community_Template_Town_Halls</members>
+        <members>BigCommerce_Community_Template_Unauthenticated_Users</members>
+        <members>BigCommerce_Community_Template_User_List</members>
+        <members>BigCommerce_Community_Template_User_Profile</members>
+        <members>BigCommerce_Community_Template_User_Settings</members>
+        <members>BigCommerce_Community_Template_Videos</members>
+        <members>BigCommerce_Community_Template_themeLayout_Default</members>
+        <members>BigCommerce_Community_Template_themeLayout_Home</members>
+        <members>BigCommerce_Community_Template_themeLayout_Login</members>
+        <members>BigCommerce_Community_Template_Feed</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>BigCommerce_Community_Template</members>
+        <name>BrandingSet</name>
+    </types>
+    <types>
+        <members>BigCommerce_Community_Template</members>
+        <name>CommunityTemplateDefinition</name>
+    </types>
+    <types>
+        <members>BigCommerce_Community_Template</members>
+        <name>CommunityThemeDefinition</name>
+    </types>
+    <types>
+        <members>brCommunityMetadata.Portal_Notice_Error</members>
+        <members>brCommunityMetadata.Portal_Notice_Info</members>
+        <members>brCommunityMetadata.Portal_Notice_Success</members>
+        <members>brCommunityMetadata.Portal_Notice_Warning</members>
+        <members>brCommunityMetadata.User_Menu_Items</members>
+        <members>brCommunity_Category_Menu_Map.Community</members>
+        <members>brCommunity_Category_Menu_Map.Knowledge_Base</members>
+        <members>brCommunity_Menu_Map.Groups</members>
+        <members>brCommunity_Menu_Map.Ideas</members>
+        <members>brCommunity_Menu_Map.Learning_Guides</members>
+        <members>brCommunity_Menu_Map.News</members>
+        <members>brCommunity_Menu_Map.Questions</members>
+        <members>brCommunity_Menu_Map.Town_Halls</members>
+        <members>brCommunity_Menu_Map.User_Docs</members>
+        <members>brCommunity_Menu_Map.Videos</members>
+        <name>CustomMetadata</name>
     </types>
     <version>41.0</version>
 </Package>
