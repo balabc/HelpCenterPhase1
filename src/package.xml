@@ -239,6 +239,9 @@
         <members>brBlog_article__c</members>
         <members>brCategory_assignment__c</members>
         <members>brCommunityMetadata__mdt</members>
+        <members>Learning__kav</members>
+        <members>Public__kav</members>
+        <members>University__kav</members>
         <name>CustomObject</name>
     </types>
     <types>
