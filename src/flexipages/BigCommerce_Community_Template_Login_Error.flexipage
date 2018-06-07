@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;h1&gt;&lt;strong&gt;&lt;span style=&quot;color:#000000&quot;&gt;Looks like we&apos;re having trouble finding you!&lt;/span&gt;&lt;/strong&gt;&lt;/h1&gt; 
+&lt;h2&gt;We need a little more info to give you exclusive access to the Community.&lt;/h2&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richText</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;h2&gt;Connect your account&lt;/h2&gt; 
+&lt;p&gt;You&apos;ll only need to do this once.&lt;/p&gt; 
+&lt;p&gt;&lt;a class=&quot;btn btn-default btn-lg&quot; href=&quot;#&quot;&gt;CONNECT&lt;/a&gt;&lt;/p&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richText</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;p&gt;&lt;a href=&quot;#&quot;&gt;Maybe later&lt;/a&gt;&lt;/p&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richText</componentName>
+        </componentInstances>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metaTags</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Login Error</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:seoAssistant</componentName>
+        </componentInstances>
+        <name>sfdcHiddenRegion</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Login Error</masterLabel>
+    <template>
+        <name>siteforce:sldsOneColLayout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

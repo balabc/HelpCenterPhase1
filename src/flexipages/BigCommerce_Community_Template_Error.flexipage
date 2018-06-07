@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;h1 style=&quot;text-align: center;&quot;&gt;Looking for something?&lt;/h1&gt; 
+&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:16px&quot;&gt;Take a trip back to our &lt;strong&gt;&lt;a href=&quot;https://forum.bigcommerce.com&quot;&gt;homepage&lt;/a&gt;&lt;/strong&gt;&lt;br /&gt; OR&amp;nbsp;&lt;br /&gt; &lt;strong&gt;&lt;a href=&quot;https://forum.bigcommerce.com/bcslogin&quot;&gt;Log in&lt;/a&gt;&lt;/strong&gt; to access exclusive customer areas like,&amp;nbsp;&lt;/span&gt;
+&lt;/div&gt; 
+&lt;div style=&quot;text-align: center;&quot;&gt;
+ &lt;span style=&quot;font-size:16px&quot;&gt;BigCommerce &lt;strong&gt;&lt;a href=&quot;https://forum.bigcommerce.com/BCSLogin?startURL=/s/ideas&quot;&gt;Ideas&lt;/a&gt;&lt;/strong&gt;&amp;nbsp;and our&amp;nbsp;recent &lt;strong&gt;&lt;a href=&quot;https://forum.bigcommerce.com/BCSLogin?startURL=/s/article/BigCommerce-Town-Halls&quot;&gt;Town Halls&lt;/a&gt;&lt;/strong&gt;.&lt;/span&gt; 
+ &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+ &lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;a class=&quot;btn btn-default btn-lg&quot; href=&quot;https://forum.bigcommerce.com/s/login/&quot;&gt;Log In&lt;/a&gt;
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;!--render facet: 13:2;a--&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richText</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metaTags</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Error</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:seoAssistant</componentName>
+        </componentInstances>
+        <name>sfdcHiddenRegion</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Error</masterLabel>
+    <template>
+        <name>siteforce:sldsOneColLayout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>
