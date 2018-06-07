@@ -2,11 +2,9 @@
 private class brArticleFeedbackCtrlTest {
     @TestSetup
     static void setup() {
-        Test.startTest();
-
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         System.runAs(testUser) {
             University__kav article = new University__kav(Title = 'Test', UrlName = 'test', Short_Description__c = 'Test');
@@ -17,13 +15,11 @@ private class brArticleFeedbackCtrlTest {
                 KbManagement.PublishingService.publishArticle(uKav.KnowledgeArticleId, true);
             }
         }
-
-        Test.stopTest();
     }
 
     @isTest
     static void testHasVoteForArticle() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -48,7 +44,7 @@ private class brArticleFeedbackCtrlTest {
 
     @isTest
     static void testHasNotVoteForArticle() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -72,7 +68,7 @@ private class brArticleFeedbackCtrlTest {
 
     @isTest
     static void testGetFeedbackReasons() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -87,7 +83,7 @@ private class brArticleFeedbackCtrlTest {
 
     @isTest
     static void testAddPositiveFeedBackForArticle() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         KnowledgeArticleVersion knowledgeArticle = [
                 SELECT KnowledgeArticleId, Title, ArticleNumber
@@ -128,7 +124,7 @@ private class brArticleFeedbackCtrlTest {
 
     @isTest
     static void testAddNegativeFeedbackForArticle() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         KnowledgeArticleVersion knowledgeArticle = [
                 SELECT KnowledgeArticleId, Title, ArticleNumber

@@ -5,19 +5,14 @@ private class brUtilsTest {
     private static void testGenerateToken(){
         Test.startTest();
 
-        User testUser = brTestDataFactory.createTestStandardProfileUser();
+        String test5 = brUtils.generateToken(5);
+        String test10 = brUtils.generateToken(10);
+        String test255 = brUtils.generateToken(255);
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals(5, test5.length());
+        System.assertEquals(10, test10.length());
+        System.assertEquals(44, test255.length());
 
-        System.runAs(testUser) {
-            String test5 = brUtils.generateToken(5);
-            String test10 = brUtils.generateToken(10);
-            String test255 = brUtils.generateToken(255);
-
-            System.assertEquals(5, test5.length());
-            System.assertEquals(10, test10.length());
-            System.assertEquals(44, test255.length());
-        }
         Test.stopTest();
     }
 }

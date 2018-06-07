@@ -7,14 +7,14 @@ private class brUserMenuCtrlTest {
 
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         Test.stopTest();
     }
 
     @isTest
     static void testCommonMethod() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -39,7 +39,7 @@ private class brUserMenuCtrlTest {
 
     @isTest
     static void testGetCurrentUser() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -52,7 +52,7 @@ private class brUserMenuCtrlTest {
 
     @isTest
     static void testGetUserMenuItems() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -66,7 +66,7 @@ private class brUserMenuCtrlTest {
 
     @isTest
     static void testGetUserReputationPoints() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -80,7 +80,7 @@ private class brUserMenuCtrlTest {
 
     @isTest
     static void testGetUserReputationLevel() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -94,7 +94,7 @@ private class brUserMenuCtrlTest {
 
     @isTest
     static void getUserType() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 

@@ -4,13 +4,8 @@ private class brFeaturedIdeaCtrlTest {
 
     @testSetup
     static void setup() {
-        Test.startTest();
-
         User testUser = brTestDataFactory.createTestStandardProfileUser();
-
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
-
-        Test.stopTest();
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
     }
 
     @isTest
@@ -18,7 +13,7 @@ private class brFeaturedIdeaCtrlTest {
 
         String ideaId = '';
 
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -35,7 +30,7 @@ private class brFeaturedIdeaCtrlTest {
 
         String inputText = '<p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.</p>';
 
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -51,7 +46,7 @@ private class brFeaturedIdeaCtrlTest {
 
     @isTest
     static void testGetIdeaData() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Idea ideaObjBlank = new Idea();
 
@@ -79,7 +74,7 @@ private class brFeaturedIdeaCtrlTest {
     }
     @isTest
     static void testGetIdeaData_Negative() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         String ideaId = '';
         Idea ideaObjBlank = new Idea();

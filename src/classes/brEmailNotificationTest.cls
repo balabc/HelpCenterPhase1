@@ -3,11 +3,10 @@ private class brEmailNotificationTest {
 
     @testSetup
     static void setup(){
-        Test.startTest();
 
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         System.runAs(testUser) {
 
@@ -31,13 +30,11 @@ private class brEmailNotificationTest {
             System.assertEquals('Test idea_1', testIdea.Title);
             System.assertEquals(testIdea.Id, comment.IdeaId);
         }
-
-        Test.stopTest();
     }
 
     @isTest
     private static void testAddIdeaCreatedNotification(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -62,7 +59,7 @@ private class brEmailNotificationTest {
 
     @isTest
     private static void testAddNewCommentNotification(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -94,7 +91,7 @@ private class brEmailNotificationTest {
 
     @isTest
     private static void testAddStatusChangeNotification(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 

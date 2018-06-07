@@ -1,12 +1,18 @@
 @isTest
 public with sharing class brFeedItemTest {
 
+    @TestSetup
+    static void setup() {
+        User testUser = brTestDataFactory.createTestStandardProfileUser();
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
+    }
+
     @isTest
     static void brFeedItemTest() {
 
-        User testUser = brTestDataFactory.createTestStandardProfileUser();
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         System.runAs(testUser) {
             FeedItem fi = new FeedItem();

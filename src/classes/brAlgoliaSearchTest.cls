@@ -7,7 +7,7 @@ private class brAlgoliaSearchTest {
 
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         System.runAs(testUser) {
             brAlgoliaSearchCtrl.getApiKey();

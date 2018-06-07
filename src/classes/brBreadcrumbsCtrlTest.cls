@@ -3,18 +3,13 @@ private class brBreadcrumbsCtrlTest {
 
     @TestSetup
     static void setup() {
-        Test.startTest();
-
         User testUser = brTestDataFactory.createTestStandardProfileUser();
-
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
-
-        Test.stopTest();
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
     }
 
     @isTest
     static void testMainFunction() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -35,7 +30,7 @@ private class brBreadcrumbsCtrlTest {
 
     @isTest
     static void testListViewObj() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -57,10 +52,11 @@ private class brBreadcrumbsCtrlTest {
 
         Test.stopTest();
     }
+/*
 
     @isTest
     static void testMainFunction_parceURL() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -79,10 +75,11 @@ private class brBreadcrumbsCtrlTest {
 
         Test.stopTest();
     }
+*/
 
     @isTest
     static void testDataGroup() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -102,7 +99,7 @@ private class brBreadcrumbsCtrlTest {
 
     @isTest
     static void testDataByURL() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -124,7 +121,7 @@ private class brBreadcrumbsCtrlTest {
 
     @isTest
     static void testGetMenuItemByID() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 

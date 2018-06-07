@@ -7,7 +7,7 @@ private class brUserCategoriesAssignmentControllerTest {
 
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         System.runAs(testUser) {
 
@@ -47,7 +47,7 @@ private class brUserCategoriesAssignmentControllerTest {
 
     @isTest
     private static void testGetCategoriesOptions(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -61,7 +61,7 @@ private class brUserCategoriesAssignmentControllerTest {
 
     @isTest
     private static void testGetAssignments(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -75,7 +75,7 @@ private class brUserCategoriesAssignmentControllerTest {
 
     @isTest
     private static void testSaveAssignment(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -119,7 +119,7 @@ private class brUserCategoriesAssignmentControllerTest {
 
     @isTest
     private static void testDeleteAssignment(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 

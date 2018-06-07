@@ -2,11 +2,10 @@
 private class brCategoriesAssigneeCtrlTest {
     @testSetup
     private static void setup(){
-        Test.startTest();
 
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         System.runAs(testUser) {
             Profile stdUserProfile = [SELECT Id FROM Profile WHERE Name = 'Standard User'];
@@ -39,13 +38,11 @@ private class brCategoriesAssigneeCtrlTest {
             System.assertEquals(1, recordsNumber);
         }
 
-        Test.stopTest();
-
     }
 
     @isTest
     private static void testConstructorMethod(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -59,7 +56,7 @@ private class brCategoriesAssigneeCtrlTest {
 
     @isTest
     private static void testEdit(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -78,7 +75,7 @@ private class brCategoriesAssigneeCtrlTest {
 
     @isTest
     private static void testSave(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -131,7 +128,7 @@ private class brCategoriesAssigneeCtrlTest {
 
     @isTest
     private static void testRemove(){
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 

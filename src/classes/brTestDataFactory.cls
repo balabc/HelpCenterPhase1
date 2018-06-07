@@ -5,13 +5,13 @@ public class brTestDataFactory {
         User testUser = new User(Alias = 'test', Email = 'standard@test.com',
                 EmailEncodingKey = 'UTF-8', LastName = 'Baker', LanguageLocaleKey = 'en_US',
                 LocaleSidKey = 'en_US', ProfileId = stdUserProfile.Id, UserPermissionsKnowledgeUser = true,
-                TimeZoneSidKey = 'America/Los_Angeles', UserName = 'sysUserBaker@test.com');
+                TimeZoneSidKey = 'America/Los_Angeles', UserName = 'sysuserbaker@test.com');
 
         insert testUser;
 
         assignPermissionSet(testUser.Id, 'Community_Customer');
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         return testUser;
     }

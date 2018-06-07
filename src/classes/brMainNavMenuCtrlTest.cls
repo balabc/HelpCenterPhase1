@@ -7,7 +7,7 @@ private class brMainNavMenuCtrlTest {
 
         User testUser = brTestDataFactory.createTestStandardProfileUser();
 
-        System.assertEquals('sysUserBaker@test.com', testUser.UserName, 'wrong username');
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
 
         Test.stopTest();
     }
@@ -16,7 +16,7 @@ private class brMainNavMenuCtrlTest {
     static void testGetURLByMenuLabel_Negative() {
         String inputLabel = 'testLabel';
         String fullurl = 'https://something.dot/test-page';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -30,7 +30,7 @@ private class brMainNavMenuCtrlTest {
     static void testGetURLByMenuLabel_Positive() {
         String inputLabel = 'testLabel';
         String fullurl = 'https://something.dot/s/communityname/test-page';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -44,7 +44,7 @@ private class brMainNavMenuCtrlTest {
     @IsTest
     static void testDetectTargetByMenuLabel() {
         String inputLabel = 'testLabel';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -58,7 +58,7 @@ private class brMainNavMenuCtrlTest {
     @IsTest
     static void testGetMenuItemId_Negative() {
         String inputLabel = '';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -72,7 +72,7 @@ private class brMainNavMenuCtrlTest {
     @IsTest
     static void testGetMenuItemId_Positive() {
         String inputLabel = 'SomethingLikeLabel';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -87,7 +87,7 @@ private class brMainNavMenuCtrlTest {
     @IsTest
     static void testGetTargetByMenuId_Negative() {
         String inputMenuId = '';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -101,7 +101,7 @@ private class brMainNavMenuCtrlTest {
     @IsTest
     static void testGetTargetByMenuId_Positive() {
         String inputMenuId = 'SomethingLikeMenuId';
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
@@ -114,7 +114,7 @@ private class brMainNavMenuCtrlTest {
 
     @IsTest
     static void testGetMenuItems() {
-        User testUser = [SELECT Id FROM User WHERE UserName = 'sysUserBaker@test.com'];
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 

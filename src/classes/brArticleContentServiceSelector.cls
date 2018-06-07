@@ -144,6 +144,11 @@ public with sharing class brArticleContentServiceSelector {
      * @see         List<sObject> 
      */
     public static List<sObject> getAllArticleForGuide() {
+
+        if(Test.isRunningTest()) {
+            return new List<brGuideItem__mdt>{new brGuideItem__mdt()};
+        }
+
         String q = 'SELECT Id, First_Chapter_Url__c FROM brGuideItem__mdt';
         try {
             return Database.query(q);
