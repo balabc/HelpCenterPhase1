@@ -34,7 +34,9 @@
 }
 .THIS #contact-lvl-2.contact-lvl-2--active{
    left: 0;
-   min-height:110%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
 }
 .THIS .panel-media-small__text.header__contact-body-panel-text.grey{
     color:#D5D7DD;
