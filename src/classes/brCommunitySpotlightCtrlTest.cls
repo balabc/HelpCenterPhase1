@@ -1,5 +1,10 @@
 @isTest
 private class brCommunitySpotlightCtrlTest {
+    @TestSetup
+    static void setup() {
+        User testUser = brTestDataFactory.createTestStandardProfileUser();
+        System.assertEquals('sysuserbaker@test.com', testUser.UserName, 'wrong username');
+    }
 
     @isTest
     static void testCommunitySpotlight() {
@@ -14,12 +19,11 @@ private class brCommunitySpotlightCtrlTest {
         blm.reputationLevel = 'test';
         blm.score = 'test';
 
-        User newUs = new User();
-        newUs.id = userMembers[0].MemberId;
+        User testUser = [SELECT Id, UserName FROM User WHERE UserName = 'sysuserbaker@test.com'];
 
         Test.startTest();
 
-        System.runAs(newUs) {
+        System.runAs(testUser) {
             brCommunitySpotlightCtrl.getUserInfo(UserInfo.getUserId());
             brCommunitySpotlightService.getUserInfo(UserInfo.getUserId(), userMembers[0].NetworkId);
         }
