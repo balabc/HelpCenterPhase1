@@ -10,4 +10,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <label>Video</label>
+    <pluralLabel>Videos</pluralLabel>
+    <deploymentStatus>Deployed</deploymentStatus>
 </CustomObject>

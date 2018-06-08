@@ -30,4 +30,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <label>Learning Guide</label>
+    <pluralLabel>Learning Guides</pluralLabel>
+    <deploymentStatus>Deployed</deploymentStatus>
 </CustomObject>

@@ -20,4 +20,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <label>User Doc</label>
+    <pluralLabel>User Docs</pluralLabel>
+    <deploymentStatus>Deployed</deploymentStatus>
 </CustomObject>
