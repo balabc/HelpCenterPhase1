@@ -1,0 +1,10 @@
+<aura:component description="brRecentNewsItem">
+    <aura:attribute name="routeInputForNews" type="Map"/>
+    <aura:attribute name="news" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <li class="list-group__item" onclick="{!c.navigateTosObject}">
+        <forceCommunity:routeLink label="{!v.news.item.Name}" routeInput="{!v.routeInputForNews}" />
+    </li>
+</aura:component>

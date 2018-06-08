@@ -1,0 +1,48 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Custom Theme Layout for Community pages">
+    <aura:attribute name="isAltMainNav" type="Boolean" default="false"/>
+    <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="search" type="String" default="initialize"/>
+    <aura:attribute name="isReady" type="Boolean" default="false"/>
+    <aura:attribute name="windowHeight" type="Integer" />
+
+    <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:registerEvent name="brCloseAllNavMenuEventHandler" type="c:brCloseAllNavMenuEvent"/>
+    <aura:handler event="c:brChangeHeaderSearchBarEvent" action="{!c.changeSearch}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <ltng:require styles="{!$Resource.BigcommerceCommunity + '/css/styles.min.css'}" /><!-- TODO add Resource value provider-->
+
+    <div style="{!v.isReady?'display:block;':'display:none;'}">
+
+        <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+            <c:brMobileNavMenu askbutton="{!v.askbutton}"/>
+        </aura:if>
+
+        <c:brSearchModal search="{!v.search}" />
+
+        <div class="body-inner main-content" onclick="{!c.closeUserMenu}">
+
+            <c:brAnnouncementBlock showCloseButton="true"/>
+
+            <div class="wrapper-for-sticky-footer-structure bg-x3lightgrey">
+
+                <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP' || $Browser.formFactor == 'TABLET'}">
+                    <c:brThemeHeader aura:id="brThemeHeader" isAltMainNav="{!v.isAltMainNav}"
+                                                             askbutton="{!v.askbutton}"
+                                                             search="{!v.search}"/>
+                </aura:if>
+
+                <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+                    <c:brHeaderMobile aura:id="brHeaderMobile"/>
+                </aura:if>
+                <div style="{!'min-height: ' + v.windowHeight + 'px;position:relative;'}">
+                    {!v.body}
+                </div>
+
+                <div class="empty-block-for-sticky-footer"></div><!-- do not remove this empty element -->
+            </div><!-- / .wrapper-for-sticky-footer-structure -->
+                <c:brThemeFooter />
+        </div><!-- / .body-inner -->
+    </div>
+</aura:component>

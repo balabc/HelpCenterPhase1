@@ -1,0 +1,70 @@
+<aura:component controller="brCategoriesController">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="selectedArticleId" type="String"/>
+    <aura:attribute name="items" type="List"/> 
+    
+    <aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="brCategoriesToggleEventHandler" event="c:brCategoriesToggleEvent" action="{!c.clickElement}"/>
+
+    <aura:method name="changeData" action="{!c.changeData}" access="PUBLIC"/>
+    <aura:method name="nullData" action="{!c.nullData}" access="PUBLIC"/>
+
+    <aura:if isTrue="{!v.items.length > 0}">
+        <div class="doc-nav__inner" aura:id="brCategories_wrap">
+            <ul class="doc-nav__list doc-nav__list-lvl-1" id="menu-articles">
+                <aura:iteration items="{!v.items}" var="category">
+                    <li class="{!'doc-nav__item doc-nav__item-lvl-1 doc-nav-category' + ((category.active)? ' active': '')}" data-id="{!category.id}" data-active="{!category.active}">
+                        <a class="doc-nav__link doc-nav__link-lvl-1" href="javascript:void(0);" onclick="{!c.clickCategory}">{!category.name}</a>
+                        <aura:if isTrue="{!category.articles.length > 0}">
+                            <ul class="doc-nav__list doc-nav__list-lvl-2">
+                                <aura:iteration items="{!category.articles}" var="article">
+                                    <c:brCategoriesArticles article="{!article}" selectedArticleId="{!v.data.id}"
+                                            classA="{!'doc-nav__link doc-nav__link-lvl-2 doc-nav__link-lvl-2--no-sub hide-nav-arrow' + ((category.isNumeric)? ' doc-nav__link-lvl-2--numeric': '')}"
+                                            classLi="{!'doc-nav__link doc-nav__item-lvl-2' + ((article.active)? ' active': '')}" />
+                                </aura:iteration>
+                            </ul>
+                        </aura:if>
+                        <aura:if isTrue="{!category.categories.length > 0}">
+                            <ul class="doc-nav__list doc-nav__list-lvl-2">
+                                <aura:iteration items="{!category.categories}" var="sub_category">
+                                    <li class="{!'doc-nav__item doc-nav__item-lvl-2 doc-nav-category' + ((sub_category.active)? ' active': '')}" data-id="{!sub_category.id}" data-active="{!sub_category.active}">
+                                        <a class="doc-nav__link doc-nav__link-lvl-2" href="javascript:void(0);" onclick="{!c.clickCategory}">{!sub_category.name}</a>
+                                        <aura:if isTrue="{!sub_category.articles.length > 0}">
+                                            <ul class="doc-nav__list doc-nav__list-view">
+                                                <aura:iteration items="{!sub_category.articles}" var="article">
+                                                    <c:brCategoriesArticles article="{!article}" selectedArticleId="{!v.data.id}"
+                                                            classA="doc-nav__link doc-nav__link-view"
+                                                            classLi="{!'doc-nav__item doc-nav__item-view' + ((article.active)? ' active': '')}" />
+                                                </aura:iteration>
+                                            </ul>
+                                        </aura:if>
+                                        <aura:if isTrue="{!sub_category.categories.length > 0}">
+                                            <ul class="doc-nav__list doc-nav__list-view">
+                                                <aura:iteration items="{!sub_category.categories}" var="sub_sub_cat">
+                                                    <li class="{!'doc-nav__item doc-nav__item-label' + ((sub_sub_cat.active)? ' active': '')}" data-id="{!sub_sub_cat.id}" data-active="{!sub_sub_cat.active}">
+                                                        <span class="doc-nav__link doc-nav__label" onclick="{!c.clickCategory}">{!sub_sub_cat.name}</span>
+                                                        <aura:if isTrue="{!sub_sub_cat.articles.length > 0}">
+                                                            <ul class="doc-nav__list doc-nav__list-view-label">
+                                                                <aura:iteration items="{!sub_sub_cat.articles}" var="article1">
+                                                                    <c:brCategoriesArticles article="{!article1}" selectedArticleId="{!v.data.id}"
+                                                                            classA="doc-nav__link doc-nav__link-view-label"
+                                                                            classLi="{!'doc-nav__item doc-nav__item-view-label' + ((article1.active)? ' active': '')}" />
+                                                                </aura:iteration>
+                                                            </ul>
+                                                        </aura:if>
+                                                    </li>
+                                                </aura:iteration>
+                                            </ul>
+                                        </aura:if>
+                                    </li>
+                                </aura:iteration>
+                            </ul>
+                        </aura:if>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </aura:if>
+    <div id="bottom_fade"></div>
+</aura:component>

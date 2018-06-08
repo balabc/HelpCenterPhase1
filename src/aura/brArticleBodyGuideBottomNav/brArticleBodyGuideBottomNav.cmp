@@ -1,0 +1,49 @@
+<aura:component description="brArticleBodyGuideBottomNav" controller="brArticleContentController">
+    <aura:attribute name="article" type="brArticleModel"/>
+    <aura:attribute name="nextArticle" type="Object"/>
+    <aura:attribute name="prevArticle" type="Object"/>
+    <aura:attribute name="listArticles" type="List"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.listArticles}" action="{!c.onChangeList}"/>
+
+    <div class="chapters-nav">
+        <a href="javascript:void(0);"
+            class="{!('button button--primary button--lg button--icon' + (!!v.prevArticle? '': ' disabled'))}"
+            data-id="{!v.prevArticle.Id}"
+            data-active="{!(!!v.prevArticle)}"
+            onclick="{!c.onClick}">
+                <span class="icon-svg-arrow-angular-lg-left-white"></span>
+        </a>
+
+        <aura:if isTrue="{!(!!v.nextArticle)}">
+            <a href="javascript:void(0);"
+               class="button button--primary button--lg"
+               data-id="{!v.nextArticle.Id}"
+               data-active="{!(!!v.nextArticle)}"
+               onclick="{!c.onClick}">
+                    {!($Label.c.btnNextChapter + ' ' + v.nextArticle.Nav_Title__c)}
+            </a>
+            <aura:set attribute="else">
+                <a href="javascript:void(0);" class="button button--primary button--lg button--icon disabled"><span class="icon-svg-arrow-angular-lg-left-white right"></span></a>
+            </aura:set>
+        </aura:if>
+    </div>
+
+    <div class="related-posts">
+        <h4 class="related-posts__title">{!$Label.c.hAllChapters}</h4>
+        <ul class="related-posts__list">
+            <aura:iteration items="{!v.listArticles}" var="item">
+                <li class="related-posts__item">
+                    <a href="javascript:void(0);"
+                        class="{!('related-posts__link' + ((v.article.id == item.Id)? ' related-posts__link--disable': ''))}"
+                        data-id="{!item.Id}"
+                        data-active="{!(v.article.id == item.Id)}"
+                        onclick="{!c.onClick}">
+                            {!item.Nav_Title__c}
+                    </a>
+                </li>
+            </aura:iteration>
+        </ul>
+    </div>
+</aura:component>

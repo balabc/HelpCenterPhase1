@@ -1,0 +1,11 @@
+.THIS.smallContent {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.THIS .pre-footer__text {
+    display: block;
+    margin: 10px 0 30px 0;
+}
+
+

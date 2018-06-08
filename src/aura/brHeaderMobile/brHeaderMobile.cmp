@@ -1,0 +1,26 @@
+<aura:component description="brHeaderMobile">
+	<aura:registerEvent name="brToggleSearchModalEventHandler" type="c:brToggleSearchModalEvent"/>
+    <aura:registerEvent name="brNavigationMenuInitEventHandler" type="c:brNavigationMenuInitEvent"/>
+
+    <aura:handler event="c:brMobileNavMenuToggleEvent" action="{!c.toggleMobileMenuExternal}"/>
+    <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeMenu}"/>
+    <aura:method name="closeMenu" action="{!c.closeMenu}" access="PUBLIC"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="header-pad"></div>
+    <div class="header-mobile">
+        <div class="header-mobile__container clr">
+            <div class="header-mobile__left">
+                <a onclick="{!c.showHomePage}" class="header-mobile__logo-icon header-mobile__logo"></a>
+            </div><!-- / end of .header-mobile__left -->
+            <div class="header-mobile__right">
+                <span class="header-mobile__search-icon header-mobile__search-button" onclick="{!c.toggleSearch}"></span>
+                <aura:if isTrue="{!$Browser.formFactor == 'PHONE'}">
+                    <c:brNotifications />
+                </aura:if>
+                <span class="header-mobile__menu-icon header-mobile__menu-button" onclick="{!c.toggleMobileMenu}" aura:id="header-mobile__menu-button"></span>
+            </div><!-- / end of .header-mobile__right -->
+        </div><!-- / end of .container -->
+    </div><!-- enf of / .header-mobile -->
+    <div class="header-plugs" onclick="{!c.toggleMobileMenu}" aura:id="header-plugs"></div><!-- / end of .header-plugs -->
+</aura:component>

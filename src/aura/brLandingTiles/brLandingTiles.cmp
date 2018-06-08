@@ -1,0 +1,261 @@
+<aura:component description="brLandingTiles" controller="brLandingTilesCtrl" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="pageName" type="String" default="Home" />
+    <aura:attribute name="title" type="String" access="global"/>
+    <aura:attribute name="userDocsUrl" type="String" access="global"/>
+    <aura:attribute name="devDocsUrl" type="String" default="https://developer.bigcommerce.com" access="global"/>
+    <aura:attribute name="isShowGroupPosts" type="Boolean" default="true"/>
+    <aura:attribute name="groupId" type="String" />
+    <aura:attribute name="routeInputForGroup" type="Map"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:if isTrue="{!equals(v.pageName, 'Home')}">
+        <div class="lift-content">
+            <div class="skew--top bg--white"></div>
+            <div class="lift-content__inner">
+                <div class="container">
+                    <div class="row row--pad">
+                        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                            <div class="panel-media" id="userDocs" onclick="{!c.openPage}">
+                                <div class="panel-media__wrap-icon">
+                                    <div class="panel-media__icon">
+                                        <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles.png'}"
+                                             srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Articles-2x.png 2x'}" alt="" />
+                                    </div>
+                                </div>
+                                <div class="panel-media__wrap-content">
+                                    <h4 class="h4 panel-media__title">
+                                        <a href="{!$SfdcSite.pathPrefix + '/s'+ v.userDocsUrl}">{!$Label.c.hUserDocs}</a>
+                                    </h4>
+                                    <p class="panel-media__text type--sm">{!$Label.c.msgArticles}</p>
+                                </div>
+                            </div>
+                        </div><!-- / end of .column -->
+                        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                            <div class="panel-media" id="community" onclick="{!c.openPage}">
+                                <div class="panel-media__wrap-icon">
+                                    <div class="panel-media__icon">
+                                        <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Community.png'}"
+                                             srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Community-2x.png 2x'}" alt="" />
+                                    </div>
+                                </div>
+                                <div class="panel-media__wrap-content">
+                                    <h4 class="h4 panel-media__title">
+                                        <a href="{!$SfdcSite.pathPrefix + '/s/community'}">{!$Label.c.hCommunity}</a>
+                                    </h4>
+                                    <p class="panel-media__text type--sm">{!$Label.c.msgCommunity}</p>
+                                </div>
+                            </div>
+                        </div><!-- / end of .column -->
+                        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                            <div class="panel-media" id="blog" onclick="{!v.isShowGroupPosts?c.navigateToGroup:c.openPage}">
+                                <div class="panel-media__wrap-icon">
+                                    <div class="panel-media__icon">
+                                        <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates.png'}"
+                                             srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-NewsAndUpdates-2x.png 2x'}" alt="" />
+                                    </div>
+                                </div>
+                                <div class="panel-media__wrap-content">
+                                    <h4 class="h4 panel-media__title">
+                                        <aura:if isTrue="{!v.isShowGroupPosts}">
+                                            <forceCommunity:routeLink label="{!$Label.c.hNewsAndUpdates}" routeInput="{!v.routeInputForGroup}" />
+                                            <aura:set attribute="else">
+                                                <a href="{!$SfdcSite.pathPrefix + '/s/blog'}">{!$Label.c.hNewsAndUpdates}</a>
+                                            </aura:set>
+                                        </aura:if>
+                                    </h4>
+                                    <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
+                                </div>
+                            </div>
+                        </div><!-- / end of .column -->
+                        <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                            <div class="panel-media" id="ideas" onclick="{!c.openPage}">
+                                <div class="panel-media__wrap-icon">
+                                    <div class="panel-media__icon">
+                                        <img src="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas.png'}"
+                                             srcset="{!$Resource.BigcommerceCommunity + '/images/Icon-Ideas-2x.png 2x'}" alt="" />
+                                    </div>
+                                </div>
+                                <div class="panel-media__wrap-content">
+                                    <h4 class="h4 panel-media__title">
+                                        <a href="{!$SfdcSite.pathPrefix + '/s/ideas'}">{!$Label.c.hIdeas}</a>
+                                    </h4>
+                                    <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}</p>
+                                </div>
+                            </div>
+                        </div><!-- / end of .column -->
+                    </div><!-- / end of .row -->
+                </div><!-- / end of .container -->
+            </div><!-- / end of .lift-content__inner -->
+        </div><!-- / end of .lift-content -->
+    </aura:if>
+    <aura:if isTrue="{!equals(v.pageName, 'Knowledge')}">
+        <h2 class="h2 m-top-0 p-top-10 text-center">{!v.title}</h2>
+
+        <div class="row row--pad p-top-12 p-bottom-70">
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="userDocs" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-user-docs.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s'+ v.userDocsUrl}">{!$Label.c.hUserDocs}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgUserDocs}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="guides" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-map.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/guides'}">{!$Label.c.hGuides}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgGuides}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="videos" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-video.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/videos'}">{!$Label.c.hVideos}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgVideos}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="devDocs" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-developer-doc.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!v.devDocsUrl}" target="_blank">
+                                {!$Label.c.hDevDocs + ' '}<span class="icon-svg-docs-sm"></span>
+                            </a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgDevDocs}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+        </div><!-- / end of .row -->
+    </aura:if>
+    <aura:if isTrue="{!equals(v.pageName, 'Community')}">
+        <h2 class="h2 m-top-0 p-top-10 text-center">{!v.title}</h2>
+
+        <div class="row row--pad p-top-12 p-bottom-70">
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="qa" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-community-q-a.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/qa'}">{!$Label.c.hCommunityQA}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgCommunityQA}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="groups" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-groups.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <forceCommunity:routeLink label="{!$Label.c.hGroups}" routeInput="{!v.routeInputForGroup}" />
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgGroups}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="blog" onclick="{!v.isShowGroupPosts?c.navigateToGroup:c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-news-updates.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <aura:if isTrue="{!v.isShowGroupPosts}">
+                                <forceCommunity:routeLink label="{!$Label.c.hNewsAndUpdates}" routeInput="{!v.routeInputForGroup}" />
+                                <aura:set attribute="else">
+                                    <a href="{!$SfdcSite.pathPrefix + '/s/blog'}">{!$Label.c.hNewsAndUpdates}</a>
+                                </aura:set>
+                            </aura:if>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgNewsAndUpdates}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="ideas" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-ideas.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/ideas'}">{!$Label.c.hIdeas}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgIdeas}.</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="events" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-events.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/events'}">{!$Label.c.hEvents}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgEvents}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+            <div class="column-md-12 column-lg-6 column--pad m-bottom-25">
+                <div class="panel-media p-media" id="community" onclick="{!c.openPage}">
+                    <div class="panel-media__wrap-icon">
+                        <div class="panel-media__icon">
+                            <img src="{!$Resource.BigcommerceCommunity + '/images/pics/icon-ama.svg'}" alt="" />
+                        </div>
+                    </div>
+                    <div class="panel-media__wrap-content wrap-content">
+                        <h4 class="h4 panel-media__title">
+                            <a href="{!$SfdcSite.pathPrefix + '/s/community'}">{!$Label.c.hAskMe}</a>
+                        </h4>
+                        <p class="panel-media__text type--sm">{!$Label.c.msgAskMe}</p>
+                    </div>
+                </div>
+            </div><!-- / end of .column -->
+        </div><!-- / end of .row -->
+    </aura:if>
+</aura:component>

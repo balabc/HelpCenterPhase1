@@ -1,0 +1,34 @@
+<aura:component implements="forceCommunity:layout" access="global" description="brCommunityLandingLayout">
+    <aura:attribute name="landingHeader" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="leaderboard" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingTiles" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="spotlightAndIdea" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="gettingStartedVideo" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="topTrending" type="Aura.Component[]" required="false"/>
+
+        {!v.landingHeader}
+
+    <div class="container">
+        <c:brBreadcrumbs/>
+        <div class="p-bottom-65">
+        {!v.landingTiles}
+        {!v.leaderboard}
+        </div>
+        <div class="row row--pad p-bottom-100 p-bottom-60--media-md">
+            {!v.spotlightAndIdea}
+        </div>
+    </div>
+    <div class="wrap-bg-white-skew-area">
+        <div class="bg-white-skew"></div>
+        <div class="container">
+            <div class="area-video p-top-105 p-top-60--media-md p-bottom-60--media-md">
+                    {!v.gettingStartedVideo}
+            </div>
+        </div>
+    </div>
+    <div class="p-top-120 p-top-60--media-md p-bottom-65">
+        {!v.topTrending}
+    </div>
+        {!v.landingFooter}
+</aura:component>

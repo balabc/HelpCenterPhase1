@@ -1,0 +1,53 @@
+
+<aura:component controller="brLiveAgentChatButton" implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="organizationId" type="String" required="false"/>
+    <aura:attribute name="deploymentUrl" type="String"  required="false" />
+    <aura:attribute name="endpoint" type="String"  required="false"/>
+    <aura:attribute name="deploymentId" type="String"  required="false"/>
+    <aura:attribute name="chatButtontId" type="String"  required="false"/>
+
+    <aura:attribute name="onlineText" type="String"  default="Chat Now"/>
+    <aura:attribute name="offlineText" type="String" default="Chat Unavailable"/>
+    <aura:attribute name="isInvalidInput" type="Boolean"  />
+    <aura:attribute name="userSessionData" type="Boolean" default="false"/>
+
+    <aura:attribute name="previousIsLiveAgentOnline" type="Boolean" />
+    <aura:attribute name="isLiveAgentOnline" type="Boolean" default="false"/>
+
+    <aura:attribute name="contact" type="sObject"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <aura:if isTrue="{!v.isInvalidInput}">
+        <ui:message title="Warning" severity="warning" closable="false">
+            Live Agent Chat Button configuration data is empty.
+        </ui:message>
+    </aura:if>
+
+    <c:brScriptWrapper paramURL="{!v.deploymentUrl}" />
+
+    <div  aura:id ="btONline" id="btONline" class="communityLiveChat uiButton contactSupport laBtn toggle panel-media-small" onclick="{!c.startChat}">
+        <div class="panel-media-small__wrap-icon">
+            <div class="ponny panel-media-small__icon">
+                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Chat.svg'}" alt="" />
+            </div>
+        </div>
+        <div class="panel-media-small__wrap-content">
+            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hLiveChat}</h5>
+            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="javascript:void(0);">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
+        </div>
+    </div>
+
+    <div aura:id ="btOFFline"  id="btOFFline" class="panel-media-small communityLiveChat uiButton contactSupport laBtn disabled">
+        <div class="panel-media-small__wrap-icon">
+            <div class="ponny panel-media-small__icon">
+                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/ChatGrey.svg'}" alt="" />
+            </div>
+        </div>
+        <div class="panel-media-small__wrap-content">
+            <p class="panel-media-small__text header__contact-body-panel-text grey">Live Chat is currently unavailable</p>
+        </div>
+    </div>
+
+</aura:component>

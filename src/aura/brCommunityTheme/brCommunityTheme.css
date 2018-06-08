@@ -1,0 +1,79 @@
+.THIS {
+    font-family: 'source_sans_prolight', Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+}
+.THIS .modal-overlay {
+    display: none;
+}
+.THIS .wrap-modal {
+    display: none;
+}
+.THIS .header__nav {
+    margin: 16px 0;
+}
+.THIS .announcement-block, .THIS .announcement-block-contact {
+    display: flex;
+    background: #ffffff;
+    width: 100%;
+}
+
+.THIS .announcement-block.portal_notice_success, .THIS .announcement-block-contact.portal_notice_success{
+    background: #e8f7e1;
+}
+
+.THIS .announcement-block.portal_notice_info, .THIS .announcement-block-contact.portal_notice_info {
+    background: #e4f3fb;
+}
+
+.THIS .announcement-block.portal_notice_warning, .THIS .announcement-block-contact.portal_notice_warning {
+    background: #f8f3d5;
+}
+
+.THIS .announcement-block.portal_notice_error, .THIS .announcement-block-contact.portal_notice_error {
+    background: #f7e8e7;
+}
+
+.THIS .announcement-icon {
+    padding: 30px 0 0 77px;
+}
+.THIS .wrap-announcement-message {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+.THIS .announcement-message {
+    flex-grow: 6;
+    margin: 25px 0 30px 30px;
+}
+.THIS .announcement-message * {
+    font-size: 15px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+}
+.THIS .announcement-close-button {
+    margin: 10px 40px 0 0;
+}
+.THIS .slds-button--icon-bare {
+    color: #afb4be;
+}
+.THIS .slds-button__icon  {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+@media only screen and (max-width: 992px) {
+    .THIS .announcement-icon {
+        padding: 30px 0 0 15px;
+        flex-basis: 250px;
+    }
+    .THIS .announcement-message {
+        margin: 25px 5px 30px 5px;
+    }
+    .THIS .announcement-close-button {
+        margin: 10px 15px 0 0;
+    }
+}

@@ -1,0 +1,43 @@
+.THIS.wrap-userpic {
+    padding: 10px 0;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.THIS .header__userpic {
+    margin-right: 0;
+    margin-left: 0;
+}
+.THIS .toggle {
+    display: none !important;
+}
+.THIS .header__profile-dropdown-userpic img {
+    width: 45px;
+    height: 45px;
+}
+.THIS .header__profile-dropdown-list {
+    margin: 16px 0;
+}
+.THIS .header__profile-dropdown-list-link {
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.THIS .wrap-arrow {
+    padding: 0 8px;
+    min-height: 70px;
+    cursor: pointer;
+}
+.THIS .login {
+    text-transform: uppercase;
+    width: 60px;
+    height: 16px;
+    font-family: 'source_sans_prosemibold', Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    transform: translate(0, -50%);
+    text-decoration: none;
+    cursor: pointer;
+}

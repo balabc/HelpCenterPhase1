@@ -1,0 +1,7 @@
+
+<aura:component description="brScriptWrapper">
+    <aura:attribute name="paramURL" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:dependency resource="ltng:require"/>
+    {!v.body}
+</aura:component>

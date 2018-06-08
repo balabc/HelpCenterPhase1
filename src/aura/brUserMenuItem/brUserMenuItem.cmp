@@ -1,0 +1,9 @@
+<aura:component description="brUserMenuItem">
+    <aura:attribute name="menuItem" type="Object"/>
+    <aura:attribute name="userId" type="String"/>
+
+    <a class="header__profile-dropdown-list-link truncated" onclick="{!c.openNewWindow}">
+        {!v.menuItem.title}
+    </a>
+
+</aura:component>

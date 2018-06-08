@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;iframe frameborder=&quot;0&quot; height=&quot;1000&quot; src=&quot;https://docs.google.com/forms/d/1cHwOm8tObzB5GbdHZ7yr2Te3FpcaZ0JImmkpssyHaDA/viewform?embedded=true&quot; width=&quot;600&quot;&gt;Loading...&lt;/iframe&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richText</componentName>
+        </componentInstances>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>sidebarAlt</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metaTags</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>BigCommerce Insiders Program</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:seoAssistant</componentName>
+        </componentInstances>
+        <name>sfdcHiddenRegion</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Insiders Program</masterLabel>
+    <template>
+        <name>siteforce:sldsThreeCol363Layout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

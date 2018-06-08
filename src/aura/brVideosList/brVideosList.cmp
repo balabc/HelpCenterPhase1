@@ -1,0 +1,39 @@
+<aura:component description="brVideosList" controller="brVideosListCtrl" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="videosPerPage" type="Integer" default="12" access="global" />
+    <aura:attribute name="videoArticles" type="University__kav[]" />
+    <aura:attribute name="videoArticlesForCurrentPage" type="University__kav[]" />
+    <aura:attribute name="currentPageNumber" type="Integer" />
+    <aura:attribute name="pageNumbers" type="Integer[]" />
+    <aura:attribute name="isPrevious" type="Boolean" />
+    <aura:attribute name="isNext" type="Boolean" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="setVideosPage" event="c:brSetVideosPageEvent" action="{!c.setVideosPage}"/>
+
+    <div class="p-top-12 p-bottom-70">
+        <div class="row row--pad">
+            <aura:iteration items="{!v.videoArticlesForCurrentPage}" var="item">
+                <c:brVideosListItem videoArticleForCurrentPage="{!item}"/>
+            </aura:iteration>
+        </div><!-- / end of .row -->
+
+        <div class="wrap-pagination">
+            <ul class="pagination">
+                <li class="pagination__item">
+                    <a class="pagination__link" onclick="{!c.showPrevVideos}">
+                            {!v.isPrevious?'Prev':''}
+                    </a>
+                </li>
+                <aura:iteration items="{!v.pageNumbers}" var="pageNumber">
+                    <c:brVideosPagination pageNumber="{!pageNumber}" currentPageNumber="{!v.currentPageNumber}" />
+                </aura:iteration>
+                <li class="pagination__item">
+                    <a class="pagination__link" onclick="{!c.showNextVideos}">
+                            {!v.isNext?'Next':''}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</aura:component>

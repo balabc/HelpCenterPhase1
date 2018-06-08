@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="search" type="String"/>
+    <aura:attribute name="stateSearchModal" type="Boolean" default="false" />
+    <aura:handler event="c:brCloseSearchModalEvent" action="{!c.closeModal}"/>
+    <aura:handler event="c:brToggleSearchModalEvent" action="{!c.toggleSearchModal}"/>
+    <div class="{! 'modal-overlay' + (v.stateSearchModal? ' open': ' close')}" ></div>
+    <div class="{! 'wrap-modal search-modal-wrapper' + (v.stateSearchModal? ' open': ' close')}">
+        <div class="modal"> 
+
+            <div class="modal__inner" onclick="{!c.onClickSearch}">
+                <div class="modal__close-button icon-svg-close-lg-grey"></div>
+                <div class="container relative">
+                    <aura:if isTrue="{!v.stateSearchModal}">
+                        <c:brAlgoliaSearchJSCMP searchText="{!v.search}" />
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+    </div><!-- / end of .wrap-modal -->
+</aura:component>

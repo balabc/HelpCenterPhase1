@@ -1,0 +1,96 @@
+<aura:component description="brHeaderContact" controller="brHeaderContactCtrl">
+
+    <aura:attribute name="openCounter" type="Integer" default="0"/>
+
+    <aura:attribute name="phoneList" type="Object[]"/>
+    <aura:attribute name="phoneCount" type="Integer" default="0"/>
+    <aura:attribute name="askbutton" type="Aura.Component[]" required="false"/>
+
+    <aura:method name="showMe" description="Show Header Contact" />
+    <aura:method name="hideMe" description="Hide Header Contact" />
+
+    <div class="header__contact popover">
+        <div class="header__contact-head popover__head">
+            <p class="popover__head-title truncated">Contact</p>
+            <div class="popover__head-close-btn icon-svg-close-md-white header__contact__hide-trigger"  onclick="{!c.hideMe}"></div>
+        </div>
+        <div class="contact_wrapper">
+
+        <c:brAnnouncementBlock showCloseButton="false"/>
+
+        <div class="header__contact-body popover__body">
+            <div class="header__contact-body-inner popover__body-inner">
+                <div id="contact-lvl-1" class="header__contact-body-container popover__body-container">
+                    <c:brStatusPagePanel aura:id="statusPanel" />
+
+                    <h4 class="h4 header__contact-body-h4 m-top-30">{!$Label.c.hGetHelp}</h4>
+
+                    <div class="panel-media-small">
+                        <div class="panel-media-small__wrap-icon">
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Community.svg'}" alt="" />
+                            </div>
+                        </div>
+                        <div class="panel-media-small__wrap-content">
+                                {!v.askbutton}
+                                <p class="panel-media-small__text header__contact-body-panel-text">Get answers from business owners and experts</p>
+                        </div>
+                    </div>
+                    <!-- TODO: this breaks app for all unauthenticated users aka guest -->
+
+                    <c:brLiveAgentChatButton  organizationId="00D30000001FDCG" deploymentUrl="https://c.la4-c2-dfw.salesforceliveagent.com/content/g/js/41.0/deployment.js" endpoint="https://d.la4-c2-dfw.salesforceliveagent.com/chat" deploymentId="572a0000000H7DJ" chatButtontId="573a00000008j2D" onlineText="" offlineText="" userSessionData="" />
+
+                    <div class="panel-media-small" onclick="{!c.openPhoneSupport}">
+                        <div class="panel-media-small__wrap-icon">
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Phone.svg'}" alt="" />
+                            </div>
+                        </div>
+                        <div class="panel-media-small__wrap-content">
+                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hPhoneSupport}</h5>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hPhoneSupportAbout}</p>
+                        </div>
+                    </div>
+                    <div class="panel-media-small" onclick="{!c.openEmailSupport}">
+                        <div class="panel-media-small__wrap-icon">
+                            <div class="ponny panel-media-small__icon">
+                                <img src="{!$Resource.BigcommerceCommunityImages + '/ContactMenu/Email.svg'}" alt="" />
+                            </div>
+                        </div>
+                        <div class="panel-media-small__wrap-content">
+                            <h5 class="panel-media-small__title header__contact-body-h5">{!$Label.c.hEmailSupport}</h5>
+                            <p class="panel-media-small__text header__contact-body-panel-text">{!$Label.c.hYour}&nbsp;<a href="javascript:void(0);">{!$Label.c.hSupportPin}</a>&nbsp;{!$Label.c.is_required}</p>
+                        </div>
+                    </div>
+
+                    <c:brCommonQuestions aura:id="commonQuestions" />
+                </div><!-- / end of .header__contact-body-container popover__body-container -->
+
+                <div id="contact-lvl-2" class="header__contact-body-container popover__body-container">
+                    <div class="header__contact-body-nav-goback popover__body-nav-goback"  onclick="{!c.closePhoneSupport}">
+                        <div class="header__contact-body-goback popover__body-goback">
+                            <div class="header__contact-body-arrow-angular-right nav-arrow-hor-angular">
+                                <div class="nav-arrow-hor-angular__handler">
+                                    <span class="nav-arrow-hor-angular__icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript:void(0);" class="h4 header__contact-body-container-link popover__body-container-link truncated">
+                            <span class="h4 header__contact-body-container-text popover__body-container-text truncated">{!$Label.c.hPhoneSupport}</span>
+                        </a>
+                    </div>
+                    <div class="header__contact-body-container-content popover__body-container-content">
+                        <aura:iteration items="{!v.phoneList}" var="phoneItem">
+                            <br/>
+                            <p class="m-bottom-0">{!phoneItem.Country__c}</p> <!-- color-primary -->
+                            <a href="{!'tel:' + phoneItem.Phone__c}" >{!phoneItem.Phone__c}</a>
+                            <br/>
+                        </aura:iteration>
+                    </div>
+                </div><!-- / end of .header__contact-body-container popover__body-container -->
+            </div><!-- / end of .header__contact-body-inner .popover__body-inner -->
+        </div><!-- / end of .header__contact-body .popover__body -->
+        </div>
+    </div><!-- / end of .header__contact .popover -->
+
+</aura:component>

@@ -1,0 +1,9 @@
+.THIS {
+    background-color: #ffffff;
+}
+.THIS .jumbotron__wrap-img img {
+    max-width: none;
+}
+.THIS .jumbotron__subtitle {
+    margin-bottom: 5px;
+}

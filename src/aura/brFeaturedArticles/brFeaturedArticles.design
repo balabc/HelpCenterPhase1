@@ -1,0 +1,3 @@
+<design:component label="Featured Articles">
+    <design:attribute name="articlesCount" label="Number of articles" description="Max number of articles" />
+</design:component>

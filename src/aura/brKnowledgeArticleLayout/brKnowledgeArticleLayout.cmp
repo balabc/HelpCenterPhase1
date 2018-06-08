@@ -1,0 +1,39 @@
+<aura:component implements="forceCommunity:layout" controller="brKnowledgeArticleLayoutCtrl" description="Custom Content Layout" access="global">
+    <aura:attribute name="breadcrumbs" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="articleContent1" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="articleContent2" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="askButton" type="Aura.Component[]" required="false"/>
+
+    <aura:attribute name="articleType" type="String" />
+    <aura:attribute name="isContentVisible" type="Boolean" default="false"/>
+    <aura:attribute name="isKnowledgeBaseArticle" type="Boolean" default="false"/>
+    <aura:attribute name="isShowArticleContent" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="container article-area-container">
+        {!v.breadcrumbs}
+        <aura:if isTrue="{!v.isKnowledgeBaseArticle}">
+            {!v.articleContent1}
+            <div class="br_clear">
+                <div class="panel-content__body-pre-content text-center">&nbsp;</div><!-- nothing -->
+                <div class="panel-content panel-content__body-br-content">
+                    <div class="panel-content__body ">
+                        <div class="panel-content__body-content text-center">
+                            <h4 class="h4 panel-content__title-sub">Don't see what you're looking for? Ask the Community</h4>
+                            {!v.askButton}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{!v.isShowArticleContent}">
+                {!v.articleContent2}
+        </aura:if>
+
+    </div>
+    <aura:if isTrue="{!v.isContentVisible}">
+            {!v.landingFooter}
+    </aura:if>
+</aura:component>

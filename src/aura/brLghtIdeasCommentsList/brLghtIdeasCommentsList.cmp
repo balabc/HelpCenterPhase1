@@ -1,0 +1,65 @@
+<aura:component controller="brLghtIdeasController">
+    <aura:attribute name="commonVars" type="Object" description="Used to share common variables for child components" />
+    <aura:attribute name="ideaId" type="String" />
+    <aura:attribute name="commentsList" type="IdeaComment[]" />
+    <aura:attribute name="orderDir" type="String" default="desc" />
+    <aura:attribute name="nextComment" type="IdeaComment" />
+    <aura:attribute name="allowPostComment" type="Boolean" default="true" />
+    <aura:attribute name="showCommentForm" type="Boolean" default="false" />
+    <aura:attribute name="loading" type="Boolean" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:registerEvent name="ideasErrorEvent" type="c:brLghtIdeasError" />
+    <aura:registerevent name="updateCommentsNumber" type="c:brUpdateEvent" />
+
+    <aura:if isTrue="{!and(v.showCommentForm, v.allowPostComment)}">
+        <div class="slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning:inputRichText aura:id="commmentText" />
+            </div>
+            <div class="slds-x-small-buttons--horizontal slds-p-vertical--small">
+                <ui:button label="{!$Label.c.OpenPostComment}"
+                           class="slds-button slds-button--neutral slds-button--brand" press="{!c.postComment}" />
+                <ui:button label="{!$Label.c.Cancel}"
+                           class="slds-button slds-button--neutral" press="{!c.cancelPostComment}" />
+            </div>
+        </div>
+    </aura:if>
+
+    <div class="slds-clearfix slds-m-bottom--small">
+        <aura:if isTrue="{!and(not(v.showCommentForm), v.allowPostComment)}">
+            <div class="slds-float--left">
+                <a href="javascript:void(0)" onclick="{!c.showCommentForm}">{!$Label.c.AddComment}</a>
+            </div>
+        </aura:if>
+        <div class="slds-float--right">
+            <aura:if isTrue="{!v.orderDir == 'asc'}">
+                <a href="javascript:void(0)" onclick="{!c.changeOrderToNewest}">&darr; {!$Label.c.OldestFirst}</a>
+                <aura:set attribute="else">
+                    <a href="javascript:void(0)" onclick="{!c.changeOrderToOldest}">&uarr; {!$Label.c.NewestFirst}</a>
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+    
+    <div class="slds-scrollable--y" style="max-height: 500px;">
+        <aura:iteration items="{!v.commentsList}" var="comm">
+            <c:brLghtIdeasCommentsListItem comment="{#comm}" commonVars="{!v.commonVars}"></c:brLghtIdeasCommentsListItem>
+        </aura:iteration>
+        <aura:if isTrue="{!and(not(v.loading), v.commentsList.length == 0)}">
+            <div class="slds-box">{!$Label.c.NoCommentsMsg}</div>
+        </aura:if>
+        <aura:if isTrue="{!v.loading}">
+            <div class="slds-grid slds-grid--align-center">
+                <div class="loading-spinner"></div>
+            </div>
+        </aura:if>
+        <div aura:id="commentsListShowMore" class="slds-hide">
+            <div class="slds-p-vertical--x-small slds-text-align--center">
+                <a href="javascript:void(0)" class="slds-button slds-button--neutral"
+                    onclick="{!c.showMoreIdeaComments}">{!$Label.c.MoreComments}</a>
+            </div>
+        </div>
+    </div>
+</aura:component>

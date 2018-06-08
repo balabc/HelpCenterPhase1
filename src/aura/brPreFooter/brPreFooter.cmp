@@ -1,0 +1,27 @@
+<aura:component description="brPreFooter" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="title" type="String" default="Lorem ipsum dolor sit amet consectetur" access="global"/>
+    <aura:attribute name="description" type="String" default="Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate." access="global" />
+    <aura:attribute name="textButton" type="String" default="Submit" access="global"/>
+    <aura:attribute name="url" type="String" default="https://www.bigcommerce.com/" access="global"/>
+
+    <aura:attribute name="defineLargeContentSize" type="Boolean" default="false"/>
+    <aura:attribute name="defineSmallContentSize" type="Boolean" default="false"/>
+    <aura:attribute name="isReady" type="Boolean"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
+    <aura:if isTrue="{!v.isReady}">
+    <div aura:id="prefooter" class="pre-footer">
+        <div style="{!'background-image: url(' + $Resource.BigcommerceCommunity + '/images/HomePage-pre-footer.png' + ');background-position-x: center;'}" class="pre-footer__wrap-img"></div>
+        <div class="pre-footer__wrap-caption">
+            <div class="pre-footer__caption">
+                <h2 class="h2 pre-footer__title">{!v.title}</h2>
+                <p class="pre-footer__text">{!v.description}</p>
+                <a href="{!v.url}" class="button button--default button--sm" target="_blank">{!v.textButton}</a>
+            </div>
+        </div>
+    </div><!-- / end of .pre-footer -->
+    </aura:if>
+</aura:component>

@@ -1,0 +1,111 @@
+<project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:ff="antlib:com.spaceheroes" xmlns:sf="antlib:com.salesforce">
+
+    <property file="build.properties"/>
+    <property environment="env"/>
+
+    <!-- Setting default value for username, password and session id properties to empty string 
+         so unset values are treated as empty. Without this, ant expressions such as ${sf.username}
+         will be treated literally.
+    -->
+    <condition property="sf.username" value=""> <not> <isset property="sf.username"/> </not> </condition>
+    <condition property="sf.password" value=""> <not> <isset property="sf.password"/> </not> </condition>
+    <condition property="sf.sessionId" value=""> <not> <isset property="sf.sessionId"/> </not> </condition>
+  
+   <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="${basedir}/ant-salesforce.jar" />          
+        </classpath>
+    </taskdef>
+
+    <taskdef resource="antlib.xml" uri="antlib:com.spaceheroes">
+        <classpath>
+            <pathelement location="${basedir}/forceflow.jar" />          
+        </classpath>
+    </taskdef>
+
+    <!-- Shows deploying code & running tests for code in directory -->
+    <target name="deploy">
+      <!-- Upload the contents of the "codepkg" directory, running the tests for just 1 class -->
+      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="${sf.deployDir}" testLevel="RunSpecifiedTests" rollbackOnError="true">
+        <runTest>brAlgoliaSearchTest</runTest>
+        <runTest>brArticleContentTest</runTest>
+        <runTest>brArticleFeedbackCtrlTest</runTest>
+        <runTest>brBreadcrumbsCtrlTest</runTest>
+        <runTest>brCategoriesAssigneeCtrlTest</runTest>
+        <runTest>brCategoriesTest</runTest>
+        <runTest>brCommonQuestionsCtrlTest</runTest>
+        <runTest>brCommunityCtrlTest</runTest>
+        <runTest>brCommunitySpotlightCtrlTest</runTest>
+        <runTest>brEmailNotificationTest</runTest>
+        <runTest>brFeaturedArticlesCtrlTest</runTest>
+        <runTest>brFeaturedIdeaCtrlTest</runTest>
+        <runTest>brFeedItemTest</runTest>
+        <runTest>brGuidesListCtrlTest</runTest>
+        <runTest>brHeaderContactCtrlTest</runTest>
+        <runTest>brIdeaCommentTriggerHandlerTest</runTest>
+        <runTest>brIdeaDataSelectorTest</runTest>
+        <runTest>brIdeaTriggerHandlerTest</runTest>
+        <runTest>brKnowledgeArticleLayoutCtrlTest</runTest>
+        <runTest>brLandingTilesCtrlTest</runTest>
+        <runTest>brLeaderboardCtrlTest</runTest>
+        <runTest>brLghtIdeasControllerTest</runTest>
+        <runTest>brLghtIdeasHelperTest</runTest>
+        <runTest>brLghtIdeasInstallHandlerTest</runTest>
+        <runTest>brLghtIdeasSettingsCtrlTest</runTest>
+        <runTest>brLiveMetricsCtrlTest</runTest>
+        <runTest>brMainNavMenuAltCtrlTest</runTest>
+        <runTest>brMainNavMenuCtrlTest</runTest>
+        <runTest>brMainNavMenuServiceTest</runTest>
+        <runTest>brMenuListViewCtrlTest</runTest>
+        <runTest>brMobileNavMenuCtrlTest</runTest>
+        <runTest>brTopTrendingCtrlTest</runTest>
+        <runTest>brUserCategoriesAssignmentControllerTest</runTest>
+        <runTest>brUserMenuCtrlTest</runTest>
+        <runTest>brUtilsTest</runTest>
+        <runTest>brVideosListCtrlTest</runTest>
+        <runTest>LiveAgentChatButtonTest</runTest>
+        <runTest>brBlogArticleWrapper</runTest>
+        <runTest>brBlogArticleWrapperTest</runTest>
+        <runTest>brIdeaSecurityException</runTest>
+        <runTest>brIdeasSetupException</runTest>
+        <runTest>brLiveAgentChatButtonTest</runTest>
+        <runTest>brAnnouncementBlockCtrlTest</runTest>
+      </sf:deploy>  
+
+      <ff:apex username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}">
+    
+        <![CDATA[ 
+                  List<brLghtIdeasSettings__c> settList = new List<brLghtIdeasSettings__c>();      
+                  List<brLghtIdeasSettings__c> settingsCommunity = [SELECT Id FROM brLghtIdeasSettings__c WHERE Name = 'community'];
+                  List<brLghtIdeasSettings__c> settingsAutoStatusUpdate = [SELECT Id FROM brLghtIdeasSettings__c WHERE Name = 'status_update'];
+                  List<brLghtIdeasSettings__c> settingsEmailNotification = [SELECT Id FROM brLghtIdeasSettings__c WHERE Name = 'email_notification'];
+                  List<brLghtIdeasSettings__c> settingsOrgWideEmailId = [SELECT Id FROM brLghtIdeasSettings__c WHERE Name = 'orgwide_email_id'];
+
+                      if (settingsCommunity.size() == 0) {
+                          settList.add(new brLghtIdeasSettings__c(Name = 'community', Label__c = 'Ideas Zone Name', Value__c = 'undefined'));
+                      }
+
+                      if (settingsAutoStatusUpdate.size() == 0) {
+                          settList.add(new brLghtIdeasSettings__c(Name = 'status_update', Label__c = 'Status update',
+                                  Description__c = 'Conditions for status update',
+                                  Value__c = '{"active":false,"threshold":"","original_status":"","new_status":""}'));
+                      }
+
+                      if (settingsEmailNotification.size() == 0) {
+                          settList.add(new brLghtIdeasSettings__c(Name = 'email_notification', Label__c = 'Email Notification',
+                                  Description__c = 'Conditions for email notifications',
+                                  Value__c = '{"active":false,"template":"NewCommentNotificationToIdeaOwner"}'));
+                      }
+
+                  if (settingsOrgWideEmailId.size() == 0) {
+                    settList.add(new brLghtIdeasSettings__c(Name = 'orgwide_email_id', Label__c = 'Org-Wide Email Address ID',
+                        Description__c = 'Org-Wide Email Address ID for email notifications',
+                        Value__c = ''));
+                  }
+
+                  insert settList;
+        ]]>
+  
+      </ff:apex>
+    </target>
+</project>

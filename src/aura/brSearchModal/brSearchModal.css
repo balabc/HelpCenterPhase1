@@ -1,0 +1,21 @@
+.THIS.modal-overlay, 
+.THIS.wrap-modal {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+	transition: opacity 0.5s, visibility 0s 0.5s;
+    display: block;
+}
+
+.THIS.modal-overlay.open, 
+.THIS.wrap-modal.open {
+	opacity: 1;
+	visibility: visible;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+	display: block;
+}
+
+.THIS .modal__inner {
+    height: 100%;
+}

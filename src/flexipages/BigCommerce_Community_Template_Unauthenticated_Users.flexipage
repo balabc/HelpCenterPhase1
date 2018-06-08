@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>richTextValue</name>
+                <value>&lt;div class=&quot;card card-triangles&quot;&gt; 
+ &lt;div class=&quot;card-body&quot;&gt; 
+  &lt;h2&gt;Welcome to Ideas!&lt;/h2&gt; 
+  &lt;p&gt;Your place to be heard. If you have an idea for product enhancements, new features, or improving our support offerings, post them here, and vote and comment on ideas proposed by other Community members. Learn more about how Ideas works, best practices, and frequently asked questions with our &lt;a href=&quot;/s/article/Community-Ideas&quot;&gt;Guide to Ideas.&lt;/a&gt;&lt;/p&gt; 
+  &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+  &lt;div style=&quot;text-align: center;&quot;&gt;
+   &lt;a class=&quot;btn btn-default btn-lg&quot; href=&quot;https://forum.bigcommerce.com/BCSLogin?startURL=/s/ideas&quot;&gt;Log in to view Ideas&lt;/a&gt;
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:richText</componentName>
+        </componentInstances>
+        <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>content</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>footer</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>description</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metaTags</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Unauthenticated Users</value>
+            </componentInstanceProperties>
+            <componentName>forceCommunity:seoAssistant</componentName>
+        </componentInstances>
+        <name>sfdcHiddenRegion</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Unauthenticated Users</masterLabel>
+    <template>
+        <name>siteforce:sldsOneColLayout</name>
+    </template>
+    <type>CommAppPage</type>
+</FlexiPage>

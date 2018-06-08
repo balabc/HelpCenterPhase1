@@ -1,0 +1,5 @@
+<design:component label="Getting Started Video">
+    <design:attribute name="title" label="Title" description="Title for video" />
+    <design:attribute name="videoDescription" label="Description" description="Description for video" />
+    <design:attribute name="videoUrl" label="Video URL" description="URL of embed video" />
+</design:component>

@@ -1,0 +1,35 @@
+
+<aura:component description="brStatusPagePanel">
+
+    <aura:attribute name="statusPageId" type="String" default="qbn4dyd29jby"/><!-- BigCommerce status page id -->
+
+    <aura:attribute name="statusMessage" type="String" default=""/>
+    <aura:attribute name="statusIndicator" type="String" default=""/>
+    <aura:attribute name="minutesSinceRefresh" type="Integer" default="0"/>
+
+    <aura:attribute name="statusClass" type="String" default=""/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:method name="reInit" action="{!c.doInit}" />
+
+    <h4 class="h4 header__contact-body-h4">{!$Label.c.hSystemStatus}</h4>
+
+    <div class="panel-media-small" onclick="{!c.openPageStatus}">
+        <div class="panel-media-small__wrap-icon">
+            <div class="panel-media-small__icon relative">
+                <div class="{!'panel-media-small__status ' + v.statusClass}"></div>
+            </div>
+        </div>
+        <div class="panel-media-small__wrap-content">
+            <h5 class="panel-media-small__title header__contact-body-h5">{!v.statusMessage}</h5>
+            <aura:if isTrue="{!lessthan(v.minutesSinceRefresh, 1)}">
+                <p class="panel-media-small__text">{!$Label.c.hRefreshed}&nbsp;{!$Label.c.less_minute_ago}</p>
+                <aura:set attribute="else">
+                    <p class="panel-media-small__text">{!$Label.c.hRefreshed}&nbsp;{!v.minutesSinceRefresh}&nbsp;{!$Label.c.minutes_ago}</p>
+                </aura:set>
+            </aura:if>
+
+        </div>
+    </div>
+
+</aura:component>

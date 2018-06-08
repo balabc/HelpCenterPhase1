@@ -1,0 +1,36 @@
+<aura:component extends="forceCommunity:navigationMenuBase" controller="brMainNavMenuAltCtrl" description="brMainNavMenuAlt">
+    <aura:attribute name="prevActiveMenuItemId" type="String" />
+    <aura:attribute name="labels" type="String[]"/>
+
+    <aura:handler name="prevActiveMenuItem" event="c:brPrevActiveMenuItemEvent" action="{!c.setMenuItemId}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:handler event="c:brMobileNavMenuToggleEvent" action="{!c.closeSubMenu}"/>
+
+    <aura:handler event="c:brCloseAllNavMenuEvent" action="{!c.closeSubMenu}"/>
+    <aura:method name="closeMenu" action="{!c.closeSubMenu}" access="PUBLIC"/>
+
+    <div class="header__wrap-nav clr">
+        <ul onclick="{!c.onClick}" class="header__nav">
+            <li class="header__nav-item">
+                <div class="header__nav-item-cont">
+                    <a href="#" class="header__link header__nav-link">Help center</a>
+                </div>
+            </li>
+
+            <aura:iteration items="{!v.menuItems}" var="i" indexVar="index">
+                <c:brMainNavMenuAltItem menuItem="{!i}" prevActiveMenuItemId="{!v.prevActiveMenuItemId}" labels="{!v.labels}"/>
+            </aura:iteration>
+
+            <aura:iteration items="{!v.menuItems}" var="item" >
+                <aura:if isTrue="{!and(not(item.subMenu), not(equals(item.id, 0)))}">
+                    <li class="header__nav-item">
+                        <div class="header__nav-item-cont">
+                            <a onclick="{!c.closeSubMenu}" data-menu-item-id="{!item.id}" class="header__link header__nav-link">{!item.label}</a>
+                        </div>
+                    </li>
+                </aura:if>
+            </aura:iteration>
+        </ul>
+    </div>
+</aura:component>

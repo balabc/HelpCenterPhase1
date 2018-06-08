@@ -1,0 +1,4 @@
+<design:component label="Community Spotlight">
+    <design:attribute name="currentTitle" label="Title"/>
+    <design:attribute name="curId" label="User ID" description="ID of featured user"/>
+</design:component>

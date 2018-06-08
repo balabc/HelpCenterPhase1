@@ -1,0 +1,11 @@
+<aura:component description="brRecentQuestionsItem">
+    <aura:attribute name="routeInputForQuestions" type="Map"/>
+    <aura:attribute name="question" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <li class="list-group__item" onclick="{!c.navigateTosObject}">
+        <forceCommunity:routeLink label="{!v.question.name}" routeInput="{!v.routeInputForQuestions}" />
+    </li>
+
+</aura:component>

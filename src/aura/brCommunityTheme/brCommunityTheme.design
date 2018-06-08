@@ -1,0 +1,3 @@
+<design:component label="Bigcommerce Community">
+    <design:attribute name="isAltMainNav" label="Alternative Top Navigation"/>
+</design:component>

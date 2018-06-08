@@ -1,0 +1,3 @@
+<design:component label="Videos List">
+    <design:attribute name="videosPerPage" label="Items per page" description="number of videos per page" />
+</design:component>

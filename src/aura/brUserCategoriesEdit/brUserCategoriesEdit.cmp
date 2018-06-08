@@ -1,0 +1,49 @@
+<aura:component description="Edit User Categories Assignment" controller="brUserCategoriesAssignmentController"
+                implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="records" type="brIdeasCategoriesAssignment__c[]" />
+    <aura:attribute name="categoryOptions" type="String[]" />
+    <aura:attribute name="createUsername" type="String" default="" />
+    <aura:attribute name="createCategories" type="String" default="" />
+    <aura:attribute name="addErrorMsg" type="String" default="" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <div class="list">
+        <aura:iteration items="{!v.records}" var="r">
+            <lightning:layout horizontalAlign="space" verticalAlign="center" class="record-item slds-border--bottom">
+                <lightning:layoutItem padding="around-small" size="2">{!r.User__r.Username}</lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="4">{!r.Categories__c}</lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="2">
+                    <lightning:button variant="brand" label="Edit" value="{!r.Id}" onclick="{!c.edit}" />
+                    <lightning:button variant="brand" label="Remove" value="{!r.Id}" onclick="{!c.remove}" />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </aura:iteration>
+    </div>
+
+    <div class="create-form">
+        <h3 class="slds-text-heading--medium slds-m-vertical--medium">Add new category manager</h3>
+        <aura:if isTrue="{!not(empty(v.addErrorMsg))}">
+            <div class="slds-box slds-box--small slds-theme--alert-texture slds-m-bottom--medium">
+                {!v.addErrorMsg}
+            </div>
+        </aura:if>
+        <div class="slds-box slds-box--small slds-theme--shade">
+            <lightning:layout horizontalAlign="space">
+                <lightning:layoutItem padding="around-small" size="2">
+                    <lightning:input type="text" label="Username" aura:id="usernameInput" value="{!v.createUsername}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="4">
+                    <ui:inputSelect multiple="true" label="Categories" value="{!v.createCategories}" class="slds-select">
+                        <aura:iteration items="{!v.categoryOptions}" var="catOpt">
+                            <ui:inputSelectOption text="{!catOpt}" />
+                        </aura:iteration>
+                    </ui:inputSelect>
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="2">
+                    <lightning:button variant="brand" label="Save" onclick="{!c.save}" />
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div>
+    </div>
+</aura:component>

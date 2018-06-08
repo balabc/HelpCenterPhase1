@@ -1,0 +1,16 @@
+<aura:component >
+	<aura:attribute name="data" type="List"/>
+    
+    <aura:registerEvent name="eventMobileNavMenuItem" type="c:brMobileNavMenuItemEvent"/>
+    
+    <aura:if isTrue="{!(v.data.length)}">
+        <li class="header-mobile__menu-content">
+            <aura:iteration items="{!v.data}" var="item">
+                <br/>
+                <p class="m-bottom-0">{!item.Country__c}</p>
+                <a href="javascript:void(0);">{!item.Phone__c}</a>
+                <br/>
+            </aura:iteration>
+        </li>
+    </aura:if>
+</aura:component>

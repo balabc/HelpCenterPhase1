@@ -1,0 +1,26 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="brLeaderboardCtrl">
+    <aura:attribute name="configTitleLeaderboard" type="String" default="Community contributors"/>
+    <aura:attribute name="idCommunity" type="String" />
+    <aura:attribute name="userLeaderboard" type="List" />
+    
+    <ltng:require scripts="{!$Resource.brJsSlider + '/swiper.min.js'}" 
+                  styles="{!$Resource.brJsSlider + '/swiper.min.css'}"
+                  afterScriptsLoaded="{!c.jsLoaded}" />
+
+    <aura:handler name="change" value="{!v.userLeaderboard}" action="{!c.userLeaderboardChange}"/>
+        
+        <div class="container relative z-2">
+            <h2 class="h2 m-top-0 m-bottom-50r text-center">{!v.configTitleLeaderboard}</h2>
+            
+            <div class="carousel">
+                <div class="carousel__track">
+                    <div class="row row--pad">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                            </div>
+                        </div>
+                    </div><!-- / end of .row -->
+                </div><!-- / end of .carousel__track -->
+            </div><!-- / end of .carousel -->
+        </div><!-- / end of .container -->
+</aura:component>

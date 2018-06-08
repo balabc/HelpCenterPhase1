@@ -1,0 +1,3 @@
+<design:component label="Leaderboard">
+	<design:attribute name="configTitleLeaderboard" label="Title"/>
+</design:component>

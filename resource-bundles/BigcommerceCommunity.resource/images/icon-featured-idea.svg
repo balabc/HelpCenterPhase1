@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="85px" viewBox="0 0 98 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-featured-idea</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="50%" x2="23.9607314%" y2="36.0188325%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.171365489" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="50%" x2="23.9607314%" y2="36.0188325%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.167798913" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="45.5686134%" fx="50%" fy="45.5686134%" r="47.2300671%" gradientTransform="translate(0.500000,0.455686),scale(1.000000,0.861111),rotate(90.000000),translate(-0.500000,-0.455686)" id="radialGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.369536911" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="113.54414%" y1="-65.5602105%" x2="22.9809195%" y2="55.3279698%" id="linearGradient-4">
+            <stop stop-color="#CBE1FD" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#85B9FA" stop-opacity="0.994886542" offset="100%"></stop>
+            <stop stop-color="#85B8FA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Community-LP---Authenticated" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1106.000000, -1619.000000)" opacity="0.650000036">
+        <g id="Featured-Idea" transform="translate(656.000000, 1533.000000)">
+            <g id="icon-featured-idea" transform="translate(450.000000, 80.000000)">
+                <path d="M111.503173,42 L74.4968267,42 C69.8038967,42 66,45.7834934 66,50.4512514 L66,70.9712589 C66,75.639017 69.8038967,79.4225104 74.4968267,79.4225104 L84.5691705,79.4225104 L84.5691705,86 L91.1802958,79.4225104 L111.503173,79.4225104 C116.196103,79.4225104 120,75.639017 120,70.9712589 L120,50.4512514 C120,45.7834934 116.196103,42 111.503173,42 Z" id="Stroke-3-Copy-3" fill="url(#linearGradient-1)"></path>
+                <path d="M37.1221921,47 L15.8778079,47 C13.1837185,47 11,49.1497121 11,51.8018474 L11,63.4609426 C11,66.1130778 13.1837185,68.26279 15.8778079,68.26279 L21.6600793,68.26279 L21.6600793,72 L25.455355,68.26279 L37.1221921,68.26279 C39.8162815,68.26279 42,66.1130778 42,63.4609426 L42,51.8018474 C42,49.1497121 39.8162815,47 37.1221921,47 Z" id="Stroke-3-Copy-3" fill="url(#linearGradient-2)" transform="translate(26.500000, 59.500000) scale(-1, 1) translate(-26.500000, -59.500000) "></path>
+                <path d="M47.2729008,91.5 L51.2270992,91.5 C51.2270992,94.5475932 53.5782443,97 56.5,97 C59.4217557,97 61.7729008,94.5475932 61.7729008,91.5 L65.7270992,91.5 C68.509542,91.5 71,89.1590662 71,86 L42,86 C42,89.1590662 44.490458,91.5 47.2729008,91.5" id="Fill-3" fill="#FFFFFF" opacity="0.151324728"></path>
+                <polygon id="Fill-6" fill="#FFFFFF" opacity="0.146173007" points="42 81 71 81 71 76 42 76"></polygon>
+                <path d="M57,0 C72.7515232,0 88,12.1644261 88,29.3714581 C88,51.6955533 71.2087229,56.3714581 71.2087229,72 L42.7912771,72 C42.7912771,56.3714581 26,51.6955533 26,29.3714581 C26,12.1644261 41.2484768,0 57,0 Z" id="Combined-Shape" fill="url(#radialGradient-3)" opacity="0.307801178"></path>
+                <path d="M35.391357,2 L6.60864301,2 C2.95858632,2 0,4.9236085 0,8.53051247 L0,24.3868819 C0,27.9937859 2.95858632,30.9173944 6.60864301,30.9173944 L24.411589,30.9173944 L24.411589,36 L29.5535754,30.9173944 L35.391357,30.9173944 C39.0414137,30.9173944 42,27.9937859 42,24.3868819 L42,8.53051247 C42,4.9236085 39.0414137,2 35.391357,2 Z" id="Stroke-3-Copy-3" fill="url(#linearGradient-4)" transform="translate(21.000000, 19.000000) scale(-1, 1) translate(-21.000000, -19.000000) "></path>
+                <circle id="Oval-8" fill="#78B3FD" cx="11.5" cy="17.5" r="2.5"></circle>
+                <circle id="Oval-8-Copy" fill="#78B3FD" cx="21.5" cy="17.5" r="2.5"></circle>
+                <circle id="Oval-8-Copy-2" fill="#78B3FD" cx="31.5" cy="17.5" r="2.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

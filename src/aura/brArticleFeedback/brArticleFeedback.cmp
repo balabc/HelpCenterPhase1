@@ -1,0 +1,68 @@
+<aura:component description="brArticleFeedback" controller="brArticleFeedbackCtrl">
+    <aura:attribute name="article" type="Object" />
+    <aura:attribute name="comment" type="String" />
+    <aura:attribute name="isModalOpen" type="Boolean" default="false" />
+    <aura:attribute name="reasons" type="String[]"/>
+    <aura:attribute name="feedbackMessage" type="String"/>
+    <aura:attribute name="showVoting" type="Boolean" default="false"/>
+
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+
+    <aura:if isTrue="{!v.showVoting}">
+        <div class="article-area__voting">
+            <div class="article-area__voting-inner">
+                <span class="article-area__voting-text">{!$Label.c.lblFeedbackQuestion}</span>
+                <div class="article-area__voting-wrap-buttons">
+                    <div class="article-area__voting-buttons">
+                        <a class="button button--sm button--hollow-primary" onclick="{!c.addPositiveFeedBack}">
+                                {!$Label.c.lnkVoteYes}
+                        </a>
+                        <a class="button button--sm button--hollow-primary" onclick="{!c.openModal}">
+                                {!$Label.c.lnkVoteNo}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aura:set attribute="else">
+            <p>{!v.feedbackMessage}</p>
+        </aura:set>
+    </aura:if>
+    <aura:if isTrue="{!v.isModalOpen}">
+        <div role="dialog" tabindex="-1" aura:id="modalbox" aria-labelledby="header43" class="{!v.isModalOpen ? 'slds-modal slds-fade-in-open' : 'slds-modal'}">
+            <div class="slds-modal__container modal-content">
+                <div class="slds-modal__header modal-header">
+                    <div class="slds-float--right">
+                        <lightning:buttonIcon class="slds-button--icon modal-close-btn"
+                                              iconName="utility:close" variant="bare" onclick="{!c.hideModal}"
+                                              alternativeText="Close" size="medium"/>
+                    </div>
+                    <h4 class="modal-title">{!$Label.c.hFeedbackTitle}</h4>
+                </div>
+                <div class="slds-modal__content modal-body">
+                    <p>{!$Label.c.lblFeedbackReason}</p>
+                    <ui:inputSelect class="slds-select spear-select select"
+                                    aura:id="reason"
+                                    updateOn="change" required="true" change="{!c.onSelectReason}">
+                        <aura:iteration items="{!v.reasons}" var="reason">
+                            <ui:inputSelectOption text="{!reason}" label="{!reason}"/>
+                        </aura:iteration>
+                    </ui:inputSelect>
+                    <div class="feedback-other-details" aura:id="feedbackComment">
+                        <lightning:textarea name="comment" value="{!v.comment}" maxlength="255" />
+                        <p>{!$Label.c.msgCharactersRemaining + ' '} {!255 - (v.comment.length==undefined?0:v.comment.length)}</p>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning:button variant="base" class="slds-button cancel"
+                                      label="{!$Label.c.btnCancel}"
+                                      onclick="{!c.hideModal}" />
+                    <lightning:button class="slds-button submit"
+                                      aura:id="saveButton" label="{!$Label.c.btnSubmit}"
+                                      onclick="{!c.saveNegativeFeedback}" />
+                </div>
+            </div>
+        </div>
+        <div class="{!v.isModalOpen ? 'slds-backdrop slds-backdrop--open' : 'slds-backdrop'}"></div>
+    </aura:if>
+</aura:component>

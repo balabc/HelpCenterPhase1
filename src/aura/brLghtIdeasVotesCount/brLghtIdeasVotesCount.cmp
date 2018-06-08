@@ -1,0 +1,8 @@
+<aura:component controller="brLghtIdeasController" description="LghtIdeasVotesCount">
+    <aura:attribute name="ideaId" type="String" />
+    <aura:attribute name="votesCount" type="Integer" default="0" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    {!v.votesCount}
+</aura:component>

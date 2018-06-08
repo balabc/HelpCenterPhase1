@@ -1,0 +1,28 @@
+<aura:component implements="forceCommunity:layout" access="global" description="Community homepage content layout">
+    <aura:attribute name="gettingStartedVideo" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="featuredArticles" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="leaderboard" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingFooter" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="landingTiles" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="topTrending" type="Aura.Component[]" required="false"/>
+
+	<c:brLiveMetrics />
+
+    <div style="background-color: #fff">
+        {!v.landingTiles}
+        {!v.topTrending}
+    </div>
+    <div class="area-bg">
+        <div class="skew-lg--top bg-x3lightgrey z-1"></div>
+        <div class="skew-lg--bottom bg-x3lightgrey z-1"></div>
+            {!v.featuredArticles}
+    </div>
+    <div class="area-video area-video--index" style="background-color: #fff">
+            {!v.gettingStartedVideo}
+    </div>
+    <div class="area-bg area-bg-second">
+        <div class="skew-lg--top bg-x3lightgrey z-1"></div>
+        {!v.leaderboard}
+    </div>
+        {!v.landingFooter}
+</aura:component>

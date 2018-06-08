@@ -1,0 +1,34 @@
+<aura:component description="brVideosListItem">
+    <aura:attribute name="videoArticleForCurrentPage" type="University__kav" />
+    <aura:attribute name="routeInput" type="Map"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="column-lg-3 column-md-12 column--pad column--grid">
+        <div class="panel panel-preview">
+            <div class="panel-preview__head">
+                <div class="panel-preview__wrap-media">
+                    <div class="panel-preview__wrap-video">
+                        <a class="read-guide" href="{!v.routeInput.recordId}" data-url="{!v.routeInput.recordId}"
+                           title="{!$Label.c.lnkWatchVideo}" onClick="{!c.onClick}">
+                            <img src="{!v.videoArticleForCurrentPage.Thumbnail_Image_URL__c}" style="width: 100%"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-preview__body">
+                <div class="panel-preview__wrap-title">
+                    <h4 class="h4 panel-preview__title" title="Inventory Management">{!v.videoArticleForCurrentPage.Short_Title__c}</h4>
+                </div>
+                <span class="panel-preview__meta truncated">{!v.videoArticleForCurrentPage.Video_Duration__c}</span>
+                <div class="panel-preview__wrap-text">
+                    <p>{!v.videoArticleForCurrentPage.Short_Description__c}</p>
+                </div>
+                <a class="read-guide" href="{!v.routeInput.recordId}" data-url="{!v.routeInput.recordId}"
+                   title="{!$Label.c.lnkWatchVideo}" onClick="{!c.onClick}">
+                    {!$Label.c.lnkWatchVideo}
+                </a>
+            </div>
+        </div>
+    </div><!-- / end of column -->
+</aura:component>

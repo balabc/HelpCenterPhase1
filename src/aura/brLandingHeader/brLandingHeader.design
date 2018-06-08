@@ -1,0 +1,5 @@
+<design:component label="Landing Header">
+    <design:attribute name="title" label="Title"/>
+    <design:attribute name="backgroundImageEnabled" label="Use background image"/>
+    <design:attribute name="imageFileName" label="Image File Name"/>
+</design:component>

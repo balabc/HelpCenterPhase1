@@ -1,0 +1,71 @@
+<aura:component description="brUserMenu" controller="brUserMenuCtrl">
+    <aura:attribute name="user" type="User"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="menuItems" type="Object[]"/>
+    <aura:attribute name="reputationPoints" type="Integer"/>
+    <aura:attribute name="reputationLevel" type="String"/>
+    <aura:attribute name="isReady" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+        <div class="wrap-userpic" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}" id="wrapUserPic">
+            <div class="header__userpic">
+                <aura:if isTrue="{!notequals(v.type, 'Guest')}">
+                    <aura:if isTrue="{!notequals(v.user, null)}">
+                        <img class="userHeaderAvatar" src="{!v.user.SmallPhotoUrl}" alt="{!$Label.c.msgAvatar}" />
+                    </aura:if>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.isReady}">
+                        <img class="userHeaderAvatar" src="{!$Resource.BigcommerceCommunity + '/images/group-4.png'}"
+                             srcset="{!$Resource.BigcommerceCommunity + '/images/group-4-2x.png 2x'}" alt="{!$Label.c.msgAvatar}" />
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+    <div class="header__profile-dropdown" id="userDropDownMenu">
+        <div class="wrap-arrow" onclick="{!notequals(v.type, 'Guest')?c.toggleDropdownMenu:''}">
+            <div class="header__profile-dropdown-trigger nav-arrow" id="arrow">
+                    <aura:if isTrue="{!notequals(v.type, null)}">
+                    <div class="nav-arrow__handler">
+                        <aura:if isTrue="{!notequals(v.type, 'Guest')}">
+                            <span class="nav-arrow__icon"></span>
+                            <aura:set attribute="else">
+                                <span><a href="{!$SfdcSite.pathPrefix + '/s/login/'}" class="login header__link">{!$Label.c.lnkLogIn}</a></span>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+        <div class="header__profile-dropdown-wrap-list toggle" id="userMenu">
+            <div class="dropdown">
+                <div class="dropdown__head header__profile-dropdown-head">
+                    <div class="header__profile-dropdown-info">
+                        <div class="header__profile-dropdown-userpic">
+                            <a class="userProfile" href="{!$SfdcSite.pathPrefix + '/s/profile/' + v.user.Id}">
+                                <img class="userAvatar" src="{!v.user.SmallPhotoUrl}"  alt="{!$Label.c.msgAvatar}" />
+                            </a>
+                        </div>
+                        <div class="header__profile-dropdown-text-info">
+                            <span class="h4 header__profile-dropdown-title truncated">{!v.user.Name}</span>
+                            <span class="type--sm header__profile-dropdown-description truncated">{!v.reputationLevel} ({!v.reputationPoints + ' ' + $Label.c.msgPoints})</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown__body">
+                    <ul class="header__profile-dropdown-list">
+                        <aura:iteration items="{!v.menuItems}" var="menuItem">
+                            <li class="header__profile-dropdown-list-item">
+                                <c:brUserMenuItem menuItem = "{!menuItem}" userId = "{!v.user.Id}" />
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+                <div class="dropdown__footer header__profile-dropdown-footer">
+                    <a href="{!$SfdcSite.pathPrefix +'/secur/logout.jsp'}" class="header__profile-dropdown-list-link">{!$Label.c.lnkLogOut}</a>
+                </div>
+            </div>
+        </div>
+    </div><!-- / end of .header__profile-dropdown -->
+</aura:component>
