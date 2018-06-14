@@ -3,7 +3,7 @@
     <fields>
         <fullName>Sort_Oder_in_Category__c</fullName>
         <externalId>false</externalId>
-        <label>Sort Oder in Category</label>
+        <label>Sort Order in Category</label>
         <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
