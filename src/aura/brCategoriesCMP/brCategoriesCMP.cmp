@@ -42,8 +42,8 @@
                                         <aura:if isTrue="{!sub_category.categories.length > 0}">
                                             <ul class="doc-nav__list doc-nav__list-view">
                                                 <aura:iteration items="{!sub_category.categories}" var="sub_sub_cat">
-                                                    <li class="{!'doc-nav__item doc-nav__item-label' + ((sub_sub_cat.active)? ' active': '')}" data-id="{!sub_sub_cat.id}" data-active="{!sub_sub_cat.active}">
-                                                        <span class="doc-nav__link doc-nav__label" onclick="{!c.clickCategory}">{!sub_sub_cat.name}</span>
+                                                    <li class="{!'doc-nav__item doc-nav__item-label' + ((sub_sub_cat.active)? ' active': '')}" data-id="{!sub_sub_cat.id}" data-active="{!true}">
+                                                        <span class="doc-nav__link doc-nav__label">{!sub_sub_cat.name}</span>
                                                         <aura:if isTrue="{!sub_sub_cat.articles.length > 0}">
                                                             <ul class="doc-nav__list doc-nav__list-view-label">
                                                                 <aura:iteration items="{!sub_sub_cat.articles}" var="article1">
