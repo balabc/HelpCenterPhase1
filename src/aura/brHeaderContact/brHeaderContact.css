@@ -18,6 +18,7 @@
     color: #34313f;
     text-transform: none;
     font-weight: normal;
+    text-align: left;
 }
 .THIS .askCommunityBtn:active{
     background-color: #f5f7ff;
