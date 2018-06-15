@@ -4092,7 +4092,8 @@ header.header {
 
 .is-mobile .header-mobile {
   display: block;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease;
+  left: auto;}
 
 .is-mobile .main-content {
   position: absolute;
