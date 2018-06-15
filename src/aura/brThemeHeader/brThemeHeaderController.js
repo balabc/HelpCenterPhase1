@@ -3,13 +3,18 @@
         helper.retrieveInitData(component);
 	},
     showHomePage: function(component, event, helper) {
-        var urlEvent = $A.get("e.force:navigateToURL");
 
-        urlEvent.setParams({
-            "url": '/'
-        });
+        if (window.location.href.indexOf('#') !== -1) {
+            window.location.href = $A.get('$SfdcSite').pathPrefix;
+        } else {
+            var urlEvent = $A.get("e.force:navigateToURL");
 
-        urlEvent.fire();
+            urlEvent.setParams({
+                "url": '/'
+            });
+
+            urlEvent.fire();
+        }
 
         if (window.location.href.indexOf('/login') !== -1) {
             var url = window.location.href;
