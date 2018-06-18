@@ -2,8 +2,6 @@
     <aura:attribute name="commonVars" type="Object" description="Used to share common variables for child components" />
     <aura:attribute name="comment" type="IdeaComment" />
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-
     <div class="slds-media slds-box slds-tile slds-theme--default comment-item">
         <div class="slds-media__figure image">
             <a href="{!'profile/' + v.comment.CreatedById}">
