@@ -4092,7 +4092,8 @@ header.header {
 
 .is-mobile .header-mobile {
   display: block;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease;
+  left: auto;}
 
 .is-mobile .main-content {
   position: absolute;
@@ -6245,7 +6246,7 @@ body.mobile-menu-is-active .header-mobile__nav[data-active="false"] {
 }
 
 body .DESKTOP.uiContainerManager {
-    display:none
+  height: auto;
 }
 
 .slds-form-element__label {

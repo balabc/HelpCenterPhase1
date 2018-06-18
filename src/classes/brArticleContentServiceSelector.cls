@@ -33,7 +33,7 @@ public with sharing class brArticleContentServiceSelector {
             String queryFields = '';
 
             if(articleType == 'Public__kav') {
-                queryFields = ',Article__c';
+                queryFields = ',Article__c,Author__c';
 
             } else if(articleType == 'Learning__kav') {
                 queryFields = ',Article__c,Guide_Title__c,Sort_Oder_in_Category__c,Back_Button_URL__c,Next_Button_Text__c,Next_Button_URL__c';
@@ -42,7 +42,7 @@ public with sharing class brArticleContentServiceSelector {
                 queryFields = ',Description__c,Additional_Resources__c,Next_Video_URL__c,Next_Video_Link_Text__c,Prev_Video_URL__c,Prev_Video_Link_Text__c,Video_URL__c';
             }
 
-            String q = 'SELECT  KnowledgeArticleId,Title,ArticleNumber,ArticleCreatedById,Author__c,' +
+            String q = 'SELECT  KnowledgeArticleId,Title,ArticleNumber,ArticleCreatedById,' +
                                 'LastPublishedDate,LastModifiedById,' +
                                 'IsVisibleInApp,IsVisibleInPkb,ArticleCaseAttachCount' +
                                 + queryFields + ' FROM ' + articleType + ' WHERE Id = \'' + articleId + '\' LIMIT 1';

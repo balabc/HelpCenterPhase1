@@ -1,4 +1,4 @@
-<p>{!authorName} has commended on the idea - {!ideaTitleLink}.</p>
+<p>{!authorName} has commented on the idea - {!ideaTitleLink}.</p>
 <hr />
 <p>The comment says:</p>
 {!commentBody}

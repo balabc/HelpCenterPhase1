@@ -9,7 +9,7 @@ private class brCommunitySpotlightCtrlTest {
     @isTest
     static void testCommunitySpotlight() {
 
-        List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember];
+        List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember LIMIT 1];
 
         brLeaderboardModel blm = new brLeaderboardModel();
         blm.name = 'test';

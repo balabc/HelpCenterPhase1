@@ -33,6 +33,17 @@
     },
 
     clickElement: function(component, event, helper) {
+        var target = event.target,
+            parent = target.parentElement,
+            ul = parent.closest('ul'),
+            active = parent.getAttribute('data-active'),
+            items = ul.getElementsByTagName('li');
+
+        for (var i = 0; i < items.length; i++) {
+            items.item(i).setAttribute('data-active', false);
+            items.item(i).classList.remove('active');
+        }
+
         var toggleEvent = component.getEvent("brCategoriesToggleEventHandler"),
             art = component.get('v.article');
 

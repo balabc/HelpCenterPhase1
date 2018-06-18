@@ -17,7 +17,7 @@
                 <div class="panel-content__body">
                     <div class="panel-content__body-content">
                         <span class="panel-content__chapter-label">{!'Chapter ' + v.article.item.Sort_Oder_in_Category__c + ':'}</span>
-                        <h1 class="h1 panel-content__title-h1">Developing an Inventory Management Strategy</h1>
+                        <h1 class="h1 panel-content__title-h1">{!v.article.item.Title}</h1>
                     </div>
                 </div>
             </div>

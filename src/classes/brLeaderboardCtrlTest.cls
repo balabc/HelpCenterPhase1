@@ -17,7 +17,7 @@ private class brLeaderboardCtrlTest {
 
         System.runAs(user) {
 
-            List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember];
+            List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember LIMIT 1];
 
             brLeaderboardModel blm = new brLeaderboardModel();
             blm.name = 'test';

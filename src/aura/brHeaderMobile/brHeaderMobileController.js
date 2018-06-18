@@ -28,13 +28,17 @@
         }
     },
     showHomePage: function(component, event, helper) {
-        var urlEvent = $A.get("e.force:navigateToURL");
+        if (window.location.href.indexOf('#') !== -1) {
+            window.location.href = $A.get('$SfdcSite').pathPrefix;
+        } else {
+            var urlEvent = $A.get("e.force:navigateToURL");
 
-        urlEvent.setParams({
-            "url": '/'
-        });
+            urlEvent.setParams({
+                "url": '/'
+            });
 
-        urlEvent.fire();
+            urlEvent.fire();
+        }
 
         if (window.location.href.indexOf('/login') !== -1) {
             var url = window.location.href;

@@ -18,7 +18,7 @@
             </div>
             <div class="panel-preview__body">
                 <div class="panel-preview__wrap-title">
-                    <h4 class="h4 panel-preview__title" title="Inventory Management">{!v.videoArticleForCurrentPage.Short_Title__c}</h4>
+                    <h4 class="h4 panel-preview__title" title="{!v.videoArticleForCurrentPage.Short_Title__c}">{!v.videoArticleForCurrentPage.Short_Title__c}</h4>
                 </div>
                 <span class="panel-preview__meta truncated">{!v.videoArticleForCurrentPage.Video_Duration__c}</span>
                 <div class="panel-preview__wrap-text">
