@@ -105,7 +105,7 @@ public with sharing class brUserService {
             userReputationLevels.add(rl1);
             userReputationLevels.add(rl2);
 
-            userMembers = [SELECT id, Member.Name, ReputationPoints FROM NetworkMember];
+            userMembers = [SELECT id, Member.Name, ReputationPoints FROM NetworkMember LIMIT 1];
             NetworkMember nm1 = new NetworkMember();
             userMembers.add(nm1);
         }

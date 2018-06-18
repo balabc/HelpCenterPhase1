@@ -33,7 +33,7 @@ private class brLiveMetricsCtrlTest {
             brIdeaServiceSelector.getIdeaList(null);
             brIdeaServiceSelector.getZoneList();
             brLiveMetricsCtrl.getFeedItemCount();
-            List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember];
+            List<NetworkMember> userMembers = [SELECT MemberId, Member.Name, ReputationPoints, NetworkId FROM NetworkMember LIMIT 1];
             if (userMembers.size() > 0) {
                 brLiveMetricsCtrl.getUserCount();
             }
