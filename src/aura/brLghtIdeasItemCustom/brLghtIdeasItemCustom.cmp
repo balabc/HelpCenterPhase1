@@ -108,12 +108,7 @@
                         <span class="delim">&#44;</span>
                         <span class="creator">
                             &nbsp;{!$Label.c.Submitted}&nbsp;{!$Label.c.by}:&nbsp;
-                            <aura:if isTrue="{!v.commonVars.enableProfileLink}">
-                                <a href="{!'profile/' + v.item.CreatedById}"><c:brUserDisplayName userId="{!v.item.CreatedById}" /></a>
-                            </aura:if>
-                            <aura:if isTrue="{!not(v.commonVars.enableProfileLink)}">
-                                <c:brUserDisplayName userId="{!v.item.CreatedById}" />
-                            </aura:if>
+                            <a href="{!'profile/' + v.item.CreatedById}">{!v.item.CreatorName}</a>
                         </span>
                     </div>
                     <div class="slds-float--right comments"> {!v.item.NumComments}&nbsp;{!$Label.c.Comments}</div>

@@ -12,14 +12,7 @@
             <div class="slds-clearfix slds-m-bottom--x-small top-info">
                 <div class="slds-float--left">
                     <p class="slds-text-body--small slds-m-bottom--xxx-small">
-                        <aura:if isTrue="{!v.commonVars.enableProfileLink}">
-                            <a href="{!'profile/' + v.comment.CreatedById}">
-                                <c:brUserDisplayName userId="{!v.comment.CreatedById}" />
-                            </a>
-                        </aura:if>
-                        <aura:if isTrue="{!not(v.commonVars.enableProfileLink)}">
-                            <c:brUserDisplayName userId="{!v.comment.CreatedById}" />
-                        </aura:if>
+                        <a href="{!'profile/' + v.comment.CreatedById}">{!v.comment.CreatorName}</a>
                     </p>
                 </div>
                 <div class="slds-float--right date">
