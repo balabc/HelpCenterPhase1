@@ -20,7 +20,7 @@
                     isOpenUserMenu = false;
                 }
             }
-            if (isOpenUserMenu && event.target.classList !== undefined) {
+            if (isOpenUserMenu && !$A.util.isUndefinedOrNull(event.target) && !$A.util.isUndefinedOrNull(event.target.classList)) {
                 var className = event.target.getAttribute('class');
                 var userDropDownMenuChildren = userDropDownMenu.getElementsByTagName("*"),
                     wrapUserPicClasses = document.getElementById('wrapUserPic').getElementsByTagName("*"),
