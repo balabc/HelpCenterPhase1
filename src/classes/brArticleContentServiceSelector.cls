@@ -31,6 +31,7 @@ public with sharing class brArticleContentServiceSelector {
         try {
             String articleType = Id.valueOf(articleId).getSObjectType().getDescribe().getName();
             String queryFields = '';
+            String articleBody = '';
 
             if(articleType == 'Public__kav') {
                 queryFields = ',Article__c,Author__c';
@@ -48,7 +49,18 @@ public with sharing class brArticleContentServiceSelector {
                                 + queryFields + ' FROM ' + articleType + ' WHERE Id = \'' + articleId + '\' LIMIT 1';
 
 
-    	    return (sObject) Database.query(q);
+            SObject article = (sObject) Database.query(q);
+
+            if(articleType == 'Public__kav') {
+                articleBody = (String) article.get('Article__c');
+                article.put('Article__c', articleBody.replace('/articles/Public/', '/s/article/'));
+
+            } else if(articleType == 'Learning__kav') {
+                articleBody = (String) article.get('Article__c');
+                article.put('Article__c', articleBody.replace('/articles/Learning/', '/s/article/'));
+            }
+
+    	    return article;
         } catch (Exception e) {System.debug(e);return null;}
     }
 
