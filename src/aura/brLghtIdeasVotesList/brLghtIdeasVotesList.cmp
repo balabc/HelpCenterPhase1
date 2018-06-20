@@ -9,7 +9,7 @@
             <div class="{#'item slds-float--left ' + vote.Type}">
                 <img src="{#vote.CreatedBy.SmallPhotoUrl}" width="64"
                      alt="{#vote.CreatedBy.FirstName + ' ' + vote.CreatedBy.LastName}" />
-                <span class="name"><c:brUserDisplayName userId="{#vote.CreatedById}" /></span>
+                <span class="name">{#vote.CreatedBy.FirstName + ' ' + vote.CreatedBy.LastName}></span>
                 <aura:if isTrue="{#vote.Type == 'Up'}">
                     <span class="icon vote-thumbup-ico active"></span>
                 </aura:if>

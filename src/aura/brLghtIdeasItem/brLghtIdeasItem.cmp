@@ -60,12 +60,7 @@
                        onclick="{!c.toggleIdea}">{!$Label.c.Close}</a>
                 </aura:if>
                 <p class="slds-text-body_small">
-                    <aura:if isTrue="{!v.commonVars.enableProfileLink}">
-                        <a href="{!'profile/' + v.item.CreatedById}"><c:brUserDisplayName userId="{!v.item.CreatedById}" /></a>
-                    </aura:if>
-                    <aura:if isTrue="{!not(v.commonVars.enableProfileLink)}">
-                        <c:brUserDisplayName userId="{!v.item.CreatedById}" />
-                    </aura:if>
+                    <a href="{!'profile/' + v.item.CreatedById}">{!v.item.CreatorName}</a>
                 </p>
                 <h2 class="slds-text-heading_medium slds-m-bottom_xx-small">
                     <aura:if isTrue="{!not(v.showDetails)}">
